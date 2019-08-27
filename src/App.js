@@ -6,11 +6,13 @@ import './styles/main.css';
 import ItSlide from './Components/it_slide';
 import SignUp from './Components/SignUp/Index';
 import './App.css';
+import SignIn from './Components/SignIn.js';
 
 function App() {
   return (
     <div className="App">
-      <ItSlide/>
+      <ItSlide />
+      <SignIn />
       <SignUp />
     </div>
   );
