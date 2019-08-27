@@ -1,4 +1,3 @@
-
 import React from 'react';
 import './styles/bootstrap.min.css';
 import './styles/animations.css';
