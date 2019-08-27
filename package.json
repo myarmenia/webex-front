@@ -3,10 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.3.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+<<<<<<< HEAD
     "react-scripts": "3.1.1",
     "styled-components": "^4.3.2"
+=======
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.1.1"
+>>>>>>> f7123cc1490025ac5de1d48f5bc393eb6e789cbf
   },
   "scripts": {
     "start": "react-scripts start",
