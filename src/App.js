@@ -5,7 +5,7 @@ import './styles/font-awesome.css';
 import './styles/main.css';
 import ItSlide from './Components/it_slide';
 import Courses from './Components/Courses/courses';
-import SignUp from './Components/SignUp/Index';
+import SignUp from './Components/Header/SignUp';
 
 import './App.css';
 import SignIn from './Components/SignIn.js';
@@ -14,8 +14,8 @@ function App() {
   return (
     <div className="App">
       <ItSlide />
-      <SignIn />
-      <SignUp />
+      {/* <SignIn /> */}
+      {/* <SignUp /> */}
       <Courses />
 
     </div>
