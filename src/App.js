@@ -5,11 +5,13 @@ import './styles/font-awesome.css';
 import './styles/main.css';
 import ItSlide from './Components/it_slide'
 import './App.css';
+import SignIn from './Components/SignIn.js';
 
 function App() {
   return (
     <div className="App">
       <ItSlide />
+      <SignIn />
     </div>
   );
 }
