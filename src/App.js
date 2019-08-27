@@ -3,13 +3,20 @@ import './styles/bootstrap.min.css';
 import './styles/animations.css';
 import './styles/font-awesome.css';
 import './styles/main.css';
-import ItSlide from './Components/it_slide'
+import Header from './Components/Header/';
+import Home from './Components/Home/';
+import ItSlide from './Components/it_slide';
 import './App.css';
+
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 
 function App() {
   return (
     <div className="App">
-      <ItSlide />
+      <Router>
+        <Route path='/' exact component={() => <>< Header main /> <Home /></>} />
+      </Router>
     </div>
   );
 }
