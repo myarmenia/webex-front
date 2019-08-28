@@ -48,7 +48,6 @@ class Courses extends Component {
                       <div className=" vertical-item content-padding">
                         <div className="item-media rounded-top">
                         <img src={require(`./images/0${++index}.jpg`)} alt="" />
-                        
                         </div>
                         <div className="item-content">
                           <h6 className="course-title">
