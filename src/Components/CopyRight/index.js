@@ -15,7 +15,7 @@ const CopyRight=()=>{
 							</div>
 						</div>
 						<div className="col-md-12 text-center animate animated scaleAppear" data-animation="scaleAppear">
-							<p>© <span className="copyright_year">2005-2019</span> WEBEX TECHNOLOGIES LLC </p>
+							<p>© <span className="copyright_year">2005-{(new Date().getFullYear())}</span> WEBEX TECHNOLOGIES LLC </p>
 						</div>
 					</div>
 				</div>
