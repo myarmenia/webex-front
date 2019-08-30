@@ -7,7 +7,7 @@ import './style.css';
 
 const Cubes = (props) => {
   return (
-    <div style={{ outline: "none" }} tabindex="-1" role="group" id="gatsby-focus-wrapper">
+    <div style={{ outline: "none", position: 'relative', backgroundColor: '#111' }} tabindex="-1" role="group" id="gatsby-focus-wrapper">
       <div>
         <div style={{ maxWidth: "100vw", overflowX: "hidden" }}>
           <div className="sc-kGXeez bqtLVu">
@@ -37,7 +37,7 @@ const Cubes = (props) => {
                 </div> */}
                 <div className="Cubes__Container-er6zb0-0 kwcdNMkM">
                   <div title="Vanilla" i="0" className="Cubes__SmallCube-er6zb0-1 dtwvmR"
-                    style={{ bottom: "0px", left: "250px", transform: "matrix(0.4, 0, 0, 0.4, 0, 0)" }}>
+                    style={{ top: "0px", left: "500px", transform: "matrix(0.4, 0, 0, 0.4, 0, 0)" }}>
                     <div className="Cube-qzxh3j-0 gkDrhn" size="170">
                       <div offset="84" speed="120" size="170" className="Cube__Sides-qzxh3j-1-Component gVVvBL">
                         <div rotate="rotateX(90deg)" size="170" className="Cube__Side-qzxh3j-2 jJRyHU"
@@ -56,7 +56,7 @@ const Cubes = (props) => {
                     </div>
                   </div>
                   <div title="React" i="1" className="Cubes__SmallCube-er6zb0-1 dtwvmR"
-                    style={{ bottom: "250px", left: "1.53081e-14px", transform: "matrix(0.4, 0, 0, 0.4, 0, 0)" }}>
+                    style={{ top: "250px", left: "250px", transform: "matrix(0.4, 0, 0, 0.4, 0, 0)" }}>
                     <div className="Cube-qzxh3j-0 gkDrhn" size="170">
                       <div offset="32" speed="120" size="170" className="Cube__Sides-qzxh3j-1-Component fKvJsR">
                         <div rotate="rotateX(90deg)" size="170" className="Cube__Side-qzxh3j-2 jJRyHU"
@@ -75,7 +75,7 @@ const Cubes = (props) => {
                     </div>
                   </div>
                   <div title="Vue" i="2" className="Cubes__SmallCube-er6zb0-1 dtwvmR"
-                    style={{ bottom: "3.06162e-14px", left: "-250px", transform: "matrix(1, 0, 0, 1, 250, 3.06162e-14)" }}>
+                    style={{ top: "250px", left: "250px", transform: "matrix(1, 0, 0, 1, 250, 3.06162e-14)" }}>
                     <div className="Cube-qzxh3j-0 gkDrhn" size="170">
                       <div offset="54" speed="120" size="170" className="Cube__Sides-qzxh3j-1-Component gMDyYF">
                         <div rotate="rotateX(90deg)" size="170" className="Cube__Side-qzxh3j-2 jJRyHU"
@@ -94,7 +94,7 @@ const Cubes = (props) => {
                     </div>
                   </div>
                   <div title="Angular" i="3" className="Cubes__SmallCube-er6zb0-1 dtwvmR"
-                    style={{ bottom: "-250px", left: "-4.59243e-14px", transform: "matrix(0.4, 0, 0, 0.4, 0, 0)" }}>
+                    style={{ top: "-250px", left: "500px", transform: "matrix(0.4, 0, 0, 0.4, 0, 0)" }}>
                     <div className="Cube-qzxh3j-0 gkDrhn" size="170">
                       <div offset="110" speed="120" size="170" className="Cube__Sides-qzxh3j-1-Component UVCGp">
                         <div rotate="rotateX(90deg)" size="170" className="Cube__Side-qzxh3j-2 jJRyHU"
