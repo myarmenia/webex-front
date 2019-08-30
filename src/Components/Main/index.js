@@ -5,8 +5,7 @@ import Contact from '../Contact';
 
 const Home = props => {
   return (
-    <main>
-      <ItSlide />
+    <main>    
       <Courses />
       <Contact />
     </main>
