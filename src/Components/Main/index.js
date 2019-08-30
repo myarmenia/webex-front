@@ -1,14 +1,11 @@
 import React from 'react';
-import ItSlide from '../it_slide';
 import Courses from '../Courses/courses';
-import SignUp from '../Header/SignUp'
-
+import Contact from '../Contact';
 const Home = props => {
   return (
-    <main>
-      <ItSlide />
-      <SignUp />
+    <main>    
       <Courses />
+      <Contact />
     </main>
   );
 }
