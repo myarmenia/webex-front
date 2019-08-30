@@ -10754,6 +10754,7 @@ aside.course-widgets > * + * {
 
 .page_footer .widget {
 	margin-bottom: 40px;
+	text-align: left;
 }
 
 .page_footer .widget > h3,

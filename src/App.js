@@ -3,21 +3,21 @@ import './styles/bootstrap.min.css';
 import './styles/animations.css';
 import './styles/font-awesome.css';
 import './styles/main.css';
-import ItSlide from './Components/it_slide';
-import Courses from './Components/Courses/courses';
-import SignUp from './Components/SignUp/Index';
-
+import Header from './Components/Header/';
+import Main from './Components/Main';
+import Footer from './Components/Footer';
+import CopyRight from './Components/CopyRight';
 import './App.css';
-import SignIn from './Components/SignIn.js';
 
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+    
 function App() {
   return (
     <div className="App">
-      <ItSlide />
-      <SignIn />
-      <SignUp />
-      <Courses />
-
+      <Router>
+        <Route path='/' exact component={() => <>< Header main /> <Main /><Footer /><CopyRight /></>} />
+      </Router>
     </div>
   );
 }
