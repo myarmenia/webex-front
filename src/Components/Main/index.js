@@ -5,7 +5,7 @@ import Courses from '../Courses/courses';
 const Home = props => {
   return (
     <main>
-      <ItSlide />
+      {/* <ItSlide /> */}
       <Courses />
     </main>
   );
