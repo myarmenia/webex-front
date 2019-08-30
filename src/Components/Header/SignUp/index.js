@@ -1,8 +1,26 @@
 import React from 'react';
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(theme => ({
+	container: {
+	  display: 'flex',
+	  flexWrap: 'wrap',
+	},
+	textField: {
+	  marginLeft: theme.spacing(1),
+	  marginRight: theme.spacing(1),
+	  width: "400px"
+	}
+}));
 
 function SignUp () {
+
+	const classes = useStyles();
+	
+	
     return (
-        <div className="modal fade sigin-form text-center show" id="form2" tabIndex="-1" role="dialog" aria-labelledby="formsign" style={{paddingRight: "15px", display: "block"}}>
+        <div className="sigin-form text-center show" id="form2" tabIndex="-1" role="dialog" aria-labelledby="formsign" style={{paddingRight: "15px", display: "block"}}>
 		<div className="modal-dialog ls">
 			<div className="modal-content">
 				<button type="button" className="close" data-dismiss="modal" aria-label="Close">
@@ -17,19 +35,41 @@ function SignUp () {
 						<h2>Sign up</h2>
 						<p>Sign up to save your progress and obtain a certificate in Alison’s free Diploma in Web</p>
 					</div>
-					<form action="/">
-						<div className="form-group has-placeholder">
-							<label htmlFor="name-sigin">Your Name:</label>
-							<input type="text" className="form-control" id="name-sigin" placeholder="Enter your name" name="First name" />
-						</div>
-						<div className="form-group has-placeholder">
-							<label htmlFor="sigemail">Email:</label>
-							<input type="email" className="form-control" id="sigemail" placeholder="Your email adress" name="sigemail" />
-						</div>
-						<div className="form-group has-placeholder">
-							<label htmlFor="sigpassword">Password:</label>
-							<input type="password" className="form-control" id="sigpassword" placeholder="password" name="sigpassword" />
-						</div>
+					<form className={classes.container} noValidate autoComplete="off">
+				
+						<TextField
+							id="outlined-name-input"
+							label="Name"
+							className={classes.textField}
+							type="text"
+							name="name"
+							autoComplete="name"
+							margin="normal"
+							variant="outlined"
+						/>
+						
+						<TextField
+							id="outlined-email-input"
+							label="Email"
+							className={classes.textField}
+							type="email"
+							name="email"
+							autoComplete="email"
+							margin="normal"
+							variant="outlined"
+						/>
+
+						<TextField
+							id="outlined-password-input"
+							label="Password"
+							className={classes.textField}
+							type="password"
+							name="password"
+							autoComplete="password"
+							margin="normal"
+							variant="outlined"
+						/>
+						
 						<div className="social-account">
 							<h6>
 								or
@@ -47,7 +87,7 @@ function SignUp () {
 							</span>
 						</div>
 						<div className="form-check">
-							<input className="form-check-input" type="checkbox" id="agree" />
+							<input className="form-check-input" type="checkbox" id="agree" />							
 							<label className="form-check-label agree" htmlFor="agree">
 								I agree to the Terms and Conditions
 							</label>
