@@ -3,7 +3,7 @@ import Courses from '../Courses/courses';
 import Contact from '../Contact';
 const Home = props => {
   return (
-    <main>    
+    <main> 
       <Courses />
       <Contact />
     </main>
