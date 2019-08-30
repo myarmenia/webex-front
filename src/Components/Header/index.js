@@ -11,12 +11,12 @@ import Cubes from './Cubes';
 
 const Header = props => {
   return (
-    <header className="page_header ds justify-nav-center s-borderbottom container-px-20 affix-top">
-      <Navbar />
+    <div>
+      {/* <Navbar /> */}
       {props.main && <Cubes />}
       <Route path='/signin' component={SignIn} />
       <Route path='/signup' component={SignUp} />
-    </header>
+    </div>
   );
 }
 
