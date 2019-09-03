@@ -572,7 +572,7 @@ textarea,
 select,
 .form-control {
 	background-color: transparent;
-	border: 1px solid #d8efdb;
+	/* border: 1px solid #d8efdb; */
 	border-radius: 5px;
 	color: #222a35;
 	font-size: 16px;
@@ -8569,9 +8569,9 @@ body.boxed {
 .ds textarea,
 .ds select,
 .ds .form-control {
-	background-color: #fff;
-	border-color: #454545;
-	color: #9a9a9a;
+	/* background-color: #fff; */
+	/* border-color: #454545; */
+	color: #fff;
 }
 
 .ds input[type="search"] {
