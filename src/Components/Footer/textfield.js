@@ -45,7 +45,6 @@ const Field=()=>{
 	  email: "",
 	  message: "",
 	});
-	console.log(values)
 	
 	function send(){
 		let name=document.getElementById('outlined-name').value
