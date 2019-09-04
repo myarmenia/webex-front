@@ -15,10 +15,10 @@ import Cubes from './Components/Header/Cubes';
 import SignIn from './Components/Header/SignIn';
 import SignUp from './Components/Header/SignUp';
 
-
 function App() {
   return (
     <div className="App">
+      
       <Router>
         <Navbar />
         <Route path='/' exact component={() =>
