@@ -21,59 +21,57 @@ const NavBar = props => {
                 <ul className="nav sf-menu">
 
                   <li className="active">
-                    <a href="#">Home</a>
-                    <ul>
-                      <li>
-                        <a href="index.html">Home Page</a>
-                      </li>
-                      <li>
-                        <a href="index_singlepage.html">Single Page</a>
-                      </li>
-                    </ul>
+                    <Link to="/">Home</Link>
                   </li>
                   <li>
                     <a href="about.html">Pages</a>
                     <ul>
                       <li>
-                        <a href="course-categories.html">Course Categories</a>
+                        <a href="#">Course Categories</a>
                       </li>
 
                       <li>
-                        <a href="shortcodes_widgets_default.html">Widgets</a>
-                      </li>
-
-
-                      <li>
-                        <a href="events-left.html">Events</a>
-                      </li>
-
-                      <li>
-                        <a href="team.html">Team</a>
+                        <a href="#">Widgets</a>
                       </li>
 
 
                       <li>
-                        <a href="comingsoon.html">Comingsoon</a>
+                        <a href="#">Events</a>
                       </li>
 
                       <li>
-                        <a href="faq.html">FAQ</a>
+                        <a href="#">Team</a>
+                      </li>
+
+
+                      <li>
+                        <a href="#">Comingsoon</a>
                       </li>
 
                       <li>
-                        <a href="404.html">404</a>
+                        <a href="#">FAQ</a>
+                      </li>
+
+                      <li>
+                        <a href="#">404</a>
                       </li>
 
                     </ul>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link to="/signin">Sign In</Link>
                   </li>
                   <li>
                     <Link to="/signup">Sign Up</Link>
-                  </li>
+                  </li> */}
                 </ul>
               </nav>
+            </div>
+          </div>
+          <div className="col-4 d-none d-xl-block">
+            <div class="top-includes main-includes">
+              <Link class="sign-btn-form" to='/signup' ><i class="fw-900 s-16 fa fa-sign-in"></i>Sign Up</Link>
+              <Link class="login-btn-form login_modal_window" to='/signin'><i class="fs-16 fa fa-user"></i>Sign In</Link>
             </div>
           </div>
         </div>
