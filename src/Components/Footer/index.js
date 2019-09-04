@@ -1,7 +1,10 @@
 import React from 'react';
 import logo from '../../img/logo.png';
+import Field from './textfield';
+import './form.css'
 
 const Footer=()=>{
+	
 return(
 <footer className="page_footer ds s-pt-75 s-pb-45 c-gutter-40">
 				<div className="container">
@@ -63,7 +66,6 @@ return(
 								</div>
 							</div>
 						</div>
-						
 						<div className="col-12 col-md-6 col-lg-3 animate animated fadeInUp" data-animation="fadeInUp">
 							<div className="widget widget_icons_list">
 								<h3>Contacts</h3>
@@ -93,38 +95,16 @@ return(
 										<a href="mailto:info@webex.am">info@webex.am</a>
 									</p>
 								</div>
-
 							</div>
 						</div>
 						<div className="col-12 col-md-6 col-lg-3 animate animated fadeInUp" data-animation="fadeInUp">
 						<div className="widget widget_contact_form">
-								<h3 className="widget-title">Drop a line</h3>
-								<form className="contact-form c-mb-20 c-gutter-20" method="post" action="/">
-									<div className="form-group has-placeholder">
-										<label for="name">Full Name <span className="required">*</span></label>
-										<i className="fa fa-user color-darkgrey"></i>
-										<input type="text" aria-required="true" size="30" value="" name="name" id="name" className="form-control" placeholder="Name" />
-									</div>
-									<div className="form-group has-placeholder">
-										<label for="email">Email address<span className="required">*</span></label>
-										<i className="fa fa-envelope color-darkgrey"></i>
-										<input type="email" aria-required="true" size="30" value="" name="email" id="email" className="form-control" placeholder="Email" />
-									</div>
-									<div className="form-group has-placeholder">
-										<label for="message">Message</label>
-										<i className="fa fa-pencil color-darkgrey"></i>
-										<textarea aria-required="true" rows="6" cols="45" name="message" id="message" className="form-control" placeholder="Message"></textarea>
-									</div>
-									<div className="form-group">
-										<button type="submit" id="contact_form_submit" name="contact_submit" className="btn btn-maincolor">Send Message
-										</button>
-									</div>
-								</form>
+								<h3 className="widget-title" id="footer_h3">Drop a line</h3>
+								<Field />
 							</div>
 						</div>
 					</div>
 				</div>
-
 			</footer>
 );
 }
