@@ -93,7 +93,7 @@ const SignIn = () => {
 									Keep me logged in
 							</label>
 							</div>
-							<button type="submit" className="btn btn-maincolor log-btn">Log in</button>
+							<button type="submit" className="btn btn-maincolor log-btn" style={{margin:'0 auto'}}>Log in</button>
 						</form>
 						<div className="modal-footer">
 							Dont have an Tutor account?<button type="button" className="btn-sign">Sign Up</button>
