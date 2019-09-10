@@ -26,7 +26,10 @@ const
     margin: 0px auto;
     padding: 0px 1.0875rem 1.45rem;
   `,
-  CubesContainer = styled.div`
+  CubesContainer = styled.div``,
+  TitleContainer = styled.div`
+    position: absolute;
+    text-align: right;    
   `;
 
 const Cubes = props => {
@@ -34,13 +37,13 @@ const Cubes = props => {
     <MainContainer tabindex="-1">
       <div style={{ maxWidth: "100vw", overflowX: "hidden" }}>
         <FlexContainer>
-          <div>
+          <TitleContainer>
             <h1 title="Webex" style={{ color: '#fff' }} >
               <span style={{ color: "#dfb07a" }}>W</span>
               <span>ebex</span>
             </h1>
             <h2 title="" style={{ color: '#fff' }}><span>Lorem ipsum dolor sit amet consectetur.</span></h2>
-          </div>
+          </TitleContainer>
           <CubesContainer>
             <Cube color="rgb(223, 176, 122)" position={{ top: "50px", left: "500px", transform: "matrix(0.4, 0, 0, 0.4, 0, 0)" }} title="Vanilla" />
             <Cube color="rgb(97, 218, 251)" position={{ top: "250px", left: "250px", transform: "matrix(0.4, 0, 0, 0.4, 0, 0)" }} title="React" />
