@@ -1,7 +1,12 @@
 import React from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-
+import styled from 'styled-components';
+// const styled = styled.default;
+ const MessageDivs=styled.div`
+font-size:14px;
+padding-left: 8px
+`;
 const useStyles = makeStyles(theme => ({
 	
 	container: {
@@ -40,36 +45,49 @@ const useStyles = makeStyles(theme => ({
 
 const Field=()=>{
 	const classes = useStyles();
+	const[error, setError]=React.useState({
+		messagename: '',
+		messageemail: '',
+		messagetext: '',
+		messageall: ''
+	});
 	const [values, setValues] = React.useState({
-	  name: "Name",
+	  name: "",
 	  email: "",
 	  message: "",
 	});
+	const onChange =  (type, value) => {
+		setValues({
+			...values,
+			[type]: value
+		});
+	
+	}
+	let er='', ern='', erm='', ert='';
 	
 	function send(){
-		let name=document.getElementById('outlined-name').value
-        let mail=document.getElementById('outlined-email-input').value
-		let text=document.getElementById('outlined-textarea-input').value
-		let message=document.getElementById('message')
+		if(!values.name.length || !values.email.length || !values.message.length ){
+			er='Fill in all the fields'
+		}
+		  if(values.name.length<3 || !isNaN(values.name)){
+			 ern='Please enter at least 3 characters'
+		}
+		if(!new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(values.email)){
+			erm= 'Invalid email'
+		}
+		 if(values.message.length<3){
+			ert='Please enter at least 3 characters'
+		}
 		
-		if(name.length==0 || mail.length==0 || text.length==0){
-			message.innerHTML="lreacnel bolor dashter"
-		}
-		else if(name.length<4){
-			message.innerHTML="naemi dashtum 4-ic voch pakas nish"
-
-		}
-		else{
-			setValues({name:name,email:mail,message:text})
-				   console.log(values)
-			message.innerHTML="der namak@ ugharkvats e"
-				   
-		}
-       
+		setError({
+			messagename: ern,
+			messageemail: erm,
+			messagetext: ert,
+			messageall: !erm && !ern && !ert ? 'Thank you! Your request has been sent successfully.' : er
+				})
 	}
 return(
 	<div className="form" id="form">
-		{/* <form className={classes.container} novalidate  > */}
       <TextField
         id="outlined-name"
 		label="Name"
@@ -77,7 +95,9 @@ return(
         className={classes.textField}
         type="text"
 		name="name"
+		onChange={e => onChange('name', e.target.value)}
 		// halfWidth
+		value={values.name}
         margin="normal"
 		variant="outlined"
 		InputLabelProps={{
@@ -94,13 +114,16 @@ return(
             },
           }}
       />
+	  <MessageDivs>{error.messagename}</MessageDivs>
       <TextField
         id="outlined-email-input"
         label="Email"
         className={classes.textField}
         type="email"
 		name="email"
-	    // halfWidth
+		onChange={e => onChange('email', e.target.value)}
+		// halfWidth
+		value={values.email}
 		margin="normal"
 		variant="outlined"
 		InputLabelProps={{
@@ -117,10 +140,14 @@ return(
             },
           }}
       />
+	<MessageDivs>{error.messageemail}</MessageDivs>
 	  <TextField
 	  id="outlined-textarea-input"
               variant="outlined"
-              rows="6"
+			  rows="6"
+			  onChange={e => onChange('message', e.target.value)}
+		// halfWidth
+		value={values.message}
             // fullWidth
 			  label="Input Set"
               placeholder="Placeholder"
@@ -142,11 +169,11 @@ return(
 				},
 			  }}
             />
+		  <MessageDivs>{error.messagetext}</MessageDivs>
 				<div>
 					<button onClick={send} type="submit" id="contact_form_submit" name="contact_submit" class="btn btn-maincolor">Send Message
 										</button></div>
-					<div id="message"></div>
-					{/* </form> */}
+										<MessageDivs>{error.messageall}</MessageDivs>
 				</div>
 );
 }
