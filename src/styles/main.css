@@ -18441,3 +18441,19 @@ flip course
 .checkbox-slider--b-flat input + span:before {
 	box-shadow: none;
 }
+
+#myId {
+	transform: translate3d("-1900px, 0px, 0px");
+	transition: "all 0.25s ease 0s";
+	width: "4180px"
+}
+
+#section4Style {
+	transform: translate3d(-3420px, 0px, 0px); 
+	transition: all 0.25s ease 0s; 
+	width: 7980px;
+}
+
+#videoImage {
+	background-image: url("../img/about_us/first.jpg"); 
+}
