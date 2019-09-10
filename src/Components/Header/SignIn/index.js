@@ -1,8 +1,22 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 
+const useStyles = makeStyles(theme => ({
+	container: {
+		display: 'flex',
+		flexWrap: 'wrap',
+	},
+	textField: {
+		marginLeft: theme.spacing(1),
+		marginRight: theme.spacing(1),
+		width: "400px"
+	}
+}));
+
 const SignIn = () => {
+	const classes = useStyles();
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 
@@ -13,6 +27,8 @@ const SignIn = () => {
 	const writePassword = (e) => {
 		setPassword(e.target.value)
 	}
+
+
 	return (
 		<div className="sigin-form text-center show" tabIndex="-1" role="dialog" aria-labelledby="formsign" style={{ paddingRight: "15px", display: "block" }}>
 			<div className="modal-dialog ls">
@@ -25,31 +41,36 @@ const SignIn = () => {
 					</div>
 					<div className="modal-body">
 						<div className="form-title">
-							<h2 onClick={() => alert(email + " " + password)}>Sign In</h2>
+							<h2 >Sign In</h2>
 							<p>Log in to save your progress and obtain a certificate in Alison’s free Diploma in Web</p>
 						</div>
-						<form action="/">
-							<TextField
-								id="filled-email-input"
+						<form className={classes.container} noValidate autoComplete="off" >
+						<TextField
+								id="outlined-email-input"
 								label="Email"
+								className={classes.textField}
 								type="email"
-								value={email}
-								onInput={writeEmail}
 								name="email"
+								value={email}
 								autoComplete="email"
 								margin="normal"
-								variant="filled"
+								variant="outlined"
+								onChange={writeEmail}
 							/>
+
 							<TextField
-								id="filled-password-input"
+								id="outlined-password-input"
 								label="Password"
+								className={classes.textField}
 								type="password"
+								name="password"
 								value={password}
-								onInput={writePassword}
-								autoComplete="current-password"
+								autoComplete="password"
 								margin="normal"
-								variant="filled"
+								variant="outlined"
+								onChange={writePassword}
 							/>
+
 							<div className="social-account">
 								<h6>
 									or
