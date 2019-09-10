@@ -1,17 +1,7 @@
- .map{
-    width: 100%;
-    height: 300px;
+ .map {
+    -webkit-filter: grayscale(100%);
+       -moz-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+         -o-filter: grayscale(100%);
+            filter: grayscale(100%);
 }
-/* @media (min-width: 768px){
-.container .map{
-    max-width: 100%;
-    padding: 0
-}
-}
-@media (min-width: 576px){
-.container .map{
-    max-width: 100%;
-    padding: 0
-
-}
-} */
