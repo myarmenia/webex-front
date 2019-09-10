@@ -14,6 +14,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Cubes from './Components/Header/Cubes';
 import SignIn from './Components/Header/SignIn';
 import SignUp from './Components/Header/SignUp';
+import AboutUs from './Components/AboutUs'
 
 function App() {
   return (
@@ -32,7 +33,7 @@ function App() {
 
         <Route path='/signup' component={SignUp} />
         <Route path='/signin' component={SignIn} />
-
+        <Route path="/aboutus" component={AboutUs} />
         {/* <Route path='/' /> */}
         <Footer />
         <CopyRight />
