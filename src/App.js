@@ -13,7 +13,6 @@ import './App.css';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import { Switch, Route } from 'react-router-dom';
-import Cubes from './Components/Header/Cubes';
 import SignIn from './Components/Header/SignIn';
 import SignUp from './Components/Header/SignUp';
 import AboutUs from './Components/AboutUs'
@@ -33,12 +32,7 @@ function App() {
             classNames='fade'
           >
             <Switch location={location}>
-              <Route path='/' exact render={() =>
-                <div>
-                  <Cubes />
-                  <Main />
-                </div>
-              } />
+              <Route path='/' exact component={Main} />
               <Route path='/signup' component={SignUp} />
               <Route path='/signin' component={SignIn} />
               <Route path="/aboutus" component={AboutUs} />

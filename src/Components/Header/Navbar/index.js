@@ -24,14 +24,17 @@ const NavBar = props => {
                     <Link to="/">Home</Link>
                   </li>
                   <li>
-                    <Link to='/courses'>Courses</Link>
-                  </li>
-                  {/* <li>
-                    <Link to="/signin">Sign In</Link>
+                    <Link to='/aboutus'>About us</Link>
                   </li>
                   <li>
-                    <Link to="/signup">Sign Up</Link>
-                  </li> */}
+                    <Link to='/'>News</Link>
+                  </li>
+                  <li>
+                    <Link to='/courses'>Courses</Link>
+                  </li>
+                  <li>
+                    <Link to='/'>Price</Link>
+                  </li>
                 </ul>
               </nav>
             </div>
