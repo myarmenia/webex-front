@@ -48,12 +48,14 @@ const Field=()=>{
 	const[error, setError]=React.useState({
 		messagename: '',
 		messageemail: '',
+		messagetel: '',
 		messagetext: '',
 		messageall: ''
 	});
 	const [values, setValues] = React.useState({
 	  name: "",
 	  email: "",
+	  tel: "",
 	  message: "",
 	});
 	const onChange =  (type, value) => {
@@ -63,10 +65,10 @@ const Field=()=>{
 		});
 	
 	}
-	let er='', ern='', erm='', ert='';
+	let er='', ern='', erm='', ertel='', ert='';
 	
 	function send(){
-		if(!values.name.length || !values.email.length || !values.message.length ){
+		if(!values.name.length || !values.tel.length || !values.email.length|| !values.message.length ){
 			er='Fill in all the fields'
 		}
 		  if(values.name.length<3 || !isNaN(values.name)){
@@ -75,6 +77,10 @@ const Field=()=>{
 		if(!new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(values.email)){
 			erm= 'Invalid email'
 		}
+		if(values.tel.length<10){
+			ertel='Please enter at least 10 characters'
+		}
+		
 		 if(values.message.length<3){
 			ert='Please enter at least 3 characters'
 		}
@@ -82,8 +88,9 @@ const Field=()=>{
 		setError({
 			messagename: ern,
 			messageemail: erm,
+			messagetel: ertel,
 			messagetext: ert,
-			messageall: !erm && !ern && !ert ? 'Thank you! Your request has been sent successfully.' : er
+			messageall: !erm && !ern && !ertel && !ert ? 'Thank you! Your request has been sent successfully.' : er
 				})
 	}
 return(
@@ -141,6 +148,32 @@ return(
           }}
       />
 	<MessageDivs>{error.messageemail}</MessageDivs>
+	  <TextField
+        id="outlined-input"
+        label="Phone namber"
+        className={classes.textField}
+        type="text"
+		name="tel"
+		onChange={e => onChange('tel', e.target.value)}
+		// halfWidth
+		value={values.tel}
+		margin="normal"
+		variant="outlined"
+		InputLabelProps={{
+            classes: {
+			  root: classes.cssLabel,
+			  focused: classes.cssFocused,
+            },
+		  }}
+		  InputProps={{
+            classes: {
+              root: classes.cssOutlinedInput,
+              focused: classes.cssFocused,
+              notchedOutline: classes.notchedOutline,
+            },
+          }}
+      />
+	<MessageDivs>{error.messagetel}</MessageDivs>
 	  <TextField
 	  id="outlined-textarea-input"
               variant="outlined"
