@@ -39,7 +39,7 @@ class Advantages extends Component{
                 <div class="col-lg-4" data-animation="fadeInUp" key={index}>
                     <div class="icon-box text-center">
                         <div class="color-main icon-styled fs-77">
-                            <i class={`fa fa-${item.icon}`} aria-hidden="true"></i>
+                            <i style={{fontSize:'50px'}} class={`fa fa-${item.icon}`} aria-hidden="true"></i>
                         </div>
                         <h6 class="fw-700">
                             <a href="single-course.html">{item.title}</a>
@@ -60,7 +60,7 @@ class Advantages extends Component{
 					<div class="row">
                     <div class="col-12">
 							<h3 class="text-center">ՄԵՐ ԱՌԱՎԵԼՈՒԹՅՈՒՆՆԵՐԸ</h3>
-                            <h6 class="special-heading fw-300 text-center">Webex-ի դասընթացները ունեն մի շարք առավելություններ,որոնք դարձնում են դասերը մաքսիմալ էֆեկտիվ և հասանելի ուսանողներին։</h6>
+                            <h6 style={{marginTop:'20px',color:'#6c757d'}} class="special-heading fw-300 text-center">Webex-ի դասընթացները ունեն մի շարք առավելություններ,որոնք դարձնում են դասերը մաքսիմալ էֆեկտիվ և հասանելի ուսանողներին։</h6>
 					</div>
 						<div class="divider-10 d-none d-lg-block"></div>
 						{advantages}
