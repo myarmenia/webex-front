@@ -1,0 +1,29 @@
+.count{
+    font-size: 3em
+}
+.main{
+    background:url(code4.jpg);
+    background-size:cover; 
+    background-attachment: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 500;
+    color: white;
+    padding: 2em;
+    
+}
+.flex_div{
+    flex-grow: 1;
+    margin: 2em
+}
+.name{
+    font-size: 2em
+}
+.flex_div i{
+    font-size: 3em
+}
+.bord{
+    border:2px solid silver;
+    border-block-start:0;
+    border-block-end:0
+}

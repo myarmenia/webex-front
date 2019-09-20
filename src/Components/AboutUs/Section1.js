@@ -23,22 +23,24 @@ function Section1 () {
                             </div>
                             <div className="col-md-6">
                                 <h6 className="fw-700">
-                                    Technology
+                                    Online Course
                                 </h6>
-                                <p>
+                                <p style={{marginBottom: "0px"}}>
                                     Nonumy eirmod por invidunt labore dolore magna.
                                 </p>
+                                <a href="#" className="btn btn-maincolor">Get Started</a>
                             </div>
                             <div className="col-md-6">
                                 <h6 className="fw-700">
-                                    Language
+                                    Office Course
                                 </h6>
-                                <p>
+                                <p style={{marginBottom: "0px"}}>
                                     At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
                                 </p>
+                                <a href="#" className="btn btn-maincolor">Get Started</a>
                             </div>
                         </div>
-                        <a href="#" className="btn btn-maincolor">Find courses</a>
+                        
                     </div>
                 </div>
             </div>

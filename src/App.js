@@ -18,12 +18,13 @@ import SignIn from './Components/Header/SignIn';
 import SignUp from './Components/Header/SignUp';
 import AboutUs from './Components/AboutUs'
 import Courses from './Components/Courses';
+import SingleCourse from './Components/Courses/SingleCourses/index';
+
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-
       <Route render={({ location }) => (
         <TransitionGroup>
           <CSSTransition
@@ -46,6 +47,7 @@ function App() {
           </CSSTransition>
         </TransitionGroup>
       )} />
+
 
       <Footer />
       <CopyRight />

@@ -28,7 +28,19 @@ const SignIn = () => {
 		setPassword(e.target.value)
 	}
 
-
+    const getData=()=>{
+		fetch('http://www.omegacoding.com/webex-api/public/api/signin')
+     .then(function(response){
+        return Promise.resolve(response)
+      })
+      .then(function(response){
+        return response.json()
+      })
+      .then(function(data){
+        
+      
+      })
+	}
 	return (
 		<div className="sigin-form text-center show" tabIndex="-1" role="dialog" aria-labelledby="formsign" style={{ paddingRight: "15px", display: "block" }}>
 			<div className="modal-dialog ls">
@@ -44,7 +56,7 @@ const SignIn = () => {
 							<h2 >Sign In</h2>
 							<p>Log in to save your progress and obtain a certificate in Alison’s free Diploma in Web</p>
 						</div>
-						<form className={classes.container} noValidate autoComplete="off" >
+						<form className={classes.container} noValidate autoComplete="off" onSubmit={getData} >
 						<TextField
 								id="outlined-email-input"
 								label="Email"
