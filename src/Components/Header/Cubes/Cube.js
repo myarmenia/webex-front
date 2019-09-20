@@ -8,7 +8,7 @@ const
       transform: rotate3d(0, 0, 0, 0deg);
     }
     to {
-      transform: rotate3d(4, 1, 2, 195deg);
+      transform: rotate3d(4, 1, 2, 360deg);
     }
   `,
   CubeWrapper = styled.div`

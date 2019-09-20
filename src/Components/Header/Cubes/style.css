@@ -48,7 +48,7 @@ body {
   pointer-events: none;
   opacity: 0;
   transition: background-color 0.8s ease 1s;
-  animation: 0.3s ease 0s 1 normal forwards running bcCCNc;
+  animation: 0.2s ease 0s 1 normal forwards running bcCCNc;
 }
 
 /* animation-container ? */
@@ -82,7 +82,7 @@ body {
   transform: translateX(250px) translateY(125px);
   /* opacity: 0; */
   flex: 2 1 0%;
-  animation: 0.3s ease 0s 1 normal forwards running bcCCNc;
+  animation: 0.2s ease 0s 1 normal forwards running bcCCNc;
 }
 
 /* small cube vanilla */
@@ -232,3 +232,49 @@ body {
     transform: rotate3d(4, 1, 2, 165deg);
   }
 }
+
+.A {
+  font-size: 20px;
+  text-decoration: none;
+  padding: 100px 30px;
+  color: #00cec9;
+}
+
+.Div {
+  height: 100%;
+}
+
+:root {
+  --primary-color: #00cec9;
+  --bg-color: #dfe6e9;
+  --text-color: white;
+  height: 100%;
+}
+
+.Container {
+  background: white;
+  cursor: pointer;
+  border-radius: 15px;
+  position: relative;
+  padding: 25px 30px;
+  height: 72%;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.Container::after {
+  content: 'REACT  PROJECT';
+  background: var(--primary-color);
+  height: 72%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #fff;
+  font-size: 26px;
+  font-weight: 700;
+  padding: 20% 0 0 0;
+  z-index: 0;
+  animation: oo 2s forwards;
+}
+
