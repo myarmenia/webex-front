@@ -1,11 +1,27 @@
 import React from 'react';
-import Courses from '../Courses/courses';
+import CoursesFilter from '../Courses/courses';
 import Contact from '../Contact';
+import Cubes from '../Header/Cubes';
+import About from '../AboutUs/';
+import Section5 from '../AboutUs/Section5/Section5';
+
+import Count from '../CountUp/';
+
+import Price from '../Courses/Pricing';
+
+
 
 const Home = props => {
   return (
-    <main> 
-      <Courses />
+    <main>
+      <Cubes />
+      <About />
+      {/* <News /> - do not touch! Dangerous for life */}
+      <CoursesFilter />
+      <Count />
+      <Price />
+      {/* <Price /> - do not touch! Dangerous for life */}
+      <Section5 />
       <Contact />
     </main>
   );
