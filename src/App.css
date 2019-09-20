@@ -1,33 +1,95 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: red
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes oo {
+  0% {
+    clip-path: polygon(2% 0%, 6% 0%, 16% 0%, 20% 1%, 33% 0%, 44% 0%, 55% 0%, 70% 0%, 76% 0%, 84% 0%, 93% 0%, 99% 5%, 98% 13%, 92% 19%, 89% 10%, 82% 18%, 65% 12%, 59% 17%, 52% 9%, 41% 14%, 33% 12%, 23% 12%, 14% 6%, 3% 20%);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    clip-path: polygon(2% 0%, 5% 0, 16% 0%, 20% 1%, 33% 0%, 44% 0%, 55% 0%, 70% 0%, 76% 0%, 84% 0%, 93% 0%, 100% 1%, 100% 49%, 100% 89%, 100% 100%, 84% 100%, 85% 100%, 69% 100%, 55% 100%, 42% 100%, 39% 100%, 19% 100%, 0 100%, 0 19%);
   }
+  100% {
+    /* clip-path: polygon(2% 91%, 15% 81%, 33% 92%, 58% 100%, 81% 94%, 98% 100%, 1% 100%, 15% 91%, 23% 76%, 21% 94%, 15% 86%, 0 99%); */
+    clip-path: polygon(9% 93%, 24% 83%, 29% 67%, 38% 94%, 41% 78%, 52% 89%, 60% 82%, 69% 74%, 74% 94%, 80% 80%, 88% 88%, 95% 79%, 100% 49%, 100% 89%, 100% 100%, 84% 100%, 85% 100%, 69% 100%, 55% 100%, 42% 100%, 39% 100%, 19% 100%, 0 100%, 0 81%);
+  }
+}
+
+.Content {
+  position: relative;
+  z-index: 1;
+  top: 24%;
+}
+
+.fade-appear::after, .fade-enter::after {
+  position: fixed;
+  background: #222a35;
+  z-index: 10000;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  animation: oo 2s forwards;
+}
+
+.fade-appear-active::after, .fade-enter.fade-enter-active:after {
+  transition: .5s;
+  position: fixed;
+  background: #222a35;
+  z-index: 10000;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  animation: oo 2s forwards;
+}
+
+.fade-appear {
+  opacity: 0;
+}
+
+.fade-appear.fade-appear-active {
+  transition: .7s ease;
+  opacity: 1;
+}
+
+.fade-exit {
+  opacity: 1;
+  position: absolute;
+  z-index: 100;
+}
+
+.fade-exit.fade-exit-active {
+  transition: .7s ease;
+  opacity: 0;
+  position: absolute;
+  z-index: 100;
+}
+
+.fade-exit-done {
+  opacity: 0;
+  position: absolute;
+  z-index: -100;
+}
+
+.fade-exit::after {
+  position: fixed;
+  background: #222a35;
+  z-index: 10000;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  animation: oo 2s forwards;
+}
+
+.fade-exit.fade-exit-active::after {
+  position: fixed;
+  background: #222a35;
+  z-index: 10000;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  animation: oo 2s forwards;
 }

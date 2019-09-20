@@ -10,35 +10,45 @@ import Footer from './Components/Footer';
 import CopyRight from './Components/CopyRight';
 import './App.css';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+
+import { Switch, Route } from 'react-router-dom';
 import Cubes from './Components/Header/Cubes';
 import SignIn from './Components/Header/SignIn';
 import SignUp from './Components/Header/SignUp';
 import AboutUs from './Components/AboutUs'
+import Courses from './Components/Courses';
 
 function App() {
   return (
     <div className="App">
-      
-      <Router>
-        <Navbar />
-        <Route path='/' exact component={() =>
-          <>
-            {/* <div style={{ position: "relative" }} > */}
-            <Cubes />
-            {/* </div> */}
-            <Main />
-          </>}
-        />
+      <Navbar />
 
-        <Route path='/signup' component={SignUp} />
-        <Route path='/signin' component={SignIn} />
-        <Route path="/aboutus" component={AboutUs} />
-        {/* <Route path='/' /> */}
-        <Footer />
-        <CopyRight />
+      <Route render={({ location }) => (
+        <TransitionGroup>
+          <CSSTransition
+            key={location.key}
+            timeout={2000}
+            classNames='fade'
+          >
+            <Switch location={location}>
+              <Route path='/' exact render={() =>
+                <div>
+                  <Cubes />
+                  <Main />
+                </div>
+              } />
+              <Route path='/signup' component={SignUp} />
+              <Route path='/signin' component={SignIn} />
+              <Route path="/aboutus" component={AboutUs} />
+              <Route path="/courses" component={Courses} />
+            </Switch>
+          </CSSTransition>
+        </TransitionGroup>
+      )} />
 
-      </Router>
+      <Footer />
+      <CopyRight />
     </div>
   );
 }

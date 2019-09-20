@@ -24,39 +24,7 @@ const NavBar = props => {
                     <Link to="/">Home</Link>
                   </li>
                   <li>
-                    <a href="about.html">Pages</a>
-                    <ul>
-                      <li>
-                        <a href="#">Course Categories</a>
-                      </li>
-
-                      <li>
-                        <a href="#">Widgets</a>
-                      </li>
-
-
-                      <li>
-                        <a href="#">Events</a>
-                      </li>
-
-                      <li>
-                        <a href="#">Team</a>
-                      </li>
-
-
-                      <li>
-                        <a href="#">Comingsoon</a>
-                      </li>
-
-                      <li>
-                        <a href="#">FAQ</a>
-                      </li>
-
-                      <li>
-                        <a href="#">404</a>
-                      </li>
-
-                    </ul>
+                    <Link to='/courses'>Courses</Link>
                   </li>
                   {/* <li>
                     <Link to="/signin">Sign In</Link>
