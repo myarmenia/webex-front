@@ -6,12 +6,44 @@ import ThidStep from './thirdStep';
 
 function SignUp() {
 
-	const [next, setNext] = useState(false);
+	const [next, setNext] = useState("one");
+	const [nextTwo, setNextTwo] = useState(false);
 
 	const nextFunc = (e) => {
 		setNext(e);
 	}
 
+	const nextTwoFunc = (e) => {
+		setNext(e);
+	}
+
+	let p1 = "";
+
+	const change = () => {
+		// if (next) {
+		// 	p1 = <SectionTwo />
+		// } else {
+		// 	p1 = <SectionOne nextProps={nextFunc} />
+		// }
+
+		// if (nextTwo && next) {
+		// 	p1 = <ThidStep /> 
+		// } else {
+		// 	p1 = <SectionTwo nextProps={nextTwoFunc} />
+		// }
+
+		if (next === "one") {
+			p1 = <SectionOne nextProps={nextFunc} />
+			//p1 = <ThidStep />
+		} else if (next === "two"){
+			p1 = <SectionTwo nextProps={nextTwoFunc} />
+		} else if (next === "three") {
+			p1 = <ThidStep />
+		} 
+	}
+
+	change();
+	
 	const text = "Dear student, choose the type of learning:";
 
 	return (
@@ -31,7 +63,10 @@ function SignUp() {
 
 						{next ? text : null}
 
-						{next ? <SectionTwo /> : <SectionOne nextProps={nextFunc} /> }
+						{p1}
+						{/* {next ? <SectionTwo /> : <SectionOne nextProps={nextFunc} /> }
+
+						{nextTwo ? <ThidStep /> : <SectionTwo nextProps={nextTwoFunc} />} */}
 
 						<div className="modal-footer">
 							Already have an Alison account?

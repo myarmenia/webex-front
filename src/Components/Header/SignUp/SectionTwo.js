@@ -1,26 +1,39 @@
 import React, {useState} from 'react';
 import Checkbox from '@material-ui/core/Checkbox';
+import Button from '@material-ui/core/Button';
 
-function SectionTwo () {
+function SectionTwo (props) {
 
 	const [onlineState, setOnlineState] = useState(false);
 	const [ofline, setOflineState] = useState(false);
 
 	const checkOnline = () => {
 		if (onlineState) {
+            setOflineState(true);
 			setOnlineState(false)
 		} else {
-			setOnlineState(true);
+            setOnlineState(true);
+            setOflineState(false)
         }
 	}
 
 	const checkOfline = () => {
 		if (ofline) {
-			setOflineState(false)
+            setOflineState(false);
+            setOnlineState(true);
 		} else {
-			setOflineState(true);
+            setOflineState(true);
+            setOnlineState(false);
 		}
-	}
+    }
+
+    const goFunc = () => {
+        if (onlineState) {
+            props.nextProps("three")
+        } else {
+            alert("Congratulations! You’ve passed the registration for stationary education in Webex. For account verification please follow the link. ")
+        }
+    }
 
     return (
         <div className="row justify-content-center">
@@ -47,8 +60,20 @@ function SectionTwo () {
                 />
                 <label className="form-check-label" htmlFor="updates">Stationary</label>
 
-            </div>
+                <div className="mt-5">
+                    <Button 
+                        variant="contained" 
+                        size="large" 
+                        color="primary" 
+                        onClick={goFunc}
+                    >	
+                    Next
+                    </Button>
+                </div>
 
+            </div>
+            
+        
             {/* <div className="col-md-10">
                 <div className="filters course-filters text-lg-right">
 

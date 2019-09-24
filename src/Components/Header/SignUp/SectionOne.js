@@ -114,7 +114,7 @@ function SectionOne (props) {
 		// } else if (password.length < 8) {
 		// 	setPasswordValidation("Password must be 8 characters");
         // }
-        props.nextProps(true);
+        props.nextProps("two");
 		
     }
     
