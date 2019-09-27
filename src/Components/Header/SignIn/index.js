@@ -32,7 +32,7 @@ const SignIn = () => {
 		event.preventDefault();
 		let data=`email=${encodeURI(email)}&password=${encodeURI(password)}`
 		console.log(data,"uxarkel")
-		fetch('http://web.webex.am/api/signin',{
+		fetch('https://web.webex.am/api/signin',{
 			method:'POST',
 			mode: 'no-cors',
 		 	headers:{"Content-type":"application/x-www-form-urlencoded", "Accept":"application/json"},
