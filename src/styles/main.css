@@ -8685,6 +8685,7 @@ body.boxed {
 }
 
 .ds .widget_tag_cloud a {
+	margin: 4px 6px;
 	border-color: rgba(92, 175, 1, 0.4);
 	color: #fff;
 }
