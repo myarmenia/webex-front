@@ -33,6 +33,7 @@ const advantage=[
 
 ]
 class Advantages extends Component{
+    
     render(){
         const advantages=advantage.map((item,index)=>{
             return(
@@ -41,7 +42,7 @@ class Advantages extends Component{
                         <div class="color-main icon-styled fs-77">
                             <i style={{fontSize:'50px'}} class={`fa fa-${item.icon}`} aria-hidden="true"></i>
                         </div>
-                        <h6 class="fw-700">
+                        <h6 class="fw-700" style={{display:'block'}}>
                             <a href="single-course.html">{item.title}</a>
                         </h6>
                         <p>
