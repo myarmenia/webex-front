@@ -2,6 +2,10 @@ import React from 'react';
 
 import image from './images/01.jpg';
 
+import { Widget } from 'react-chat-widget';
+
+import 'react-chat-widget/lib/styles.css';
+
 const coursesArr = [
   { title: 'HTML', image: './images/01.jpg', description: 'Lorem ipsum dolor sit amet' },
   { title: 'CSS', image: './images/02.jpg', description: 'Lorem ipsum dolor sit amet' },
@@ -15,25 +19,32 @@ const coursesArr = [
 const Courses = props => {
 
   const courses = coursesArr.map((c, i) => (
-    <div className="col-12 col-md-6" key={i}>
-      <div className="h-100 bordered rounded">
-        <div className="course-front">
-          <div classNameName="vertical-item content-padding">
-            <div className="item-media rounded-top">
-              <img src={image} alt={c.title} />
-            </div>
-            <div className="item-content">
-              <h6 className="course-title">
-                <a href="#">{c.title}</a>
-              </h6>
-              <p>{c.description}</p>
-              {/* <div className="star-rating course-rating">
+    <div>
+      <Widget
+        // handleNewUserMessage={this.handleNewUserMessage}
+        title="Contact Us"
+        subtitle="And my cool subtitle"
+      />
+      <div className="col-12 col-md-6" key={i}>
+        <div className="h-100 bordered rounded">
+          <div className="course-front">
+            <div classNameName="vertical-item content-padding">
+              <div className="item-media rounded-top">
+                <img src={image} alt={c.title} />
+              </div>
+              <div className="item-content">
+                <h6 className="course-title">
+                  <a href="#">{c.title}</a>
+                </h6>
+                <p>{c.description}</p>
+                {/* <div className="star-rating course-rating">
                 <span style={{ width: "91.5 %" }}>Rated <strong className="rating">4.00</strong> out of 5</span>
               </div> */}
 
-              <div className="tagcloud">
-                <a href="#" className="tag-cloud-link">Technology</a>
-                <a href="#" className="tag-cloud-link">Humanities</a>
+                <div className="tagcloud">
+                  <a href="#" className="tag-cloud-link">Technology</a>
+                  <a href="#" className="tag-cloud-link">Humanities</a>
+                </div>
               </div>
             </div>
           </div>

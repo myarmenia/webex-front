@@ -28,25 +28,28 @@ const SignIn = () => {
 		setPassword(e.target.value)
 	}
 
-    const getData=(event)=>{
+	const getData = (event) => {
 		event.preventDefault();
-		let data=`email=${encodeURI(email)}&password=${encodeURI(password)}`
-		console.log(data,"uxarkel")
-		fetch('https://web.webex.am/api/signin',{
-			method:'POST',
-			mode: 'no-cors',
-		 	headers:{"Content-type":"application/x-www-form-urlencoded", "Accept":"application/json"},
+		let data = `email=${email}&password=${password}`;
+		console.log(data, "uxarkel")
+		fetch('https://web.webex.am/api/signin', {
+			method: 'POST',
+			// mode: 'no-cors',
+			headers: new Headers({
+				'Content-Type': 'application/json',
+				'X-Requested-With': 'XMLHttpRequest'
+			}),
 			body: data
 		})
-		.then((res)=>{
-			console.log(res,"res-signin")
-          if(res.ok){
-			  return res.json()
-		  }
-		}).then((data)=>{
-			console.log(data,"data-signin")
-		})	
-		.catch((e)=>console.log(e,"error signin"))	
+			.then((res) => {
+				console.log(res, "res-signin")
+				if (res.ok) {
+					return res.json()
+				}
+			}).then((data) => {
+				console.log(data, "data-signin")
+			})
+			.catch((e) => console.log(e, "error signin"))
 	}
 	return (
 		<div className="sigin-form text-center show" tabIndex="-1" role="dialog" aria-labelledby="formsign" style={{ paddingRight: "15px", display: "block" }}>
@@ -64,7 +67,7 @@ const SignIn = () => {
 							<p>Log in to save your progress and obtain a certificate in Alison’s free Diploma in Web</p>
 						</div>
 						<form className={classes.container} noValidate autoComplete="off" onSubmit={getData} >
-						<TextField
+							<TextField
 								id="outlined-email-input"
 								label="Email"
 								className={classes.textField}
@@ -112,7 +115,7 @@ const SignIn = () => {
 									Keep me logged in
 							</label>
 							</div>
-							<button type="submit" className="btn btn-maincolor log-btn" style={{margin:'0 auto'}} >Log in</button>
+							<button type="submit" className="btn btn-maincolor log-btn" style={{ margin: '0 auto' }} >Log in</button>
 						</form>
 						<div className="modal-footer">
 							Dont have an Tutor account?<button type="button" className="btn-sign">Sign Up</button>
