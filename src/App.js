@@ -25,23 +25,30 @@ function App() {
     <div className="App">
       <Navbar />
       <Route render={({ location }) => (
-        <TransitionGroup>
-          <CSSTransition
-            key={location.key}
-            timeout={2000}
-            classNames='fade'
-          >
-            <Switch location={location}>
+          <Switch location={location}>
               <Route path='/' exact component={Main} />
               <Route path='/signup' component={SignUp} />
               <Route path='/signin' component={SignIn} />
               <Route path="/aboutus" component={AboutUs} />
               <Route path="/courses" component={Courses} />
-            </Switch>
-          </CSSTransition>
-        </TransitionGroup>
-      )} />
+          </Switch>
 
+      )} />
+        {/*<TransitionGroup>*/}
+        {/*<CSSTransition*/}
+        {/*key={location.key}*/}
+        {/*timeout={2000}*/}
+        {/*classNames='fade'*/}
+        {/*>*/}
+        {/*<Switch location={location}>*/}
+        {/*<Route path='/' exact component={Main} />*/}
+        {/*<Route path='/signup' component={SignUp} />*/}
+        {/*<Route path='/signin' component={SignIn} />*/}
+        {/*<Route path="/aboutus" component={AboutUs} />*/}
+        {/*<Route path="/courses" component={Courses} />*/}
+        {/*</Switch>*/}
+        {/*</CSSTransition>*/}
+        {/*</TransitionGroup>*/}
 
       <Footer />
       <CopyRight />

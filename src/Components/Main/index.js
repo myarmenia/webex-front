@@ -22,9 +22,9 @@ const Home = props => {
       <Advantages />
 
       {/* <Price /> - do not touch! Dangerous for life */}
-      <Section5 />
+      {/*<Section5 />*/}
       <Contact />
-      <Registration />
+      {/*<Registration />*/}
     </main>
   );
 }

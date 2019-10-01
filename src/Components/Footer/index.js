@@ -13,7 +13,6 @@ return(
 							<div className="widget widget_text">
 								<a href="./" className="logo">
 									<img src={logo} alt="" />
-									<span className="logo-text color-darkgrey">utor</span>
 								</a>
 								<p>
 									Isn't days fill, after him bring. Set likeness meat seed whose for itself you can't seas itself. Herb replenish he, dry he. Firmament their.

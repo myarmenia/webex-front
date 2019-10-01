@@ -18,23 +18,24 @@ const coursesArr = [
 const c={"courses":[{"id":1,"name":"HTML \/ HTML5","order":0,"count":2},{"id":2,"name":"CSS \/ CSS3","order":1,"count":1},{"id":3,"name":"BOOTSTRAP","order":2,"count":1},{"id":4,"name":"JavaScript","order":3,"count":1},{"id":5,"name":"EcmaScript (ES6)","order":4,"count":1},{"id":6,"name":"jQuery","order":5,"count":1},{"id":7,"name":"PHP \/ PHP 7","order":6,"count":1},{"id":8,"name":"MySQL","order":7,"count":1},{"id":9,"name":"React","order":8,"count":1},{"id":10,"name":"Redux","order":9,"count":1},{"id":11,"name":"Server","order":10,"count":1},{"id":12,"name":"Wordpress","order":11,"count":1},{"id":13,"name":"Laravel","order":12,"count":1},{"id":14,"name":"Node.js","order":13,"count":1},{"id":15,"name":"Angular","order":14,"count":1},{"id":16,"name":".htaccess","order":15,"count":1},{"id":17,"name":"OOP \/ MVC","order":16,"count":1}]}
 
 const Courses = props => {
-    // const [c,setCourses] = useState();
-    // useEffect(()=>{
-    //     getCourses();
-    // },[c]);
+    const [allCourses,setAllCourses] = useState();
+    useEffect(()=>{
+        getCourses();
+    },[]);
 
-    // const getCourses=()=>{
-    //     setCourses(courses)
-    //     // axios.get('web.webex.am/api/courses')
-    //     //     .then((res)=>{
-    //     //      if(res.ok) return res.json();
-    //     //     })
-    //     //     .then((data)=>{
-    //     //         setCourses(data)
-    //     //     })
-    //     //     .catch((error)=>console.log(error, "getCourses"))
-    //
-    // }
+    const getCourses=()=>{
+        //setCourses(courses)
+        axios.get('http://web.webex.am/api/courses')
+            .then((res)=>{
+          if(res)return res.data;
+               })
+            .then((data)=>{
+          console.log(data.courses,"allCourses")
+                setAllCourses(data.courses)
+            })
+            .catch((error)=>console.log(error, "getCourses"))
+
+    }
 
     const courses = coursesArr.map((c, i) => (
     <div>
@@ -46,7 +47,7 @@ const Courses = props => {
       <div className="col-12 col-md-6" key={i}>
         <div className="h-100 bordered rounded">
           <div className="course-front">
-            <div classNameName="vertical-item content-padding">
+            <div className="vertical-item content-padding">
               <div className="item-media rounded-top">
                 <img src={image} alt={c.title} />
               </div>
@@ -111,7 +112,7 @@ const Courses = props => {
               <div className="widget widget_categories">
 
                 <h3 className="widget-title">Select Category</h3>
-                <CourseSideBar courses={c.courses}/>
+                <CourseSideBar courses={allCourses}/>
               </div>
 
             </div>

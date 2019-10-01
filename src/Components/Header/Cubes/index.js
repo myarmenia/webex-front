@@ -92,10 +92,9 @@ const Cubes = props => {
         <FlexContainer>
           <TitleContainer>
             <Title>
-              <span style={{ color: "#dfb07a" }}>W</span>
-              <span>ebex</span>
+              <span style={{ fontSize: '73px'}}>Webex <br/> Technologies</span>
             </Title>
-            <Subtitle><span>Lorem ipsum dolor sit amet consectetur.</span></Subtitle>
+            <Subtitle><span>Online & Stationary Courses  </span></Subtitle>
             {/* <h1 title="Webex" style={{ color: '#fff' }} >
               <span style={{ color: "#dfb07a" }}>W</span>
               <span>ebex</span>

@@ -10,8 +10,7 @@ const CopyRight=()=>{
 							<div className="mb-10">
 								<a href="./" className="logo justify-content-center">
 									<img src={logo} alt="" />
-									<span className="logo-text color-darkgrey">utor</span>
-								</a>
+					 		</a>
 							</div>
 						</div>
 						<div className="col-md-12 text-center animate animated scaleAppear" data-animation="scaleAppear">
