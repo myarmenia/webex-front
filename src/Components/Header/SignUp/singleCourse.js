@@ -5,7 +5,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
-// import EnhancedTable from './table';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -20,7 +19,8 @@ const useStyles = makeStyles(theme => ({
 function SingleCourse(props) {
 
     const classes = useStyles();
-    const [checked, setChecked] = useState([0]);
+    const [checked, setChecked] = useState([]);
+    const [courseButton, setCourseButton] = useState(false);
 
     let arr = [];
     let title = "";
@@ -44,10 +44,33 @@ function SingleCourse(props) {
         const currentIndex = checked.indexOf(value);
         const newChecked = [...checked];
 
-        currentIndex === -1 ? newChecked.push(value) : newChecked.splice(currentIndex, 1);
-
+        if (currentIndex === -1) {
+            newChecked.push(value);
+            setCourseButton(true);
+        } else {
+            newChecked.splice(currentIndex, 1);
+        }
+        
         setChecked(newChecked);
+        
     };
+
+    const allCourseBtn = () => {
+    
+        let result = window.confirm("Press OK to close this option"); 
+
+        if (result) {
+            console.log(arr);
+        }
+    }
+
+    const checkedCourseBtn = () => {
+        if (checked.length === 0) {
+            setCourseButton(false);
+        } else {
+            alert("True");
+        }
+    }
 
     return (
         <>
@@ -58,10 +81,11 @@ function SingleCourse(props) {
 
                     <Button variant="contained" 
                     size="large" 
+                    onClick={allCourseBtn}
                     //color="primary" 
                     id="buttonColor"
                     style={{ margin: "0 auto" }}>
-                        Buy
+                        Buy All Course
                     </Button>
 
                 </div>
@@ -86,9 +110,10 @@ function SingleCourse(props) {
                         );
                     })}
                 </List>
-
-                {/* <EnhancedTable /> */}
-
+                
+                {
+                    courseButton === true ? <Button onClick={checkedCourseBtn} variant="contained" size="large" id="buttonColor" style={{ margin: "0 auto" }}>Buy Checked Course</Button> : null
+                }
             </div>
 
         </>

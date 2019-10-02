@@ -28,7 +28,7 @@ function SectionTwo(props) {
     }
 
     const goFunc = () => {
-        onlineState ? props.nextProps("four") : props.nextProps("four");
+        onlineState ? props.nextProps("three") : props.nextProps("four");
     }
 
     return (

@@ -8,8 +8,6 @@ import Count from '../CountUp/';
 import Price from '../Courses/Pricing';
 import Advantages from '../Courses/Advantages';
 
-
-
 const Home = props => {
   return (
     <main>

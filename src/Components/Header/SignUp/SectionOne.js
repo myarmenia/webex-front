@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import { Line } from 'rc-progress';
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
+import { isValidPhoneNumber } from 'react-phone-number-input'
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -36,6 +37,7 @@ function SectionOne(props) {
     const [checkPasswordColorState, setCheckPasswordColorState] = useState("red");
     const [phone, setPhone] = useState('');
     const [phoneValidation, setPhoneValidation] = useState('');
+    const [successStatus, setSuccessStatus] = useState('');
 
     const changeName = (e) => {
         setNameValidation("");
@@ -110,10 +112,15 @@ function SectionOne(props) {
     const emailFetch = () => {
         
         if (new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email)) {
-            fetch("http://webex.am/reactdas.json")
-            .then(response => {return response})
-            .then(data => data.json())
-            .then(data => {console.log(data)})
+            fetch('http://web.webex.am/api/checkemail', {
+                method: 'post',
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json'
+                },
+                body: email
+            }).then(res=>res.json())
+            .then(res => setSuccessStatus(res.success));
         }
 
     }
@@ -122,15 +129,23 @@ function SectionOne(props) {
 
         if (name === "") {
             setNameValidation("This feild is required");
+        } else if (name.length < 2) {
+            setNameValidation("Name must be 2 characters");
         } else if (lastName === "") {
             setLastNameValidation("This feild is required");
+        } else if (lastName.length < 2) {
+            setLastNameValidation("LastName must be 2 characters");
         } else if (email === "") {
             setEmailValidation("This feild is required");
         } else if (!new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email)) {
             setEmailValidation("Please write email");
+        } else if (successStatus === false) {
+            setEmailValidation("This email is taken");
         } else if (phone === "") {
             setPhoneValidation("This feild is required");
-        } else if (password === "") {
+        } else if (isValidPhoneNumber(phone) !== true) {
+            setPhoneValidation("Write valid phone number");
+        }  else if (password === "") {
             setPasswordValidation("This feild is required");
         } else if (password.length < 8) {
             setPasswordValidation("Password must be 8 characters");
