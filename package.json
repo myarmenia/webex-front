@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.3.3",
+    "@material-ui/icons": "^4.4.3",
     "material-auto-rotating-carousel": "^3.0.2",
     "material-auto-rotating-carousel-refurb": "^1.0.1",
     "rc-progress": "^2.5.2",
