@@ -2,49 +2,40 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SectionOne from './SectionOne';
 import SectionTwo from './SectionTwo'
-import ThidStep from './thirdStep';
+import ThidStep from './SectionThree';
+import SectionFour from './SectionFour';
+import SingleCourse from './singleCourse';
 
 function SignUp() {
 
 	const [next, setNext] = useState("one");
-	const [nextTwo, setNextTwo] = useState(false);
 
 	const nextFunc = (e) => {
-		setNext(e);
-	}
-
-	const nextTwoFunc = (e) => {
 		setNext(e);
 	}
 
 	let p1 = "";
 
 	const change = () => {
-		// if (next) {
-		// 	p1 = <SectionTwo />
-		// } else {
-		// 	p1 = <SectionOne nextProps={nextFunc} />
-		// }
-
-		// if (nextTwo && next) {
-		// 	p1 = <ThidStep /> 
-		// } else {
-		// 	p1 = <SectionTwo nextProps={nextTwoFunc} />
-		// }
-
 		if (next === "one") {
 			p1 = <SectionOne nextProps={nextFunc} />
-			//p1 = <ThidStep />
-		} else if (next === "two"){
-			p1 = <SectionTwo nextProps={nextTwoFunc} />
+			//p1 = <SingleCourse courseLang={next} />
+		} else if (next === "two") {
+			p1 = <SectionTwo nextProps={nextFunc} />
 		} else if (next === "three") {
-			p1 = <ThidStep />
-		} 
+			p1 = <ThidStep nextProps={nextFunc} />
+		} else if (next === "four") {
+			p1 = <SectionFour />
+		} else if (next === "Front End") {
+			p1 = <SingleCourse courseLang={next} />
+		} else if (next === "Full Stack") {
+			p1 = <SingleCourse courseLang={next} />
+		} else if (next === "Back End") {
+			p1 = <SingleCourse courseLang={next} />
+		}
 	}
 
 	change();
-	
-	const text = "Dear student, choose the type of learning:";
 
 	return (
 		<div className="sigin-form text-center show" id="form2" tabIndex="-1" role="dialog" aria-labelledby="formsign" style={{ paddingRight: "15px", display: "block" }}>
@@ -57,16 +48,8 @@ function SignUp() {
 					</div>
 
 					<div className="modal-body">
-						<div className="form-title">
-							<h2>Sign up</h2>
-						</div>
-
-						{next ? text : null}
 
 						{p1}
-						{/* {next ? <SectionTwo /> : <SectionOne nextProps={nextFunc} /> }
-
-						{nextTwo ? <ThidStep /> : <SectionTwo nextProps={nextTwoFunc} />} */}
 
 						<div className="modal-footer">
 							Already have an Alison account?
@@ -76,7 +59,7 @@ function SignUp() {
 
 				</div>
 			</div>
-			
+
 		</div>
 	)
 }

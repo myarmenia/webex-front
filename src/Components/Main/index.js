@@ -9,7 +9,6 @@ import Price from '../Courses/Pricing';
 import Advantages from '../Courses/Advantages';
 import Registration from '../Registration';
 
-
 const Home = props => {
   return (
     <main>

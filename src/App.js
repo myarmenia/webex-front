@@ -18,7 +18,7 @@ import SignUp from './Components/Header/SignUp';
 import AboutUs from './Components/AboutUs'
 import Courses from './Components/Courses';
 import SingleCourse from './Components/Courses/SingleCourses/index';
-
+import News from './Components/News'
 
 function App() {
   return (
@@ -31,8 +31,8 @@ function App() {
               <Route path='/signin' component={SignIn} />
               <Route path="/aboutus" component={AboutUs} />
               <Route path="/courses" component={Courses} />
+             <Route path="/news" component={News} />
           </Switch>
-
       )} />
         {/*<TransitionGroup>*/}
         {/*<CSSTransition*/}
