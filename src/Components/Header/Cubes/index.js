@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './style.css';
 
@@ -29,26 +29,84 @@ const
   CubesContainer = styled.div``,
   TitleContainer = styled.div`
     position: absolute;
-    text-align: right;    
+    text-align: center;   
+    color: #fff;
+    width: 45%;
+    right: 0;
+  `,
+  Title = styled.h1`
+    font-size: 44px;
+  `,
+  Subtitle = styled.h2`
+    font-size: 31px;
   `;
 
 const Cubes = props => {
+
+  const [arragement, setArrangement] = useState([
+    {
+      color: 'rgb(223, 176, 122)',
+      title: 'Vanilla',
+      main: true
+    },
+    {
+      color: 'rgb(97, 218, 251)',
+      title: 'React',
+      main: false
+    },
+    {
+      color: 'rgb(65, 184, 131)',
+      title: 'Vue',
+      main: false
+    },
+    {
+      color: 'rgb(221, 0, 49)',
+      title: 'Angular',
+      main: false
+    },
+  ]);
+
+  const
+    grid = 250,
+    getPosition = i => {
+      switch (i) {
+        case 0:
+          return { top: grid * 2 + 'px', left: grid * 1 + 'px' }
+        case 1:
+          return { top: grid * 1 + 'px', left: grid * 2 + 'px' }
+        case 2:
+          return { top: grid * 2 + 'px', left: grid * 1 + 'px' }
+        case 3:
+          return { top: grid * 1 + 'px', left: grid * 0 + 'px' }
+        default:
+          return { top: grid * 1 + 'px', left: grid * 1 + 'px' }
+      }
+    },
+    drawCubes = arragement.map((e, i) => (
+      <Cube key={i} onClick={e => console.log({ transform: `matrix(${e.main ? 1 : 0.4}), 0, 0, ${e.main ? 1 : 0.4}, 0, 0`, ...getPosition(e.main ? 100 : i), })} color={e.color} position={{ transform: `matrix(${e.main ? 1 : 0.4}), 0, 0, ${e.main ? 1 : 0.4}, 0, 0`, ...getPosition(e.main ? 100 : i), }} />
+    ));
+
   return (
     <MainContainer tabindex="-1">
       <div style={{ maxWidth: "100vw", overflowX: "hidden" }}>
         <FlexContainer>
           <TitleContainer>
-            <h1 title="Webex" style={{ color: '#fff' }} >
+            <Title>
+              <span style={{ fontSize: '73px'}}>Webex <br/> Technologies</span>
+            </Title>
+            <Subtitle><span>Online & Stationary Courses  </span></Subtitle>
+            {/* <h1 title="Webex" style={{ color: '#fff' }} >
               <span style={{ color: "#dfb07a" }}>W</span>
               <span>ebex</span>
             </h1>
-            <h2 title="" style={{ color: '#fff' }}><span>Lorem ipsum dolor sit amet consectetur.</span></h2>
+            <h2 title="" style={{ color: '#fff' }}><span>Lorem ipsum dolor sit amet consectetur.</span></h2> */}
           </TitleContainer>
           <CubesContainer>
-            <Cube color="rgb(223, 176, 122)" position={{ top: "50px", left: "500px", transform: "matrix(0.4, 0, 0, 0.4, 0, 0)" }} title="Vanilla" />
+            {drawCubes}
+            {/* <Cube color="rgb(223, 176, 122)" position={{ top: "50px", left: "500px", transform: "matrix(0.4, 0, 0, 0.4, 0, 0)" }} title="Vanilla" />
             <Cube color="rgb(97, 218, 251)" position={{ top: "250px", left: "250px", transform: "matrix(0.4, 0, 0, 0.4, 0, 0)" }} title="React" />
             <Cube color="rgb(65, 184, 131)" position={{ top: "250px", left: "500px", transform: "matrix(1, 0, 0, 1, 0, 0)" }} title="Vue" />
-            <Cube color="rgb(221, 0, 49)" position={{ top: "250px", left: "750px", transform: "matrix(0.4, 0, 0, 0.4, 0, 0)" }} title="Angular" />
+            <Cube color="rgb(221, 0, 49)" position={{ top: "250px", left: "750px", transform: "matrix(0.4, 0, 0, 0.4, 0, 0)" }} title="Angular" /> */}
             {/* <div title="Vanilla" i="0" className="Cubes__SmallCube-er6zb0-1 dtwvmR"
               style={{ top: "0px", left: "500px", transform: "matrix(0.4, 0, 0, 0.4, 0, 0)" }}>
               <div className="Cube-qzxh3j-0 gkDrhn" size="170">

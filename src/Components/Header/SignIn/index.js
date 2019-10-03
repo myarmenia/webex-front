@@ -29,18 +29,28 @@ const SignIn = () => {
 		setPassword(e.target.value)
 	}
 
-    const getData=()=>{
-		fetch('http://www.omegacoding.com/webex-api/public/api/signin')
-     .then(function(response){
-        return Promise.resolve(response)
-      })
-      .then(function(response){
-        return response.json()
-      })
-      .then(function(data){
-        
-      
-      })
+	const getData = (event) => {
+		event.preventDefault();
+		let data = `email=${email}&password=${password}`;
+		console.log(data, "uxarkel")
+		fetch('https://web.webex.am/api/signin', {
+			method: 'POST',
+			// mode: 'no-cors',
+			headers: new Headers({
+				'Content-Type': 'application/json',
+				'X-Requested-With': 'XMLHttpRequest'
+			}),
+			body: data
+		})
+			.then((res) => {
+				console.log(res, "res-signin")
+				if (res.ok) {
+					return res.json()
+				}
+			}).then((data) => {
+				console.log(data, "data-signin")
+			})
+			.catch((e) => console.log(e, "error signin"))
 	}
 	return (
 		<div className="sigin-form text-center show" tabIndex="-1" role="dialog" aria-labelledby="formsign" style={{ paddingRight: "15px", display: "block" }}>
@@ -57,7 +67,7 @@ const SignIn = () => {
 							<p>Log in to save your progress and obtain a certificate in Alison’s free Diploma in Web</p>
 						</div>
 						<form className={classes.container} noValidate autoComplete="off" onSubmit={getData} >
-						<TextField
+							<TextField
 								id="outlined-email-input"
 								label="Email"
 								className={classes.textField}
@@ -115,6 +125,7 @@ const SignIn = () => {
                                 >
                                     Log in
                                 </Button>
+
 						</form>
 						<div className="modal-footer">
 							Dont have an Tutor account?<button type="button" className="btn-sign">Sign Up</button>
