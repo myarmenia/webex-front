@@ -1,6 +1,10 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
+import CourseSideBar from './CourseSideBar';
 import image from './images/01.jpg';
+import { Widget } from 'react-chat-widget';
+import 'react-chat-widget/lib/styles.css';
+import axios from 'axios';
+
 
 const coursesArr = [
   { title: 'HTML', image: './images/01.jpg', description: 'Lorem ipsum dolor sit amet' },
@@ -11,29 +15,55 @@ const coursesArr = [
   { title: 'PHP', image: './images/06.jpg', description: 'Lorem ipsum dolor sit amet' },
 ];
 
+const c={"courses":[{"id":1,"name":"HTML \/ HTML5","order":0,"count":2},{"id":2,"name":"CSS \/ CSS3","order":1,"count":1},{"id":3,"name":"BOOTSTRAP","order":2,"count":1},{"id":4,"name":"JavaScript","order":3,"count":1},{"id":5,"name":"EcmaScript (ES6)","order":4,"count":1},{"id":6,"name":"jQuery","order":5,"count":1},{"id":7,"name":"PHP \/ PHP 7","order":6,"count":1},{"id":8,"name":"MySQL","order":7,"count":1},{"id":9,"name":"React","order":8,"count":1},{"id":10,"name":"Redux","order":9,"count":1},{"id":11,"name":"Server","order":10,"count":1},{"id":12,"name":"Wordpress","order":11,"count":1},{"id":13,"name":"Laravel","order":12,"count":1},{"id":14,"name":"Node.js","order":13,"count":1},{"id":15,"name":"Angular","order":14,"count":1},{"id":16,"name":".htaccess","order":15,"count":1},{"id":17,"name":"OOP \/ MVC","order":16,"count":1}]}
 
 const Courses = props => {
+    const [allCourses,setAllCourses] = useState();
+    useEffect(()=>{
+        getCourses();
+    },[]);
 
-  const courses = coursesArr.map((c, i) => (
-    <div className="col-12 col-md-6" key={i}>
-      <div className="h-100 bordered rounded">
-        <div className="course-front">
-          <div classNameName="vertical-item content-padding">
-            <div className="item-media rounded-top">
-              <img src={image} alt={c.title} />
-            </div>
-            <div className="item-content">
-              <h6 className="course-title">
-                <a href="#">{c.title}</a>
-              </h6>
-              <p>{c.description}</p>
-              {/* <div className="star-rating course-rating">
+    const getCourses=()=>{
+        //setCourses(courses)
+        axios.get('http://web.webex.am/api/courses')
+            .then((res)=>{
+          if(res)return res.data;
+               })
+            .then((data)=>{
+          console.log(data.courses,"allCourses")
+                setAllCourses(data.courses)
+            })
+            .catch((error)=>console.log(error, "getCourses"))
+
+    }
+
+    const courses = coursesArr.map((c, i) => (
+    <div>
+      <Widget
+        // handleNewUserMessage={this.handleNewUserMessage}
+        title="Contact Us"
+        subtitle="And my cool subtitle"
+      />
+      <div className="col-12 col-md-6" key={i}>
+        <div className="h-100 bordered rounded">
+          <div className="course-front">
+            <div className="vertical-item content-padding">
+              <div className="item-media rounded-top">
+                <img src={image} alt={c.title} />
+              </div>
+              <div className="item-content">
+                <h6 className="course-title">
+                  <a href="#">{c.title}</a>
+                </h6>
+                <p>{c.description}</p>
+                {/* <div className="star-rating course-rating">
                 <span style={{ width: "91.5 %" }}>Rated <strong className="rating">4.00</strong> out of 5</span>
               </div> */}
 
-              <div className="tagcloud">
-                <a href="#" className="tag-cloud-link">Technology</a>
-                <a href="#" className="tag-cloud-link">Humanities</a>
+                <div className="tagcloud">
+                  <a href="#" className="tag-cloud-link">Technology</a>
+                  <a href="#" className="tag-cloud-link">Humanities</a>
+                </div>
               </div>
             </div>
           </div>
@@ -82,46 +112,7 @@ const Courses = props => {
               <div className="widget widget_categories">
 
                 <h3 className="widget-title">Select Category</h3>
-
-                <ul>
-                  <li className="cat-item">
-                    <a href="blog-right.html">Technology</a>
-                    60
-											<ul className="children">
-                      <li className="cat-item">
-                        <a href="blog-right.html">Language
-													</a>
-                        15
-												</li>
-                      <li className="cat-item">
-                        <a href="blog-right.html">Science
-													</a>
-                        23
-												</li>
-                    </ul>
-                  </li>
-                  <li className="cat-item">
-                    <a href="blog-right.html">Health</a>
-                    <span>12</span>
-                  </li>
-                  <li className="cat-item">
-                    <a href="blog-right.html">Humanities</a>
-                    <span>45</span>
-                  </li>
-                  <li className="cat-item">
-                    <a href="blog-right.html">Business</a>
-                    <span>78</span>
-                  </li>
-                  <li className="cat-item">
-                    <a href="blog-right.html">Math</a>
-                    <span>55</span>
-                  </li>
-                  <li className="cat-item">
-                    <a href="blog-right.html">Marketing</a>
-                    <span>23</span>
-                  </li>
-
-                </ul>
+                <CourseSideBar courses={allCourses}/>
               </div>
 
             </div>

@@ -7,6 +7,7 @@ import Section5 from '../AboutUs/Section5/Section5';
 import Count from '../CountUp/';
 import Price from '../Courses/Pricing';
 import Advantages from '../Courses/Advantages';
+import Registration from '../Registration';
 
 const Home = props => {
   return (
@@ -20,8 +21,9 @@ const Home = props => {
       <Advantages />
 
       {/* <Price /> - do not touch! Dangerous for life */}
-      <Section5 />
+      {/*<Section5 />*/}
       <Contact />
+      {/*<Registration />*/}
     </main>
   );
 }
