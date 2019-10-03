@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
 	container: {
@@ -49,7 +50,6 @@ const SignIn = () => {
 					<div className="modal-header">
 						<h6 className="modal-title" id="formlogin">Sign In</h6>
 						<Link to="/signup" className="btn btn-maincolor btn-sign">Sign Up</Link>
-
 					</div>
 					<div className="modal-body">
 						<div className="form-title">
@@ -105,7 +105,16 @@ const SignIn = () => {
 									Keep me logged in
 							</label>
 							</div>
-							<button type="submit" className="btn btn-maincolor log-btn" style={{margin:'0 auto'}}>Log in</button>
+							{/* <button type="submit" className="btn btn-maincolor log-btn" style={{margin:'0 auto'}}>Log in</button> */}
+							<Button
+                                    variant="contained"
+                                    size="large"
+                                    id="buttonColor"
+									className="btn btn-maincolor log-btn"
+									style={{margin:'0 auto'}}
+                                >
+                                    Log in
+                                </Button>
 						</form>
 						<div className="modal-footer">
 							Dont have an Tutor account?<button type="button" className="btn-sign">Sign Up</button>
