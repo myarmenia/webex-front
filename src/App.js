@@ -17,6 +17,7 @@ import SignIn from './Components/Header/SignIn';
 import SignUp from './Components/Header/SignUp';
 import AboutUs from './Components/AboutUs'
 import Courses from './Components/Courses';
+import Payment from './Components/Payment';
 import SingleCourse from './Components/Courses/SingleCourses/index';
 
 
@@ -37,6 +38,7 @@ function App() {
               <Route path='/signin' component={SignIn} />
               <Route path="/aboutus" component={AboutUs} />
               <Route path="/courses" component={Courses} />
+              <Route path="/Payment" component={Payment} />
             </Switch>
           </CSSTransition>
         </TransitionGroup>

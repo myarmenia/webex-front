@@ -38,7 +38,8 @@ const useStyles = makeStyles(theme => ({
 		},
 	  },
 	  notchedOutline:{
-		  borderColor:'#888'
+		  borderColor:'#888',
+	         
 	  },
 	  cssFocused: {},
   }));
@@ -177,12 +178,12 @@ return(
 	  <TextField
 	  id="outlined-textarea-input"
               variant="outlined"
-			  rows="6"
+			  rows="3"
 			  onChange={e => onChange('message', e.target.value)}
 		// halfWidth
 		value={values.message}
             // fullWidth
-			  label="Input Set"
+			  label="Tex"
               placeholder="Placeholder"
 			  multiline
 			  style={{width: '94%'}}
