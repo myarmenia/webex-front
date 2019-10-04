@@ -1,10 +1,9 @@
 import React from 'react';
 
 
-const Pricing=()=>{
-    return(
-       <>
-         <section class="ls s-pt-55 s-pb-35 s-pt-lg-95 s-pb-lg-75">
+const Pricing = () => {
+	return (
+		<section class="ls s-pt-55 s-pb-35 s-pt-lg-95 s-pb-lg-75">
 				<div class="container">
 					<div class="divider-3"></div>
 					<div class="row">
@@ -21,8 +20,8 @@ const Pricing=()=>{
 									</h3>
 								</div>
 								<div class="price-wrap">
-                                    <span class="plan-sign fw-900" style={{fontSize:'15px'}}>AMD</span>
-									<span class="plan-price color-dark fw-900" style={{fontSize:'25px'}}>50.000</span>
+									<span class="plan-sign fw-900" style={{ fontSize: '15px' }}>AMD</span>
+									<span class="plan-price color-dark fw-900" style={{ fontSize: '25px' }}>50.000</span>
 									<span class="plan-decimals">/month</span>
 								</div>
 								<div class="plan-features">
@@ -34,7 +33,7 @@ const Pricing=()=>{
 										<li><i class="icon-m-list-alt color-dark"></i>React/Redux</li>
 									</ul>
 									<div class="plan-button text-center">
-										<a href="#" class="btn btn-maincolor">Get Started</a>
+										<a href="/signup" class="btn btn-maincolor">Get Started</a>
 									</div>
 								</div>
 							</div>
@@ -47,9 +46,9 @@ const Pricing=()=>{
 										Full Stack
 									</h3>
 								</div>
-								<div class="price-wrap">		
-                                    <span class="plan-sign fw-900" style={{fontSize:'15px'}}>AMD</span>
-									<span class="plan-price color-dark fw-900" style={{fontSize:'25px'}}>50.000</span>
+								<div class="price-wrap">
+									<span class="plan-sign fw-900" style={{ fontSize: '15px' }}>AMD</span>
+									<span class="plan-price color-dark fw-900" style={{ fontSize: '25px' }}>50.000</span>
 									<span class="plan-decimals">/month</span>
 								</div>
 								<div class="plan-features">
@@ -61,7 +60,7 @@ const Pricing=()=>{
 										<li><i class="icon-m-list-alt color-dark"></i>Laravel</li>
 									</ul>
 									<div class="plan-button text-center">
-										<a href="#" class="btn btn-maincolor">Get Started</a>
+										<a href="/singup" class="btn btn-maincolor">Get Started</a>
 									</div>
 								</div>
 							</div>
@@ -75,8 +74,8 @@ const Pricing=()=>{
 									</h3>
 								</div>
 								<div class="price-wrap">
-									<span class="plan-sign fw-900" style={{fontSize:'15px'}}>AMD</span>
-									<span class="plan-price color-dark fw-900" style={{fontSize:'25px'}}>50.000</span>
+									<span class="plan-sign fw-900" style={{ fontSize: '15px' }}>AMD</span>
+									<span class="plan-price color-dark fw-900" style={{ fontSize: '25px' }}>50.000</span>
 									<span class="plan-decimals">/month</span>
 								</div>
 								<div class="plan-features">
@@ -88,15 +87,14 @@ const Pricing=()=>{
 										<li><i class="icon-m-list-alt color-dark"></i>GitHUB</li>
 									</ul>
 									<div class="plan-button text-center">
-										<a href="#" class="btn btn-maincolor">Get Started</a>
+										<a href="/singup" class="btn btn-maincolor">Get Started</a>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</section>
-       </>
-    )
+		</section>
+	)
 }
 export default Pricing;

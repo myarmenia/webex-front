@@ -19,7 +19,7 @@ function Section4 () {
 						</div>
 						<div className="col-md-6">
 							<div className="item-content">
-								<h2>Our advantages</h2>
+								<h3>Comments About Us</h3>
 								<div className="d-none d-lg-block divider-38"></div>
 								<p className="mt-20" style={{justifyContent: "center"}}>
 									Our specialists have up to 15 years of experience. 
