@@ -13,7 +13,6 @@ return(
 							<div className="widget widget_text">
 								<a href="./" className="logo">
 									<img src={logo} alt="" />
-									<span className="logo-text color-darkgrey">utor</span>
 								</a>
 								<p >
 								Start learning programming with us and feel the individual and professional approach of our mentors. Also we developed a pattern of online courses where you can choose either packages or the unique lessons you want to study. By completing our stationary course, the best students will have the opportunity to work with our professional team or will be guided by partner companies to start a career.

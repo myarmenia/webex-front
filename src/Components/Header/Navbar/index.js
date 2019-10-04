@@ -12,7 +12,7 @@ const NavBar = props => {
           <div className="col-xl-2 col-lg-4 col-md-5 col-11">
             <Link to="/" className="logo">
               <img src={logo} alt="Webex" />
-              <span className="logo-text color-darkgrey">utor</span>
+
             </Link>
           </div>
           <div className="col-xl-6 col-lg-8 col-md-7 col-1">
@@ -27,7 +27,7 @@ const NavBar = props => {
                     <Link to='/aboutus'>About us</Link>
                   </li>
                   <li>
-                    <Link to='/'>News</Link>
+                    <Link to='/news'>News</Link>
                   </li>
                   <li>
                     <Link to='/courses'>Courses</Link>

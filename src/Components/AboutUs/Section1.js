@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
 
 function Section1 () {
     return (
@@ -7,37 +8,61 @@ function Section1 () {
             <div className="row align-items-center">
                 <div className="col-12 col-lg-5">
                     <div className="about-image">
-                        <img src={require('../../img/about_us/first.jpg')} alt="" />
+                        <img src={require('../../img/about_us/nikol.jpg')} alt="" />
                     </div>
                     <div className="divider-30 d-block d-lg-none"></div>
                 </div>
                 <div className="col-12 col-lg-7">
                     <div className="item-content">
-                        <h6 className="special-heading fw-300">Empower Yourself</h6>
-                        <h2>About us</h2>
+                        <h2 style={{marginTop: "46px"}}>About us</h2>
                         <div className="d-none d-lg-block divider-35"></div>
                         <div className="row c-gutter-25">
                             <div className="divider-15 d-block d-lg-none"></div>
                             <div className="col-md-10 mb-20">
-                                <p className="color-dark">Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae</p>
+                                <p className="color-dark">
+                                    Webex Technologies LLC started operating in Armenia in early 2007 and opened an office in Yerevan. Our modern and professional approach has already attracted many clients.
+                                    We teach: HTML5, CSS, Bootstrap, JavaScript / jQuery, ECMA Script, PHP / MySQL, PHP (OOP / MVC), AJAX, React.JS / REDUX, Laravel, NoteJS. At the end of the course you will receive a certificate certifying that you are a professional.
+                                </p>
                             </div>
                             <div className="col-md-6">
                                 <h6 className="fw-700">
                                     Online Course
                                 </h6>
                                 <p style={{marginBottom: "0px"}}>
-                                    Nonumy eirmod por invidunt labore dolore magna.
+                                    Online courses are available everywhere. 
+                                    The advantage of them is that 
+                                    you choose when to study.
                                 </p>
-                                <a href="#" className="btn btn-maincolor">Get Started</a>
+                                {/* <a href="#" className="btn btn-maincolor">Get Started</a> */}
+                                <a href="/signup">
+                                <Button
+                                    variant="contained"
+                                    size="large"
+                                    id="buttonColor"
+                                    className="mt-4"
+                                >
+                                    Get Started
+                                </Button>
+                                </a>
                             </div>
                             <div className="col-md-6">
                                 <h6 className="fw-700">
-                                    Office Course
+                                    Stationary Courses 
                                 </h6>
                                 <p style={{marginBottom: "0px"}}>
-                                    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+                                    Stationary courses are individual classes with professional mentors that will guide you during the study. 
                                 </p>
-                                <a href="#" className="btn btn-maincolor">Get Started</a>
+                                {/* <a href="#" className="btn btn-maincolor">Get Started</a> */}
+                                <a href="/signup">
+                                <Button
+                                    variant="contained"
+                                    size="large"
+                                    id="buttonColor"
+                                    className="mt-4"
+                                >
+                                    Get Started
+                                </Button>
+                                </a>
                             </div>
                         </div>
                         
