@@ -14,8 +14,9 @@ return(
 								<a href="./" className="logo">
 									<img src={logo} alt="" />
 								</a>
-								<p>
-									Isn't days fill, after him bring. Set likeness meat seed whose for itself you can't seas itself. Herb replenish he, dry he. Firmament their.
+								<p >
+								Start learning programming with us and feel the individual and professional approach of our mentors. Also we developed a pattern of online courses where you can choose either packages or the unique lessons you want to study. By completing our stationary course, the best students will have the opportunity to work with our professional team or will be guided by partner companies to start a career.
+
 								</p>
 							</div>
 							
@@ -25,64 +26,64 @@ return(
 								<h3 className="widget-title">Tag</h3>
 								<div className="tagcloud">
 									<a href="#" className="tag-cloud-link">
-										Language
+										HTML/HTML5
 									</a>
 									<a href="#" className="tag-cloud-link">
-										Science
+										css
 									</a>
 									<a href="#" className="tag-cloud-link">
-										Business
+										Boostrap
 									</a>
 									<a href="#" className="tag-cloud-link">
-										Marketing
+										JavaScript
 									</a>
 									<a href="#" className="tag-cloud-link">
-										Lifestyle
+										jQuery
 									</a>
 									<a href="#" className="tag-cloud-link">
-										Math
+										React
 									</a>
 									<a href="#" className="tag-cloud-link">
-										Language
+										Redux
 									</a>
 									<a href="#" className="tag-cloud-link">
-										Science
+										PHP
 									</a>
 									<a href="#" className="tag-cloud-link">
-										Business
+										Laravel
 									</a>
 									<a href="#" className="tag-cloud-link">
-										Marketing
+										MySQL
 									</a>
 									<a href="#" className="tag-cloud-link">
-										Lifestyle
+										OOP
 									</a>
 									<a href="#" className="tag-cloud-link">
-										Math
+										GitHub
 									</a>
 									<a href="#" className="tag-cloud-link">
-										Technology
+										ECMAScript
 									</a>
 									<a href="#" className="tag-cloud-link">
-										Humanities
+										Node js
 									</a>
 									<a href="#" className="tag-cloud-link">
-										Language
+										.htaccess
 									</a>
 									<a href="#" className="tag-cloud-link">
-										Science
+										Angular JS
 									</a>
 									<a href="#" className="tag-cloud-link">
-										Business
+										Server
 									</a>
 									<a href="#" className="tag-cloud-link">
-										Marketing
+										WordPress
 									</a>
 									<a href="#" className="tag-cloud-link">
-										Science
+										css3
 									</a>
 									<a href="#" className="tag-cloud-link">
-										Business
+										JavaScript
 									</a>
 								</div>
 							</div>
@@ -132,20 +133,31 @@ return(
 										<a href="viber://add?number=37496400073">Viber</a>
 									</p>
 								</div>
-							<div className="widget widget_social_button">
-							{/* <h3 className="widget-title">Follow us</h3> */}
-								<a className="facebook" href="https://www.facebook.com/webexarmenia/?fref=ts">
-									<i className="fa fa-facebook" title="facebook"></i>
-									TutorFacebook
-								</a>
-								<a className="linkedin" href="https://www.linkedin.com/in/webex-technologies-llc-465516182">
-									<i className="fa fa-linkedin" title="linkedin"></i>
-									TutorLinkedIn
-								</a>
-								<a className="instagram" href="#">
-									<i className="fa fa-instagram" title="instagram"></i>
-									TutorInstagram
-								</a>
+
+								<div className="media side-icon-box">
+									<div className="icon-styled fs-14">
+										<i className="fa fa-facebook" title="facebook" style={{'fontSize': '20px'}}></i>
+									</div>
+									<p className="media-body">
+									<a className="facebook" href="https://www.facebook.com/webexarmenia/?fref=ts">Facebook</a>
+									</p>
+								</div>
+								<div className="media side-icon-box">
+									<div className="icon-styled fs-14">
+									<i className="fa fa-linkedin" title="linkedin" style={{'fontSize': '20px'}}></i>
+									</div>
+									<p className="media-body">
+									<a className="facebook" href="https://www.facebook.com/webexarmenia/?fref=ts">LinkedIn</a>
+									</p>
+								</div>
+
+								<div className="media side-icon-box">
+									<div className="icon-styled fs-14">
+									<i className="fa fa-instagram" title="Instagramn" style={{'fontSize': '20px'}}></i>
+									</div>
+									<p className="media-body">
+									<a className="facebook" href="https://www.facebook.com/webexarmenia/?fref=ts">Instagram</a>
+									</p>
 								</div>
 								</div>
 						</div>

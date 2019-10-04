@@ -17130,7 +17130,7 @@ img.absolute_image {
 }
 
 .page_footer .widget .logo {
-	margin-bottom: 43px;
+	margin-bottom: 24px;
 }
 
 @media (max-width: 767px) {
@@ -18457,6 +18457,7 @@ flip course
 }
 
 #videoImage {
+
 	background-image: url("../img/about_us/2471307.jpg"); 
 }
 
