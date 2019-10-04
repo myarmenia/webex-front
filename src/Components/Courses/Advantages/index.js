@@ -1,34 +1,34 @@
 import React,{Component} from 'react';
 const advantage=[
     {
-        title:'Պրոֆեսիոնալ Դասավանդում',
+        title:'Professional Teaching',
         icon:'book',
-        text:'Դասերը անց են կացվում տարիների ընթացքում մշակված ծրագրով և մշտապես թարմացվում են, ներառելով իրենց մեջ նորամուծությունները և նոր լուծումները։'
+        text:'At the end of the course you will receive a certificate certifying that you are a professional, but it’s important to remember that knowledge in the field of information technology is important.'
     },
     {
-        title:'Բարձրակարգ մասնագետներ',
+        title:'Highly qualified specialists',
         icon:'users',
-        text:'Մեր մասնագետները մինչև 15 տարվա փորձ ունեն։ Նրանք համբերատար կբացատրեն ծրագրավորման նրբությունները և կապացուցեն Ձեզ, որ ծրագրավորման մեջ ոչ մի դժվար բան չկա։ '
+        text:'Our specialists have up to 15 years of experience. They will patiently explain the subtleties of programming and prove to you that there is nothing difficult in programming.'
     },
     {
-        title:'Անհատական դասավանդում',
+        title:'Individual teaching',
         icon:'laptop',
-        text:'Դասավանդման նյութը ավելի հասկանալի դարձնելու համար ամեն ուսանողին կցուցաբերվի անհատական մոտեցում։ Եվ հենց այդ պատճառով է, որ խմբերը կազմված են առավելագույնը 6 հոգուց:'
+        text:'To make the teaching material more comprehensive, each student will be given an individual approach. And that\'s why the groups are made up of a maximum of 6 people.'
     },
     {
-        title:' Օնլյան Վիդեոդասեր ',
+        title:'Online video games',
         icon:'microphone',
-        text:'Մենք փորձում ենք դարձնել դասերը հասանելի բոլորին, և այդ պատճառով էլ հնարավորություն ենք ստեղծել սովորել օնլայն, ինչևիցե, լավ արդյունք ստանալու համար անհրաժեշտ է սովորել ստացիոնար։'
+        text:'We try to make our lessons accessible to everyone, and so we have created the opportunity to study online, however, in order to get a good result you need to study stationary.'
     },
     {
-        title:'Սերտիֆիկատ',
+        title:'Certificate',
         icon:'certificate',
-        text:'Դասերի վերջում տրվում է սերտիֆիկատ, որը հավաստում է, որ Դուք որակավորված մասնագետ եք, սակայն պետք է հիշել, որ ինֆորմացիոն տեխնոլոգիաների ոլորտում կարևորը գիտելիքն է։'
+        text:'At the end of the course you will receive a certificate certifying that you are a qualified professional, but it’s important to remember that knowledge in the field of information technology is important.'
     },
     {
-        title:'Աշխատանքի տեղավորում ',
+        title:'Recruitment',
         icon:'thumbs-up',
-        text:'Webex-ը օժանդակում է ուսանողներին տեղավորվել աշխատանքի մեզ մոտ կամ գործընկեր կազմակերպություններում։ Ամեն դեպքում ամեն ինչ կախված է ձեզանից, քանի որ աշխատանքի ընդունվելուց առաջ ուսանողները պետք է անցնեն հարցազրույց։ '
+        text:'Webex helps students find jobs with us or with partner organizations. In any case, it all depends on you, because students need to be interviewed before hiring.'
     },
 
 ]
@@ -43,15 +43,12 @@ class Advantages extends Component{
                             <i style={{fontSize:'50px'}} class={`fa fa-${item.icon}`} aria-hidden="true"></i>
                         </div>
                         <h6 class="fw-700" style={{display:'block'}}>
-                            <a href="single-course.html">{item.title}</a>
+                            <a>{item.title}</a>
                         </h6>
                         <p>
                         {item.text}
                         </p>
                     </div>
-                    <span class="media-links">
-                        <a class="abs-link" title="" href="course-categories.html"></a>
-                    </span>
                 </div>
             )
         })
@@ -60,8 +57,11 @@ class Advantages extends Component{
 				<div class="container">
 					<div class="row">
                     <div class="col-12">
-							<h3 class="text-center">ՄԵՐ ԱՌԱՎԵԼՈՒԹՅՈՒՆՆԵՐԸ</h3>
-                            <h6 style={{marginTop:'20px',color:'#6c757d'}} class="special-heading fw-300 text-center">Webex-ի դասընթացները ունեն մի շարք առավելություններ,որոնք դարձնում են դասերը մաքսիմալ էֆեկտիվ և հասանելի ուսանողներին։</h6>
+							<h3 class="text-center">Our advantages</h3>
+                            <h6 style={{marginTop:'20px',color:'#6c757d'}} class="special-heading fw-300 text-center">
+                            Our specialists have up to 15 years of experience. They will patiently explain the subtleties of programming and prove to you that there is nothing difficult in programming.
+
+                            </h6>
 					</div>
 						<div class="divider-10 d-none d-lg-block"></div>
 						{advantages}

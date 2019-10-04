@@ -12,12 +12,12 @@ const Home = props => {
   return (
     <main>
       <Cubes />
+
       <About />
       {/* <News /> - do not touch! Dangerous for life */}
       <CoursesFilter />
       <Count />
       <Price />
-      <Advantages />
       {/* <Price /> - do not touch! Dangerous for life */}
       {/*<Section5 />*/}
       <Contact />
