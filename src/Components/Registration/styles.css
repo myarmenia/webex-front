@@ -6,6 +6,17 @@
     display: flex;
     justify-content: space-between;
 }
+.circle{
+    width:60px;
+    height:60px;
+    border:2px solid silver;
+    border-radius:100%;
+    text-align:center;
+    font-size: 40px;
+    position: absolute;
+    left:80%;
+    top:10px
+}
 .title{
     display: inline
 }
@@ -25,4 +36,10 @@
 .registration{
     width:200px;
     margin:0 auto
+}
+hr{
+    margin-top: 5px;
+}
+.flex_container-3>div{
+    margin-bottom: 5px
 }

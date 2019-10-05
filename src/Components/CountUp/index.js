@@ -13,14 +13,12 @@ const Count = () => {
 
   window.onscroll = () => {
     setScroll(window.scrollY)
-    console.log(scroll)
   }
 
  
  function detectTop(){
     let elem=document.getElementById("count")
     setTop(elem.offsetTop)
-    console.log(elem?elem.offsetTop:1000,"toooo" )
 }
   return (
     <div className='main' id="count">
