@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Link, Route } from 'react-router-dom';
 
 import logo from '../../../img/logo.png';
 
 const NavBar = props => {
+
+  const [toggle, setToggle] = useState(false);
+
   return (
     <header className="page_header ds justify-nav-center s-borderbottom container-px-20 affix-top">
       <div className="container">
@@ -46,7 +49,7 @@ const NavBar = props => {
             </div>
           </div>
         </div>
-        <span className="toggle_menu"><span></span></span>
+        <span className="toggle_menu" onClick={e => setToggle(toggle => !toggle)}><span></span></span>
       </div>
     </header>
   );
