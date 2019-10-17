@@ -17,31 +17,39 @@ import SignIn from './Components/Header/SignIn';
 import SignUp from './Components/Header/SignUp';
 import AboutUs from './Components/AboutUs'
 import Courses from './Components/Courses';
+import Payment from './Components/Payment';
 import SingleCourse from './Components/Courses/SingleCourses/index';
-
+import News from './Components/News'
 
 function App() {
   return (
     <div className="App">
       <Navbar />
       <Route render={({ location }) => (
-        <TransitionGroup>
-          <CSSTransition
-            key={location.key}
-            timeout={2000}
-            classNames='fade'
-          >
-            <Switch location={location}>
+          <Switch location={location}>
               <Route path='/' exact component={Main} />
               <Route path='/signup' component={SignUp} />
               <Route path='/signin' component={SignIn} />
               <Route path="/aboutus" component={AboutUs} />
               <Route path="/courses" component={Courses} />
-            </Switch>
-          </CSSTransition>
-        </TransitionGroup>
+             <Route path="/news" component={News} />
+          </Switch>
       )} />
-
+        {/*<TransitionGroup>*/}
+        {/*<CSSTransition*/}
+        {/*key={location.key}*/}
+        {/*timeout={2000}*/}
+        {/*classNames='fade'*/}
+        {/*>*/}
+        {/*<Switch location={location}>*/}
+        {/*<Route path='/' exact component={Main} />*/}
+        {/*<Route path='/signup' component={SignUp} />*/}
+        {/*<Route path='/signin' component={SignIn} />*/}
+        {/*<Route path="/aboutus" component={AboutUs} />*/}
+        {/*<Route path="/courses" component={Courses} />*/}
+        {/*</Switch>*/}
+        {/*</CSSTransition>*/}
+        {/*</TransitionGroup>*/}
 
       <Footer />
       <CopyRight />
