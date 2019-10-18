@@ -27,8 +27,8 @@ function Registration () {
     return (
         <section className="ls s-pt-60 s-pb-60 s-py-lg-100 c-gutter-50 about-section text-center text-lg-left container-px-lg-0">
         <div className="container">
+        <p className="circle" >2</p>
             <div className="row align-items-center">
-               
                 <div className="col-12 col-lg-7 registration">
                     <div className="item-content" >
                         <section className="flex_container-1">
@@ -47,6 +47,10 @@ function Registration () {
                                     <div>
                                         <h6 className="title">Email:</h6>
                                         <p>jhvchj@mail.ru</p><hr />
+                                    </div>
+                                    <div>
+                                        <h6 className="title">Point:</h6>
+                                        <p>20</p><hr />
                                     </div>
                                 </section>
                             </div>
