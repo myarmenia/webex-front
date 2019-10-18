@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
+import axios from 'axios';
+
 const useStyles = makeStyles(theme => ({
 	container: {
 		display: 'flex',
@@ -30,27 +32,35 @@ const SignIn = () => {
 	}
 
 	const getData = (event) => {
+		// event.preventDefault();
+		// let data = `email=${email}&password=${password}`;
+		// console.log(data, "uxarkel")
+		// fetch('https://web.webex.am/api/signin', {
+		// 	method: 'POST',
+		// 	// mode: 'no-cors',
+		// 	headers: new Headers({
+		// 		'Content-Type': 'application/json',
+		// 	}),
+		// 	body: data
+		// })
+		// 	.then((res) => {
+		// 		console.log(res, "res-signin")
+		// 		if (res.ok) {
+		// 			return res.json()
+		// 		}
+		// 	}).then((data) => {
+		// 		console.log(data, "data-signin")
+		// 	})
+		// 	.catch((e) => console.log(e, "error signin"))
+
 		event.preventDefault();
-		let data = `email=${email}&password=${password}`;
-		console.log(data, "uxarkel")
-		fetch('https://web.webex.am/api/signin', {
-			method: 'POST',
-			// mode: 'no-cors',
+		let data = { email, password };
+
+		axios.post('https://web.webex.am/api/signin', data, {
 			headers: new Headers({
 				'Content-Type': 'application/json',
-				'X-Requested-With': 'XMLHttpRequest'
-			}),
-			body: data
-		})
-			.then((res) => {
-				console.log(res, "res-signin")
-				if (res.ok) {
-					return res.json()
-				}
-			}).then((data) => {
-				console.log(data, "data-signin")
 			})
-			.catch((e) => console.log(e, "error signin"))
+		}).then(data => console.log(data));
 	}
 	return (
 		<div className="sigin-form text-center show" tabIndex="-1" role="dialog" aria-labelledby="formsign" style={{ paddingRight: "15px", display: "block" }}>
@@ -117,14 +127,15 @@ const SignIn = () => {
 							</div>
 							{/* <button type="submit" className="btn btn-maincolor log-btn" style={{margin:'0 auto'}}>Log in</button> */}
 							<Button
-                                    variant="contained"
-                                    size="large"
-                                    id="buttonColor"
-									className="btn btn-maincolor log-btn"
-									style={{margin:'0 auto'}}
-                                >
-                                    Log in
-                                </Button>
+								type="submit"
+								variant="contained"
+								size="large"
+								id="buttonColor"
+								className="btn btn-maincolor log-btn"
+								style={{ margin: '0 auto' }}
+							>
+								Log in
+            	</Button>
 
 						</form>
 						<div className="modal-footer">
