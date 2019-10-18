@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import CustomPaginationActionsTable from '../Payment';
+//import CustomPaginationActionsTable from '../Payment';
 import { tsImportEqualsDeclaration } from '@babel/types';
 import './p.css';
 
@@ -73,8 +73,8 @@ componentDidMount() {
   render() {
     const {course1,filter}=this.state
     console.log(filter,"yessssssss")
-   course1.length?console.log(course1[0],"yessssssss"):console.log(course1,"nooooooooooooo")
-   const a=course1.map((arjeq,ind) =>{
+   //course1.length?console.log(course1[0],"yessssssss"):console.log(course1,"nooooooooooooo")
+   const a=course1?course1.map((arjeq,ind) =>{
      return arjeq.packages.filter(e=>e.id===filter).map((ev,index)=>{
               
               return( 
@@ -114,7 +114,7 @@ componentDidMount() {
               
               )
   })
-})
+}):null
     // const a=course1.map((arjeq)=>{
 
     //   let r=arjeq.packages.filter(e=>e.id===filter);
