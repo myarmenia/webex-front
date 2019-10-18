@@ -16,7 +16,7 @@ componentDidMount() {
     .then(response => response.json())
     .then(data => { 
       console.log(data,"dataaaaaaa")
-      this.setState({ course1: data.courses }) }); 
+      this.setState({ course1: data}) }); 
    // console.log(this.state.course1,"stateeeeeeee")
 
 }
@@ -82,8 +82,8 @@ componentDidMount() {
     const {course1,filter}=this.state
     console.log(filter,"yessssssss")
     // console.log(course1.pa,"nor curs")
-   course1.length?console.log(course1[0],"yessssssss"):console.log(course1,"nooooooooooooo")
-   const a=course1.map((arjeq,ind) =>{
+  // course1.length?console.log(course1[0],"yessssssss"):console.log(course1,"nooooooooooooo")
+   const a=course1?course1.map((arjeq,ind) =>{
     // return arjeq.sum_duration.map((ar,ind)=>{
     //    return (<div key={ind}>{ar.totla}</div>)
      return arjeq.packages.filter(e=>e.id===filter).map((ev,index)=>{
@@ -122,7 +122,7 @@ componentDidMount() {
                                           </h6>
                                           <p>Lessons: {arjeq.lessons_count}</p>
                                       <p>Duretion: <span> {min < 10 ? "0"+ min : min }</span>
-                                      <span>:{sec < 10 ? "0" + sec : sec} minut</span>
+                                      <span>:{sec < 10 ? "0" + sec : sec} min.</span>
                                       </p>
                                       </div>
                                     </div>
@@ -147,7 +147,7 @@ componentDidMount() {
               
               )
   })
-})
+}):null
     // const a=course1.map((arjeq)=>{
 
     //   let r=arjeq.packages.filter(e=>e.id===filter);
