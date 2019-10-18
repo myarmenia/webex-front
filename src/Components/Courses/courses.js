@@ -147,7 +147,7 @@ componentDidMount() {
               
               )
   })
-}):null
+})
     // const a=course1.map((arjeq)=>{
 
     //   let r=arjeq.packages.filter(e=>e.id===filter);
