@@ -205,7 +205,7 @@ return(
             />
 		  <MessageDivs>{error.messagetext}</MessageDivs>
 				<div>
-					<button onClick={send} type="submit" id="contact_form_submit" name="contact_submit" class="btn btn-maincolor">Send Message
+					<button onClick={send} type="submit" id="contact_form_submit" name="contact_submit" className="btn btn-maincolor">Send Message
 										</button></div>
 										<MessageDivs>{error.messageall}</MessageDivs>
 				</div>

@@ -37,12 +37,12 @@ class Advantages extends Component{
     render(){
         const advantages=advantage.map((item,index)=>{
             return(
-                <div class="col-lg-4" data-animation="fadeInUp" key={index}>
-                    <div class="icon-box text-center">
-                        <div class="color-main icon-styled fs-77">
-                            <i style={{fontSize:'50px'}} class={`fa fa-${item.icon}`} aria-hidden="true"></i>
+                <div className="col-lg-4" data-animation="fadeInUp" key={index}>
+                    <div className="icon-box text-center">
+                        <div className="color-main icon-styled fs-77">
+                            <i style={{fontSize:'50px'}} className={`fa fa-${item.icon}`} aria-hidden="true"></i>
                         </div>
-                        <h6 class="fw-700" style={{display:'block'}}>
+                        <h6 className="fw-700" style={{display:'block'}}>
                             <a>{item.title}</a>
                         </h6>
                         <p>
@@ -53,17 +53,17 @@ class Advantages extends Component{
             )
         })
         return(
-            <section class="ls s-pt-60 s-pb-10 s-pt-lg-100 s-pb-lg-30 c-gutter-10 c-mb-20 category-section" id="categories">
-				<div class="container">
-					<div class="row">
-                    <div class="col-12">
-							<h3 class="text-center">Our advantages</h3>
-                            <h6 style={{marginTop:'20px',color:'#6c757d'}} class="special-heading fw-300 text-center">
+            <section className="ls s-pt-60 s-pb-10 s-pt-lg-100 s-pb-lg-30 c-gutter-10 c-mb-20 category-section" id="categories">
+				<div className="container">
+					<div className="row">
+                    <div className="col-12">
+							<h3 className="text-center">Our advantages</h3>
+                            <h6 style={{marginTop:'20px',color:'#6c757d'}} className="special-heading fw-300 text-center">
                             Our specialists have up to 15 years of experience. They will patiently explain the subtleties of programming and prove to you that there is nothing difficult in programming.
 
                             </h6>
 					</div>
-						<div class="divider-10 d-none d-lg-block"></div>
+						<div className="divider-10 d-none d-lg-block"></div>
 						{advantages}
 					</div>		           
                 </div>

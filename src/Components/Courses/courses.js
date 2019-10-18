@@ -17,7 +17,7 @@ componentDidMount() {
     .then(data => { 
       console.log(data,"dataaaaaaa")
       this.setState({ course1: data.courses }) }); 
-    console.log(this.state.course1,"stateeeeeeee")
+   // console.log(this.state.course1,"stateeeeeeee")
 }
   f3=(e)=>{
     const arr = document.querySelector('.course-filters');
@@ -165,17 +165,17 @@ componentDidMount() {
         <div className="container">
         <div className="row">
         <div className="col-lg-12">
-        <h6 class="special-heading fw-300 text-center">
+        <h6 className="special-heading fw-300 text-center">
         <Link to='/Payment'  style={{ padding: 10 }} >
                         click
                     </Link>
                     
         Empower Yourself</h6>
-    <h2 class="text-center">Popular courses</h2>
+    <h2 className="text-center">Popular courses</h2>
     <div className="row justify-content-center">
 		 						<div className="col-md-10 col-xl-7">
 		 							<div className="filters course-filters text-lg-right">
-		 								<a href="" data-filter="3" class="active selected" onClick={this.f3}>Full Stack</a>
+		 								<a href="" data-filter="3" className="active selected" onClick={this.f3}>Full Stack</a>
 		 								<a href="" data-filter="1" onClick={this.f3 }>Front End</a>
 		 							  <a href="" data-filter="2" onClick={this.f3}>Back End</a>
 		 							</div>

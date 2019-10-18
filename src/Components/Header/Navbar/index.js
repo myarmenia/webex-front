@@ -43,9 +43,9 @@ const NavBar = props => {
             </div>
           </div>
           <div className="col-4 d-none d-xl-block">
-            <div class="top-includes main-includes">
-              <Link class="sign-btn-form" to='/signup' ><i class="fw-900 s-16 fa fa-sign-in"></i>Sign Up</Link>
-              <Link class="login-btn-form login_modal_window" to='/signin'><i class="fs-16 fa fa-user"></i>Sign In</Link>
+            <div className="top-includes main-includes">
+              <Link className="sign-btn-form" to='/signup' ><i className="fw-900 s-16 fa fa-sign-in"></i>Sign Up</Link>
+              <Link className="login-btn-form login_modal_window" to='/signin'><i className="fs-16 fa fa-user"></i>Sign In</Link>
             </div>
           </div>
         </div>
