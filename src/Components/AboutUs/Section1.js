@@ -33,17 +33,7 @@ function Section1 () {
                                     The advantage of them is that 
                                     you choose when to study.
                                 </p>
-                                {/* <a href="#" className="btn btn-maincolor">Get Started</a> */}
-                                <a href="/signup">
-                                <Button
-                                    variant="contained"
-                                    size="large"
-                                    id="buttonColor"
-                                    className="mt-4"
-                                >
-                                    Get Started
-                                </Button>
-                                </a>
+                                <a href="/signup" className="btn btn-maincolor mt-4">Get Started</a>
                             </div>
                             <div className="col-md-6">
                                 <h6 className="fw-700">
@@ -52,17 +42,7 @@ function Section1 () {
                                 <p style={{marginBottom: "0px"}}>
                                     Stationary courses are individual classes with professional mentors that will guide you during the study. 
                                 </p>
-                                {/* <a href="#" className="btn btn-maincolor">Get Started</a> */}
-                                <a href="/signup">
-                                <Button
-                                    variant="contained"
-                                    size="large"
-                                    id="buttonColor"
-                                    className="mt-4"
-                                >
-                                    Get Started
-                                </Button>
-                                </a>
+                                <a href="/signup" className="btn btn-maincolor mt-4">Get Started</a>
                             </div>
                         </div>
                         

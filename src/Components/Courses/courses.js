@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import CustomPaginationActionsTable from '../Payment';
+//import CustomPaginationActionsTable from '../Payment';
 import { tsImportEqualsDeclaration } from '@babel/types';
 import './p.css';
 
@@ -16,8 +16,9 @@ componentDidMount() {
     .then(response => response.json())
     .then(data => { 
       console.log(data,"dataaaaaaa")
-      this.setState({ course1: data}) }); 
-    console.log(this.state.course1,"stateeeeeeee")
+      this.setState({ course1: data.courses }) }); 
+   // console.log(this.state.course1,"stateeeeeeee")
+
 }
   f3=(e)=>{
     const arr = document.querySelector('.course-filters');
@@ -85,7 +86,6 @@ componentDidMount() {
    const a=course1.map((arjeq,ind) =>{
     // return arjeq.sum_duration.map((ar,ind)=>{
     //    return (<div key={ind}>{ar.totla}</div>)
-   
      return arjeq.packages.filter(e=>e.id===filter).map((ev,index)=>{
       let p=arjeq.sum_duration
       arjeq.sum_duration.map((arj,ind) =>{
@@ -147,7 +147,7 @@ componentDidMount() {
               
               )
   })
-})
+}):null
     // const a=course1.map((arjeq)=>{
 
     //   let r=arjeq.packages.filter(e=>e.id===filter);
@@ -200,15 +200,16 @@ componentDidMount() {
         <div className="col-lg-12">
     <h2 class="text-center">Our courses</h2>
     <h6 class="special-heading fw-300 text-center" style={{'margin':'0 0 20px 0'}}>
+
         <Link to='/Payment'  style={{ padding: 10 }} >
                         click
-                    </Link>
-                    
+                    </Link>  
                     Here are the courses for learning programming</h6>
+    <h2 className="text-center">Popular courses</h2>
     <div className="row justify-content-center">
 		 						<div className="col-md-10 col-xl-7">
 		 							<div className="filters course-filters text-lg-right">
-		 								<a href="" data-filter="3" class="active selected" onClick={this.f3}>Full Stack</a>
+		 								<a href="" data-filter="3" className="active selected" onClick={this.f3}>Full Stack</a>
 		 								<a href="" data-filter="1" onClick={this.f3 }>Front End</a>
 		 							  <a href="" data-filter="2" onClick={this.f3}>Back End</a>
 		 							</div>
