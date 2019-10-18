@@ -18,16 +18,19 @@ const useStyles = makeStyles(theme => ({
 	  marginRight: theme.spacing(1),
 	},
 	menu: {
-	  width: 200
+	  width: 200,
+	  height: 20
 	},
 	  cssLabel: {
 		background: '#222a35',
+		height: 20,
 		color: '#fff',
 		'&$cssFocused':{
 			color: '#fff ',
 		},
 	  },
 	  cssOutlinedInput:{
+		//   height: 56,
 		  borderColor: '#fff',
 		  "&:hover $notchedOutline": {
 			borderColor: "#fff" 
@@ -157,6 +160,7 @@ return(
 		name="tel"
 		onChange={e => onChange('tel', e.target.value)}
 		// halfWidth
+		// style={{height: '40px'}}
 		value={values.tel}
 		margin="normal"
 		variant="outlined"
@@ -183,10 +187,10 @@ return(
 		// halfWidth
 		value={values.message}
             // fullWidth
-			  label="Tex"
+			  label="Text"
               placeholder="Placeholder"
 			  multiline
-			  style={{width: '94%'}}
+			  style={{width: '240px'}}
               className={classes.textField}
 			  margin="normal"
 			  InputLabelProps={{
@@ -205,7 +209,7 @@ return(
             />
 		  <MessageDivs>{error.messagetext}</MessageDivs>
 				<div>
-					<button onClick={send} type="submit" id="contact_form_submit" name="contact_submit" class="btn btn-maincolor">Send Message
+					<button onClick={send} type="submit" id="contact_form_submit" name="contact_submit" class="btn btn-maincolor" style={{'width':'240px'}}>Send Message
 										</button></div>
 										<MessageDivs>{error.messageall}</MessageDivs>
 				</div>
