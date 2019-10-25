@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import { Link, Route } from 'react-router-dom';
 
 import logo from '../../../img/logo.png';
+import auth from '../../../redux/auth';
+
+import { connect } from 'react-redux';
 
 const NavBar = props => {
 
@@ -44,8 +47,17 @@ const NavBar = props => {
           </div>
           <div className="col-4 d-none d-xl-block">
             <div className="top-includes main-includes">
-              <Link className="sign-btn-form" to='/signup' ><i className="fw-900 s-16 fa fa-sign-in"></i>Sign Up</Link>
-              <Link className="login-btn-form login_modal_window" to='/signin'><i className="fs-16 fa fa-user"></i>Sign In</Link>
+              {auth.isAuthenticated() ?
+                (
+                  <Link to='/profile' ><i className="fs-16 fa fa-user"></i> Profile</Link>
+                ):
+                (
+                  <>
+                    <Link className="sign-btn-form" to='/signup' ><i className="fw-900 s-16 fa fa-sign-in"></i>Sign Up</Link>
+                    <Link className="login-btn-form login_modal_window" to='/signin'><i className="fs-16 fa fa-user"></i>Sign In</Link>
+                  </>
+                )
+              }
             </div>
           </div>
         </div>
@@ -55,4 +67,8 @@ const NavBar = props => {
   );
 }
 
-export default NavBar;
+const mapStateToProps = state => ({
+  currentUser: state.currentUser
+});
+
+export default connect(mapStateToProps)(NavBar);

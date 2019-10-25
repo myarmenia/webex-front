@@ -3,8 +3,11 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
-import axios from 'axios';
+import { connect } from 'react-redux';
+
+import { SignIn } from '../../../redux/actions';
 
 const useStyles = makeStyles(theme => ({
 	container: {
@@ -18,7 +21,7 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-const SignIn = () => {
+const SignInForm = props => {
 	const classes = useStyles();
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
@@ -32,51 +35,25 @@ const SignIn = () => {
 	}
 
 	const getData = (event) => {
-		// event.preventDefault();
-		// let data = `email=${email}&password=${password}`;
-		// console.log(data, "uxarkel")
-		// fetch('https://web.webex.am/api/signin', {
-		// 	method: 'POST',
-		// 	// mode: 'no-cors',
-		// 	headers: new Headers({
-		// 		'Content-Type': 'application/json',
-		// 	}),
-		// 	body: data
-		// })
-		// 	.then((res) => {
-		// 		console.log(res, "res-signin")
-		// 		if (res.ok) {
-		// 			return res.json()
-		// 		}
-		// 	}).then((data) => {
-		// 		console.log(data, "data-signin")
-		// 	})
-		// 	.catch((e) => console.log(e, "error signin"))
 
 		event.preventDefault();
 		let data = { email, password };
-
-		axios.post('https://web.webex.am/api/signin', data, {
-			headers: new Headers({
-				'Content-Type': 'application/json',
-			})
-		}).then(data => console.log(data));
+		props.SignIn(data, () => props.history.push('/courses'));
 	}
 	return (
 		<div className="sigin-form text-center show" tabIndex="-1" role="dialog" aria-labelledby="formsign" style={{ paddingRight: "15px", display: "block" }}>
 			<div className="modal-dialog ls">
 				<div className="modal-content">
-
 					<div className="modal-header">
 						<h6 className="modal-title" id="formlogin">Sign In</h6>
 						<Link to="/signup" className="btn btn-maincolor btn-sign">Sign Up</Link>
 					</div>
 					<div className="modal-body">
 						<div className="form-title">
-							<h2 >Sign In</h2>
+							<h2 >Sign In {props.currentUser.error}</h2>
 							<p>Log in to save your progress and obtain a certificate in Alison’s free Diploma in Web</p>
 						</div>
-						<form className={classes.container} noValidate autoComplete="off" onSubmit={getData} >
+						<form className={classes.container} noValidate onSubmit={getData} >
 							<TextField
 								id="outlined-email-input"
 								label="Email"
@@ -103,7 +80,7 @@ const SignIn = () => {
 								onChange={writePassword}
 							/>
 
-							<div className="social-account">
+							{/* <div className="social-account">
 								<h6>
 									or
 							</h6>
@@ -118,14 +95,14 @@ const SignIn = () => {
 									<a href="#" className="fa fa-instagram " title="instagram"></a>
 									<a href="#" className="fa fa-youtube-play " title="youtube"></a>
 								</span>
-							</div>
+							</div> */}
 							<div className="form-check">
 								<input className="form-check-input" type="checkbox" id="remember" />
 								<label className="form-check-label" htmlFor="remember">
 									Keep me logged in
-							</label>
+								</label>
 							</div>
-							{/* <button type="submit" className="btn btn-maincolor log-btn" style={{margin:'0 auto'}}>Log in</button> */}
+							{props.currentUser.loading && <CircularProgress />}
 							<Button
 								type="submit"
 								variant="contained"
@@ -134,7 +111,7 @@ const SignIn = () => {
 								className="btn btn-maincolor log-btn"
 								style={{ margin: '0 auto' }}
 							>
-								Log in
+								Sign in
             	</Button>
 
 						</form>
@@ -149,4 +126,12 @@ const SignIn = () => {
 	)
 }
 
-export default SignIn
+const mapStateToProps = state => ({
+	currentUser: state.currentUser
+});
+
+const mapDispatchToProps = dispatch => ({
+	SignIn: (credentials, redirect) => dispatch(SignIn(credentials, redirect))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignInForm);
