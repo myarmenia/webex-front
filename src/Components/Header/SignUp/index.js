@@ -9,21 +9,28 @@ import SingleCourse from './singleCourse';
 function SignUp() {
 
 	const [next, setNext] = useState("one");
+	const [finalState, setFinalState] = useState({});
 
 	const nextFunc = (e) => {
 		setNext(e);
 	}
 
+	const set = (e) => {
+		setFinalState(old => {
+			return {...old, ...e}
+		});
+	} 
+
 	let p1 = "";
 
 	const change = () => {
 		if (next === "one") {
-			p1 = <SectionOne nextProps={nextFunc} />
+			p1 = <SectionOne nextProps={nextFunc} set={set} />
 			//p1 = <SingleCourse courseLang={next} />
 		} else if (next === "two") {
-			p1 = <SectionTwo nextProps={nextFunc} />
+			p1 = <SectionTwo nextProps={nextFunc} title={finalState} set={set} />
 		} else if (next === "three") {
-			p1 = <ThidStep nextProps={nextFunc} />
+			p1 = <ThidStep nextProps={nextFunc} finalStateThree={finalState} />
 		} else if (next === "four") {
 			p1 = <SectionFour />
 		} else if (next === "Front End") {
