@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-//import CustomPaginationActionsTable from '../Payment';
+// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+// import Payment1 from '../Payment';
+// import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+// import CustomPaginationActionsTable from '../Payment';
 import { tsImportEqualsDeclaration } from '@babel/types';
 import './p.css';
 
@@ -71,8 +74,11 @@ componentDidMount() {
     
     this.setState({filter: +data})
         }
-     
-  render() {
+     courseButton=(ele)=>{
+       ele.preventDefault();
+         console.log(ele.target.id)
+     }  
+render() {
     // a=()=>{
       // const b=course1.map((arje,ind) =>{
         
@@ -93,8 +99,8 @@ componentDidMount() {
       console.log(t)
     })   
     let l=arjeq.sum_duration[0].total
-    let min=l/60;
-    let sec=l%60;
+    let min=parseInt(l/60);
+    let sec=parseInt(l%60);
     if(min<10){
       let minut="0"+min
     }
@@ -133,10 +139,10 @@ componentDidMount() {
                                         {arjeq.name}
                                       </h6>
                                       <p>
-                                     {lessons[ind]?lessons[ind].description1:''}
+                                     {arjeq.description}
                                       </p>
                                       <div className="divider-32"></div>
-                                      <a href="#" className="btn btn-maincolor">Start now</a>
+                                      <a href="#" className="btn btn-maincolor" id={arjeq.id} onClick={this.courseButton}>Start now</a>
                                     </div>
                                   </div>
                                 </div>
@@ -193,19 +199,21 @@ componentDidMount() {
   //   });
 
    return (
-    //  <Router>
+    // <Router>
     <section className="ls s-pt-55 s-pb-30 s-pt-lg-95 s-pb-lg-70" id="courses">
         <div className="container">
         <div className="row">
         <div className="col-lg-12">
-    <h2 class="text-center">Our courses</h2>
-    <h6 class="special-heading fw-300 text-center" style={{'margin':'0 0 20px 0'}}>
+    <h2 className="text-center">Our courses</h2>
+    <h6 className="special-heading fw-300 text-center" style={{'margin':'0 0 20px 0'}}>
 
-        <Link to='/Payment'  style={{ padding: 10 }} >
+         <Link to='../payment'  style={{ padding: 10 }} >
                         click
                     </Link>  
+      {/* <Route path='../Payment' component={Payment} /> */} 
                     Here are the courses for learning programming</h6>
-    <h2 className="text-center">Popular courses</h2>
+ {/* <div style={{width:'100%', height:'400px', background:'lightblue'}}><Payment /></div>  */}
+{/* <div><Payment1 /></div> */}
     <div className="row justify-content-center">
 		 						<div className="col-md-10 col-xl-7">
 		 							<div className="filters course-filters text-lg-right">
@@ -218,12 +226,13 @@ componentDidMount() {
         <div className="row isotope-wrapper c-mb-30" data-filters=".course-filters" id="course" style={{'text-align':'center'}}>
          {/* {zangvats} */}
          {a}
+         
       </div>
       </div>
       </div> 
       </div>
       </section>
-      // </Router>
+      // {/* </Router> */}
     );
   }
     }
