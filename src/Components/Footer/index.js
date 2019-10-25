@@ -119,7 +119,7 @@ return(
 								</div>
 								<div className="media side-icon-box">
 									<div className="icon-styled fs-14">
-										<i class="fa fa-whatsapp" style={{'fontSize': '20px'}}></i>
+										<i className="fa fa-whatsapp" style={{'fontSize': '20px'}}></i>
 									</div>
 									<p className="media-body">
 										<a href="whatsapp://send?phone=+37496400073">Whatsapp</a>
@@ -127,7 +127,7 @@ return(
 								</div>
 								<div className="media side-icon-box">
 									<div className="icon-styled fs-14">
-										<i class="fab fa-viber" style={{'fontSize': '20px'}}></i>
+										<i className="fab fa-viber" style={{'fontSize': '20px'}}></i>
 									</div>
 									<p className="media-body">
 										<a href="viber://add?number=37496400073">Viber</a>

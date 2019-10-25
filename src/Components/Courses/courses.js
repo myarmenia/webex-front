@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+//import CustomPaginationActionsTable from '../Payment';
+import { tsImportEqualsDeclaration } from '@babel/types';
 import './p.css';
 
 let lessons = require('../../language.json');
 class Courses extends Component {
+
   state = {
     clas: '',
     filter: 3,
@@ -24,6 +27,7 @@ class Courses extends Component {
     const arr = document.querySelector('.course-filters');
     const arr1 = document.querySelector('#course');
     for (let j = 0; j < arr1.children.length; j++) {
+
 
       if (j % 2 == 0 && j > 4) {
         arr1.children[j].style.transform = 'scale(0)'
@@ -60,13 +64,14 @@ class Courses extends Component {
           p.style.top = "0px"
           p.style.transform = 'scale(1)'
         }, 300);
-      }
+      }      
     }
     e.preventDefault();
     for (let i = 0; i < arr.children.length; i++) {
       arr.children[i].classList.remove('active');
     }
     e.target.classList.add('active');
+
     const data = e.target.getAttribute('data-filter')
 
     this.setState({ filter: +data })
@@ -77,6 +82,7 @@ class Courses extends Component {
     // course1.length ? console.log(course1[0], "yessssssss") : console.log(course1, "nooooooooooooo")
     // const a = course1.map((arjeq, ind) => {
     //   return arjeq.packages.filter(e => e.id === filter).map((ev, index) => {
+
 
     //     return (
     //       <div key={index} className={`col col-12 col-md-6 col-lg-3 ${this.state.filter}`}>
@@ -109,10 +115,6 @@ class Courses extends Component {
     //           </div>
     //         </div>
     //       </div>
-
-
-
-
     //     )
     //   })
     // })
@@ -144,6 +146,7 @@ class Courses extends Component {
             </div>
           </div>
         </div>
+
       </section>
     );
   }
