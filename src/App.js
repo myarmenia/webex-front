@@ -17,7 +17,7 @@ import SignIn from './Components/Header/SignIn';
 import SignUp from './Components/Header/SignUp';
 import AboutUs from './Components/AboutUs'
 import Courses from './Components/Courses';
-//import Payment from './Components/Payment';
+import Payment1 from './Components/Payment';
 import SingleCourse from './Components/Courses/SingleCourses/index';
 import News from './Components/News'
 
@@ -33,6 +33,7 @@ function App() {
               <Route path="/aboutus" component={AboutUs} />
               <Route path="/courses" component={Courses} />
              <Route path="/news" component={News} />
+             <Route path='/payment' component={Payment1} />
           </Switch>
       )} />
         {/*<TransitionGroup>*/}

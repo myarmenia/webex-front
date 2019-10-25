@@ -13,7 +13,7 @@ const Count = () => {
 
   window.onscroll = () => {
     setScroll(window.scrollY)
-    console.log(scroll)
+   // console.log(scroll)
   }
 
  
