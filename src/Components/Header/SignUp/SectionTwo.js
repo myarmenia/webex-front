@@ -29,13 +29,14 @@ function SectionTwo(props) {
 
     const goFunc = () => {
         onlineState ? props.nextProps("three") : props.nextProps("four");
+        props.set({online: onlineState});
     }
 
     return (
         <div className="row justify-content-center">
 
             <div className="form-title">
-                <h2>Sign up</h2>
+                <h2>Sign up {props.title.name}</h2>
             </div>
 
             Dear student, choose the type of learning:
