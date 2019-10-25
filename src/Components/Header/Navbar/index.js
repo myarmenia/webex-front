@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import logo from '../../../img/logo.png';
 
-const NavBar = props => {
+const NavBar = () => {
   return (
     <header className="page_header ds justify-nav-center s-borderbottom container-px-20 affix-top">
       <div className="container">
@@ -12,7 +12,6 @@ const NavBar = props => {
           <div className="col-xl-2 col-lg-4 col-md-5 col-11">
             <Link to="/" className="logo">
               <img src={logo} alt="Webex" />
-
             </Link>
           </div>
           <div className="col-xl-6 col-lg-8 col-md-7 col-1">
@@ -24,7 +23,7 @@ const NavBar = props => {
                     <Link to="/">Home</Link>
                   </li>
                   <li>
-                    <Link to='/#aboutUs'>About us</Link>
+                    <Link to='/aboutUs'>About us</Link>
                   </li>
                   <li>
                     <Link to='/news'>News</Link>
