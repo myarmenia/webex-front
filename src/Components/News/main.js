@@ -33,7 +33,7 @@ function Main() {
                                             <span className="posted-on">
                                                 <a className="grey-link" href="#">
                                                     <i className="color-main icon-m-calendar-alt"></i>
-                                                    <time className="entry-date published updated" datetime="2018-01-03T10:11:37+00:00">
+                                                    <time className="entry-date published updated" dateTime="2018-01-03T10:11:37+00:00">
                                                         {item.date}
                                                     </time>
                                                 </a>

@@ -118,7 +118,7 @@ function SectionOne(props) {
                     'Accept': 'application/json, text/plain, */*',
                     'Content-Type': 'application/json'
                 },
-                body: email
+                body: JSON.stringify({email})
             }).then(res=>res.json())
             .then(res => setSuccessStatus(res.success));
         }
@@ -150,7 +150,9 @@ function SectionOne(props) {
         } else if (password.length < 8) {
             setPasswordValidation("Password must be 8 characters");
         } else {
+            let objNames = {name, lastName, email, phone, password};
             props.nextProps("two");
+            props.set(objNames);
         }
     
     }
