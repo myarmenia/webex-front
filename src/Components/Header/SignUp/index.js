@@ -20,7 +20,7 @@ function SignUp() {
 			return {...old, ...e}
 		});
 	} 
-
+	console.log(finalState,"finalState");
 	let p1 = "";
 
 	const change = () => {
@@ -33,12 +33,14 @@ function SignUp() {
 			p1 = <ThidStep nextProps={nextFunc} finalStateThree={finalState} />
 		} else if (next === "four") {
 			p1 = <SectionFour />
-		} else if (next === "Front End") {
-			p1 = <SingleCourse courseLang={next} />
-		} else if (next === "Full Stack") {
-			p1 = <SingleCourse courseLang={next} />
 		} else if (next === "Back End") {
-			p1 = <SingleCourse courseLang={next} />
+			p1 = <SingleCourse courseLang={next} set={set}/>
+		} else if (next === "Front End") {
+			p1 = <SingleCourse courseLang={next} set={set} />
+		} else if (next === "Full Stack") {
+			p1 = <SingleCourse courseLang={next} set={set} />
+		} else if (next === "Back End") {
+			p1 = <SingleCourse courseLang={next}  set={set} />
 		}
 	}
 

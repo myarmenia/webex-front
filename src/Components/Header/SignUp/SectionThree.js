@@ -17,8 +17,6 @@ function ThirdStep(props) {
         props.nextProps(e.target.textContent);
     }
 
-    console.log(props.finalStateThree);
-
     return (
         <div className="row justify-content-center">
 

@@ -11,7 +11,7 @@ const CourseSideBar = props => {
 
     const openCourse = (event) => {
         event.preventDefault();
-       
+        
         if (event.target.parentElement.nextElementSibling.style.display == "none") {
             event.target.parentElement.nextElementSibling.style.display = "block";
         } else {
@@ -20,12 +20,8 @@ const CourseSideBar = props => {
     }
 
     const f1 = () => {
-        // return (
-        //     <Video video="sd" />
-        // )
         alert("A");
     }
-    
 
     return (
         <ul>
@@ -34,8 +30,8 @@ const CourseSideBar = props => {
                 courses ? courses.map((item, index) => {
                     return (
                         <>
-                            <li className="cat-item" onClick={openCourse} key={index}>
-                                <a href="#">{item.name}</a>                                                                                                                                                                                  "
+                            {/* <li className="cat-item" onClick={openCourse} key={index}>
+                                <a href="#">{item.name}<a>                                                                                                                                                                                  "
                                 <span>{item.lessons_count}</span>     
                                 <p></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
                             </li>
@@ -43,7 +39,7 @@ const CourseSideBar = props => {
                                 {item.lessons.map((data) => {
                                     return <p onClick={f1} id={data.video}>{data.description}</p>
                                 })}
-                            </div>
+                            </div> */}
                         </>
                     )
                 }) : <li className="cat-item">
