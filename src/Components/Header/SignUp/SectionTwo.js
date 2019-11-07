@@ -36,7 +36,7 @@ function SectionTwo(props) {
         <div className="row justify-content-center">
 
             <div className="form-title">
-                <h2>Sign up {props.title.name}</h2>
+                <h2>Hello {props.title.name}</h2>
             </div>
 
             Dear student, choose the type of learning:
