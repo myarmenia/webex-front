@@ -22,10 +22,10 @@ import IconButton from '@material-ui/core/IconButton';
 // import Switch from '@material-ui/core/Switch';
 // import DeleteIcon from '@material-ui/icons/Delete';
 // import FilterListIcon from '@material-ui/icons/FilterList';
-// import FirstPageIcon from '@material-ui/icons/FirstPage';
-// import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
-// import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-// import LastPageIcon from '@material-ui/icons/LastPage';
+import FirstPageIcon from '@material-ui/icons/FirstPage';
+import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
+import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
+import LastPageIcon from '@material-ui/icons/LastPage';
 import TableFooter from '@material-ui/core/TableFooter';
 
 
@@ -68,24 +68,24 @@ function TablePaginationActions2(props2) {
         disabled={page2 === 0}
         aria-label="first page"
       >
-        {/* {theme.direction === 'rtl' ? <LastPageIcon /> : <FirstPageIcon />} */}
+        {theme.direction === 'rtl' ? <LastPageIcon /> : <FirstPageIcon />}
       </IconButton>
       <IconButton onClick={handleBackButtonClick2} disabled={page2 === 0} aria-label="previous page">
-        {/* {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />} */}
+        {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
       </IconButton>
       <IconButton
         onClick={handleNextButtonClick2}
         disabled={page2 >= Math.ceil(count2 / rowsPerPage2) - 1}
         aria-label="next page"
       >
-        {/* {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />} */}
+        {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
       </IconButton>
       <IconButton
         onClick={handleLastPageButtonClick2}
         disabled={page2 >= Math.ceil(count2 / rowsPerPage2) - 1}
         aria-label="last page"
       >
-        {/* {theme.direction === 'rtl' ? <FirstPageIcon /> : <LastPageIcon />} */}
+        {theme.direction === 'rtl' ? <FirstPageIcon /> : <LastPageIcon />}
       </IconButton>
     </div>
   );
@@ -134,23 +134,35 @@ const useStyles2 = makeStyles(theme => ({
 // __________verj verevi table___________________________________
 
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(name, duration, price, lsscount) {
+  return { name, duration, price, lsscount };
   
 }
+
+// const rows = [
+//   createData("name", 305, 3.7, 67, 4.3),
+//   createData('Donut', 452, 25.0, 51, 4.9),
+//   createData('Eclair', 262, 16.0, 24, 6.0),
+//   createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+//   createData('Gingerbread', 356, 16.0, 49, 3.9),
+
+// ];
+// const comp=(props)=>{
+// console.log(props.course,'aaaa')
+// }
+
 const rows = [
-  createData("name", 305, 3.7, 67, 4.3),
-  createData('Donut', 452, 25.0, 51, 4.9),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
+  // createData("name", 305, 3.7, 67, 4.3),
+  // createData('Donut', 452, 25.0, 51, 4.9),
+  // createData('Eclair', 262, 16.0, 24, 6.0),
+  // createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+  // createData('Gingerbread', 356, 16.0, 49, 3.9),
 
 ];
-
+// const corprop={courprop}
+// console.log(corprop+"zzzzzzzzzzaaaangvats")
 function desc(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
-    
-
     return -1;
   }
   if (b[orderBy] > a[orderBy]) {
@@ -175,18 +187,18 @@ function getSorting(order, orderBy) {
 
 const headCells = [
   { id: 'name', numeric: false, disablePadding: true, label: 'Language' },
-  { id: 'calories', numeric: true, disablePadding: false, label: 'Duretion' },
-  { id: 'fat', numeric: true, disablePadding: false, label: 'Price' },
+  { id: 'duration', numeric: true, disablePadding: false, label: 'Duration' },
+  { id: 'price', numeric: true, disablePadding: false, label: 'Price' },
 
-  { id: 'protein', numeric: true, disablePadding: false, label: 'Protein (g)' },
+  { id: 'lsscount', numeric: true, disablePadding: false, label: 'Lessons count' },
 ];
 
 function EnhancedTableHead(props) {
-  const { classes, onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } = props;
+  const { classes, onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort, courprop } = props;
   const createSortHandler = property => event => {
     onRequestSort(event, property);
   };
-
+  console.log(courprop, "courprop");
   return (
     <TableHead>
       <TableRow>
@@ -270,7 +282,7 @@ const EnhancedTableToolbar = props => {
         </Typography>
       ) : (
         <Typography className={classes.title} variant="h6" id="tableTitle">
-          Nutrition
+          Training
         </Typography>
       )}
 
@@ -334,34 +346,31 @@ export default function Payment1() {
   const classes = useStyles();
   const [course, setCourse] = React.useState([]);  
   const [order, setOrder] = React.useState('asc');
-  const [orderBy, setOrderBy] = React.useState('calories');
+  const [orderBy, setOrderBy] = React.useState('duration');
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
-  const [languageid, setLanguageid] = React.useState('');
+  const [languageid, setLanguageid] = React.useState(3);
 //   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-  // useEffect(()=>{ 
-    const selectLanguage=(event)=>{
+    useEffect(()=>{
   fetch('http://web.webex.am/api/courses')
       .then(response => response.json())
       .then(data1 => { 
         console.log(data1,"dataaaaaaa")
-        setCourse({ course: data1}) }); 
-        console.log(course,"stateeeeeeee")
+         setCourse(data1) 
+         console.log(course)
 
-        event.preventDefault();
-        // for(let i = 0; i<arr.children.length; i++){
-        // }
+      }); 
+    },[])
+    const selectLanguage=(event)=>{
+         event.preventDefault();
+        
         const btnId=event.target.getAttribute('id')
         console.log(btnId)
         setLanguageid(btnId)
-        console.log(languageid)
-        
-    }
-    // selectLanguage()
-      // })
 
+    }
 
   const handleRequestSort = (event, property) => {
     const isDesc = orderBy === property && order === 'desc';
@@ -411,6 +420,7 @@ export default function Payment1() {
 //     setDense(event.target.checked);
 //   };
 
+console.log(course,"bodyyyyyyyyyyyyyyyy")
   const isSelected = name => selected.indexOf(name) !== -1;
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
@@ -482,7 +492,7 @@ export default function Payment1() {
                         <div className="item-media rounded-top">
                         </div>
                         <div className="item-content">
-                          <h6 className="course-title">
+                          <h6 className="course-title"  comp={course}>
                             Front End
                              </h6>
                         <a href="#" className="btn btn-maincolor" id="1" onClick={selectLanguage}>Start now</a>
@@ -500,7 +510,7 @@ export default function Payment1() {
                           <h6 className="course-title">
                             Full Stack
                              </h6>
-                        <a href="#" className="btn btn-maincolor" id="3" onClick={selectLanguage}>Start now</a>
+                        <a href="#" className="btn btn-maincolor" id="3"  onClick={selectLanguage}>Start now</a>
                         </div>
                       </div>
                     </div>
@@ -548,12 +558,22 @@ export default function Payment1() {
               orderBy={orderBy}
               onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
-              rowCount={rows.length}
+              rowCount={course.length}
+             // rowCount={rows.length}
+
+              courprop={course}
             />
             <TableBody>
-              {stableSort(rows, getSorting(order, orderBy))
+              {stableSort(course?course:[], getSorting(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
+                    return row.packages.filter(event=>event.id==languageid).map((ev,index)=>{
+                      
+                      console.log(row,"row")
+                      let price=ev.price
+                      let t=row.sum_duration[0].total
+                      let min=parseInt(t/60);
+                        let sec=parseInt(t%60);
                   const isItemSelected = isSelected(row.name);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
@@ -576,13 +596,16 @@ export default function Payment1() {
                       <TableCell component="th" id={labelId} scope="row" padding="none">
                         {row.name}
                       </TableCell>
-                      <TableCell align="right">{row.calories}</TableCell>
-                      <TableCell align="right">{row.fat}</TableCell>
-                      <TableCell align="right">{row.carbs}</TableCell>
-                      <TableCell align="right">{row.protein}</TableCell>
+                      {/* <TableCell align="right">{row.name}</TableCell> */}
+                      <TableCell align="right"><span> {min < 10 ? "0"+ min : min }</span>
+                                      <span>:{sec < 10 ? "0" + sec : sec} min.</span></TableCell>
+                      <TableCell align="right">{price}</TableCell>
+                      <TableCell align="right">{row.lessons_count}</TableCell>
                     </TableRow>
                   );
-                })}
+                })
+              })
+              }
               {/* {emptyRows > 0 && (
                 <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
                   <TableCell colSpan={6} />
