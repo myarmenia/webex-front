@@ -3,6 +3,9 @@ import React, {Component} from 'react';
 // import Payment1 from '../Payment';
 // import { Route, Link } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+// import LessDuration from "./LessDuration";
+import lessDuration from '../duration.js';
+
 // import CustomPaginationActionsTable from '../Payment';
 
 import { tsImportEqualsDeclaration } from '@babel/types';
@@ -22,7 +25,7 @@ class Courses extends Component {
       .then(response => response.json())
       .then(data => {
         console.log(data, "dataaaaaaa")
-        this.setState({ course1: data.courses })
+        this.setState({ course1: data })
       });
     console.log(this.state.course1, "stateeeeeeee")
   }
@@ -83,12 +86,7 @@ class Courses extends Component {
          console.log(ele.target.id)
      }  
 render() {
-    // a=()=>{
-      // const b=course1.map((arje,ind) =>{
-        
-      // })
-    // }
-  
+   
     const {course1,filter}=this.state
     console.log(filter,"yessssssss")
     // console.log(course1.pa,"nor curs")
@@ -105,19 +103,6 @@ render() {
     let l=arjeq.sum_duration[0].total
     let min=parseInt(l/60);
     let sec=parseInt(l%60);
-    if(min<10){
-      let minut="0"+min
-    }
-    else{
-      let minut=min
-    }
-    if(sec<10){
-      let secund="0"+sec
-    }
-    else{
-      let secund=sec
-    }
-    console.log(l/60)
               return( 
                 <div key={index} className={`col col-12 col-md-6 col-lg-3 ${this.state.filter}`}>
                     
@@ -131,8 +116,9 @@ render() {
                                           {arjeq.name} 
                                           </h6>
                                           <p>Lessons: {arjeq.lessons_count}</p>
-                                      <p>Duretion: <span> {min < 10 ? "0"+ min : min }</span>
-                                      <span>:{sec < 10 ? "0" + sec : sec} min.</span>
+                                      <p>Duration: {lessDuration(l)}
+                                        {/* <span> {min < 10 ? "0"+ min : min }</span>
+                                      <span>:{sec < 10 ? "0" + sec : sec} min.</span> */}
                                       </p>
                                       </div>
                                     </div>
@@ -158,76 +144,6 @@ render() {
               )
   })
 }):null
-    // const a=course1.map((arjeq)=>{
-    //     return (
-    //       <div key={index} className={`col col-12 col-md-6 col-lg-3 ${this.state.filter}`}>
-
-    //         <div className="course-flip h-100 ">
-    //           <div className="course-front rounded bordered">
-    //             <div className=" vertical-item content-padding">
-    //               <div className="item-media rounded-top">
-    //               </div>
-    //               <div className="item-content">
-    //                 <h6 className="course-title">
-    //                   {arjeq.name}
-    //                 </h6>
-    //                 <p>Lessons: {arjeq.lessons_count}</p>
-    //                 <p>Duretion: 28:58</p>
-    //               </div>
-    //             </div>
-    //           </div>
-    //           <div className="course-back rounded vertical-item content-padding ds">
-    //             <div className="">
-    //               <h6 className="course-title" style={{ "paddingTop": "14px" }}>
-    //                 {arjeq.name}
-    //               </h6>
-    //               <p>
-    //                 {lessons[ind] ? lessons[ind].description1 : ''}
-    //               </p>
-    //               <div className="divider-32"></div>
-    //               <a href="#" className="btn btn-maincolor">Start now</a>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     )
-    //   })
-    // })  
-
-  //   const zangvats=this.state.course1.filter(e=>this.state.filter === "a" ? true : e.class===this.state.filter).map((arjeq,index) =>{
-  //     return (
-  //  <div key={index} className={`col col-12 col-md-6 col-lg-3 ${this.state.filter}`}>
-      
-  //                 <div className="course-flip h-100 ">
-  //                   <div className="course-front rounded bordered">
-  //                     <div className=" vertical-item content-padding">
-  //                       <div className="item-media rounded-top">
-  //                       </div>
-  //                       <div className="item-content">
-  //                         <h6 className="course-title">
-  //                            {arjeq.name} 
-  //                            </h6>
-  //                           <p>Lessons: {arjeq.lessons}</p>
-  //                       <p>Duretion: {arjeq.duretion}</p>
-  //                       </div>
-  //                     </div>
-  //                   </div>
-  //                   <div className="course-back rounded vertical-item content-padding ds">
-  //                     <div className="">
-  //                       <h6 className="course-title" style={{"paddingTop": "14px"}}>
-  //                         {arjeq.name}
-  //                       </h6>
-  //                       <p>
-  //                        {arjeq.description1}
-  //                       </p>
-  //                       <div className="divider-32"></div>
-  //                       <a href="#" className="btn btn-maincolor">Start now</a>
-  //                     </div>
-  //                   </div>
-  //                 </div>
-  // </div>
-  //     )
-  //   });
 
    return (
     // <Router>
@@ -236,8 +152,9 @@ render() {
         <div className="row">
         <div className="col-lg-12">
     <h2 className="text-center">Our courses</h2>
-    <h6 className="special-heading fw-300 text-center" style={{'margin':'0 0 20px 0'}}>
+{/* <LessDuration argminutes='120' /> */}
 
+    <h6 className="special-heading fw-300 text-center" style={{'margin':'0 0 20px 0'}}>
          <Link to='../payment'  style={{ padding: 10 }} >
                         click
                     </Link>  
