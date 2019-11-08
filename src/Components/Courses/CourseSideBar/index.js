@@ -1,53 +1,78 @@
 import React, { useState, useEffect } from 'react';
-import Video from '../Main/video';
+import axios from 'axios';
+import '../courses.css';
 
-const CourseSideBar = props => {
+
+const Course = props => {
 
     const [courses, setCourses] = useState();
+    const [active, setActive] = useState('');
+    const [lessons, setLessons] = useState([]);
 
     useEffect(() => {
         setCourses(props.courses)
-    }, [courses, props]);
+    }, [courses, props, active, lessons]);
 
-    const openCourse = (event) => {
+    const openCourse = (event, index, id) => {
         event.preventDefault();
-        
-        if (event.target.parentElement.nextElementSibling.style.display == "none") {
-            event.target.parentElement.nextElementSibling.style.display = "block";
-        } else {
-            event.target.parentElement.nextElementSibling.style.display = "none";
-        }
+        const li = event.target.parentElement;
+        const elem = document.getElementsByClassName('cat-item');
+        axios.get(`http://web.webex.am/api/courses/1/${id}`)
+            .then((res) => {
+                if (res) return res.data;
+            }).then((data) => {
+           if (li.nextElementSibling.style.display === "none") {
+                li.nextElementSibling.style.display = "block";
+                for (let i=0; i< elem.length; i++){
+                    if(i !== index){
+                        elem[i].nextElementSibling.style.display = "none";
+                    }
+                }
+            }
+            // else {
+            //     li.nextElementSibling.style.display = "none";
+            // }
+            setLessons(data)
+        }).catch((error) => {
+            console.log(error, "getCourses")
+        })
+        setActive('')
     }
 
-    const f1 = () => {
-        alert("A");
+    const setVideoLink = (e, index) => {
+        setActive(index);
+        props.openVideo(e);
     }
 
     return (
         <ul>
-            
             {
                 courses ? courses.map((item, index) => {
                     return (
-                        <>
-                            {/* <li className="cat-item" onClick={openCourse} key={index}>
-                                <a href="#">{item.name}<a>                                                                                                                                                                                  "
-                                <span>{item.lessons_count}</span>     
-                                <p></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                        <div>
+                          <li className="cat-item"  onClick={(e)=>openCourse(e,index, item.id)} key={index} >
+                              <a href="#">{item.name}</a>                                                                                                                                                                                 "
+                                <span>{item.lessons_count}</span>
                             </li>
                             <div style={{display: 'none'}}>
-                                {item.lessons.map((data) => {
-                                    return <p onClick={f1} id={data.video}>{data.description}</p>
+                                {lessons.map((data, index) => {
+                                    if(data.users.length){
+                                        return <p key={index} onClick={(e)=>{setVideoLink(data, index)}} className={`sub-lessons opened ${active === index?'active':''}`} >{index+1}. {data.title}</p>
+                                    }
+                                    else{
+                                        return <p key={index}  className="sub-lessons closed" >{index+1}. {data.title} <i className="fa  fa-lock" /></p>
+                                    }
                                 })}
-                            </div> */}
-                        </>
+                            </div>
+                        </div>
                     )
                 }) : <li className="cat-item">
-                        <a href="#">No</a>
+                        <div >Loading <i className="fa fa-spinner fa-pulse" aria-hidden="true"/></div>
                     </li>
             }
         </ul>
     )
 
 }
-export default CourseSideBar;
+export const CourseSideBar = React.memo(Course);
+
