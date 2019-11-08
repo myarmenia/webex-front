@@ -1,13 +1,8 @@
 import React from 'react';
 
-function Homeworks() {
+function Homeworks(props) {
 
-    // const openHomeworkFunc = e => {
-    //     e.preventDefault();
-    //     alert("A");
-    // }
-
-    return (
+       return (
         <div className="widget widget_course_level">
             {/* <ul>
                 <li className="cat-item narekCatItem" style={{ fontSize: "25px" }} onClick={openHomeworkFunc}>

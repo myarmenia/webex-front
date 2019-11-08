@@ -2,17 +2,11 @@ import React from 'react';
 
 function Level() {
     return (
-        <ul>
-            <li className="cat-item">
-                <a href="blog-right.html">Front End</a>
-            </li>
-            <li className="cat-item">
-                <a href="blog-right.html">Full Stack</a>
-            </li>
-            <li className="cat-item">
-                <a href="blog-right.html">Back End</a>
-            </li>
-        </ul>
+       <div className="tagcloud">
+                <a href="blog-right.html" className="tag-cloud-link courses">Front End</a>
+                <a href="blog-right.html" className="tag-cloud-link courses">Full Stack</a>
+                <a href="blog-right.html" className="tag-cloud-link courses">Back End</a>
+       </div>
     )
 }
 
