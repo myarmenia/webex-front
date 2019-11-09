@@ -29,10 +29,7 @@ const Course = props => {
                     }
                 }
             }
-            // else {
-            //     li.nextElementSibling.style.display = "none";
-            // }
-            setLessons(data)
+           setLessons(data)
         }).catch((error) => {
             console.log(error, "getCourses")
         })
@@ -52,7 +49,7 @@ const Course = props => {
                         <div>
                           <li className="cat-item"  onClick={(e)=>openCourse(e,index, item.id)} key={index} >
                               <a href="#">{item.name}</a>                                                                                                                                                                                 "
-                                <span>{item.lessons_count}</span>
+                               <span>{item.lessons_count}</span>
                             </li>
                             <div style={{display: 'none'}}>
                                 {lessons.map((data, index) => {

@@ -24,9 +24,9 @@ function SectionOne(props) {
 
     const classes = useStyles();
 
-    const [name, setName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
+    const [name, setName] = useState(props.obj.name);
+    const [lastName, setLastName] = useState(props.obj.last_name);
+    const [email, setEmail] = useState(props.obj.email);
     const [password, setPassword] = useState('');
 
     const [nameValidation, setNameValidation] = useState('');
@@ -35,7 +35,7 @@ function SectionOne(props) {
     const [passwordValidation, setPasswordValidation] = useState('');
     const [checkPasswordState, setCheckPasswordState] = useState(0);
     const [checkPasswordColorState, setCheckPasswordColorState] = useState("red");
-    const [phone, setPhone] = useState('');
+    const [phone, setPhone] = useState(props.obj.phone);
     const [phoneValidation, setPhoneValidation] = useState('');
     const [successStatus, setSuccessStatus] = useState('');
 
@@ -150,7 +150,7 @@ function SectionOne(props) {
         } else if (password.length < 8) {
             setPasswordValidation("Password must be 8 characters");
         } else {
-            let objNames = {name, lastName, email, phone, password};
+            let objNames = {name, last_name:lastName, email, phone, password};
             props.nextProps("two");
             props.set(objNames);
         }
@@ -173,6 +173,7 @@ function SectionOne(props) {
                     margin="normal"
                     variant="outlined"
                     onChange={changeName}
+                    value={name}
                 />
 
                 {
@@ -192,6 +193,7 @@ function SectionOne(props) {
                     margin="normal"
                     variant="outlined"
                     onChange={changeLastName}
+                    value={lastName}
                 />
 
                 {
@@ -212,6 +214,7 @@ function SectionOne(props) {
                     variant="outlined"
                     onChange={changeEmail}
                     onBlur={emailFetch}
+                    value={email}
                 />
 
                 {
@@ -261,6 +264,7 @@ function SectionOne(props) {
             </div>
 
             <div className="mt-5">
+
                 <Button
                     variant="contained"
                     size="large"

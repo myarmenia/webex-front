@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from "@material-ui/core/es/Button/Button";
 
 function ThirdStep(props) {
 
@@ -16,6 +17,10 @@ function ThirdStep(props) {
         e.preventDefault();
         props.nextProps(e.target.textContent);
     }
+    const goBack = () => {
+        props.prevProps('two')
+    }
+
 
     return (
         <div className="row justify-content-center">
@@ -49,8 +54,18 @@ function ThirdStep(props) {
                     You can choose packages that we’ve made or choose your own courses.
                     Choose the package or courses
                 </p>
+                <div className="mt-5">
+                    <Button
+                        variant="contained"
+                        size="large"
+                        id="buttonColor"
+                        onClick={goBack}
 
-            </div>
+                    >
+                        Prev
+                    </Button>
+                </div>
+        </div>
         </div>
     )
 };

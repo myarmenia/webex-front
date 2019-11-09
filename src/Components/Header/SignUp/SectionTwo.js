@@ -31,6 +31,9 @@ function SectionTwo(props) {
         onlineState ? props.nextProps("three") : props.nextProps("four");
         props.set({online: onlineState});
     }
+    const goBack = () => {
+        props.prevProps('one')
+    }
 
     return (
         <div className="row justify-content-center">
@@ -67,9 +70,18 @@ function SectionTwo(props) {
                     <Button
                         variant="contained"
                         size="large"
+                        id="buttonColor"
+                        onClick={goBack}
+                        style={{marginRight:'12px'}}
+                    >
+                        Prev
+                    </Button>
+                    <Button
+                        variant="contained"
+                        size="large"
                         //color="primary"
                         id="buttonColor"
-                        onClick={goFunc}
+                        onClick={onlineState||ofline ?goFunc:null}
                     >
                         Next
                     </Button>
