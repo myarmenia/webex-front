@@ -8,6 +8,8 @@ import Level from './Level';
 import Video from './Main/video';
 import Homeworks from './Main/homeworks';
 
+
+
 const Courses = () => {
 
   const [allCourses, setAllCourses] = useState();
@@ -34,6 +36,17 @@ const Courses = () => {
   const openVideo =(e)=>{
       setVideoData(e)
     }
+    const openHomeWorkVideo =(e)=>{
+
+        setVideoData({
+            ...videoData,
+            video:e.video,
+            title:e.title,
+            description:e.description,
+            duration:e.duration
+        })
+    }
+
 
     console.log(allCourses,"courses")
   return (
@@ -69,13 +82,18 @@ const Courses = () => {
                 <Level />
               </div>
             </div>
-
           </aside>
 
           <main className="col-lg-7 col-xl-8 order-1 order-lg-2">
-            <Video  data={videoData} />
-            {/*<Homeworks data={videoData} />*/}
+            <Video  data={videoData} HomeWorkVideo/>
+            <Homeworks homeworks={videoData.homeworks} openHomeWorkVideo={openHomeWorkVideo} />
+
+                  <div style={{display:videoData.code?'block':'none'}}>
+                      <pre> {videoData.code} </pre>
+                      <hr/>
+              </div>
           </main>
+
 
         </div>
       </div>
