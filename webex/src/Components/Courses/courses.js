@@ -145,7 +145,7 @@ render() {
                                       <p>
                                      {arjeq.description}
                                       </p>
-                                      <div className="divider-32"></div>
+                                      <div className="divider-32"/>
                                       <a href="#" className="btn btn-maincolor" id={arjeq.id} onClick={this.courseButton}>Start now</a>
                                     </div>
                                   </div>
