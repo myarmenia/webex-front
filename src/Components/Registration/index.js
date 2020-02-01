@@ -33,7 +33,7 @@ function Registration () {
                     <div className="item-content" >
                         <section className="flex_container-1">
                             <div className="left_section">
-                                <section class="flex_container-1_1 regist">
+                                <section className="flex_container-1_1 regist">
                                     <div>
                                         <h6 className="title">Name:</h6>
                                         <p>Tigran</p><hr />
@@ -43,7 +43,7 @@ function Registration () {
                                         <p>Batoyan</p><hr />
                                     </div>
                                 </section>
-                                <section class="flex_container-1_2 regist">
+                                <section className="flex_container-1_2 regist">
                                     <div>
                                         <h6 className="title">Email:</h6>
                                         <p>jhvchj@mail.ru</p><hr />
@@ -58,10 +58,10 @@ function Registration () {
                                     <div className="about-image second">
                                         <img src={require('../../img/about_us/first.jpg')} alt="" />
                                     </div>
-                                    <div className="divider-30 d-block d-lg-none"></div>
+                                    <div className="divider-30 d-block d-lg-none"/>
                             </div>
                         </section>
-                        <section class="flex_container-3 regist">
+                        <section className="flex_container-3 regist">
                             <div>
                                 <TextField
                                     id="standard-password-input"
@@ -103,9 +103,9 @@ function Registration () {
                                 />
                             </div>
                         </section>
-                        <div className="d-none d-lg-block divider-35"></div>
+                        <div className="d-none d-lg-block divider-35"/>
                         <div className="row c-gutter-25">
-                            <div className="divider-15 d-block d-lg-none"></div>
+                            <div className="divider-15 d-block d-lg-none"/>
                             
                             <div className="col-md-6">
                                 <a href="#" className="btn btn-maincolor">Get Started</a>

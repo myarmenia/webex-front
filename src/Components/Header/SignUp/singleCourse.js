@@ -89,7 +89,7 @@ function SingleCourse(props) {
         let result = window.confirm("Press OK to close this option"); 
 
         if (result) {
-            props.set({packageId: package_id});
+            props.set({package: package_id});
             //console.log(package_id,"package_id")
             
         }
@@ -99,9 +99,12 @@ function SingleCourse(props) {
         if (checked.length === 0) {
             setCourseButton(false);
         } else {
-            props.set({courseIdes: checked});
+            props.set({courses: checked});
             //alert("True");
         }
+    }
+    const goBack = () => {
+        props.prevProps('three')
     }
 
     return (
@@ -146,7 +149,20 @@ function SingleCourse(props) {
                 {
                     courseButton === true ? <Button onClick={checkedCourseBtn} variant="contained" size="large" id="buttonColor" style={{ margin: "0 auto" }}>Buy Checked Course</Button> : null
                 }
+
             </div>
+        <div className="mt-5">
+            <Button
+                variant="contained"
+                size="large"
+                id="buttonColor"
+                onClick={goBack}
+
+            >
+                Prev
+            </Button>
+        </div>
+
 
         </>
     )

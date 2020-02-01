@@ -1,21 +1,19 @@
 import axios from 'axios';
 
-import store from '../store';
-
-import { API_SIGNIN_URL } from '../constants';
+import { API_SIGNIN_URL, API_SIGNOUT_URL, API_USERDATA_URL } from '../config';
 
 class Auth {
 
+  tokenKey = 'token'
+
   isAuthenticated() {
-    const authenticated = store.getState().currentUser.authenticated;
-    return this.getToken() !== '' && authenticated;
+    return this.getToken() !== '';
   }
 
   signIn(credentials, resolve, reject) {
     axios.post(API_SIGNIN_URL, credentials, {
-      headers: new Headers({
-        'Content-Type': 'application/json',
-      })
+      withCredentials: true,
+
     }).then(response => resolve(response)).catch(error => reject(error));
   }
 
@@ -24,20 +22,34 @@ class Auth {
   }
 
   signOut() {
-
-  }
-
-  checkToken() {
-
+    this.removeToken();
+    // axios.post(API_SIGNOUT_URL);
   }
 
   getToken() {
-    return localStorage.getItem('token') || '';
+    return localStorage.getItem(this.tokenKey) || '';
   }
 
   setToken(token) {
-    localStorage.setItem('token', token);
+    localStorage.setItem(this.tokenKey, token);
   }
+
+  removeToken() {
+    localStorage.removeItem(this.tokenKey);
+  }
+
+  getUserData(resolve, reject) {
+    if (this.isAuthenticated()) {
+      axios.get(API_USERDATA_URL, {}, {
+        headers: new Headers({
+          'Content-Type': 'application/json',
+        })
+      }).then(response => resolve(response)).catch(error => reject(error))
+    } else {
+      reject({ error: "No token was found" });
+    }
+  }
+
 }
 
 export default new Auth()
