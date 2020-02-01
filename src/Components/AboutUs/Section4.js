@@ -19,14 +19,12 @@ function Section4 () {
 						</div>
 						<div className="col-md-6">
 							<div className="item-content">
-								<h3>Comments About Us</h3>
+								<h3>Մեր դասավանդման նպատակն է սերտել ուժեղ մասնագետներ</h3>
 								<div className="d-none d-lg-block divider-38"></div>
 								<p className="mt-20" style={{justifyContent: "center"}}>
-									Our specialists have up to 15 years of experience. 
-									They will patiently explain the subtleties of programming and prove to you that there is nothing difficult in programming. 
-									To make the teaching material more comprehensive, each student will be given an individual approach. 
-									And that's why the groups are made up of a maximum of 6 people. We try to make our lessons accessible to everyone, and so we have created the opportunity for everyone to study online. Thus, students are given the chance to study anywhere and anytime they want. 
-									At the end of the course the students will receive a certificate certifying that they are a professional.
+								Այդ նպատակով ուսանողներին տրվում է պրակտիկ ծրագրավորման գիտելիքներ՝ անհատական մոտեցումով, 15 տարվա փորձ ունեցող վեբ ծրագրավորողների կողմից, որոնք համբերատար կերպով կբացատրեն ծրագրավորման բոլոր նրբությունները և ձեզ կապացուցեն, որ ծրագրավորման մեջ ոչ մի դժվար բան չկա: Մենք փորձում ենք մեր դասերը մատչելի դարձնել բոլորի համար, ուստի  ստեղծել ենք առցանց ծրագրավորում  սովորելու հնարավորություն: Այսպիսով, ուսանողներին հնարավորություն է ընձեռվում սովորելու ցանկացած վայրում և ցանկացած ժամի ամենաբարդ ծրագրավորման ալգորիթմները: 
+Դասընթացի ավարտին ուսանողները կստանան սերտիֆիկատ, որը հավաստում է, որ ուսանողը հանդիսանում է որակավորված  վեբ ծրագրավորող:
+Այս տեսահոլովակում ներկայացված են մեր ուսանողների մեկնաբանությունները Webex Technologies ընկեերության դասընթացների մասին։
 								</p>
 								<div className="d-none d-lg-block divider-43"></div>
 							</div>

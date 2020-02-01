@@ -115,11 +115,8 @@ render() {
                                         <h6 className="course-title">
                                           {arjeq.name} 
                                           </h6>
-                                          <p>Lessons: {arjeq.lessons_count}</p>
-                                      <p>Duration: {lessDuration(l)}
-                                        {/* <span> {min < 10 ? "0"+ min : min }</span>
-                                      <span>:{sec < 10 ? "0" + sec : sec} min.</span> */}
-                                      </p>
+                                          <p>Դասեր: {arjeq.lessons_count}</p>
+                                      <p>Տևողություն: {lessDuration(l)} րոպե</p>
                                       </div>
                                     </div>
                                   </div>
@@ -132,7 +129,7 @@ render() {
                                      {arjeq.description}
                                       </p>
                                       <div className="divider-32"></div>
-                                      <a href="#" className="btn btn-maincolor" id={arjeq.id} onClick={this.courseButton}>Start now</a>
+                                      <a href="#" className="btn btn-maincolor" id={arjeq.id} onClick={this.courseButton}>Սկսել</a>
                                     </div>
                                   </div>
                                 </div>
@@ -151,17 +148,14 @@ render() {
         <div className="container">
         <div className="row">
         <div className="col-lg-12">
-    <h2 className="text-center">Our courses</h2>
-{/* <LessDuration argminutes='120' /> */}
-
+    <h3 className="text-center">Վեբ ծրագրավորման դասընթացներ</h3>
     <h6 className="special-heading fw-300 text-center" style={{'margin':'0 0 20px 0'}}>
          <Link to='../payment'  style={{ padding: 10 }} >
                         click
                     </Link>  
-      {/* <Route path='../Payment' component={Payment} /> */} 
-                    Here are the courses for learning programming</h6>
- {/* <div style={{width:'100%', height:'400px', background:'lightblue'}}><Payment /></div>  */}
-{/* <div><Payment1 /></div> */}
+      Մանրամասն ծանոթացեք վեբ ուսուցման ծրագրին</h6>
+      <h6 style={{'margin':'0 0 20px 0', textAlign:'center'}}>Այստեղ ներկայացված են մեր վեբ ծրագրավորման վիդեոդասերը, որոնք դիտելով դուք կծանոթանաք մեր դասավանդման մեթոդիկային։
+</h6>
     <div className="row justify-content-center">
 		 						<div className="col-md-10 col-xl-7">
 		 							<div className="filters course-filters text-lg-right">

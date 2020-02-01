@@ -27,9 +27,7 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import TableFooter from '@material-ui/core/TableFooter';
-
-
-
+import lessDuration from '../duration.js';
 
 // ______verevi table_________________________________________
 
@@ -345,6 +343,7 @@ export default function Payment1() {
 
   const classes = useStyles();
   const [course, setCourse] = React.useState([]);  
+  const [nameId, setNameId] = React.useState([]);  
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('duration');
   const [selected, setSelected] = React.useState([]);
@@ -390,7 +389,7 @@ export default function Payment1() {
   const handleClick = (event, name) => {
     const selectedIndex = selected.indexOf(name);
     let newSelected = [];
-
+//  nameId.push
     if (selectedIndex === -1) {
       newSelected = newSelected.concat(selected, name);
     } else if (selectedIndex === 0) {
@@ -401,10 +400,14 @@ export default function Payment1() {
       newSelected = newSelected.concat(
         selected.slice(0, selectedIndex),
         selected.slice(selectedIndex + 1),
+        console.log('oooooooookkkkkkkk')
+
       );
     }
 
     setSelected(newSelected);
+    console.log(selected,"checkkkkkk")
+    // console.log(selectedIndex,"index")
   };
 
   const handleChangePage = (event, newPage) => {
@@ -493,7 +496,7 @@ console.log(course,"bodyyyyyyyyyyyyyyyy")
                         </div>
                         <div className="item-content">
                           <h6 className="course-title"  comp={course}>
-                            Front End
+                            Front End {selected.join(' ')}
                              </h6>
                         <a href="#" className="btn btn-maincolor" id="1" onClick={selectLanguage}>Start now</a>
                         </div>
@@ -543,7 +546,7 @@ console.log(course,"bodyyyyyyyyyyyyyyyy")
       {/* _______________________________________________________________ */}
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+        <EnhancedTableToolbar numSelected={selected.length}  />
         <div className={classes.tableWrapper}>
           <Table
             className={classes.table}
@@ -572,19 +575,19 @@ console.log(course,"bodyyyyyyyyyyyyyyyy")
                       console.log(row,"row")
                       let price=ev.price
                       let t=row.sum_duration[0].total
-                      let min=parseInt(t/60);
-                        let sec=parseInt(t%60);
+                      // let min=parseInt(t/60);
+                      //   let sec=parseInt(t%60);
                   const isItemSelected = isSelected(row.name);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
                     <TableRow
                       hover
-                      onClick={event => handleClick(event, row.name)}
+                      onClick={event => handleClick(event, row.id)}
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
-                      key={row.name}
+                      key={row.id}
                       selected={isItemSelected}
                     >
                       <TableCell padding="checkbox">
@@ -597,10 +600,12 @@ console.log(course,"bodyyyyyyyyyyyyyyyy")
                         {row.name}
                       </TableCell>
                       {/* <TableCell align="right">{row.name}</TableCell> */}
-                      <TableCell align="right"><span> {min < 10 ? "0"+ min : min }</span>
-                                      <span>:{sec < 10 ? "0" + sec : sec} min.</span></TableCell>
+                      <TableCell align="right">{lessDuration(t)}
+                        {/* <span> {min < 10 ? "0"+ min : min }</span>
+                                      <span>:{sec < 10 ? "0" + sec : sec} min.</span> */}
+                                      </TableCell>
                       <TableCell align="right">{price}</TableCell>
-                      <TableCell align="right">{row.lessons_count}</TableCell>
+                      <TableCell align="right">{row.id}</TableCell>
                     </TableRow>
                   );
                 })

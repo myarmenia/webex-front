@@ -17,7 +17,7 @@ import SignIn from './Components/Header/SignIn';
 import SignUp from './Components/Header/SignUp';
 import AboutUs from './Components/AboutUs'
 import Courses from './Components/Courses';
-//import Payment1 from './Components/Payment';
+import Payment1 from './Components/Payment';
 import SingleCourse from './Components/Courses/SingleCourses/index';
 import News from './Components/News'
 
@@ -53,8 +53,10 @@ function App(props) {
           <Route path="/aboutus" component={AboutUs} />
           <Route path="/news" component={News} />
           <Route path="/courses" component={Courses} />
-          <Route component={NoMatchPage} />
-          {/* <ProtectedRoute path='/courses' component={Courses} /> */}
+          {/*//<ProtectedRoute path='/courses' component={Courses} />*/}
+           <Route path='/payment' component={Payment1} />
+           <Route component={NoMatchPage} />
+
         </Switch>
 
       )} />
