@@ -1,36 +1,46 @@
-import React from 'react';
-import ReactPlayer from 'react-player'
+import React, {useState,useEffect} from 'react';
+import ReactPlayer from 'react-player';
+import lessDuration from '../../duration';
 
-// function Video (props) {
-//     console.log(props.name, 'narek');
-//     return (
-//         <div className="row c-mb-30">
-//             <ReactPlayer 
-//               url='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4' 
-//               controls 
-//               playing={false}
-//               light={false}
-//               width='100%'
-//               height='100%'
-//             />
-//         </div>
-//     )
-// }
 
 const Video = (props) => {
-    
-        console.log(props.c1);
-    
+
+    const [data, setData]=useState({});
+
+    const openVideo =(video)=>{
+        console.log(video,"videoooo---new")
+
+        setData({
+            ...data,
+            video:video
+        })
+    }
+    useEffect(()=>{
+        setData(props.data)
+
+    },[props])
+
+   // console.log(data,"dataaaaa---new")
         return (
         <div className="row c-mb-30">
+            <h5 className="video-title">{data.title} </h5>
             <ReactPlayer 
-              url='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4' 
+              url={`http://webex.am/${data.video}`}
               controls 
               playing={false}
               light={false}
               width='100%'
               height='100%'
             />
+            <div className="video-descr" >
+                <div className="flex">
+                <h6> {data.description}</h6>
+                <span className="dur"> <i className="fs-16 fa fa-clock-o"/> {lessDuration(data.duration)} sec.</span>
+                </div>
+                <hr/>
+
+            </div>
+
         </div>
     )
 }

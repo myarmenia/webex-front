@@ -40,7 +40,7 @@ class Advantages extends Component{
                 <div className="col-lg-4" data-animation="fadeInUp" key={index}>
                     <div className="icon-box text-center">
                         <div className="color-main icon-styled fs-77">
-                            <i style={{fontSize:'50px'}} className={`fa fa-${item.icon}`} aria-hidden="true"></i>
+                            <i style={{fontSize:'50px'}} className={`fa fa-${item.icon}`} aria-hidden="true"/>
                         </div>
                         <h6 className="fw-700" style={{display:'block'}}>
                             <a>{item.title}</a>
@@ -63,7 +63,7 @@ class Advantages extends Component{
 
                             </h6>
 					</div>
-						<div className="divider-10 d-none d-lg-block"></div>
+						<div className="divider-10 d-none d-lg-block"/>
 						{advantages}
 					</div>		           
                 </div>

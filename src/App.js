@@ -17,7 +17,7 @@ import SignIn from './Components/Header/SignIn';
 import SignUp from './Components/Header/SignUp';
 import AboutUs from './Components/AboutUs'
 import Courses from './Components/Courses';
-// import Payment1 from './Components/Payment';
+//import Payment1 from './Components/Payment';
 import SingleCourse from './Components/Courses/SingleCourses/index';
 import News from './Components/News'
 

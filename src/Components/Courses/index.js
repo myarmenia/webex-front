@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import CourseSideBar from './CourseSideBar';
+import {CourseSideBar} from './CourseSideBar';
 import 'react-chat-widget/lib/styles.css';
 import axios from 'axios';
 import Options from './Options';
@@ -8,13 +8,20 @@ import Level from './Level';
 import Video from './Main/video';
 import Homeworks from './Main/homeworks';
 
+
+
 const Courses = () => {
 
   const [allCourses, setAllCourses] = useState();
-  
+  const [videoData, setVideoData] = useState({
+      video:'691030f893b40cad2933b1242c5fbeb7.mp4',
+      duration: 389,
+      title: 'Ներածություն',
+      description:'Սկզբնական թեգեռի դասավորվածությունը'}); // HTML first video link
+
   useEffect(() => {
-    getCourses();
-  }, [])
+   getCourses();
+  }, [videoData]);
 
   const getCourses = () => {
       axios.get('http://web.webex.am/api/courses')
@@ -25,8 +32,23 @@ const Courses = () => {
       }).catch((error) => {
         console.log(error, "getCourses")
       })
-  }
+  };
+  const openVideo =(e)=>{
+      setVideoData(e)
+    }
+    const openHomeWorkVideo =(e)=>{
 
+        setVideoData({
+            ...videoData,
+            video:e.video,
+            title:e.title,
+            description:e.description,
+            duration:e.duration
+        })
+    }
+
+
+    console.log(allCourses,"courses")
   return (
     <section className="ls s-py-60 s-pt-lg-100 s-pb-lg-70">
       <div className="container">
@@ -35,38 +57,43 @@ const Courses = () => {
 
             <div className="bordered rounded">
               <div className="widget widget_course_tag">
-                <h3 className="widget-title">Selected Options</h3>
                 <Options />
               </div>
             </div>
 
             <div className="bordered rounded">
               <div className="widget widget_categories">
-                <h3 className="widget-title">Select Category</h3>
-                <CourseSideBar courses={allCourses} />
+                <h3 className="widget-title">Բոլոր Վիդեոդասերը</h3>
+                <CourseSideBar courses={allCourses}  openVideo={openVideo}/>
               </div>
             </div>
 
             <div className="bordered rounded">
               <div className="widget widget_course_type">
-                <h3 className="widget-title">Course Type</h3>
+                <h3 className="widget-title">
+                  Ստուգիր գիտելիքներդ</h3>
                 <CourseType />
               </div>
             </div>
 
             <div className="bordered rounded">
               <div className="widget widget_course_level">
-                <h3 className="widget-title">Course Level</h3>
+                <h3 className="widget-title">Դասերի փաթեթներ</h3>
                 <Level />
               </div>
             </div>
-
           </aside>
 
           <main className="col-lg-7 col-xl-8 order-1 order-lg-2">
-            <Video />
-            <Homeworks />
+            <Video  data={videoData} HomeWorkVideo/>
+            <Homeworks homeworks={videoData.homeworks} openHomeWorkVideo={openHomeWorkVideo} />
+
+                  <div style={{display:videoData.code?'block':'none'}}>
+                      <pre> {videoData.code} </pre>
+                      <hr/>
+              </div>
           </main>
+
 
         </div>
       </div>

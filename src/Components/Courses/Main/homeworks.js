@@ -1,32 +1,35 @@
 import React from 'react';
 
-function Homeworks() {
+function Homeworks(props) {
 
-    // const openHomeworkFunc = e => {
-    //     e.preventDefault();
-    //     alert("A");
-    // }
+    const hm = props.homeworks;
 
-    return (
-        <div className="widget widget_course_level">
-            {/* <ul>
-                <li className="cat-item narekCatItem" style={{ fontSize: "25px" }} onClick={openHomeworkFunc}>
-                    <a href="blog-right.html">Do Homeworks</a>
-                </li>
-            </ul> */}
+    console.log(hm, "homeworkshomeworkshomeworkshomeworkshomeworkshomeworkshomeworkshomeworkshomeworkshomeworkshomeworks")
+       return (
+        <>
+        {hm && hm.length?
+            <div className="widget widget_course_level">
+                <div className="container">
+                    <h5 style={{marginBottom: '20px'}}>Վիդեո Առաջադրանքներ</h5>
+                    <ul style={{lineHeight: '34px', margin: '0 43px'}}>
+                        {
+                            hm.map((item,index)=> {
+                                return (
+                                    <li key={index}>
+                                        <a className="home-work" href="#" onClick={(e)=>props.openHomeWorkVideo(item)}>
+                                            <i className="fa fa-play homework-icon" aria-hidden="true"/><
+                                            span>{item.title}</span></a>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
+            </div>:null
+        }
+        </>
 
-
-            <div className="container">
-                <h4 style={{marginBottom: '20px'}}>Do Homeworks</h4>
-
-                <ul style={{lineHeight: '34px'}}>
-                    <li>Homework 1</li>
-                    <li>Homework 2</li>
-                    <li>Homework 3</li>
-                </ul>
-            </div>
-        </div>
-    )
+       )
 }
 
 export default Homeworks;

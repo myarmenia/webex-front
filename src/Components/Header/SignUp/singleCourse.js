@@ -20,26 +20,55 @@ function SingleCourse(props) {
 
     const classes = useStyles();
     const [checked, setChecked] = useState([]);
+    const [courses, setCourses] = useState([]);
     const [courseButton, setCourseButton] = useState(false);
 
     let arr = [];
     let title = "";
+    let package_id = null;
+    const getCourses=()=>{
+        fetch('http://web.webex.am/api/courses')
+            .then(response => response.json())
+            .then(data => {              
+                setCourses(data)
+            }).catch((err)=>console.log(err, "fetch-err"))
+         
+    }
+    const filterByPackageId=(arr,id)=>{
+        let res=[];
+        for(const [i,el] of arr.entries()){
+          const curArr = el.packages.filter((pack)=>pack.id === id);
+           if(curArr.length){
+            res.push(arr[i])
+           }
+        }
+        return res;
+    }
 
+ 
     const changeTitle = () => {
+            getCourses();
+               
         if (props.courseLang === "Front End") {
+            package_id = 1;
             title = "Front End";
-            arr.push("Html", "Css", "JavaScript", "jQuery", "React Js");
+            arr=[... filterByPackageId(courses,package_id)];
+            
         } else if (props.courseLang === "Full Stack") {
-            arr.push("Html", "Css", "JavaScript", "jQuery", "React Js", "PHP", "MySql", "Laravel");
+            package_id = 3;
             title = "Full Stack";
+            arr=[... filterByPackageId(courses,package_id)];          
+            
         } else {
+            package_id = 2;
             title = "Back End";
-            arr.push("PHP", "MySql", "Laravel");
+            arr=[... filterByPackageId(courses,package_id)];
+          
         }
     }
 
     changeTitle();
-
+    
     const handleToggle = value => () => {
         const currentIndex = checked.indexOf(value);
         const newChecked = [...checked];
@@ -60,7 +89,9 @@ function SingleCourse(props) {
         let result = window.confirm("Press OK to close this option"); 
 
         if (result) {
-            console.log(arr);
+            props.set({package: package_id});
+            //console.log(package_id,"package_id")
+            
         }
     }
 
@@ -68,8 +99,12 @@ function SingleCourse(props) {
         if (checked.length === 0) {
             setCourseButton(false);
         } else {
-            alert("True");
+            props.set({courses: checked});
+            //alert("True");
         }
+    }
+    const goBack = () => {
+        props.prevProps('three')
     }
 
     return (
@@ -90,22 +125,22 @@ function SingleCourse(props) {
 
                 </div>
 
-                <p className="mt-3"> Buy course or choose packej </p>
+                <p className="mt-3"> Buy course or choose package </p>
 
                 <List className={classes.root}>
                     {arr.map(value => {
-                        const labelId = `checkbox-list-label-${value}`;
+                        const labelId = `checkbox-list-label-${value.name}`;
                         return (
-                            <ListItem key={value} role={undefined} dense button onClick={handleToggle(value)}>
+                            <ListItem key={value.name} role={undefined} dense button onClick={handleToggle(value.id)}>
                                 <Checkbox
                                     edge="start"
-                                    checked={checked.indexOf(value) !== -1}
+                                    checked={checked.indexOf(value.id) !== -1}
                                     tabIndex={-1}
                                     disableRipple
                                     id="#26716e"
                                     inputProps={{ 'aria-labelledby': labelId }}
                                 />
-                                <ListItemText id={labelId} primary={value} />
+                                <ListItemText id={labelId} primary={value.name} />
                             </ListItem>
                         );
                     })}
@@ -114,7 +149,20 @@ function SingleCourse(props) {
                 {
                     courseButton === true ? <Button onClick={checkedCourseBtn} variant="contained" size="large" id="buttonColor" style={{ margin: "0 auto" }}>Buy Checked Course</Button> : null
                 }
+
             </div>
+        <div className="mt-5">
+            <Button
+                variant="contained"
+                size="large"
+                id="buttonColor"
+                onClick={goBack}
+
+            >
+                Prev
+            </Button>
+        </div>
+
 
         </>
     )

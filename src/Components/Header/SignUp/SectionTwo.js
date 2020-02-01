@@ -31,12 +31,15 @@ function SectionTwo(props) {
         onlineState ? props.nextProps("three") : props.nextProps("four");
         props.set({online: onlineState});
     }
+    const goBack = () => {
+        props.prevProps('one')
+    }
 
     return (
         <div className="row justify-content-center">
 
             <div className="form-title">
-                <h2>Sign up {props.title.name}</h2>
+                <h2>Hello {props.title.name}</h2>
             </div>
 
             Dear student, choose the type of learning:
@@ -67,9 +70,18 @@ function SectionTwo(props) {
                     <Button
                         variant="contained"
                         size="large"
+                        id="buttonColor"
+                        onClick={goBack}
+                        style={{marginRight:'12px'}}
+                    >
+                        Prev
+                    </Button>
+                    <Button
+                        variant="contained"
+                        size="large"
                         //color="primary"
                         id="buttonColor"
-                        onClick={goFunc}
+                        onClick={onlineState||ofline ?goFunc:null}
                     >
                         Next
                     </Button>
