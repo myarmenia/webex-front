@@ -1,14 +1,53 @@
 import React, { useState } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import logo from '../../../img/logo.png';
 import auth from '../../../redux/auth';
 
 import { connect } from 'react-redux';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const NavBar = props => {
   const [toggle, setToggle] = useState(false);
+
+  const
+    GuestNavigation = () => (
+      <>
+        <li>
+          <NavLink activeClassName='active' exact={true} to='/'>Home</NavLink>
+        </li>
+        <li>
+          <NavLink activeClassName='active' to='/aboutUs'>About us</NavLink>
+        </li>
+        <li>
+          <NavLink activeClassName='active' to='/news'>News</NavLink>
+        </li>
+        <li>
+          <NavLink activeClassName='active' to='/courses'>Courses</NavLink>
+        </li>
+        <li>
+          <NavLink activeClassName='active' to='/payment'>Price</NavLink>
+        </li>
+      </>
+    ),
+    AuthenticatedNavigation = () => (
+      <>
+        <li>
+          <NavLink activeClassName='active' to='/payment'>Payments</NavLink>
+        </li>
+        <li>
+          <NavLink activeClassName='active' to='/news'>News</NavLink>
+        </li>
+        <li>
+          <NavLink activeClassName='active' to='/courses'>Courses</NavLink>
+        </li>
+        <li>
+          <NavLink activeClassName='active' to='/payment'>Price</NavLink>
+        </li>
+      </>
+    );
+
   return (
     <header className="page_header ds justify-nav-center s-borderbottom container-px-20 affix-top">
       <div className="container">
@@ -22,22 +61,7 @@ const NavBar = props => {
             <div className="nav-wrap">
               <nav className="top-nav">
                 <ul className="nav sf-menu">
-
-                  <li className="active">
-                    <Link to="/">Home</Link>
-                  </li>
-                  <li>
-                    <Link to='/aboutUs'>About us</Link>
-                  </li>
-                  <li>
-                    <Link to='/news'>News</Link>
-                  </li>
-                  <li>
-                    <Link to='/courses'>Courses</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>Price</Link>
-                  </li>
+                  {auth.isAuthenticated() ? AuthenticatedNavigation() : GuestNavigation()}
                 </ul>
               </nav>
             </div>
@@ -46,12 +70,12 @@ const NavBar = props => {
             <div className="top-includes main-includes">
               {auth.isAuthenticated() ?
                 (
-                  <Link to='/profile' ><i className="fs-16 fa fa-user"></i> Profile</Link>
-                ):
+                  <NavLink to='/profile' activeClassName='active' ><i className="fs-16 fa fa-user"></i> {props.currentUser.authenticated ? (`${props.currentUser.user.name} ${props.currentUser.user.last_name}`) : <CircularProgress />}</NavLink>
+                ) :
                 (
                   <>
-                    <Link className="sign-btn-form" to='/signup' ><i className="fw-900 s-16 fa fa-sign-in"></i>Sign Up</Link>
-                    <Link className="login-btn-form login_modal_window" to='/signin'><i className="fs-16 fa fa-user"></i>Sign In</Link>
+                    <NavLink activeClassName='active' className="sign-btn-form" to='/signup' ><i className="fw-900 s-16 fa fa-sign-in"></i>Sign Up</NavLink>
+                    <NavLink activeClassName='active' className="login-btn-form login_modal_window" to='/signin'><i className="fs-16 fa fa-user"></i>Sign In</NavLink>
                   </>
                 )
               }

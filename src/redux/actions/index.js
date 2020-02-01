@@ -24,3 +24,14 @@ export const SignIn = (credentials, redirect) => {
     });
   };
 }
+
+export const getUserData = () => {
+  return dispatch => {
+    dispatch(SignInRequest());
+    auth.getUserData(response => {
+      dispatch(SignInSuccess(response.data));
+    }, error => {
+      dispatch(SignInError(error.message));
+    });
+  }
+}

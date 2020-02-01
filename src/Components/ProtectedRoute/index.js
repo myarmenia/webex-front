@@ -20,3 +20,20 @@ export const ProtectedRoute = ({ component: Component, ...rest }) => {
     }} />
   );
 }
+
+export const GuestRoute = ({ component: Component, ...rest }) => {
+  return (
+    <Route {...rest} render={props => {
+      if (auth.isAuthenticated()) {
+        return <Redirect to={{
+          pathname: '/profile',
+          state: {
+            from: props.location
+          }
+        }} />
+      } else {
+        return <Component {...props} />
+      }
+    }} />
+  );
+}
