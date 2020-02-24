@@ -26,49 +26,49 @@ function SingleCourse(props) {
     let arr = [];
     let title = "";
     let package_id = null;
-    const getCourses=()=>{
+    const getCourses = () => {
         fetch('http://web.webex.am/api/courses')
             .then(response => response.json())
-            .then(data => {              
+            .then(data => {
                 setCourses(data)
-            }).catch((err)=>console.log(err, "fetch-err"))
-         
+            }).catch((err) => console.log(err, "fetch-err"))
+
     }
-    const filterByPackageId=(arr,id)=>{
-        let res=[];
-        for(const [i,el] of arr.entries()){
-          const curArr = el.packages.filter((pack)=>pack.id === id);
-           if(curArr.length){
-            res.push(arr[i])
-           }
+    const filterByPackageId = (arr, id) => {
+        let res = [];
+        for (const [i, el] of arr.entries()) {
+            const curArr = el.packages.filter((pack) => pack.id === id);
+            if (curArr.length) {
+                res.push(arr[i])
+            }
         }
         return res;
     }
 
- 
+
     const changeTitle = () => {
-            getCourses();
-               
+        getCourses();
+
         if (props.courseLang === "Front End") {
             package_id = 1;
             title = "Front End";
-            arr=[... filterByPackageId(courses,package_id)];
-            
+            arr = [...filterByPackageId(courses, package_id)];
+
         } else if (props.courseLang === "Full Stack") {
             package_id = 3;
             title = "Full Stack";
-            arr=[... filterByPackageId(courses,package_id)];          
-            
+            arr = [...filterByPackageId(courses, package_id)];
+
         } else {
             package_id = 2;
             title = "Back End";
-            arr=[... filterByPackageId(courses,package_id)];
-          
+            arr = [...filterByPackageId(courses, package_id)];
+
         }
     }
 
     changeTitle();
-    
+
     const handleToggle = value => () => {
         const currentIndex = checked.indexOf(value);
         const newChecked = [...checked];
@@ -79,19 +79,19 @@ function SingleCourse(props) {
         } else {
             newChecked.splice(currentIndex, 1);
         }
-        
+
         setChecked(newChecked);
-        
+
     };
 
     const allCourseBtn = () => {
-    
-        let result = window.confirm("Press OK to close this option"); 
+
+        let result = window.confirm("Press OK to close this option");
 
         if (result) {
-            props.set({package: package_id});
+            props.set({ package: package_id });
             //console.log(package_id,"package_id")
-            
+
         }
     }
 
@@ -99,7 +99,7 @@ function SingleCourse(props) {
         if (checked.length === 0) {
             setCourseButton(false);
         } else {
-            props.set({courses: checked});
+            props.set({ courses: checked });
             //alert("True");
         }
     }
@@ -114,12 +114,12 @@ function SingleCourse(props) {
                 <div className="form-title">
                     <h2>{title}</h2>
 
-                    <Button variant="contained" 
-                    size="large" 
-                    onClick={allCourseBtn}
-                    //color="primary" 
-                    id="buttonColor"
-                    style={{ margin: "0 auto" }}>
+                    <Button variant="contained"
+                        size="large"
+                        onClick={allCourseBtn}
+                        //color="primary" 
+                        id="buttonColor"
+                        style={{ margin: "0 auto" }}>
                         Buy All Course
                     </Button>
 
@@ -145,23 +145,23 @@ function SingleCourse(props) {
                         );
                     })}
                 </List>
-                
+
                 {
                     courseButton === true ? <Button onClick={checkedCourseBtn} variant="contained" size="large" id="buttonColor" style={{ margin: "0 auto" }}>Buy Checked Course</Button> : null
                 }
 
             </div>
-        <div className="mt-5">
-            <Button
-                variant="contained"
-                size="large"
-                id="buttonColor"
-                onClick={goBack}
+            <div className="mt-5">
+                <Button
+                    variant="contained"
+                    size="large"
+                    id="buttonColor"
+                    onClick={goBack}
 
-            >
-                Prev
+                >
+                    Prev
             </Button>
-        </div>
+            </div>
 
 
         </>

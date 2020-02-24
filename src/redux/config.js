@@ -2,6 +2,8 @@ import axios from 'axios';
 
 import auth from './auth';
 
+export const API_VIDEO_URL = 'http://webex.am/';
+
 export const API_URL = 'http://127.0.0.1:8000/api';
 
 export const API_SIGNIN_URL = API_URL + '/signin';
@@ -11,7 +13,12 @@ export const API_SIGNUP_URL = API_URL + '/signup';
 export const API_SIGNOUT_URL = API_URL + '/signout';
 
 export const API_USERDATA_URL = API_URL + '/userdata';
+
 export const API_REFRESH_URL = API_URL + '/signin/refresh';
+
+export const API_COURSES_URL = API_URL + '/courses';
+
+export const API_LESSONS_URL = API_URL + '/courses_with_lessons';
 
 
 const axiosInstance = axios.create({

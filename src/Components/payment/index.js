@@ -1,5 +1,5 @@
 // import React from 'react';
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { lighten, makeStyles, useTheme } from '@material-ui/core/styles';
@@ -134,7 +134,7 @@ const useStyles2 = makeStyles(theme => ({
 
 function createData(name, duration, price, lsscount) {
   return { name, duration, price, lsscount };
-  
+
 }
 
 // const rows = [
@@ -252,13 +252,13 @@ const useToolbarStyles = makeStyles(theme => ({
   highlight:
     theme.palette.type === 'light'
       ? {
-          color: theme.palette.secondary.main,
-          backgroundColor: lighten(theme.palette.secondary.light, 0.85),
-        }
+        color: theme.palette.secondary.main,
+        backgroundColor: lighten(theme.palette.secondary.light, 0.85),
+      }
       : {
-          color: theme.palette.text.primary,
-          backgroundColor: theme.palette.secondary.dark,
-        },
+        color: theme.palette.text.primary,
+        backgroundColor: theme.palette.secondary.dark,
+      },
   title: {
     flex: '1 1 100%',
   },
@@ -279,12 +279,12 @@ const EnhancedTableToolbar = props => {
           {numSelected} selected
         </Typography>
       ) : (
-        <Typography className={classes.title} variant="h6" id="tableTitle">
-          Training
+          <Typography className={classes.title} variant="h6" id="tableTitle">
+            Training
         </Typography>
-      )}
+        )}
 
-      
+
     </Toolbar>
   );
 };
@@ -322,7 +322,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Payment1() {
-  
+
   // _______verevi table________________________________
   const classes1 = useStyles2();
   const [page2, setPage2] = React.useState(0);
@@ -342,34 +342,34 @@ export default function Payment1() {
 
 
   const classes = useStyles();
-  const [course, setCourse] = React.useState([]);  
-  const [nameId, setNameId] = React.useState([]);  
+  const [course, setCourse] = React.useState([]);
+  const [nameId, setNameId] = React.useState([]);
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('duration');
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [languageid, setLanguageid] = React.useState(3);
-//   const [dense, setDense] = React.useState(false);
+  //   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-    useEffect(()=>{
-  fetch('http://web.webex.am/api/courses')
+  useEffect(() => {
+    fetch('http://web.webex.am/api/courses')
       .then(response => response.json())
-      .then(data1 => { 
-        console.log(data1,"dataaaaaaa")
-         setCourse(data1) 
-         console.log(course)
+      .then(data1 => {
+        console.log(data1, "dataaaaaaa")
+        setCourse(data1)
+        console.log(course)
 
-      }); 
-    },[])
-    const selectLanguage=(event)=>{
-         event.preventDefault();
-        
-        const btnId=event.target.getAttribute('id')
-        console.log(btnId)
-        setLanguageid(btnId)
+      });
+  }, [])
+  const selectLanguage = (event) => {
+    event.preventDefault();
 
-    }
+    const btnId = event.target.getAttribute('id')
+    console.log(btnId)
+    setLanguageid(btnId)
+
+  }
 
   const handleRequestSort = (event, property) => {
     const isDesc = orderBy === property && order === 'desc';
@@ -389,7 +389,7 @@ export default function Payment1() {
   const handleClick = (event, name) => {
     const selectedIndex = selected.indexOf(name);
     let newSelected = [];
-//  nameId.push
+    //  nameId.push
     if (selectedIndex === -1) {
       newSelected = newSelected.concat(selected, name);
     } else if (selectedIndex === 0) {
@@ -406,7 +406,7 @@ export default function Payment1() {
     }
 
     setSelected(newSelected);
-    console.log(selected,"checkkkkkk")
+    console.log(selected, "checkkkkkk")
     // console.log(selectedIndex,"index")
   };
 
@@ -419,234 +419,234 @@ export default function Payment1() {
     setPage(0);
   };
 
-//   const handleChangeDense = event => {
-//     setDense(event.target.checked);
-//   };
+  //   const handleChangeDense = event => {
+  //     setDense(event.target.checked);
+  //   };
 
-console.log(course,"bodyyyyyyyyyyyyyyyy")
+  console.log(course, "bodyyyyyyyyyyyyyyyy")
   const isSelected = name => selected.indexOf(name) !== -1;
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
   return (
-<div>
-  {/* __________________verevi table_________________________________ */}
-  <section className="ls s-pt-55 s-pb-30 s-pt-lg-95 s-pb-lg-70" id="courses">
-    <div className="container">
-    <div className="row">
-    <div className="col-lg-12">
-  <Paper className={classes1.root}>
-      <div className={classes1.tableWrapper}>
-        <Table className={classes1.table} aria-label="custom pagination table">
-          <TableBody>
-            {rows2.slice(page2 * rowsPerPage2, page2 * rowsPerPage2 + rowsPerPage2).map(row2 => (
-              <TableRow key={row2.name}>
-                <TableCell component="th" scope="row">
-                  {row2.name}
-                </TableCell>
-                <TableCell align="right">{row2.calories}</TableCell>
-                <TableCell align="right">{row2.fat}</TableCell>
-              </TableRow>
-            ))}
-
-            {emptyRows2 > 0 && (
-              <TableRow style={{ height: 53 * emptyRows2 }}>
-                <TableCell colSpan={6} />
-              </TableRow>
-            )}
-          </TableBody>
-          <TableFooter>
-            <TableRow>
-              <TablePagination
-                rowsPerPageOptions2={[5, 10, 25]}
-                colSpan2={3}
-                count2={rows2.length}
-                rowsPerPage2={rowsPerPage2}
-                page2={page2}
-                SelectProps2={{
-                  inputProps2: { 'aria-label': 'rows per page' },
-                  native2: true,
-                }}
-                onChangePage2={handleChangePage2}
-                onChangeRowsPerPage2={handleChangeRowsPerPage2}
-                ActionsComponent2={TablePaginationActions2}
-              />
-            </TableRow>
-          </TableFooter>
-        </Table>
-      </div>
-    </Paper>
-    </div></div></div>
-    </section>
-
-    {/* __________________verj verevi table____________________________ */}
-
-
-
-<section className="ls s-pt-55 s-pb-30 s-pt-lg-95 s-pb-lg-70" id="courses" style={{'text-align':'center'}}>
+    <div>
+      {/* __________________verevi table_________________________________ */}
+      <section className="ls s-pt-55 s-pb-30 s-pt-lg-95 s-pb-lg-70" id="courses">
         <div className="container">
-        <div className="row">
-        <div className="col-lg-12">
-    <div className="row isotope-wrapper c-mb-30"  >
-       
-    <div className='col col-12 col-md-6 col-lg-4' >
-      <div className="course-front rounded bordered">
-                      <div className=" vertical-item content-padding">
-                        <div className="item-media rounded-top">
-                        </div>
-                        <div className="item-content">
-                          <h6 className="course-title"  comp={course}>
-                            Front End {selected.join(' ')}
-                             </h6>
+          <div className="row">
+            <div className="col-lg-12">
+              <Paper className={classes1.root}>
+                <div className={classes1.tableWrapper}>
+                  <Table className={classes1.table} aria-label="custom pagination table">
+                    <TableBody>
+                      {rows2.slice(page2 * rowsPerPage2, page2 * rowsPerPage2 + rowsPerPage2).map(row2 => (
+                        <TableRow key={row2.name}>
+                          <TableCell component="th" scope="row">
+                            {row2.name}
+                          </TableCell>
+                          <TableCell align="right">{row2.calories}</TableCell>
+                          <TableCell align="right">{row2.fat}</TableCell>
+                        </TableRow>
+                      ))}
+
+                      {emptyRows2 > 0 && (
+                        <TableRow style={{ height: 53 * emptyRows2 }}>
+                          <TableCell colSpan={6} />
+                        </TableRow>
+                      )}
+                    </TableBody>
+                    <TableFooter>
+                      <TableRow>
+                        <TablePagination
+                          rowsPerPageOptions2={[5, 10, 25]}
+                          colSpan2={3}
+                          count2={rows2.length}
+                          rowsPerPage2={rowsPerPage2}
+                          page2={page2}
+                          SelectProps2={{
+                            inputProps2: { 'aria-label': 'rows per page' },
+                            native2: true,
+                          }}
+                          onChangePage2={handleChangePage2}
+                          onChangeRowsPerPage2={handleChangeRowsPerPage2}
+                          ActionsComponent2={TablePaginationActions2}
+                        />
+                      </TableRow>
+                    </TableFooter>
+                  </Table>
+                </div>
+              </Paper>
+            </div></div></div>
+      </section>
+
+      {/* __________________verj verevi table____________________________ */}
+
+
+
+      <section className="ls s-pt-55 s-pb-30 s-pt-lg-95 s-pb-lg-70" id="courses" style={{ 'text-align': 'center' }}>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="row isotope-wrapper c-mb-30"  >
+
+                <div className='col col-12 col-md-6 col-lg-4' >
+                  <div className="course-front rounded bordered">
+                    <div className=" vertical-item content-padding">
+                      <div className="item-media rounded-top">
+                      </div>
+                      <div className="item-content">
+                        <h6 className="course-title" comp={course}>
+                          Front End {selected.join(' ')}
+                        </h6>
                         <a href="#" className="btn btn-maincolor" id="1" onClick={selectLanguage}>Start now</a>
-                        </div>
                       </div>
                     </div>
-    </div>
-      
-      <div className='col col-12 col-md-6 col-lg-4' >
-      <div className="course-front rounded bordered">
-                      <div className=" vertical-item content-padding">
-                        <div className="item-media rounded-top">
-                        </div>
-                        <div className="item-content">
-                          <h6 className="course-title">
-                            Full Stack
+                  </div>
+                </div>
+
+                <div className='col col-12 col-md-6 col-lg-4' >
+                  <div className="course-front rounded bordered">
+                    <div className=" vertical-item content-padding">
+                      <div className="item-media rounded-top">
+                      </div>
+                      <div className="item-content">
+                        <h6 className="course-title">
+                          Full Stack
                              </h6>
-                        <a href="#" className="btn btn-maincolor" id="3"  onClick={selectLanguage}>Start now</a>
-                        </div>
+                        <a href="#" className="btn btn-maincolor" id="3" onClick={selectLanguage}>Start now</a>
                       </div>
                     </div>
-    </div>
-    <div className='col col-12 col-md-6 col-lg-4' >
-      <div className="course-front rounded bordered">
-                      <div className=" vertical-item content-padding">
-                        <div className="item-media rounded-top">
-                        </div>
-                        <div className="item-content">
-                          <h6 className="course-title">
-                           Back End
+                  </div>
+                </div>
+                <div className='col col-12 col-md-6 col-lg-4' >
+                  <div className="course-front rounded bordered">
+                    <div className=" vertical-item content-padding">
+                      <div className="item-media rounded-top">
+                      </div>
+                      <div className="item-content">
+                        <h6 className="course-title">
+                          Back End
                              </h6>
                         <a href="#" className="btn btn-maincolor" id="2" onClick={selectLanguage}>Start now</a>
-                        </div>
                       </div>
                     </div>
-    </div>
-      </div>
-    </div>
-    </div>
-    </div>
-    
-    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <section className="ls s-pt-55 s-pb-30 s-pt-lg-95 s-pb-lg-70" id="courses">
-    <div className="container">
-    <div className="row">
-    <div className="col-lg-12">
-      {/* _______________________________________________________________ */}
-    <div className={classes.root}>
-      <Paper className={classes.paper}>
-        <EnhancedTableToolbar numSelected={selected.length}  />
-        <div className={classes.tableWrapper}>
-          <Table
-            className={classes.table}
-            aria-labelledby="tableTitle"
-            // size={dense ? 'small' : 'medium'}
-            aria-label="enhanced table"
-          >
-            <EnhancedTableHead
-              classes={classes}
-              numSelected={selected.length}
-              order={order}
-              orderBy={orderBy}
-              onSelectAllClick={handleSelectAllClick}
-              onRequestSort={handleRequestSort}
-              rowCount={course.length}
-             // rowCount={rows.length}
+      </section>
 
-              courprop={course}
-            />
-            <TableBody>
-              {stableSort(course?course:[], getSorting(order, orderBy))
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => {
-                    return row.packages.filter(event=>event.id==languageid).map((ev,index)=>{
-                      
-                      console.log(row,"row")
-                      let price=ev.price
-                      let t=row.sum_duration[0].total
-                      // let min=parseInt(t/60);
-                      //   let sec=parseInt(t%60);
-                  const isItemSelected = isSelected(row.name);
-                  const labelId = `enhanced-table-checkbox-${index}`;
-
-                  return (
-                    <TableRow
-                      hover
-                      onClick={event => handleClick(event, row.id)}
-                      role="checkbox"
-                      aria-checked={isItemSelected}
-                      tabIndex={-1}
-                      key={row.id}
-                      selected={isItemSelected}
+      <section className="ls s-pt-55 s-pb-30 s-pt-lg-95 s-pb-lg-70" id="courses">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              {/* _______________________________________________________________ */}
+              <div className={classes.root}>
+                <Paper className={classes.paper}>
+                  <EnhancedTableToolbar numSelected={selected.length} />
+                  <div className={classes.tableWrapper}>
+                    <Table
+                      className={classes.table}
+                      aria-labelledby="tableTitle"
+                      // size={dense ? 'small' : 'medium'}
+                      aria-label="enhanced table"
                     >
-                      <TableCell padding="checkbox">
-                        <Checkbox
-                          checked={isItemSelected}
-                          inputProps={{ 'aria-labelledby': labelId }}
-                        />
-                      </TableCell>
-                      <TableCell component="th" id={labelId} scope="row" padding="none">
-                        {row.name}
-                      </TableCell>
-                      {/* <TableCell align="right">{row.name}</TableCell> */}
-                      <TableCell align="right">{lessDuration(t)}
-                        {/* <span> {min < 10 ? "0"+ min : min }</span>
+                      <EnhancedTableHead
+                        classes={classes}
+                        numSelected={selected.length}
+                        order={order}
+                        orderBy={orderBy}
+                        onSelectAllClick={handleSelectAllClick}
+                        onRequestSort={handleRequestSort}
+                        rowCount={course.length}
+                        // rowCount={rows.length}
+
+                        courprop={course}
+                      />
+                      <TableBody>
+                        {stableSort(course ? course : [], getSorting(order, orderBy))
+                          .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                          .map((row, index) => {
+                            return row.packages.filter(event => event.id == languageid).map((ev, index) => {
+
+                              console.log(row, "row")
+                              let price = ev.price
+                              let t = row.sum_duration[0].total
+                              // let min=parseInt(t/60);
+                              //   let sec=parseInt(t%60);
+                              const isItemSelected = isSelected(row.name);
+                              const labelId = `enhanced-table-checkbox-${index}`;
+
+                              return (
+                                <TableRow
+                                  hover
+                                  onClick={event => handleClick(event, row.id)}
+                                  role="checkbox"
+                                  aria-checked={isItemSelected}
+                                  tabIndex={-1}
+                                  key={row.id}
+                                  selected={isItemSelected}
+                                >
+                                  <TableCell padding="checkbox">
+                                    <Checkbox
+                                      checked={isItemSelected}
+                                      inputProps={{ 'aria-labelledby': labelId }}
+                                    />
+                                  </TableCell>
+                                  <TableCell component="th" id={labelId} scope="row" padding="none">
+                                    {row.name}
+                                  </TableCell>
+                                  {/* <TableCell align="right">{row.name}</TableCell> */}
+                                  <TableCell align="right">{lessDuration(t)}
+                                    {/* <span> {min < 10 ? "0"+ min : min }</span>
                                       <span>:{sec < 10 ? "0" + sec : sec} min.</span> */}
-                                      </TableCell>
-                      <TableCell align="right">{price}</TableCell>
-                      <TableCell align="right">{row.id}</TableCell>
-                    </TableRow>
-                  );
-                })
-              })
-              }
-              {/* {emptyRows > 0 && (
+                                  </TableCell>
+                                  <TableCell align="right">{price}</TableCell>
+                                  <TableCell align="right">{row.id}</TableCell>
+                                </TableRow>
+                              );
+                            })
+                          })
+                        }
+                        {/* {emptyRows > 0 && (
                 <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
                   <TableCell colSpan={6} />
                 </TableRow>
               )} */}
-            </TableBody>
-          </Table>
-        </div>
-        <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
-          component="div"
-          count={rows.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          backIconButtonProps={{
-            'aria-label': 'previous page',
-          }}
-          nextIconButtonProps={{
-            'aria-label': 'next page',
-          }}
-          onChangePage={handleChangePage}
-          onChangeRowsPerPage={handleChangeRowsPerPage}
-        />
-      </Paper>
-      {/* <FormControlLabel
+                      </TableBody>
+                    </Table>
+                  </div>
+                  <TablePagination
+                    rowsPerPageOptions={[5, 10, 25]}
+                    component="div"
+                    count={rows.length}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    backIconButtonProps={{
+                      'aria-label': 'previous page',
+                    }}
+                    nextIconButtonProps={{
+                      'aria-label': 'next page',
+                    }}
+                    onChangePage={handleChangePage}
+                    onChangeRowsPerPage={handleChangeRowsPerPage}
+                  />
+                </Paper>
+                {/* <FormControlLabel
         control={<Switch checked={dense} onChange={handleChangeDense} />}
         label="Dense padding"
       /> */}
-    </div>
-    {/* ______________________________________----- */}
+              </div>
+              {/* ______________________________________----- */}
 
 
-    </div>
-    </div>
-    </div>
-    </section>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

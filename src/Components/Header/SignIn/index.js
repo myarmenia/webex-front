@@ -35,10 +35,9 @@ const SignInForm = props => {
 	}
 
 	const getData = (event) => {
-
 		event.preventDefault();
 		let data = { email, password };
-		props.SignIn(data, () => props.history.push('/courses'));
+		props.SignIn(data, () => window.location.assign('/courses'));
 	}
 	return (
 		<div className="sigin-form text-center show" tabIndex="-1" role="dialog" aria-labelledby="formsign" style={{ paddingRight: "15px", display: "block" }}>

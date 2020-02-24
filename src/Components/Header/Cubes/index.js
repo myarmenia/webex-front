@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import './style.css';
 
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 import Cube from './Cube.js';
 

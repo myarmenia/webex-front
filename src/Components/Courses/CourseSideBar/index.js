@@ -21,18 +21,18 @@ const Course = props => {
             .then((res) => {
                 if (res) return res.data;
             }).then((data) => {
-           if (li.nextElementSibling.style.display === "none") {
-                li.nextElementSibling.style.display = "block";
-                for (let i=0; i< elem.length; i++){
-                    if(i !== index){
-                        elem[i].nextElementSibling.style.display = "none";
+                if (li.nextElementSibling.style.display === "none") {
+                    li.nextElementSibling.style.display = "block";
+                    for (let i = 0; i < elem.length; i++) {
+                        if (i !== index) {
+                            elem[i].nextElementSibling.style.display = "none";
+                        }
                     }
                 }
-            }
-           setLessons(data)
-        }).catch((error) => {
-            console.log(error, "getCourses")
-        })
+                setLessons(data)
+            }).catch((error) => {
+                console.log(error, "getCourses")
+            })
         setActive('')
     }
 
@@ -44,27 +44,27 @@ const Course = props => {
     return (
         <ul>
             {
-                courses ? courses.map((item, index) => {
+                props.courses ? props.courses.map((item, index) => {
                     return (
                         <div>
-                          <li className="cat-item"  onClick={(e)=>openCourse(e,index, item.id)} key={index} >
-                              <a href="#">{item.name}</a>                                                                                                                                                                                 "
+                            <li className="cat-item" onClick={(e) => openCourse(e, index, item.id)} key={index} >
+                                <a href="#">{item.name}</a>                                                                                                                                                                                 "
                                <span>{item.lessons_count}</span>
                             </li>
-                            <div style={{display: 'none'}}>
+                            <div style={{ display: 'none' }}>
                                 {lessons.map((data, index) => {
-                                    if(data.users.length){
-                                        return <p key={index} onClick={(e)=>{setVideoLink(data, index)}} className={`sub-lessons opened ${active === index?'active':''}`} >{index+1}. {data.title}</p>
+                                    if (data.users.length) {
+                                        return <p key={index} onClick={(e) => { setVideoLink(data, index) }} className={`sub-lessons opened ${active === index ? 'active' : ''}`} >{index + 1}. {data.title}</p>
                                     }
-                                    else{
-                                        return <p key={index}  className="sub-lessons closed" >{index+1}. {data.title} <i className="fa  fa-lock" /></p>
+                                    else {
+                                        return <p key={index} className="sub-lessons closed" >{index + 1}. {data.title} <i className="fa  fa-lock" /></p>
                                     }
                                 })}
                             </div>
                         </div>
                     )
                 }) : <li className="cat-item">
-                        <div >Loading <i className="fa fa-spinner fa-pulse" aria-hidden="true"/></div>
+                        <div >Loading <i className="fa fa-spinner fa-pulse" aria-hidden="true" /></div>
                     </li>
             }
         </ul>

@@ -1,55 +1,47 @@
-import React,{ useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 
-const Pricing=()=>{
-	const [coursesFront,setCoursesFront] = useState('');
-	const [coursesFull,setCoursesFull] = useState('');
-	const [coursesBack,setCoursesBack] = useState('');
-    useEffect(()=>{
+const Pricing = () => {
+	const [coursesFront, setCoursesFront] = useState('');
+	const [coursesFull, setCoursesFull] = useState('');
+	const [coursesBack, setCoursesBack] = useState('');
+	useEffect(() => {
 		getCourses();
-    },[]);
+	}, []);
 
-    const getCourses=()=>{
-        //setCourses(courses)
-        fetch('http://web.webex.am/api/packages')
-            .then((res)=>{
-        	  if(res)return res.json()
-           		 .then((data)=>{
-					let f=null,b=null,fl=null;
-					console.log(data.packages[0])
-					for(let n=0;n<data.packages.length;n++){
-                            if(data.packages[n].name==="Front"){
-
-									f=data.packages[n];
-									setCoursesFront(f);
+	const getCourses = () => {
+		//setCourses(courses)
+		fetch('http://web.webex.am/api/packages')
+			.then((res) => {
+				if (res) return res.json()
+					.then((data) => {
+						let f = null, b = null, fl = null;
+						for (let n = 0; n < data.packages.length; n++) {
+							if (data.packages[n].name === "Front") {
+								f = data.packages[n];
+								setCoursesFront(f);
 							}
-							else if(data.packages[n].name==="Full"){
-								b=data.packages[n];
+							else if (data.packages[n].name === "Full") {
+								b = data.packages[n];
 								setCoursesFull(b);
 							}
-							else if(data.packages[n].name==="Back"){
-								fl=data.packages[n];
+							else if (data.packages[n].name === "Back") {
+								fl = data.packages[n];
 								setCoursesBack(fl);
 							}
-					}
-			})
-		}).catch((error)=>console.log(error, "getCourses"))
-	
+						}
+					})
+			}).catch((error) => console.log(error, "getCourses"))
+
 	}
 
-	
-	// console.log(coursesFront.courses, "coursesFront");
-	// console.log(coursesFull, "coursesFull")
-	// console.log(coursesBack, "coursesBack")
+	const icons = ["icon-m-user color-dark", "icon-m-comment color-dark", "fa fa-edit color-dark", "fa fa-thumbs-o-up color-dark", "icon-m-list-alt color-dark", "fa fa-address-card-o color-dark", "fa fa-envelope-open-o color-dark", "fa fa-linode color-dark", "fa fa-desktop color-dark", "fa fa-thumbs-o-up color-dark"]
 
 
-  const icons=["icon-m-user color-dark","icon-m-comment color-dark","fa fa-edit color-dark","fa fa-thumbs-o-up color-dark","icon-m-list-alt color-dark","fa fa-address-card-o color-dark","fa fa-envelope-open-o color-dark","fa fa-linode color-dark","fa fa-desktop color-dark","fa fa-thumbs-o-up color-dark"]
-
-
-    return(
-       <>
-         <section className="ls s-pt-55 s-pb-35 s-pt-lg-95 s-pb-lg-75">
+	return (
+		<>
+			<section className="ls s-pt-55 s-pb-35 s-pt-lg-95 s-pb-lg-75">
 				<div className="container">
 					<div className="divider-3"></div>
 					<div className="row">
@@ -66,20 +58,20 @@ const Pricing=()=>{
 									</h3>
 								</div>
 								<div className="price-wrap">
-                                    <span className="plan-sign fw-900" style={{fontSize:'15px'}}>AMD</span>
-									<span className="plan-price color-dark fw-900" style={{fontSize:'25px'}}>{coursesFront.price/coursesFront.mounth}</span>
+									<span className="plan-sign fw-900" style={{ fontSize: '15px' }}>AMD</span>
+									<span className="plan-price color-dark fw-900" style={{ fontSize: '25px' }}>{coursesFront.price / coursesFront.mounth}</span>
 									<span className="plan-decimals">/month</span>
 								</div>
 								<div className="plan-features">
 									<ul>
 										{
-                                         coursesFront.courses?coursesFront.courses.map((item,index)=>{
-											return (
-												<li><i className={icons[index]}></i>{item.name}</li>
-											)
-										 }):''
+											coursesFront.courses ? coursesFront.courses.map((item, index) => {
+												return (
+													<li key={index}><i className={icons[index]}></i>{item.name}</li>
+												)
+											}) : ''
 										}
-								
+
 									</ul>
 									<div className="plan-button text-center">
 										<a href="#" className="btn btn-maincolor">Get Started</a>
@@ -95,19 +87,19 @@ const Pricing=()=>{
 										Full Stack
 									</h3>
 								</div>
-								<div className="price-wrap">		
-                                    <span className="plan-sign fw-900" style={{fontSize:'15px'}}>AMD</span>
-									<span className="plan-price color-dark fw-900" style={{fontSize:'25px'}}>{coursesFull.price/coursesFull.mounth}</span>
+								<div className="price-wrap">
+									<span className="plan-sign fw-900" style={{ fontSize: '15px' }}>AMD</span>
+									<span className="plan-price color-dark fw-900" style={{ fontSize: '25px' }}>{coursesFull.price / coursesFull.mounth}</span>
 									<span className="plan-decimals">/month</span>
 								</div>
 								<div className="plan-features">
 									<ul>
-									{
-                                         coursesFull.courses?coursesFull.courses.map((item,index)=>{
-											return (
-												<li><i className={icons[index]}></i>{item.name}</li>
-											)
-										 }):''
+										{
+											coursesFull.courses ? coursesFull.courses.map((item, index) => {
+												return (
+													<li key={index}><i className={icons[index]}></i>{item.name}</li>
+												)
+											}) : ''
 										}
 									</ul>
 									<div className="plan-button text-center">
@@ -125,18 +117,18 @@ const Pricing=()=>{
 									</h3>
 								</div>
 								<div className="price-wrap">
-									<span className="plan-sign fw-900" style={{fontSize:'15px'}}>AMD</span>
-									<span className="plan-price color-dark fw-900" style={{fontSize:'25px'}}>{coursesBack.price/coursesBack.mounth}</span>
+									<span className="plan-sign fw-900" style={{ fontSize: '15px' }}>AMD</span>
+									<span className="plan-price color-dark fw-900" style={{ fontSize: '25px' }}>{coursesBack.price / coursesBack.mounth}</span>
 									<span className="plan-decimals">/month</span>
 								</div>
 								<div className="plan-features">
 									<ul>
-									{
-                                         coursesBack.courses?coursesBack.courses.map((item,index)=>{
-											return (
-												<li><i className={icons[index]}></i>{item.name}</li>
-											)
-										 }):''
+										{
+											coursesBack.courses ? coursesBack.courses.map((item, index) => {
+												return (
+													<li key={index} ><i className={icons[index]}></i>{item.name}</li>
+												)
+											}) : ''
 										}
 									</ul>
 									<div className="plan-button text-center">
@@ -148,7 +140,7 @@ const Pricing=()=>{
 					</div>
 				</div>
 			</section>
-       </>
-    )
+		</>
+	)
 }
 export default Pricing;

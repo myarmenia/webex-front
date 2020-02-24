@@ -65,7 +65,7 @@ function ThirdStep(props) {
                         Prev
                     </Button>
                 </div>
-        </div>
+            </div>
         </div>
     )
 };

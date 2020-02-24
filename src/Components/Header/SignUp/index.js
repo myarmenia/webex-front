@@ -16,15 +16,15 @@ function SignUp() {
 		setNext(e);
 	}
 	const prevFunc = (e) => {
-            setNext(e);
-		}
+		setNext(e);
+	}
 
 	const set = (e) => {
 		setFinalState(old => {
-			return {...old, ...e}
+			return { ...old, ...e }
 		});
-	} 
-	console.log(finalState,"finalState");
+	}
+	console.log(finalState, "finalState");
 	let p1 = "";
 
 	const change = () => {
@@ -34,17 +34,17 @@ function SignUp() {
 		} else if (next === "two") {
 			p1 = <SectionTwo nextProps={nextFunc} prevProps={prevFunc} title={finalState} set={set} />
 		} else if (next === "three") {
-			p1 = <ThidStep nextProps={nextFunc}  prevProps={prevFunc} finalStateThree={finalState} />
+			p1 = <ThidStep nextProps={nextFunc} prevProps={prevFunc} finalStateThree={finalState} />
 		} else if (next === "four") {
 			p1 = <SectionFour prevProps={prevFunc} />
 		} else if (next === "Back End") {
-			p1 = <SingleCourse courseLang={next} set={set}  prevProps={prevFunc}/>
+			p1 = <SingleCourse courseLang={next} set={set} prevProps={prevFunc} />
 		} else if (next === "Front End") {
-			p1 = <SingleCourse courseLang={next} set={set}  prevProps={prevFunc} />
+			p1 = <SingleCourse courseLang={next} set={set} prevProps={prevFunc} />
 		} else if (next === "Full Stack") {
-			p1 = <SingleCourse courseLang={next} set={set}  prevProps={prevFunc} />
+			p1 = <SingleCourse courseLang={next} set={set} prevProps={prevFunc} />
 		} else if (next === "Back End") {
-			p1 = <SingleCourse courseLang={next}  set={set}  prevProps={prevFunc}/>
+			p1 = <SingleCourse courseLang={next} set={set} prevProps={prevFunc} />
 		}
 	}
 
