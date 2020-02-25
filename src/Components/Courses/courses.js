@@ -148,9 +148,9 @@ class Courses extends Component {
                   </div>
                 </div>
               </div>
-              <div className="row isotope-wrapper c-mb-30" data-filters=".course-filters" id="course" style={{ 'text-align': 'center' }}>
+              <div className="row isotope-wrapper c-mb-30" data-filters=".course-filters" id="course" style={{ 'textAlign': 'center' }}>
                 {/* {zangvats} */}
-                {a}
+                {/* {a} */}
               </div>
             </div>
           </div>
