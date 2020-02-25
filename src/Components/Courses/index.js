@@ -30,16 +30,16 @@ const Courses = props => {
     props.getCoursesWithLessons();
   }, []);
 
-  // const getCourses = () => {
-  //   axios.get('http://web.webex.am/api/courses')
-  //     .then((res) => {
-  //       if (res) return res.data;
-  //     }).then((data) => {
-  //       setAllCourses(data);
-  //     }).catch((error) => {
-  //       console.log(error, "getCourses")
-  //     })
-  // };
+  const getCourses = () => {
+    axios.get('http://web.webex.am/api/courses')
+      .then((res) => {
+        if (res) return res.data;
+      }).then((data) => {
+        setAllCourses(data);
+      }).catch((error) => {
+        console.log(error, "getCourses")
+      })
+  };
   const openVideo = (e) => {
     setVideoData(e)
   }
@@ -69,7 +69,7 @@ const Courses = props => {
             <div className="bordered rounded">
               <div className="widget widget_categories">
                 <h3 className="widget-title">Բոլոր Վիդեոդասերը</h3>
-                <CourseSideBar courses={props.courses} openVideo={openVideo} />
+                <CourseSideBar courses={allCourses} openVideo={openVideo} />
               </div>
             </div>
 
@@ -105,7 +105,7 @@ const Courses = props => {
 }
 
 const mapStateToProps = state => ({
-  courses: () => coursesSelector(state),
+  courses: () => state.coursesData.courses,
   lessons: course_id => lessonsSelector(state, course_id)
 });
 
