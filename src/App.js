@@ -21,9 +21,10 @@ import News from './Components/News'
 
 import { connect } from 'react-redux';
 
-import { getUserData } from './redux/actions/';
+import { getUserData } from './redux/actionCreators/signin';
 
 import { ProtectedRoute, GuestRoute } from './Components/ProtectedRoute';
+
 import auth from './redux/auth/';
 
 function App(props) {

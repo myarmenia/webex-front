@@ -7,7 +7,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 import { connect } from 'react-redux';
 
-import { SignIn } from '../../../redux/actions';
+import { SignIn } from '../../../redux/actionCreators/signin';
 
 const useStyles = makeStyles(theme => ({
 	container: {

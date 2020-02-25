@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { connect } from 'react-redux';
 import { coursesSelector, lessonsSelector } from '../../redux/selectors/coursesData';
-import { getCoursesWithLessons } from '../../redux/actions/coursesData';
+import { getCoursesWithLessons } from '../../redux/actionCreators/coursesData';
 
 import { CourseSideBar } from './CourseSideBar';
 import axios from 'axios';

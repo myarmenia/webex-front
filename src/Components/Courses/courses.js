@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import lessDuration from '../duration.js';
 
 import { coursesSelector } from '../../redux/selectors/coursesData';
-import { getCourses } from '../../redux/actions/coursesData';
+import { getCourses } from '../../redux/actionCreators/coursesData';
 import './p.css';
 
 let lessons = require('../../language.json');
@@ -16,11 +16,11 @@ class Courses extends Component {
   }
 
   componentDidMount() {
-    // fetch('http://web.webex.am/api/courses')
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     this.setState({ course1: data })
-    //   });
+    fetch('http://web.webex.am/api/courses')
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ course1: data })
+      });
     this.props.getCourses();
   }
 
@@ -85,7 +85,7 @@ class Courses extends Component {
 
     console.log(courses);
 
-    const a = courses.map((arjeq, ind) => {
+    const a = course1.map((arjeq, ind) => {
       return arjeq.packages.filter(e => e.id === filter).map((ev, index) => {
         let p = arjeq.sum_duration
         arjeq.sum_duration.map((arj, ind) => {
