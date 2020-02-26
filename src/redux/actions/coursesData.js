@@ -6,8 +6,8 @@ import {
   TAB_PACKAGE_ID
 } from "../types/coursesData";
 
-export const CoursesSuccess = courses => {
-  return { type: COURSES_SUCCESS, payload: courses };
+export const CoursesSuccess = fullPackages => {
+  return { type: COURSES_SUCCESS, payload: fullPackages };
 };
 
 export const CoursesWithLessonsSuccess = (courses, lessons) => {

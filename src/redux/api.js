@@ -7,10 +7,8 @@ import {
 } from "./config";
 
 const api = {
-  getCourses: () => axios.get(API_COURSES_URL),
-
+  // getCourses: () => axios.get(API_COURSES_URL),
   getFullPackages: () => axios.get(API_FULL_PACKAGES_URL),
-
   getCoursesWithLessons: () => axios.get(API_LESSONS_URL)
 };
 

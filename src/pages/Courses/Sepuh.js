@@ -3,24 +3,23 @@ import { connect } from "react-redux";
 
 import lessDuration from "../duration.js";
 
-import CourseFlip from "../../components/courseFlip/CourseFlip";
-
-import { coursesSelector } from "../../redux/selectors/coursesData";
+import { coursesOfPackage } from "../../redux/selectors/coursesData";
 import { getFullPackages } from "../../redux/actionCreators/coursesData";
+import "./p.css";
 
 let lessons = require("../../language.json");
-class Courses extends Component {
+class Sepuh extends Component {
   state = {
     filter: 3,
     course1: []
   };
 
   componentDidMount() {
-    fetch("http://127.0.0.1:8000/api/courses")
-      .then(response => response.json())
-      .then(data => {
-        this.setState({ course1: data });
-      });
+    // fetch("http://web.webex.am/api/courses")
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     this.setState({ course1: data });
+    //   });
     this.props.fetchFullPackages();
   }
 
@@ -124,6 +123,7 @@ class Courses extends Component {
     });
 
     console.log(a);
+    console.log("pckCourses", this.props.coursesOfPackage);
 
     return (
       <section
@@ -170,7 +170,39 @@ class Courses extends Component {
                 id="course"
                 style={{ textAlign: "center" }}
               >
-                {a}
+                {/* zangvatc */}
+                <div
+                  key={`index`}
+                  className={`col col-12 col-md-6 col-lg-3 ${this.state.filter}`}
+                >
+                  <div className="course-flip h-100 ">
+                    <div className="course-front rounded bordered">
+                      <div className=" vertical-item content-padding">
+                        <div className="item-media rounded-top"></div>
+                        <div className="item-content">
+                          <h6 className="course-title">{`arjeq.name`}</h6>
+                          <p>Դասեր: {`arjeq.lessons_count`}</p>
+                          <p>Տևողություն: {`lessDuration(l)`} րոպե</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="course-back rounded vertical-item content-padding ds">
+                      <div className="">
+                        <h6
+                          className="course-title"
+                          style={{ paddingTop: "14px" }}
+                        >
+                          {`arjeq.name`}
+                        </h6>
+                        <p>{`arjeq.description`}</p>
+                        <div className="divider-32"></div>
+                        {/* <a href="#" className="btn btn-maincolor" id={arjeq.id} onClick={this.courseButton}>Սկսել</a> */}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* zangvatc */}
+                {/* {a} */}
               </div>
             </div>
           </div>
@@ -181,11 +213,12 @@ class Courses extends Component {
 }
 
 const mapStateToProps = state => ({
-  courses: state.coursesData.courses
+  courses: state.coursesData.courses,
+  coursesOfPackage: coursesOfPackage(state)
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchFullPackages: () => dispatch(getFullPackages())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Courses);
+export default connect(mapStateToProps, mapDispatchToProps)(Sepuh);

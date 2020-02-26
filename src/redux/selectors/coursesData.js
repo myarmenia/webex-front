@@ -1,12 +1,22 @@
 import { createSelector } from "reselect";
 
-const courses = state => state.coursesData.courses;
+// packagesIdSelecotr
+export const packagesSelector = state => state.coursesData.packages;
+export const coursesSelector = state => state.coursesData.courses;
+export const lessonsSelector = state => state.coursesData.lessons;
 
-const lessons = state => state.coursesData.lessons;
+export const coursesOfPackage = createSelector(
+  packagesSelector,
 
-export const coursesSelector = createSelector(courses);
+  coursesSelector,
+  (packs, courses) => {
+    const tabPackId = 3;
+    const { course_ids } = packs.find(p => p.id === tabPackId) || {
+      course_ids: []
+    };
+    const ownCourses = courses.filter(({ id }) => course_ids.includes(id));
+    // console.log('ownCourses', ownCourses)
 
-export const lessonsSelector = createSelector(
-  lessons,
-  course_id => lessons[course_id]
+    return ownCourses;
+  }
 );

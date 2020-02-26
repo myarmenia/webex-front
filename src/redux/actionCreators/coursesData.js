@@ -7,11 +7,13 @@ import {
   CoursesWithLessonsSuccess
 } from "../actions/coursesData";
 
+// getCourses
 export const getFullPackages = () => {
+  // console.log('shoot dispatch getFullPackages =======')
   return dispatch => {
     dispatch(CoursesRequest());
     API.getFullPackages()
-      .then(response => dispatch(CoursesSuccess(response.data)))
+      .then(({ data }) => dispatch(CoursesSuccess(data)))
       .catch(err => dispatch(CoursesError(err.message)));
   };
 };
