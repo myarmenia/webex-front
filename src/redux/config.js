@@ -17,7 +17,7 @@ export const API_USERDATA_URL = API_URL + "/userdata";
 export const API_REFRESH_URL = API_URL + "/signin/refresh";
 
 // export const API_COURSES_URL = API_URL + '/courses';
-export const API_FULL_PACKAGES_URL = API_URL + "/getData"; // fullPackages
+export const API_FULL_PACKAGES_URL = API_URL + "/fullPackages"; // getData
 
 export const API_LESSONS_URL = API_URL + "/courses_with_lessons";
 
