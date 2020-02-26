@@ -1,8 +1,13 @@
-import { COURSES_REQUEST, COURSES_ERROR, COURSES_SUCCESS, LESSONS_SUCCESS } from '../types/coursesData';
+import {
+  COURSES_REQUEST,
+  COURSES_ERROR,
+  COURSES_SUCCESS,
+  LESSONS_SUCCESS
+} from "../types/coursesData";
 
 const initialState = {
   loading: false,
-  error: '',
+  error: "",
   courses: [],
   lessons: [],
   packages: []
@@ -14,10 +19,19 @@ export default function coursesData(state = initialState, action) {
       return { ...state, loading: true };
 
     case COURSES_SUCCESS:
-      return { ...state, loading: false, courses: action.payload };
+      const {
+        payload: { courses, lessons, packages }
+      } = action;
+
+      return { ...state, loading: false, courses, lessons, packages };
 
     case LESSONS_SUCCESS:
-      return { ...state, loading: false, courses: action.payload.courses, lessons: action.payload.lessons };
+      return {
+        ...state,
+        loading: false,
+        courses: action.payload.courses,
+        lessons: action.payload.lessons
+      };
 
     case COURSES_ERROR:
       return { ...state, loading: false, error: action.errorMessage };
