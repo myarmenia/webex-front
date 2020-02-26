@@ -3,9 +3,10 @@ import { connect } from "react-redux";
 
 import lessDuration from "../duration.js";
 
+import CourseFlip from "../../components/courseFlip/CourseFlip";
+
 import { coursesSelector } from "../../redux/selectors/coursesData";
 import { getFullPackages } from "../../redux/actionCreators/coursesData";
-import "./p.css";
 
 let lessons = require("../../language.json");
 class Courses extends Component {
@@ -169,7 +170,6 @@ class Courses extends Component {
                 id="course"
                 style={{ textAlign: "center" }}
               >
-                {/* {zangvats} */}
                 {a}
               </div>
             </div>

@@ -5,26 +5,24 @@ import "./styles/animations.css";
 import "./styles/font-awesome.css";
 import "./styles/main.css";
 
-import Navbar from "./Components/Header/Navbar";
-import Main from "./Components/Main";
-import Footer from "./Components/Footer";
-import CopyRight from "./Components/CopyRight";
+import Navbar from "./pages/Header/Navbar";
+import Main from "./pages/Main";
+import Footer from "./pages/Footer";
+import CopyRight from "./pages/CopyRight";
 
 import { Switch, Route } from "react-router-dom";
-import SignIn from "./Components/Header/SignIn";
-import SignUp from "./Components/Header/SignUp";
-import AboutUs from "./Components/AboutUs";
-import Courses from "./Components/Courses";
-import Payment from "./Components/Payment";
-import News from "./Components/News";
-
-import Sepuh from "./Components/Courses/Sepuh";
+import SignIn from "./pages/Header/SignIn";
+import SignUp from "./pages/Header/SignUp";
+import AboutUs from "./pages/AboutUs";
+import Courses from "./pages/Courses";
+import Payment from "./pages/Payment";
+import News from "./pages/News";
 
 import { connect } from "react-redux";
 
 import { getUserData } from "./redux/actionCreators/signin";
 
-import { ProtectedRoute, GuestRoute } from "./Components/ProtectedRoute";
+import { ProtectedRoute, GuestRoute } from "./pages/ProtectedRoute";
 
 import auth from "./redux/auth/";
 
@@ -52,7 +50,6 @@ function App(props) {
             <Route path="/news" component={News} />
             <ProtectedRoute path="/courses" component={Courses} />
             <Route path="/payment" component={Payment} />
-            <Route path="/sepuh" component={Sepuh} />
             <Route component={NoMatchPage} />
           </Switch>
         )}
