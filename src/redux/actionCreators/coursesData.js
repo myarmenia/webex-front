@@ -23,7 +23,9 @@ export const getCoursesWithLessons = () => {
   return dispatch => {
     dispatch(CoursesRequest());
     API.getCoursesWithLessons()
-      .then(resp => dispatch(CoursesWithLessonsSuccess(resp.courses, resp.lessons)))
+      .then(resp =>
+        dispatch(CoursesWithLessonsSuccess(resp.courses, resp.lessons))
+      )
       .catch(err => dispatch(CoursesError(err.message)));
-  }
+  };
 };
