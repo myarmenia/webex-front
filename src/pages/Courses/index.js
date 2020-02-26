@@ -12,8 +12,6 @@ import Level from './Level';
 import Video from './Main/video';
 import Homeworks from './Main/homeworks';
 
-
-
 const Courses = props => {
 
   console.log(props);

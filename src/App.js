@@ -1,38 +1,34 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
-import './styles/bootstrap.min.css';
-import './styles/animations.css';
-import './styles/font-awesome.css';
-import './styles/main.css';
+import "./styles/bootstrap.min.css";
+import "./styles/animations.css";
+import "./styles/font-awesome.css";
+import "./styles/main.css";
 
-import Navbar from './Components/Header/Navbar';
-import Main from './Components/Main';
-import Footer from './Components/Footer';
-import CopyRight from './Components/CopyRight';
+import Navbar from "./pages/Header/Navbar";
+import Main from "./pages/Main";
+import Footer from "./pages/Footer";
+import CopyRight from "./pages/CopyRight";
 
+import { Switch, Route } from "react-router-dom";
+import SignIn from "./pages/Header/SignIn";
+import SignUp from "./pages/Header/SignUp";
+import AboutUs from "./pages/AboutUs";
+import Courses from "./pages/Courses";
+import Payment from "./pages/Payment";
+import News from "./pages/News";
 
-import { Switch, Route } from 'react-router-dom';
-import SignIn from './Components/Header/SignIn';
-import SignUp from './Components/Header/SignUp';
-import AboutUs from './Components/AboutUs'
-import Courses from './Components/Courses';
-import Payment from './Components/Payment';
-import News from './Components/News'
+import { connect } from "react-redux";
 
-import { connect } from 'react-redux';
+import { getUserData } from "./redux/actionCreators/signin";
 
-import { getUserData } from './redux/actionCreators/signin';
+import { ProtectedRoute, GuestRoute } from "./pages/ProtectedRoute";
 
-import { ProtectedRoute, GuestRoute } from './Components/ProtectedRoute';
-
-import auth from './redux/auth/';
+import auth from "./redux/auth/";
 
 function App(props) {
-
   const NoMatchPage = () => {
-    return (
-      <h3 className='text-center'>404 - Not found</h3>
-    );
+    return <h3 className="text-center">404 - Not found</h3>;
   };
 
   useEffect(() => {
@@ -44,30 +40,30 @@ function App(props) {
   return (
     <div className="App">
       <Navbar />
-      <Route render={({ location }) => (
-        <Switch location={location}>
-          <Route path='/' exact component={Main} />
-          <GuestRoute path='/signup' component={SignUp} />
-          <GuestRoute path='/signin' component={SignIn} />
-          <Route path="/aboutus" component={AboutUs} />
-          <Route path="/news" component={News} />
-          <ProtectedRoute path='/courses' component={Courses} />
-          <Route path='/payment' component={Payment} />
-          <Route component={NoMatchPage} />
-        </Switch>
-      )} />
+      <Route
+        render={({ location }) => (
+          <Switch location={location}>
+            <Route path="/" exact component={Main} />
+            <GuestRoute path="/signup" component={SignUp} />
+            <GuestRoute path="/signin" component={SignIn} />
+            <Route path="/aboutus" component={AboutUs} />
+            <Route path="/news" component={News} />
+            <ProtectedRoute path="/courses" component={Courses} />
+            <Route path="/payment" component={Payment} />
+            <Route component={NoMatchPage} />
+          </Switch>
+        )}
+      />
       <Footer />
       <CopyRight />
     </div>
   );
 }
 
-const mapStateToProps = state => ({
-
-});
+const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch => ({
-  getUserData: () => dispatch(getUserData()),
+  getUserData: () => dispatch(getUserData())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
