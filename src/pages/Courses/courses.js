@@ -9,7 +9,8 @@ import TabButton from "../../components/tabButton/TabButton";
 
 import {
   packagesSelector,
-  coursesOfPackage
+  coursesOfPackage,
+  tabPackageIdSelector
 } from "../../redux/selectors/coursesData";
 import { getFullPackages } from "../../redux/actionCreators/coursesData";
 
@@ -17,14 +18,6 @@ import { SetTabPackageId } from "../../redux/actions/coursesData";
 
 let lessons = require("../../language.json");
 class Courses extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      filter: 0
-    };
-  }
-
   componentDidMount() {
     this.props.fetchFullPackages();
   }
@@ -82,12 +75,8 @@ class Courses extends Component {
 
   handleClick = e => {
     e.preventDefault();
-    const id = e.target.getAttribute("data-filter"),
-      index = e.target.getAttribute("data-index");
+    const id = e.target.getAttribute("data-filter");
 
-    console.log(index);
-
-    this.setState({ filter: parseInt(index) });
     this.props.SetTabPackageId(id);
   };
 
@@ -96,12 +85,13 @@ class Courses extends Component {
   render() {
     const { coursesOfPackage, packages } = this.props;
 
-    const tabPackages = packages.map(({ id, name }, index) => (
+    console.log(packages);
+
+    const tabPackages = packages.map(({ id, name }) => (
       <TabButton
         key={id}
-        active={this.state.filter === index}
+        active={parseInt(this.props.tabPackageId) === id}
         filter={id}
-        index={index}
         title={name}
         handleClick={this.handleClick}
       />
@@ -146,7 +136,8 @@ class Courses extends Component {
 
 const mapStateToProps = state => ({
   packages: packagesSelector(state),
-  coursesOfPackage: coursesOfPackage(state)
+  coursesOfPackage: coursesOfPackage(state),
+  tabPackageId: tabPackageIdSelector(state)
 });
 
 const mapDispatchToProps = dispatch => ({
