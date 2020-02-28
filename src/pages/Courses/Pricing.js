@@ -21,7 +21,7 @@ const Pricing = ({ packagesWithTheirCourses: packages }) => {
   ];
 
   const renderPriceCard = pack => (
-    <PricingCard pack={pack} icons={icons} key={pack.id} />
+    <PricingCard pack={pack} key={pack.id} />
   );
 
   return (
