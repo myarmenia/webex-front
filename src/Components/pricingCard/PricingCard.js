@@ -1,7 +1,13 @@
 import React from "react";
 
-const PricingCard = ({ pack, icons }) => {
-  const { id, fullName, currency, pricePerMonth, courses, buttonText } = pack;
+// https://konpa.github.io/devicon/
+// https://simpleicons.org/
+// https://svg2jsx.com/ svg to component
+
+import SvgIcon from "../../components/svgIcon/SvgIcon";
+
+const PricingCard = ({ pack }) => {
+  const { id, name, currency, pricePerMonth, courses, buttonText } = pack;
   const featuredClass = id === 2 ? "ds" : "";
 
   return (
@@ -10,7 +16,7 @@ const PricingCard = ({ pack, icons }) => {
         className={`pricing-plan text-center text-lg-left bordered rounded ${featuredClass}`}
       >
         <div className="plan-name text-center">
-          <h3>{fullName}</h3>
+          <h3>{name}</h3>
         </div>
         <div className="price-wrap">
           <span className="plan-sign fw-900" style={{ fontSize: "15px" }}>
@@ -30,7 +36,13 @@ const PricingCard = ({ pack, icons }) => {
               ? courses.map((item, index) => {
                   return (
                     <li key={index}>
-                      <i className={icons[index]}></i>
+                      <SvgIcon
+                        name={item.cat}
+                        iconStyles={{
+                          width: 32,
+                          marginRight: "10px"
+                        }}
+                      />
                       {item.name}
                     </li>
                   );
@@ -38,9 +50,7 @@ const PricingCard = ({ pack, icons }) => {
               : ""}
           </ul>
           <div className="plan-button text-center">
-            <a href="#" className="btn btn-maincolor">
-              {buttonText}
-            </a>
+            <span className="btn btn-maincolor">{buttonText}</span>
           </div>
         </div>
       </div>

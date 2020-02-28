@@ -25,11 +25,6 @@ export const packagesWithTheirCourses = createSelector(
   (packages, courses) => {
     return packages.reduce((pc, pack, i) => {
       const { course_ids = [] } = pack;
-      // pack.fullName = pack.name.includes("Front")
-      //   ? "Front End"
-      //   : pack.name.includes("Back")
-      //   ? "Back End"
-      //   : "Full Stack";
       pc[i] = pack;
       const month = pack.month || pack.mounth; // task - fix mounth, it must to be "month"
       pc[i]["pricePerMonth"] = pack.price / month;
