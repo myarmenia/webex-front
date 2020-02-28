@@ -5,8 +5,6 @@ import PricingCard from "../../components/pricingCard/PricingCard";
 import { packagesWithTheirCourses } from "../../redux/selectors/coursesData";
 
 const Pricing = ({ packagesWithTheirCourses: packages }) => {
-  // console.log('packagesWithTheirCourses --->', packages)
-
   const icons = [
     "icon-m-user color-dark",
     "icon-m-comment color-dark",
@@ -33,7 +31,10 @@ const Pricing = ({ packagesWithTheirCourses: packages }) => {
             <div className="col-12 text-center price-header">
               <h6 className="special-heading fw-300">Հզորացրեք ինքներդ ձեզ</h6>
               <h2>Ընտրել Փաթեթը</h2>
-              <p>Ընտրելով այս կամ այն փաթեթը, դեզ հասանելի կդառնան փաթեթում ամփոփված բոլոր դասերը։</p>
+              <p>
+                Ընտրելով այս կամ այն փաթեթը, ձեզ հասանելի կդառնան փաթեթում
+                ամփոփված բոլոր դասերը։
+              </p>
             </div>
 
             {packages.map(pack => renderPriceCard(pack))}
