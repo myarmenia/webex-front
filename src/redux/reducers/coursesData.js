@@ -9,7 +9,7 @@ import {
 const initialState = {
   loading: false,
   error: "",
-  tab_package_id: 1,
+  tabPackageId: 1,
   courses: [],
   lessons: [],
   packages: []
@@ -18,7 +18,7 @@ const initialState = {
 export default function coursesData(state = initialState, action) {
   switch (action.type) {
     case TAB_PACKAGE_ID:
-      return { ...state, tab_package_id: action.payload };
+      return { ...state, tabPackageId: action.payload };
 
     case COURSES_REQUEST:
       return { ...state, loading: true };
@@ -34,7 +34,7 @@ export default function coursesData(state = initialState, action) {
         packages,
         courses,
         lessons,
-        tab_package_id: packages[0].id
+        tabPackageId: packages[0].id
       };
 
     case LESSONS_SUCCESS:
