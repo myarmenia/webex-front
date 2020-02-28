@@ -1,5 +1,7 @@
 import React from "react";
 
+import courseDuration from "../../utils/courseDuration";
+
 const CourseFlip = ({ course }) => (
   <div className="col col-12 col-md-6 col-lg-3">
     <div className="course-flip h-100 ">
@@ -9,7 +11,9 @@ const CourseFlip = ({ course }) => (
           <div className="item-content">
             <h6 className="course-title">{course.name}</h6>
             <p>Դասեր: {course.lessons_count}</p>
-            <p>Տևողություն: lessDuration(l) րոպե</p>
+            <p>
+              Տևողություն: {courseDuration(course.summary_duration_count)} րոպե
+            </p>
           </div>
         </div>
       </div>
