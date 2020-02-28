@@ -1,41 +1,41 @@
 // import React from 'react';
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import { lighten, makeStyles, useTheme } from '@material-ui/core/styles';
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import clsx from "clsx";
+import { lighten, makeStyles, useTheme } from "@material-ui/core/styles";
 // import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TablePagination from '@material-ui/core/TablePagination';
-import TableRow from '@material-ui/core/TableRow';
-import TableSortLabel from '@material-ui/core/TableSortLabel';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
-import Checkbox from '@material-ui/core/Checkbox';
-import IconButton from '@material-ui/core/IconButton';
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableHead from "@material-ui/core/TableHead";
+import TablePagination from "@material-ui/core/TablePagination";
+import TableRow from "@material-ui/core/TableRow";
+import TableSortLabel from "@material-ui/core/TableSortLabel";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Paper from "@material-ui/core/Paper";
+import Checkbox from "@material-ui/core/Checkbox";
+import IconButton from "@material-ui/core/IconButton";
 
 // import Tooltip from '@material-ui/core/Tooltip';
 // import FormControlLabel from '@material-ui/core/FormControlLabel';
 // import Switch from '@material-ui/core/Switch';
 // import DeleteIcon from '@material-ui/icons/Delete';
 // import FilterListIcon from '@material-ui/icons/FilterList';
-import FirstPageIcon from '@material-ui/icons/FirstPage';
-import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
-import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-import LastPageIcon from '@material-ui/icons/LastPage';
-import TableFooter from '@material-ui/core/TableFooter';
-import lessDuration from '../duration.js';
+import FirstPageIcon from "@material-ui/icons/FirstPage";
+import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
+import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
+import LastPageIcon from "@material-ui/icons/LastPage";
+import TableFooter from "@material-ui/core/TableFooter";
+// import lessDuration from '../duration.js';
 
 // ______verevi table_________________________________________
 
 const useStyles1 = makeStyles(theme => ({
   root: {
     flexShrink: 0,
-    marginLeft: theme.spacing(2.5),
-  },
+    marginLeft: theme.spacing(2.5)
+  }
 }));
 
 function TablePaginationActions2(props2) {
@@ -66,24 +66,36 @@ function TablePaginationActions2(props2) {
         disabled={page2 === 0}
         aria-label="first page"
       >
-        {theme.direction === 'rtl' ? <LastPageIcon /> : <FirstPageIcon />}
+        {theme.direction === "rtl" ? <LastPageIcon /> : <FirstPageIcon />}
       </IconButton>
-      <IconButton onClick={handleBackButtonClick2} disabled={page2 === 0} aria-label="previous page">
-        {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+      <IconButton
+        onClick={handleBackButtonClick2}
+        disabled={page2 === 0}
+        aria-label="previous page"
+      >
+        {theme.direction === "rtl" ? (
+          <KeyboardArrowRight />
+        ) : (
+          <KeyboardArrowLeft />
+        )}
       </IconButton>
       <IconButton
         onClick={handleNextButtonClick2}
         disabled={page2 >= Math.ceil(count2 / rowsPerPage2) - 1}
         aria-label="next page"
       >
-        {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+        {theme.direction === "rtl" ? (
+          <KeyboardArrowLeft />
+        ) : (
+          <KeyboardArrowRight />
+        )}
       </IconButton>
       <IconButton
         onClick={handleLastPageButtonClick2}
         disabled={page2 >= Math.ceil(count2 / rowsPerPage2) - 1}
         aria-label="last page"
       >
-        {theme.direction === 'rtl' ? <FirstPageIcon /> : <LastPageIcon />}
+        {theme.direction === "rtl" ? <FirstPageIcon /> : <LastPageIcon />}
       </IconButton>
     </div>
   );
@@ -93,7 +105,7 @@ TablePaginationActions2.propTypes = {
   count2: PropTypes.number.isRequired,
   onChangePage2: PropTypes.func.isRequired,
   page2: PropTypes.number.isRequired,
-  rowsPerPage2: PropTypes.number.isRequired,
+  rowsPerPage2: PropTypes.number.isRequired
 };
 
 function createData2(name, calories, fat) {
@@ -101,40 +113,38 @@ function createData2(name, calories, fat) {
 }
 
 const rows2 = [
-  createData2('Cupcake', 305, 3.7),
-  createData2('Donut', 452, 25.0),
-  createData2('Eclair', 262, 16.0),
-  createData2('Frozen yoghurt', 159, 6.0),
-  createData2('Gingerbread', 356, 16.0),
-  createData2('Honeycomb', 408, 3.2),
-  createData2('Ice cream sandwich', 237, 9.0),
-  createData2('Jelly Bean', 375, 0.0),
-  createData2('KitKat', 518, 26.0),
-  createData2('Lollipop', 392, 0.2),
-  createData2('Marshmallow', 318, 0),
-  createData2('Nougat', 360, 19.0),
-  createData2('Oreo', 437, 18.0),
+  createData2("Cupcake", 305, 3.7),
+  createData2("Donut", 452, 25.0),
+  createData2("Eclair", 262, 16.0),
+  createData2("Frozen yoghurt", 159, 6.0),
+  createData2("Gingerbread", 356, 16.0),
+  createData2("Honeycomb", 408, 3.2),
+  createData2("Ice cream sandwich", 237, 9.0),
+  createData2("Jelly Bean", 375, 0.0),
+  createData2("KitKat", 518, 26.0),
+  createData2("Lollipop", 392, 0.2),
+  createData2("Marshmallow", 318, 0),
+  createData2("Nougat", 360, 19.0),
+  createData2("Oreo", 437, 18.0)
 ].sort((a, b) => (a.calories < b.calories ? -1 : 1));
 
 const useStyles2 = makeStyles(theme => ({
   root: {
-    width: '100%',
-    marginTop: theme.spacing(3),
+    width: "100%",
+    marginTop: theme.spacing(3)
   },
   table: {
-    minWidth: 500,
+    minWidth: 500
   },
   tableWrapper: {
-    overflowX: 'auto',
-  },
+    overflowX: "auto"
+  }
 }));
 
 // __________verj verevi table___________________________________
 
-
 function createData(name, duration, price, lsscount) {
   return { name, duration, price, lsscount };
-
 }
 
 // const rows = [
@@ -155,7 +165,6 @@ const rows = [
   // createData('Eclair', 262, 16.0, 24, 6.0),
   // createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
   // createData('Gingerbread', 356, 16.0, 49, 3.9),
-
 ];
 // const corprop={courprop}
 // console.log(corprop+"zzzzzzzzzzaaaangvats")
@@ -174,25 +183,41 @@ function stableSort(array, cmp) {
   stabilizedThis.sort((a, b) => {
     const order = cmp(a[0], b[0]);
     if (order !== 0) return order;
-    return a[1] - b[1]
+    return a[1] - b[1];
   });
   return stabilizedThis.map(el => el[0]);
 }
 
 function getSorting(order, orderBy) {
-  return order === 'desc' ? (a, b) => desc(a, b, orderBy) : (a, b) => -desc(a, b, orderBy);
+  return order === "desc"
+    ? (a, b) => desc(a, b, orderBy)
+    : (a, b) => -desc(a, b, orderBy);
 }
 
 const headCells = [
-  { id: 'name', numeric: false, disablePadding: true, label: 'Language' },
-  { id: 'duration', numeric: true, disablePadding: false, label: 'Duration' },
-  { id: 'price', numeric: true, disablePadding: false, label: 'Price' },
+  { id: "name", numeric: false, disablePadding: true, label: "Language" },
+  { id: "duration", numeric: true, disablePadding: false, label: "Duration" },
+  { id: "price", numeric: true, disablePadding: false, label: "Price" },
 
-  { id: 'lsscount', numeric: true, disablePadding: false, label: 'Lessons count' },
+  {
+    id: "lsscount",
+    numeric: true,
+    disablePadding: false,
+    label: "Lessons count"
+  }
 ];
 
 function EnhancedTableHead(props) {
-  const { classes, onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort, courprop } = props;
+  const {
+    classes,
+    onSelectAllClick,
+    order,
+    orderBy,
+    numSelected,
+    rowCount,
+    onRequestSort,
+    courprop
+  } = props;
   const createSortHandler = property => event => {
     onRequestSort(event, property);
   };
@@ -205,14 +230,14 @@ function EnhancedTableHead(props) {
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={numSelected === rowCount}
             onChange={onSelectAllClick}
-            inputProps={{ 'aria-label': 'select all desserts' }}
+            inputProps={{ "aria-label": "select all desserts" }}
           />
         </TableCell>
         {headCells.map(headCell => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? 'right' : 'left'}
-            padding={headCell.disablePadding ? 'none' : 'default'}
+            align={headCell.numeric ? "right" : "left"}
+            padding={headCell.disablePadding ? "none" : "default"}
             sortDirection={orderBy === headCell.id ? order : false}
           >
             <TableSortLabel
@@ -223,7 +248,7 @@ function EnhancedTableHead(props) {
               {headCell.label}
               {orderBy === headCell.id ? (
                 <span className={classes.visuallyHidden}>
-                  {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
+                  {order === "desc" ? "sorted descending" : "sorted ascending"}
                 </span>
               ) : null}
             </TableSortLabel>
@@ -239,29 +264,29 @@ EnhancedTableHead.propTypes = {
   numSelected: PropTypes.number.isRequired,
   onRequestSort: PropTypes.func.isRequired,
   onSelectAllClick: PropTypes.func.isRequired,
-  order: PropTypes.oneOf(['asc', 'desc']).isRequired,
+  order: PropTypes.oneOf(["asc", "desc"]).isRequired,
   orderBy: PropTypes.string.isRequired,
-  rowCount: PropTypes.number.isRequired,
+  rowCount: PropTypes.number.isRequired
 };
 
 const useToolbarStyles = makeStyles(theme => ({
   root: {
     paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(1),
+    paddingRight: theme.spacing(1)
   },
   highlight:
-    theme.palette.type === 'light'
+    theme.palette.type === "light"
       ? {
-        color: theme.palette.secondary.main,
-        backgroundColor: lighten(theme.palette.secondary.light, 0.85),
-      }
+          color: theme.palette.secondary.main,
+          backgroundColor: lighten(theme.palette.secondary.light, 0.85)
+        }
       : {
-        color: theme.palette.text.primary,
-        backgroundColor: theme.palette.secondary.dark,
-      },
+          color: theme.palette.text.primary,
+          backgroundColor: theme.palette.secondary.dark
+        },
   title: {
-    flex: '1 1 100%',
-  },
+    flex: "1 1 100%"
+  }
 }));
 
 const EnhancedTableToolbar = props => {
@@ -271,64 +296,66 @@ const EnhancedTableToolbar = props => {
   return (
     <Toolbar
       className={clsx(classes.root, {
-        [classes.highlight]: numSelected > 0,
+        [classes.highlight]: numSelected > 0
       })}
     >
       {numSelected > 0 ? (
-        <Typography className={classes.title} color="inherit" variant="subtitle1">
+        <Typography
+          className={classes.title}
+          color="inherit"
+          variant="subtitle1"
+        >
           {numSelected} selected
         </Typography>
       ) : (
-          <Typography className={classes.title} variant="h6" id="tableTitle">
-            Training
+        <Typography className={classes.title} variant="h6" id="tableTitle">
+          Training
         </Typography>
-        )}
-
-
+      )}
     </Toolbar>
   );
 };
 
 EnhancedTableToolbar.propTypes = {
-  numSelected: PropTypes.number.isRequired,
+  numSelected: PropTypes.number.isRequired
 };
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '100%',
-    marginTop: theme.spacing(3),
+    width: "100%",
+    marginTop: theme.spacing(3)
   },
   paper: {
-    width: '100%',
-    marginBottom: theme.spacing(2),
+    width: "100%",
+    marginBottom: theme.spacing(2)
   },
   table: {
-    minWidth: 750,
+    minWidth: 750
   },
   tableWrapper: {
-    overflowX: 'auto',
+    overflowX: "auto"
   },
   visuallyHidden: {
     border: 0,
-    clip: 'rect(0 0 0 0)',
+    clip: "rect(0 0 0 0)",
     height: 1,
     margin: -1,
-    overflow: 'hidden',
+    overflow: "hidden",
     padding: 0,
-    position: 'absolute',
+    position: "absolute",
     top: 20,
-    width: 1,
-  },
+    width: 1
+  }
 }));
 
 export default function Payment1() {
-
   // _______verevi table________________________________
   const classes1 = useStyles2();
   const [page2, setPage2] = React.useState(0);
   const [rowsPerPage2, setRowsPerPage2] = React.useState(5);
 
-  const emptyRows2 = rowsPerPage2 - Math.min(rowsPerPage2, rows2.length - page2 * rowsPerPage2);
+  const emptyRows2 =
+    rowsPerPage2 - Math.min(rowsPerPage2, rows2.length - page2 * rowsPerPage2);
 
   const handleChangePage2 = (event, newPage2) => {
     setPage2(newPage2);
@@ -340,12 +367,11 @@ export default function Payment1() {
   };
   // _______verj verevi table____________________________________
 
-
   const classes = useStyles();
   const [course, setCourse] = React.useState([]);
   const [nameId, setNameId] = React.useState([]);
-  const [order, setOrder] = React.useState('asc');
-  const [orderBy, setOrderBy] = React.useState('duration');
+  const [order, setOrder] = React.useState("asc");
+  const [orderBy, setOrderBy] = React.useState("duration");
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [languageid, setLanguageid] = React.useState(3);
@@ -353,27 +379,25 @@ export default function Payment1() {
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   useEffect(() => {
-    fetch('http://web.webex.am/api/courses')
+    fetch("http://web.webex.am/api/courses")
       .then(response => response.json())
       .then(data1 => {
-        console.log(data1, "dataaaaaaa")
-        setCourse(data1)
-        console.log(course)
-
+        console.log(data1, "dataaaaaaa");
+        setCourse(data1);
+        console.log(course);
       });
-  }, [])
-  const selectLanguage = (event) => {
+  }, []);
+  const selectLanguage = event => {
     event.preventDefault();
 
-    const btnId = event.target.getAttribute('id')
-    console.log(btnId)
-    setLanguageid(btnId)
-
-  }
+    const btnId = event.target.getAttribute("id");
+    console.log(btnId);
+    setLanguageid(btnId);
+  };
 
   const handleRequestSort = (event, property) => {
-    const isDesc = orderBy === property && order === 'desc';
-    setOrder(isDesc ? 'asc' : 'desc');
+    const isDesc = orderBy === property && order === "desc";
+    setOrder(isDesc ? "asc" : "desc");
     setOrderBy(property);
   };
 
@@ -400,13 +424,12 @@ export default function Payment1() {
       newSelected = newSelected.concat(
         selected.slice(0, selectedIndex),
         selected.slice(selectedIndex + 1),
-        console.log('oooooooookkkkkkkk')
-
+        console.log("oooooooookkkkkkkk")
       );
     }
 
     setSelected(newSelected);
-    console.log(selected, "checkkkkkk")
+    console.log(selected, "checkkkkkk");
     // console.log(selectedIndex,"index")
   };
 
@@ -423,31 +446,43 @@ export default function Payment1() {
   //     setDense(event.target.checked);
   //   };
 
-  console.log(course, "bodyyyyyyyyyyyyyyyy")
+  console.log(course, "bodyyyyyyyyyyyyyyyy");
   const isSelected = name => selected.indexOf(name) !== -1;
 
-  const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+  const emptyRows =
+    rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
   return (
     <div>
       {/* __________________verevi table_________________________________ */}
-      <section className="ls s-pt-55 s-pb-30 s-pt-lg-95 s-pb-lg-70" id="courses">
+      <section
+        className="ls s-pt-55 s-pb-30 s-pt-lg-95 s-pb-lg-70"
+        id="courses"
+      >
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
               <Paper className={classes1.root}>
                 <div className={classes1.tableWrapper}>
-                  <Table className={classes1.table} aria-label="custom pagination table">
+                  <Table
+                    className={classes1.table}
+                    aria-label="custom pagination table"
+                  >
                     <TableBody>
-                      {rows2.slice(page2 * rowsPerPage2, page2 * rowsPerPage2 + rowsPerPage2).map(row2 => (
-                        <TableRow key={row2.name}>
-                          <TableCell component="th" scope="row">
-                            {row2.name}
-                          </TableCell>
-                          <TableCell align="right">{row2.calories}</TableCell>
-                          <TableCell align="right">{row2.fat}</TableCell>
-                        </TableRow>
-                      ))}
+                      {rows2
+                        .slice(
+                          page2 * rowsPerPage2,
+                          page2 * rowsPerPage2 + rowsPerPage2
+                        )
+                        .map(row2 => (
+                          <TableRow key={row2.name}>
+                            <TableCell component="th" scope="row">
+                              {row2.name}
+                            </TableCell>
+                            <TableCell align="right">{row2.calories}</TableCell>
+                            <TableCell align="right">{row2.fat}</TableCell>
+                          </TableRow>
+                        ))}
 
                       {emptyRows2 > 0 && (
                         <TableRow style={{ height: 53 * emptyRows2 }}>
@@ -464,8 +499,8 @@ export default function Payment1() {
                           rowsPerPage2={rowsPerPage2}
                           page2={page2}
                           SelectProps2={{
-                            inputProps2: { 'aria-label': 'rows per page' },
-                            native2: true,
+                            inputProps2: { "aria-label": "rows per page" },
+                            native2: true
                           }}
                           onChangePage2={handleChangePage2}
                           onChangeRowsPerPage2={handleChangeRowsPerPage2}
@@ -476,58 +511,75 @@ export default function Payment1() {
                   </Table>
                 </div>
               </Paper>
-            </div></div></div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* __________________verj verevi table____________________________ */}
 
-
-
-      <section className="ls s-pt-55 s-pb-30 s-pt-lg-95 s-pb-lg-70" id="courses" style={{ 'text-align': 'center' }}>
+      <section
+        className="ls s-pt-55 s-pb-30 s-pt-lg-95 s-pb-lg-70"
+        id="courses"
+        style={{ "text-align": "center" }}
+      >
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <div className="row isotope-wrapper c-mb-30"  >
-
-                <div className='col col-12 col-md-6 col-lg-4' >
+              <div className="row isotope-wrapper c-mb-30">
+                <div className="col col-12 col-md-6 col-lg-4">
                   <div className="course-front rounded bordered">
                     <div className=" vertical-item content-padding">
-                      <div className="item-media rounded-top">
-                      </div>
+                      <div className="item-media rounded-top"></div>
                       <div className="item-content">
                         <h6 className="course-title" comp={course}>
-                          Front End {selected.join(' ')}
+                          Front End {selected.join(" ")}
                         </h6>
-                        <a href="#" className="btn btn-maincolor" id="1" onClick={selectLanguage}>Start now</a>
+                        <a
+                          href="#"
+                          className="btn btn-maincolor"
+                          id="1"
+                          onClick={selectLanguage}
+                        >
+                          Start now
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className='col col-12 col-md-6 col-lg-4' >
+                <div className="col col-12 col-md-6 col-lg-4">
                   <div className="course-front rounded bordered">
                     <div className=" vertical-item content-padding">
-                      <div className="item-media rounded-top">
-                      </div>
+                      <div className="item-media rounded-top"></div>
                       <div className="item-content">
-                        <h6 className="course-title">
-                          Full Stack
-                             </h6>
-                        <a href="#" className="btn btn-maincolor" id="3" onClick={selectLanguage}>Start now</a>
+                        <h6 className="course-title">Full Stack</h6>
+                        <a
+                          href="#"
+                          className="btn btn-maincolor"
+                          id="3"
+                          onClick={selectLanguage}
+                        >
+                          Start now
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className='col col-12 col-md-6 col-lg-4' >
+                <div className="col col-12 col-md-6 col-lg-4">
                   <div className="course-front rounded bordered">
                     <div className=" vertical-item content-padding">
-                      <div className="item-media rounded-top">
-                      </div>
+                      <div className="item-media rounded-top"></div>
                       <div className="item-content">
-                        <h6 className="course-title">
-                          Back End
-                             </h6>
-                        <a href="#" className="btn btn-maincolor" id="2" onClick={selectLanguage}>Start now</a>
+                        <h6 className="course-title">Back End</h6>
+                        <a
+                          href="#"
+                          className="btn btn-maincolor"
+                          id="2"
+                          onClick={selectLanguage}
+                        >
+                          Start now
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -536,10 +588,12 @@ export default function Payment1() {
             </div>
           </div>
         </div>
-
       </section>
 
-      <section className="ls s-pt-55 s-pb-30 s-pt-lg-95 s-pb-lg-70" id="courses">
+      <section
+        className="ls s-pt-55 s-pb-30 s-pt-lg-95 s-pb-lg-70"
+        id="courses"
+      >
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
@@ -567,50 +621,68 @@ export default function Payment1() {
                         courprop={course}
                       />
                       <TableBody>
-                        {stableSort(course ? course : [], getSorting(order, orderBy))
-                          .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                        {stableSort(
+                          course ? course : [],
+                          getSorting(order, orderBy)
+                        )
+                          .slice(
+                            page * rowsPerPage,
+                            page * rowsPerPage + rowsPerPage
+                          )
                           .map((row, index) => {
-                            return row.packages.filter(event => event.id == languageid).map((ev, index) => {
+                            return row.packages
+                              .filter(event => event.id == languageid)
+                              .map((ev, index) => {
+                                console.log(row, "row");
+                                let price = ev.price;
+                                let t = row.sum_duration[0].total;
+                                // let min=parseInt(t/60);
+                                //   let sec=parseInt(t%60);
+                                const isItemSelected = isSelected(row.name);
+                                const labelId = `enhanced-table-checkbox-${index}`;
 
-                              console.log(row, "row")
-                              let price = ev.price
-                              let t = row.sum_duration[0].total
-                              // let min=parseInt(t/60);
-                              //   let sec=parseInt(t%60);
-                              const isItemSelected = isSelected(row.name);
-                              const labelId = `enhanced-table-checkbox-${index}`;
-
-                              return (
-                                <TableRow
-                                  hover
-                                  onClick={event => handleClick(event, row.id)}
-                                  role="checkbox"
-                                  aria-checked={isItemSelected}
-                                  tabIndex={-1}
-                                  key={row.id}
-                                  selected={isItemSelected}
-                                >
-                                  <TableCell padding="checkbox">
-                                    <Checkbox
-                                      checked={isItemSelected}
-                                      inputProps={{ 'aria-labelledby': labelId }}
-                                    />
-                                  </TableCell>
-                                  <TableCell component="th" id={labelId} scope="row" padding="none">
-                                    {row.name}
-                                  </TableCell>
-                                  {/* <TableCell align="right">{row.name}</TableCell> */}
-                                  <TableCell align="right">{lessDuration(t)}
-                                    {/* <span> {min < 10 ? "0"+ min : min }</span>
+                                return (
+                                  <TableRow
+                                    hover
+                                    onClick={event =>
+                                      handleClick(event, row.id)
+                                    }
+                                    role="checkbox"
+                                    aria-checked={isItemSelected}
+                                    tabIndex={-1}
+                                    key={row.id}
+                                    selected={isItemSelected}
+                                  >
+                                    <TableCell padding="checkbox">
+                                      <Checkbox
+                                        checked={isItemSelected}
+                                        inputProps={{
+                                          "aria-labelledby": labelId
+                                        }}
+                                      />
+                                    </TableCell>
+                                    <TableCell
+                                      component="th"
+                                      id={labelId}
+                                      scope="row"
+                                      padding="none"
+                                    >
+                                      {row.name}
+                                    </TableCell>
+                                    {/* <TableCell align="right">{row.name}</TableCell> */}
+                                    <TableCell align="right">
+                                      {t}
+                                      {/* <span> {min < 10 ? "0"+ min : min }</span>
                                       <span>:{sec < 10 ? "0" + sec : sec} min.</span> */}
-                                  </TableCell>
-                                  <TableCell align="right">{price}</TableCell>
-                                  <TableCell align="right">{row.id}</TableCell>
-                                </TableRow>
-                              );
-                            })
-                          })
-                        }
+                                    </TableCell>
+                                    <TableCell align="right">{price}</TableCell>
+                                    <TableCell align="right">
+                                      {row.id}
+                                    </TableCell>
+                                  </TableRow>
+                                );
+                              });
+                          })}
                         {/* {emptyRows > 0 && (
                 <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
                   <TableCell colSpan={6} />
@@ -626,10 +698,10 @@ export default function Payment1() {
                     rowsPerPage={rowsPerPage}
                     page={page}
                     backIconButtonProps={{
-                      'aria-label': 'previous page',
+                      "aria-label": "previous page"
                     }}
                     nextIconButtonProps={{
-                      'aria-label': 'next page',
+                      "aria-label": "next page"
                     }}
                     onChangePage={handleChangePage}
                     onChangeRowsPerPage={handleChangeRowsPerPage}
@@ -641,8 +713,6 @@ export default function Payment1() {
       /> */}
               </div>
               {/* ______________________________________----- */}
-
-
             </div>
           </div>
         </div>
@@ -650,4 +720,3 @@ export default function Payment1() {
     </div>
   );
 }
-

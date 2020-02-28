@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import lessDuration from "../duration.js";
-
 import CourseFlip from "../../components/courseFlip/CourseFlip";
 
 import TabButton from "../../components/tabButton/TabButton";
@@ -12,68 +10,17 @@ import {
   coursesOfPackage,
   tabPackageIdSelector
 } from "../../redux/selectors/coursesData";
+
 import { getFullPackages } from "../../redux/actionCreators/coursesData";
 
 import { SetTabPackageId } from "../../redux/actions/coursesData";
 
-let lessons = require("../../language.json");
 class Courses extends Component {
   componentDidMount() {
     this.props.fetchFullPackages();
   }
 
-  f3 = e => {
-    const arr = document.querySelector(".course-filters");
-    const arr1 = document.querySelector("#course");
-    for (let j = 0; j < arr1.children.length; j++) {
-      if (j % 2 == 0 && j > 4) {
-        arr1.children[j].style.transform = "scale(0)";
-        arr1.children[j].style.left = "-100px";
-        arr1.children[j].style.top = "-100px";
-        let p = arr1.children[j];
-        setTimeout(function() {
-          p.style.transition = "0.1s";
-          p.style.left = "0px";
-          p.style.top = "0px";
-          p.style.transform = "scale(1)";
-        }, 300);
-      } else if (j % 2 == 0 && j < 4) {
-        arr1.children[j].style.transform = "scale(0)";
-        arr1.children[j].style.left = "100px";
-        arr1.children[j].style.top = "100px";
-        let p = arr1.children[j];
-        setTimeout(function() {
-          p.style.transition = "0.1s";
-          p.style.left = "0px";
-          p.style.top = "0px";
-          p.style.transform = "scale(1)";
-        }, 400);
-      } else {
-        arr1.children[j].style.transform = "scale(0)";
-        arr1.children[j].style.left = "100px";
-        arr1.children[j].style.top = "100px";
-        let p = arr1.children[j];
-        setTimeout(function() {
-          p.style.transition = "0.1s";
-          p.style.left = "0px";
-          p.style.top = "0px";
-          p.style.transform = "scale(1)";
-        }, 300);
-      }
-    }
-    e.preventDefault();
-    for (let i = 0; i < arr.children.length; i++) {
-      arr.children[i].classList.remove("active");
-    }
-    e.target.classList.add("active");
-    const data = e.target.getAttribute("data-filter");
-    this.setState({ filter: +data });
-  };
-  courseButton = ele => {
-    ele.preventDefault();
-  };
-
-  handleClick = e => {
+  handleTabButton = e => {
     e.preventDefault();
     const id = e.target.getAttribute("data-filter");
 
@@ -85,23 +32,19 @@ class Courses extends Component {
   render() {
     const { coursesOfPackage, packages } = this.props;
 
-    console.log(packages);
-
     const tabPackages = packages.map(({ id, name }) => (
       <TabButton
         key={id}
         active={parseInt(this.props.tabPackageId) === id}
         filter={id}
         title={name}
-        handleClick={this.handleClick}
+        handleClick={this.handleTabButton}
       />
     ));
 
     const courses = coursesOfPackage.map(course =>
       this.renderCourseFlip(course)
     );
-
-    console.log(coursesOfPackage);
 
     return (
       <section className="ls s-pt-55 s-pb-30 s-pt-lg-95 s-pb-lg-70">
