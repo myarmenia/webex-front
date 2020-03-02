@@ -47,7 +47,10 @@ class Courses extends Component {
     );
 
     return (
-      <section className="ls s-pt-55 s-pb-30 s-pt-lg-95 s-pb-lg-70">
+      <section
+        id="coursesSection"
+        className="ls s-pt-55 s-pb-30 s-pt-lg-95 s-pb-lg-70"
+      >
         <div className="container">
           <div className="row">
             <div className="col-lg-12">

@@ -15,6 +15,7 @@ import SignIn from "./pages/Header/SignIn";
 import SignUp from "./pages/Header/SignUp";
 import AboutUs from "./pages/AboutUs";
 import Courses from "./pages/Courses";
+import Demo from "./pages/Demo";
 import Payment from "./pages/Payment";
 import News from "./pages/News";
 
@@ -49,6 +50,7 @@ function App(props) {
             <Route path="/aboutus" component={AboutUs} />
             <Route path="/news" component={News} />
             <ProtectedRoute path="/courses" component={Courses} />
+            <GuestRoute path="/demo/:courseId" component={Demo} />
             <Route path="/payment" component={Payment} />
             <Route component={NoMatchPage} />
           </Switch>
