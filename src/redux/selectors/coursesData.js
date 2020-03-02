@@ -2,8 +2,25 @@ import { createSelector } from "reselect";
 
 export const packagesSelector = state => state.coursesData.packages;
 export const tabPackageIdSelector = state => state.coursesData.tabPackageId;
+// export const demoCourseIdSelector = state => state.coursesData.demoCourseId;
 export const coursesSelector = state => state.coursesData.courses;
 export const lessonsSelector = state => state.coursesData.lessons;
+
+export const courseById = courseId => {
+  return createSelector(coursesSelector, courses => {
+    return courses.find(course => course.id === parseInt(courseId));
+  });
+};
+
+export const lessonsByCourseId = courseId => {
+  return createSelector(
+    lessonsSelector,
+    courseById(courseId),
+    (lessons, course) => {
+      return lessons.filter(({ id }) => course.lesson_ids.includes(id));
+    }
+  );
+};
 
 export const coursesOfPackage = createSelector(
   packagesSelector,
@@ -14,7 +31,7 @@ export const coursesOfPackage = createSelector(
       course_ids: []
     };
     const ownCourses = courses.filter(({ id }) => course_ids.includes(id));
-    console.log("ownCourses", ownCourses);
+
     return ownCourses;
   }
 );

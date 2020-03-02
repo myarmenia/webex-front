@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import './style.css';
+import "./style.css";
 
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import Cube from './Cube.js';
+import Cube from "./Cube.js";
 
-
-const
-  MainContainer = styled.div`
+const MainContainer = styled.div`
     background: radial-gradient(ellipse at bottom, #090a0f 0%, #222a35 100%);
-    position: 'relative';
+    position: "relative";
     outline: none;
   `,
   FlexContainer = styled.div`
@@ -29,7 +27,7 @@ const
   CubesContainer = styled.div``,
   TitleContainer = styled.div`
     position: absolute;
-    text-align: center;   
+    text-align: center;
     color: #fff;
     width: 45%;
     right: 0;
@@ -42,48 +40,70 @@ const
   `;
 
 const Cubes = props => {
-
   const [arragement, setArrangement] = useState([
     {
-      color: 'rgb(223, 176, 122)',
-      title: 'Vanilla',
+      color: "rgb(223, 176, 122)",
+      title: "Vanilla",
       main: true
     },
     {
-      color: 'rgb(97, 218, 251)',
-      title: 'React',
+      color: "rgb(97, 218, 251)",
+      title: "React",
       main: false
     },
     {
-      color: 'rgb(65, 184, 131)',
-      title: 'Vue',
+      color: "rgb(65, 184, 131)",
+      title: "Vue",
       main: false
     },
     {
-      color: 'rgb(221, 0, 49)',
-      title: 'Angular',
+      color: "rgb(221, 0, 49)",
+      title: "Angular",
       main: false
     },
+    {
+      color: "rgb(221, 80, 49)",
+      title: "Angular",
+      main: false
+    }
   ]);
 
-  const
-    grid = 250,
+  const grid = { x: 210, y: 200 },
     getPosition = i => {
       switch (i) {
         case 0:
-          return { top: grid * 2 + 'px', left: grid * 1 + 'px' }
+          return { top: grid.y * 1 + "px", left: grid.x * 1 + "px" };
         case 1:
-          return { top: grid * 1 + 'px', left: grid * 2 + 'px' }
+          return { top: grid.y * 1 + "px", left: grid.x * 2 + "px" };
         case 2:
-          return { top: grid * 2 + 'px', left: grid * 1 + 'px' }
+          return { top: grid.y * 2 + "px", left: grid.x * .5 + "px" };
         case 3:
-          return { top: grid * 1 + 'px', left: grid * 0 + 'px' }
+          return { top: grid.y * 1 + "px", left: grid.x * 0 + "px" };
+        case 4:
+          return { top: grid.y * 2 + "px", left: grid.x * 1.5 + "px" };
         default:
-          return { top: grid * 1 + 'px', left: grid * 1 + 'px' }
+          return { top: grid.y * 1 + "px", left: grid.x * 1 + "px" };
       }
     },
     drawCubes = arragement.map((e, i) => (
-      <Cube key={i} onClick={e => console.log({ transform: `matrix(${e.main ? 1 : 0.4}), 0, 0, ${e.main ? 1 : 0.4}, 0, 0`, ...getPosition(e.main ? 100 : i), })} color={e.color} position={{ transform: `matrix(${e.main ? 1 : 0.4}), 0, 0, ${e.main ? 1 : 0.4}, 0, 0`, ...getPosition(e.main ? 100 : i), }} />
+      <Cube
+        key={i}
+        onClick={e =>
+          console.log({
+            transform: `matrix(${e.main ? 1 : 0.4}), 0, 0, ${
+              e.main ? 1 : 0.4
+            }, 0, 0`,
+            ...getPosition(e.main ? 100 : i)
+          })
+        }
+        color={e.color}
+        position={{
+          transform: `matrix(${e.main ? 1 : 0.4}), 0, 0, ${
+            e.main ? 1 : 0.4
+          }, 0, 0`,
+          ...getPosition(e.main ? 100 : i)
+        }}
+      />
     ));
 
   return (
@@ -92,14 +112,13 @@ const Cubes = props => {
         <FlexContainer>
           <TitleContainer>
             <Title>
-              <span style={{ fontSize: '73px'}}>Webex <br/> Technologies</span>
+              <span style={{ fontSize: "73px" }}>
+                Webex <br /> Technologies
+              </span>
             </Title>
-            <Subtitle><span>Online & Stationary Courses  </span></Subtitle>
-            {/* <h1 title="Webex" style={{ color: '#fff' }} >
-              <span style={{ color: "#dfb07a" }}>W</span>
-              <span>ebex</span>
-            </h1>
-            <h2 title="" style={{ color: '#fff' }}><span>Lorem ipsum dolor sit amet consectetur.</span></h2> */}
+            <Subtitle>
+              <span>Online &amp; Stationary Courses </span>
+            </Subtitle>
           </TitleContainer>
           <CubesContainer>
             {drawCubes}

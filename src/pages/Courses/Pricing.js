@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import PricingCard from "../../components/pricingCard/PricingCard";
+import { getFullPackages } from "../../redux/actionCreators/coursesData";
 
 import { packagesWithTheirCourses } from "../../redux/selectors/coursesData";
 
@@ -18,13 +19,14 @@ const Pricing = ({ packagesWithTheirCourses: packages }) => {
     "fa fa-thumbs-o-up color-dark"
   ];
 
-  const renderPriceCard = pack => (
-    <PricingCard pack={pack} key={pack.id} />
-  );
+  const renderPriceCard = pack => <PricingCard pack={pack} key={pack.id} />;
 
   return (
     <>
-      <section className="ls s-pt-55 s-pb-35 s-pt-lg-95 s-pb-lg-75">
+      <section
+        id="pricesSection"
+        className="ls s-pt-55 s-pb-35 s-pt-lg-95 s-pb-lg-75"
+      >
         <div className="container">
           <div className="divider-3"></div>
           <div className="row">
@@ -49,4 +51,8 @@ const mapStateToProps = state => ({
   packagesWithTheirCourses: packagesWithTheirCourses(state)
 });
 
-export default connect(mapStateToProps, null)(Pricing);
+const mapDispatchToProps = dispatch => ({
+  fetchFullPackages: () => dispatch(getFullPackages())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Pricing);

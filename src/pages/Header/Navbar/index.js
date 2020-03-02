@@ -2,42 +2,46 @@ import React, { useState } from "react";
 
 import { Link, NavLink } from "react-router-dom";
 
+import { HashLink } from "react-router-hash-link";
+
 import logo from "../../../img/logo.png";
 import auth from "../../../redux/auth";
 
 import { connect } from "react-redux";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-const WebexNavLink = ({
-  activeClassName = "active",
-  className = "",
-  exact = false,
-  to = "/",
-  name = "Գլխավոր",
-  handleClick = () => {}
-}) => (
-  <NavLink
-    activeClassName={activeClassName}
-    className={className}
-    exact={exact}
-    to={to}
-    onClick={handleClick}
-  >
-    {name}
-  </NavLink>
-);
+import WebexListLink from "../../../components/menuLink/MenuLink";
 
-const WebexListLink = props => (
-  <li>
-    <WebexNavLink {...props} />
-  </li>
-);
+// const WebexNavLink = ({
+//   activeClassName = "active",
+//   className = "",
+//   exact = false,
+//   to = "/",
+//   name = "Գլխավոր",
+//   child = "",
+//   handleClick = () => {}
+// }) => (
+//   <NavLink
+//     activeClassName={activeClassName}
+//     className={className}
+//     exact={exact}
+//     to={to}
+//     onClick={handleClick}
+//   >
+//     {child}
+//     {name}
+//   </NavLink>
+// );
+
+// const WebexListLink = props => (
+//   <li>
+//     <WebexNavLink {...props} />
+//   </li>
+// );
 
 const NavBar = props => {
   const [toggle, setToggle] = useState(false);
   const updateToggle = () => toggle && setToggle(false);
-
-  console.log("toggle--", toggle);
 
   const mobileActiveClass = toggle ? "mobile-active" : "";
 
@@ -46,27 +50,34 @@ const NavBar = props => {
         <WebexListLink exact={true} handleClick={updateToggle} />
 
         <WebexListLink
-          to={"/aboutUs"}
+          to={"/#aboutUs"}
           name={"Մեր Մասին"}
           handleClick={updateToggle}
+          smooth
+          hash="true"
         />
 
-        <WebexListLink
+        {/* <WebexListLink
           to={"/news"}
           name={"Նորություններ"}
           handleClick={updateToggle}
-        />
+        /> */}
 
         <WebexListLink
-          to={"/courses"}
+          to={"/#coursesSection"}
           name={"Կուրսեր"}
           handleClick={updateToggle}
+          smooth
+          hash="true"
         />
 
         <WebexListLink
-          to={"/payment"}
+          to={"/#pricesSection"}
           name={"Գներ"}
+          activeClassName="active"
+          smooth
           handleClick={updateToggle}
+          hash="true"
         />
       </>
     ),
@@ -130,20 +141,18 @@ const NavBar = props => {
                 </NavLink>
               ) : (
                 <>
-                  <NavLink
-                    activeClassName="active"
+                  <WebexListLink
+                    child={<i className="fs-16 fa fa-user"></i>}
                     className="sign-btn-form"
                     to="/signup"
-                  >
-                    <i className="fw-900 s-16 fa fa-sign-in"></i>Sign Up
-                  </NavLink>
-                  <NavLink
-                    activeClassName="active"
-                    className="login-btn-form login_modal_window"
+                    name="Գրանցվել"
+                  />
+                  <WebexListLink
+                    child={<i className="fw-900 s-16 fa fa-sign-in"></i>}
+                    className="login-btn-form"
                     to="/signin"
-                  >
-                    <i className="fs-16 fa fa-user"></i>Sign In
-                  </NavLink>
+                    name="Մուտք"
+                  />
                 </>
               )}
             </div>
