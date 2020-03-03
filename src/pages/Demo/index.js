@@ -32,6 +32,7 @@ const Courses = ({
 
   useEffect(() => {
     fetchFullPackages();
+    window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
