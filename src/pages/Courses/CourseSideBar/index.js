@@ -12,7 +12,7 @@ const DropDownLessons = ({ lessons, openVideo }) => (
         onClick={() => openVideo(lesson)}
         className={`sub-lessons ${!lesson.video && "closed"}`}
       >
-        {`${lesson.number}. ${lesson.title}`}
+        {`${lesson.order}. ${lesson.title}`}
         {!lesson.video && <i className="fa fa-lock" />}
       </p>
     ))}

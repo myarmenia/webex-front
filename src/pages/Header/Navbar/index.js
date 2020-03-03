@@ -12,33 +12,6 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 import WebexListLink from "../../../components/menuLink/MenuLink";
 
-// const WebexNavLink = ({
-//   activeClassName = "active",
-//   className = "",
-//   exact = false,
-//   to = "/",
-//   name = "Գլխավոր",
-//   child = "",
-//   handleClick = () => {}
-// }) => (
-//   <NavLink
-//     activeClassName={activeClassName}
-//     className={className}
-//     exact={exact}
-//     to={to}
-//     onClick={handleClick}
-//   >
-//     {child}
-//     {name}
-//   </NavLink>
-// );
-
-// const WebexListLink = props => (
-//   <li>
-//     <WebexNavLink {...props} />
-//   </li>
-// );
-
 const NavBar = props => {
   const [toggle, setToggle] = useState(false);
   const updateToggle = () => toggle && setToggle(false);
@@ -131,14 +104,20 @@ const NavBar = props => {
           <div className="col-4 d-none d-xl-block">
             <div className="top-includes main-includes">
               {auth.isAuthenticated() ? (
-                <NavLink to="/profile" activeClassName="active">
-                  <i className="fs-16 fa fa-user"></i>{" "}
-                  {props.currentUser.authenticated ? (
-                    `${props.currentUser.user.name} ${props.currentUser.user.last_name}`
-                  ) : (
-                    <CircularProgress />
-                  )}
-                </NavLink>
+                <>
+                  <NavLink to="/profile" activeClassName="active">
+                    <i className="fs-16 fa fa-user"></i>
+                    {props.currentUser.authenticated ? (
+                      `${props.currentUser.user.name} ${props.currentUser.user.last_name}`
+                    ) : (
+                      <CircularProgress />
+                    )}
+                  </NavLink>
+                  <p onClick={() => auth.logOut()}>
+                    <i className="fs-16 fa fa-sign-out"></i>
+                    Log Out
+                  </p>
+                </>
               ) : (
                 <>
                   <WebexListLink
