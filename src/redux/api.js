@@ -8,7 +8,8 @@ import {
 
 const api = {
   // getCourses: () => axios.get(API_COURSES_URL),
-  getFullPackages: () => axios.get(API_FULL_PACKAGES_URL),
+  getFullPackages: () =>
+    axios.get(API_FULL_PACKAGES_URL, { handlerEnabled: true }),
   getCoursesWithLessons: () => axios.get(API_LESSONS_URL)
 };
 

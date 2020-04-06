@@ -10,10 +10,10 @@ import {
 } from "../actions/coursesData";
 
 // getCourses
-export const getFullPackages = () => {
+export const getFullPackages = (forceRequest = false) => {
   return (dispatch, getState) => {
     const state = getState();
-    if (state.coursesData.courses.length) return;
+    if (state.coursesData.courses.length) if (!forceRequest) return;
 
     dispatch(CoursesRequest());
     API.getFullPackages()

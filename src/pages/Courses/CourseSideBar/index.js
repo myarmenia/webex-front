@@ -19,7 +19,13 @@ const DropDownLessons = ({ lessons, openVideo }) => (
   </div>
 );
 
-const Course = ({ currentCourseId, lessons, courses, openVideo }) => {
+const Course = ({
+  currentCourseId,
+  lessons,
+  courses,
+  openVideo,
+  path_mode = "demo"
+}) => {
   return (
     <ul>
       {courses ? (
@@ -30,7 +36,7 @@ const Course = ({ currentCourseId, lessons, courses, openVideo }) => {
                 className="cat-item"
                 // onClick={e => openCourse(e, index, item.id)}
               >
-                <Link to={`/demo/${course.id}`}>{course.name}</Link>
+                <Link to={`/${path_mode}/${course.id}`}>{course.name}</Link>
                 <span>{course.lessons_count}</span>
               </li>
               {currentCourseId === course.id && (

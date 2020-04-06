@@ -1,63 +1,69 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-import { connect } from 'react-redux';
-import { coursesSelector, lessonsSelector } from '../../redux/selectors/coursesData';
-import { getCoursesWithLessons } from '../../redux/actionCreators/coursesData';
+import { connect } from "react-redux";
 
-import { CourseSideBar } from './CourseSideBar';
-import axios from 'axios';
-import Options from './Options';
-import CourseType from './CourseType';
-import Level from './Level';
-import Video from './Main/video';
-import Homeworks from './Main/homeworks';
+import {
+  coursesSelector,
+  lessonsByCourseId,
+  courseById
+} from "../../redux/selectors/coursesData";
 
-const Courses = props => {
+import { getFullPackages } from "../../redux/actionCreators/coursesData";
 
-  console.log(props);
+import { CourseSideBar } from "./CourseSideBar";
+import Options from "./Options";
+import CourseType from "./CourseType";
+import Level from "./Level";
+import Video from "./Main/video";
+import Homeworks from "./Main/homeworks";
 
-  const [allCourses, setAllCourses] = useState();
+const Courses = ({
+  currentCourse = {},
+  courses,
+  lessons,
+  fetchFullPackages
+}) => {
   const [videoData, setVideoData] = useState({
-    video: '691030f893b40cad2933b1242c5fbeb7.mp4',
-    duration: 389,
-    title: 'Ներածություն',
-    description: 'Սկզբնական թեգեռի դասավորվածությունը'
+    video: "",
+    duration: "",
+    title: "",
+    description: ""
   }); // HTML first video link
 
   useEffect(() => {
-    props.getCoursesWithLessons();
+    fetchFullPackages();
   }, []);
 
-  const getCourses = () => {
-    axios.get('http://web.webex.am/api/courses')
-      .then((res) => {
-        if (res) return res.data;
-      }).then((data) => {
-        setAllCourses(data);
-      }).catch((error) => {
-        console.log(error, "getCourses")
-      })
-  };
-  const openVideo = (e) => {
-    setVideoData(e)
-  }
-  const openHomeWorkVideo = (e) => {
+  useEffect(() => {
+    if (lessons.length) {
+      setVideoData({
+        video: lessons[0].video,
+        duration: lessons[0].duration,
+        title: lessons[0].title,
+        description: lessons[0].description
+      });
+    }
+  }, [currentCourse]);
 
+  const openVideo = e => {
+    setVideoData(e);
+  };
+
+  const openHomeWorkVideo = e => {
     setVideoData({
       ...videoData,
       video: e.video,
       title: e.title,
       description: e.description,
       duration: e.duration
-    })
-  }
+    });
+  };
 
   return (
     <section className="ls s-py-60 s-pt-lg-100 s-pb-lg-70">
       <div className="container">
         <div className="row c-gutter-30">
           <aside className="col-lg-5 col-xl-4 course-widgets order-2 order-lg-1">
-
             <div className="bordered rounded">
               <div className="widget widget_course_tag">
                 <Options />
@@ -67,14 +73,19 @@ const Courses = props => {
             <div className="bordered rounded">
               <div className="widget widget_categories">
                 <h3 className="widget-title">Բոլոր Վիդեոդասերը</h3>
-                <CourseSideBar courses={allCourses} openVideo={openVideo} />
+                <CourseSideBar
+                  path_mode="courses"
+                  courses={courses}
+                  lessons={lessons}
+                  currentCourseId={currentCourse.id || 1}
+                  openVideo={openVideo}
+                />
               </div>
             </div>
 
             <div className="bordered rounded">
               <div className="widget widget_course_type">
-                <h3 className="widget-title">
-                  Ստուգիր գիտելիքներդ</h3>
+                <h3 className="widget-title">Ստուգիր գիտելիքներդ</h3>
                 <CourseType />
               </div>
             </div>
@@ -89,9 +100,12 @@ const Courses = props => {
 
           <main className="col-lg-7 col-xl-8 order-1 order-lg-2">
             <Video data={videoData} HomeWorkVideo />
-            <Homeworks homeworks={videoData.homeworks} openHomeWorkVideo={openHomeWorkVideo} />
+            <Homeworks
+              homeworks={videoData.homeworks}
+              openHomeWorkVideo={openHomeWorkVideo}
+            />
 
-            <div style={{ display: videoData.code ? 'block' : 'none' }}>
+            <div style={{ display: videoData.code ? "block" : "none" }}>
               <pre> {videoData.code} </pre>
               <hr />
             </div>
@@ -100,15 +114,23 @@ const Courses = props => {
       </div>
     </section>
   );
-}
+};
 
-const mapStateToProps = state => ({
-  courses: () => state.coursesData.courses,
-  lessons: course_id => lessonsSelector(state, course_id)
+const mapStateToProps = (
+  state,
+  {
+    match: {
+      params: { courseId = 1 }
+    }
+  }
+) => ({
+  courses: coursesSelector(state),
+  currentCourse: courseById(courseId)(state),
+  lessons: lessonsByCourseId(courseId)(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-  getCoursesWithLessons: () => dispatch(getCoursesWithLessons()),
+  fetchFullPackages: () => dispatch(getFullPackages(true))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Courses);

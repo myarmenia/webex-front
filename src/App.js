@@ -19,6 +19,8 @@ import Demo from "./pages/Demo";
 import Payment from "./pages/Payment";
 import News from "./pages/News";
 
+import CoursesFilter from "./pages/Courses/courses";
+
 import { connect } from "react-redux";
 
 import { getUserData } from "./redux/actionCreators/signin";
@@ -49,8 +51,9 @@ function App(props) {
             <GuestRoute path="/signin" component={SignIn} />
             <Route path="/aboutus" component={AboutUs} />
             <Route path="/news" component={News} />
-            <ProtectedRoute path="/courses" component={Courses} />
+            <ProtectedRoute path="/courses/:courseId?" component={Courses} />
             <GuestRoute path="/demo/:courseId" component={Demo} />
+            <GuestRoute path="/demo/" component={CoursesFilter} />
             <Route path="/payment" component={Payment} />
             <Route component={NoMatchPage} />
           </Switch>
