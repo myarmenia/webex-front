@@ -71,6 +71,9 @@ color: #009688
     color: #009688;
     margin: 0 12px;
 }
+.closed .homework-icon {
+    color: #dedede;
+}
 a.home-work:before{
     content:none!important;
 }

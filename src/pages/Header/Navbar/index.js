@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
-import { Link, NavLink } from "react-router-dom";
-
-import { HashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 
 import logo from "../../../img/logo.png";
 import auth from "../../../redux/auth";
@@ -12,13 +10,19 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 import WebexListLink from "../../../components/menuLink/MenuLink";
 
-const NavBar = props => {
+const NavBar = ({ currentUser }) => {
+  const showLoadingOrUserName = ({
+    user: { name = "", last_name = "" },
+    authenticated,
+  }) => {
+    return authenticated ? `${name} ${last_name}` : <CircularProgress />;
+  };
+
   const [toggle, setToggle] = useState(false);
   const updateToggle = () => toggle && setToggle(false);
-
   const mobileActiveClass = toggle ? "mobile-active" : "";
 
-  const GuestNavigation = () => (
+  const GuestNavigation =()=>  (
       <>
         <WebexListLink exact={true} handleClick={updateToggle} />
 
@@ -52,9 +56,24 @@ const NavBar = props => {
           handleClick={updateToggle}
           hash="true"
         />
+
+        <WebexListLink
+          child={<i className="fs-16 fa fa-user"></i>}
+          className="sign-btn-form"
+          to="/signup"
+          name="Գրանցվել"
+          handleClick={updateToggle}
+        />
+        <WebexListLink
+          child={<i className="fw-900 s-16 fa fa-sign-in"></i>}
+          className="login-btn-form"
+          to="/signin"
+          name="Մուտք"
+          handleClick={updateToggle}
+        />
       </>
     ),
-    AuthenticatedNavigation = () => (
+    AuthenticatedNavigation =()=> (
       <>
         <WebexListLink
           to={"/payment"}
@@ -73,6 +92,22 @@ const NavBar = props => {
           name={"Կուրսեր"}
           handleClick={updateToggle}
         />
+
+        <WebexListLink
+          to={"/profile"}
+          name={showLoadingOrUserName(currentUser)}
+          child={<i className="fs-16 fa fa-user"></i>}
+          activeClassName="active"
+          handleClick={updateToggle}
+        />
+
+        <WebexListLink
+          name={"Log Out"}
+          child={<i className="fs-16 fa fa-sign-out"></i>}
+          handleClick={() => {
+            auth.logOut();
+          }}
+        />
       </>
     );
 
@@ -90,8 +125,8 @@ const NavBar = props => {
               <img src={logo} alt="Webex" />
             </Link>
           </div>
-          <div className="col-xl-6 col-lg-8 col-md-7 col-1">
-            <div className="nav-wrap">
+          <div className="col-xl-10 ">
+            <div className="nav-wrap pull-right">
               <nav className="top-nav">
                 <ul className="nav sf-menu">
                   {auth.isAuthenticated()
@@ -101,46 +136,10 @@ const NavBar = props => {
               </nav>
             </div>
           </div>
-          <div className="col-4 d-none d-xl-block">
-            <div className="top-includes main-includes">
-              {auth.isAuthenticated() ? (
-                <>
-                  <NavLink to="/profile" activeClassName="active">
-                    <i className="fs-16 fa fa-user"></i>
-                    {props.currentUser.authenticated ? (
-                      `${props.currentUser.user.name} ${props.currentUser.user.last_name}`
-                    ) : (
-                      <CircularProgress />
-                    )}
-                  </NavLink>
-                  <p onClick={() => auth.logOut()}>
-                    <i className="fs-16 fa fa-sign-out"></i>
-                    Log Out
-                  </p>
-                </>
-              ) : (
-                <>
-                  <WebexListLink
-                    child={<i className="fs-16 fa fa-user"></i>}
-                    className="sign-btn-form"
-                    to="/signup"
-                    name="Գրանցվել"
-                  />
-                  <WebexListLink
-                    child={<i className="fw-900 s-16 fa fa-sign-in"></i>}
-                    className="login-btn-form"
-                    to="/signin"
-                    name="Մուտք"
-                  />
-                </>
-              )}
-            </div>
-          </div>
         </div>
         <span
-          // className="toggle_menu"
           className={`toggle_menu ${mobileActiveClass}`}
-          onClick={e => setToggle(toggle => !toggle)}
+          onClick={(e) => setToggle((toggle) => !toggle)}
         >
           <span></span>
         </span>
@@ -149,8 +148,8 @@ const NavBar = props => {
   );
 };
 
-const mapStateToProps = state => ({
-  currentUser: state.currentUser
+const mapStateToProps = (state) => ({
+  currentUser: state.currentUser,
 });
 
 export default connect(mapStateToProps)(NavBar);

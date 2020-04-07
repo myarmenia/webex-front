@@ -17,7 +17,7 @@ import Level from "../Courses/Level";
 import Video from "../Courses/Main/video";
 import Homeworks from "../Courses/Main/homeworks";
 
-const Courses = ({
+const Demo = ({
   currentCourse = {},
   courses,
   lessons,
@@ -27,7 +27,7 @@ const Courses = ({
     video: "",
     duration: 389,
     title: "Ներածություն",
-    description: "Սկզբնական թեգեռի դասավորվածությունը"
+    description: "Սկզբնական թեգերի դասավորվածությունը"
   }); // HTML first video link
 
   useEffect(() => {
@@ -103,6 +103,7 @@ const Courses = ({
             <Homeworks
               homeworks={videoData.homeworks}
               openHomeWorkVideo={openHomeWorkVideo}
+              isDemo={true}
             />
 
             <div style={{ display: videoData.code ? "block" : "none" }}>
@@ -133,4 +134,4 @@ const mapDispatchToProps = dispatch => ({
   fetchFullPackages: () => dispatch(getFullPackages())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Courses);
+export default connect(mapStateToProps, mapDispatchToProps)(Demo);
