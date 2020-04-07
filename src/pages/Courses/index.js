@@ -103,6 +103,7 @@ const Courses = ({
             <Homeworks
               homeworks={videoData.homeworks}
               openHomeWorkVideo={openHomeWorkVideo}
+              isClosed = {videoData.video ? false : true}
             />
 
             <div style={{ display: videoData.code ? "block" : "none" }}>

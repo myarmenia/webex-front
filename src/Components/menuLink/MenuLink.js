@@ -45,7 +45,7 @@ const WebexHashLink = ({
   </HashLink>
 );
 
-const WebexListLink = props => (
+const WebexListLink = (props) => (
   <li>
     {props.hash ? <WebexHashLink {...props} /> : <WebexNavLink {...props} />}
   </li>

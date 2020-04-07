@@ -6,7 +6,7 @@ import SignUp from './SignUp';
 
 import { Route, Link } from 'react-router-dom';
 
-import Navbar from './Navbar';
+// import Navbar from './Navbar';
 import Cubes from './Cubes';
 
 const Header = props => {
