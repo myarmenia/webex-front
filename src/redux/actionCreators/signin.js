@@ -1,27 +1,39 @@
-import auth from '../auth';
+import auth from "../auth";
 
-import { SignInSuccess, SignInRequest, SignInError } from '../actions/signin';
+import {
+  UserDataSuccess,
+  SignInSuccess,
+  SignInRequest,
+  SignInError,
+} from "../actions/signin";
 
 export const SignIn = (credentials, redirect) => {
-  return dispatch => {
+  return (dispatch) => {
     dispatch(SignInRequest());
-    auth.signIn(credentials, response => {
-      dispatch(SignInSuccess(response.data.user));
-      auth.setToken(response.data.access_token);
-      redirect();
-    }, error => {
-      dispatch(SignInError(error.message));
-    });
+    auth.signIn(
+      credentials,
+      (response) => {
+        dispatch(SignInSuccess(response.data.user));
+        auth.setToken(response.data.access_token);
+        redirect();
+      },
+      (error) => {
+        dispatch(SignInError(error.message));
+      }
+    );
   };
-}
+};
 
 export const getUserData = () => {
-  return dispatch => {
+  return (dispatch) => {
     dispatch(SignInRequest());
-    auth.getUserData(response => {
-      dispatch(SignInSuccess(response.data));
-    }, error => {
-      dispatch(SignInError(error.message));
-    });
-  }
-}
+    auth.getUserData(
+      (response) => {
+        dispatch(UserDataSuccess(response.data));
+      },
+      (error) => {
+        dispatch(SignInError(error.message));
+      }
+    );
+  };
+};
