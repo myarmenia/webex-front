@@ -11,6 +11,11 @@ function SignUp() {
 
   const [finalState, setFinalState] = useState({});
 
+
+  const getFinalState = () => {
+    return finalState
+  }
+
   const nextFunc = e => {
     setNext(e);
   };
@@ -55,7 +60,7 @@ function SignUp() {
         />
       );
     } else if (next === "four") {
-      p1 = <SectionFour prevProps={prevFunc} />;
+      p1 = <SectionFour prevProps={prevFunc} getFinalState={getFinalState} />;
     } else if (next === "Back End") {
       p1 = <SingleCourse courseLang={next} set={set} prevProps={prevFunc} />;
     } else if (next === "Front End") {
