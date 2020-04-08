@@ -3325,8 +3325,12 @@ a.pswp__share--download:hover {
 	text-transform: uppercase;
 }
 
-.countdown-descr {
+.countdown-descr, .display-block {
 	display: block;
+}
+
+.display-none {
+	display: none;
 }
 
 @media (max-width: 767px) {
