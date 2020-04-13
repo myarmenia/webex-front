@@ -15,6 +15,7 @@ import SignIn from "./pages/Header/SignIn";
 import SignUp from "./pages/Header/SignUp";
 import AboutUs from "./pages/AboutUs";
 import Courses from "./pages/Courses";
+import Profile from "./pages/Profile";
 import Demo from "./pages/Demo";
 import Payment from "./pages/Payment";
 import News from "./pages/News";
@@ -52,6 +53,7 @@ function App(props) {
             <Route path="/aboutus" component={AboutUs} />
             <Route path="/news" component={News} />
             <ProtectedRoute path="/courses/:courseId?" component={Courses} />
+            <ProtectedRoute path="/profile" component={Profile} />
             <GuestRoute path="/demo/:courseId" component={Demo} />
             <GuestRoute path="/demo/" component={CoursesFilter} />
             <Route path="/payment" component={Payment} />
@@ -65,10 +67,10 @@ function App(props) {
   );
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = (state) => ({});
 
-const mapDispatchToProps = dispatch => ({
-  getUserData: () => dispatch(getUserData())
+const mapDispatchToProps = (dispatch) => ({
+  getUserData: () => dispatch(getUserData()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
