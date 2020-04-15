@@ -3,6 +3,11 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
+/**
+ * 'activeClassName' props has only NavLink
+ * HashLink, Link does not have this props
+ */
+
 const WebexNavLink = ({
   activeClassName = "active",
   className = "",
@@ -27,7 +32,6 @@ const WebexNavLink = ({
 );
 
 const WebexHashLink = ({
-  activeClassName = "active",
   className = "",
   to = "/#home",
   name = "Գլխավոր",
@@ -35,7 +39,6 @@ const WebexHashLink = ({
   ...rest
 }) => (
   <HashLink
-    activeClassName={activeClassName}
     className={className}
     to={to}
     onClick={handleClick}
