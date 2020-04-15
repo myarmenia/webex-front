@@ -1,12 +1,10 @@
 import API from "../api";
 
-import store from "../reducers/";
-
 import {
   CoursesRequest,
   CoursesSuccess,
   CoursesError,
-  CoursesWithLessonsSuccess
+  CoursesWithLessonsSuccess,
 } from "../actions/coursesData";
 
 // getCourses
@@ -18,17 +16,17 @@ export const getFullPackages = (forceRequest = false) => {
     dispatch(CoursesRequest());
     API.getFullPackages()
       .then(({ data }) => dispatch(CoursesSuccess(data)))
-      .catch(err => dispatch(CoursesError(err.message)));
+      .catch((err) => dispatch(CoursesError(err.message)));
   };
 };
 
 export const getCoursesWithLessons = () => {
-  return dispatch => {
+  return (dispatch) => {
     dispatch(CoursesRequest());
     API.getCoursesWithLessons()
-      .then(resp =>
+      .then((resp) =>
         dispatch(CoursesWithLessonsSuccess(resp.courses, resp.lessons))
       )
-      .catch(err => dispatch(CoursesError(err.message)));
+      .catch((err) => dispatch(CoursesError(err.message)));
   };
 };

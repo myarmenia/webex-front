@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import {
   coursesSelector,
   lessonsByCourseId,
-  courseById
+  courseById,
 } from "../../redux/selectors/coursesData";
 
 import { getFullPackages } from "../../redux/actionCreators/coursesData";
@@ -21,18 +21,18 @@ const Courses = ({
   currentCourse = {},
   courses,
   lessons,
-  fetchFullPackages
+  fetchFullPackages,
 }) => {
   const [videoData, setVideoData] = useState({
     video: "",
     duration: "",
     title: "",
-    description: ""
+    description: "",
   }); // HTML first video link
 
   useEffect(() => {
     fetchFullPackages();
-  }, []);
+  }, [fetchFullPackages]);
 
   useEffect(() => {
     if (lessons.length) {
@@ -40,22 +40,22 @@ const Courses = ({
         video: lessons[0].video,
         duration: lessons[0].duration,
         title: lessons[0].title,
-        description: lessons[0].description
+        description: lessons[0].description,
       });
     }
-  }, [currentCourse]);
+  }, [currentCourse, lessons]);
 
-  const openVideo = e => {
+  const openVideo = (e) => {
     setVideoData(e);
   };
 
-  const openHomeWorkVideo = e => {
+  const openHomeWorkVideo = (e) => {
     setVideoData({
       ...videoData,
       video: e.video,
       title: e.title,
       description: e.description,
-      duration: e.duration
+      duration: e.duration,
     });
   };
 
@@ -103,7 +103,7 @@ const Courses = ({
             <Homeworks
               homeworks={videoData.homeworks}
               openHomeWorkVideo={openHomeWorkVideo}
-              isClosed = {videoData.video ? false : true}
+              isClosed={videoData.video ? false : true}
             />
 
             <div style={{ display: videoData.code ? "block" : "none" }}>
@@ -121,17 +121,17 @@ const mapStateToProps = (
   state,
   {
     match: {
-      params: { courseId = 1 }
-    }
+      params: { courseId = 1 },
+    },
   }
 ) => ({
   courses: coursesSelector(state),
   currentCourse: courseById(courseId)(state),
-  lessons: lessonsByCourseId(courseId)(state)
+  lessons: lessonsByCourseId(courseId)(state),
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchFullPackages: () => dispatch(getFullPackages(true))
+const mapDispatchToProps = (dispatch) => ({
+  fetchFullPackages: () => dispatch(getFullPackages(true)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Courses);

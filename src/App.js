@@ -30,16 +30,16 @@ import { ProtectedRoute, GuestRoute } from "./pages/ProtectedRoute";
 
 import auth from "./redux/auth/";
 
-function App(props) {
+function App({ getUserData }) {
   const NoMatchPage = () => {
     return <h3 className="text-center">404 - Not found</h3>;
   };
 
   useEffect(() => {
     if (auth.isAuthenticated()) {
-      props.getUserData();
+      getUserData();
     }
-  }, []);
+  }, [getUserData]);
 
   return (
     <div className="App">

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import {
   coursesSelector,
   lessonsByCourseId,
-  courseById
+  courseById,
 } from "../../redux/selectors/coursesData";
 
 import { getFullPackages } from "../../redux/actionCreators/coursesData";
@@ -17,23 +17,18 @@ import Level from "../Courses/Level";
 import Video from "../Courses/Main/video";
 import Homeworks from "../Courses/Main/homeworks";
 
-const Demo = ({
-  currentCourse = {},
-  courses,
-  lessons,
-  fetchFullPackages
-}) => {
+const Demo = ({ currentCourse = {}, courses, lessons, fetchFullPackages }) => {
   const [videoData, setVideoData] = useState({
     video: "",
     duration: 389,
     title: "Ներածություն",
-    description: "Սկզբնական թեգերի դասավորվածությունը"
+    description: "Սկզբնական թեգերի դասավորվածությունը",
   }); // HTML first video link
 
   useEffect(() => {
     fetchFullPackages();
     window.scrollTo(0, 0);
-  }, []);
+  }, [fetchFullPackages]);
 
   useEffect(() => {
     if (lessons.length) {
@@ -41,22 +36,22 @@ const Demo = ({
         video: lessons[0].video,
         duration: lessons[0].duration,
         title: lessons[0].title,
-        description: lessons[0].description
+        description: lessons[0].description,
       });
     }
-  }, [currentCourse]);
+  }, [currentCourse, lessons]);
 
-  const openVideo = e => {
+  const openVideo = (e) => {
     setVideoData(e);
   };
 
-  const openHomeWorkVideo = e => {
+  const openHomeWorkVideo = (e) => {
     setVideoData({
       ...videoData,
       video: e.video,
       title: e.title,
       description: e.description,
-      duration: e.duration
+      duration: e.duration,
     });
   };
 
@@ -121,17 +116,17 @@ const mapStateToProps = (
   state,
   {
     match: {
-      params: { courseId }
-    }
+      params: { courseId },
+    },
   }
 ) => ({
   courses: coursesSelector(state),
   currentCourse: courseById(courseId)(state),
-  lessons: lessonsByCourseId(courseId)(state)
+  lessons: lessonsByCourseId(courseId)(state),
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchFullPackages: () => dispatch(getFullPackages())
+const mapDispatchToProps = (dispatch) => ({
+  fetchFullPackages: () => dispatch(getFullPackages()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Demo);
