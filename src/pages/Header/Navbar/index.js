@@ -51,7 +51,6 @@ const NavBar = ({ currentUser }) => {
         <WebexListLink
           to={"/#pricesSection"}
           name={"Գներ"}
-          activeClassName="active"
           smooth
           handleClick={updateToggle}
           hash="true"

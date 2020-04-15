@@ -15,7 +15,7 @@ function Popular() {
                     <span className="posted-on">
                         <a className="grey-link" href="#">
                             <i className="icon-m-calendar-alt"></i>
-                            <time className="entry-date published updated" datetime="2018-01-03T10:11:37+00:00">16. 01. 19</time>
+                            <time className="entry-date published updated" dateTime="2018-01-03T10:11:37+00:00">16. 01. 19</time>
                         </a>
                     </span>
                 </div>
@@ -32,7 +32,7 @@ function Popular() {
                     <span className="posted-on">
                         <a className="grey-link" href="#">
                             <i className="icon-m-calendar-alt"></i>
-                            <time className="entry-date published updated" datetime="2018-01-03T10:11:37+00:00">16. 01. 19</time>
+                            <time className="entry-date published updated" dateTime="2018-01-03T10:11:37+00:00">16. 01. 19</time>
                         </a>
                     </span>
                 </div>
@@ -49,7 +49,7 @@ function Popular() {
                     <span className="posted-on">
                         <a className="grey-link" href="#">
                             <i className="icon-m-calendar-alt"></i>
-                            <time className="entry-date published updated" datetime="2018-01-03T10:11:37+00:00">16. 01. 19</time>
+                            <time className="entry-date published updated" dateTime="2018-01-03T10:11:37+00:00">16. 01. 19</time>
                         </a>
                     </span>
                 </div>

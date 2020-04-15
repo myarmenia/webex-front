@@ -108,7 +108,7 @@ function Registration () {
                             <div className="divider-15 d-block d-lg-none"/>
                             
                             <div className="col-md-6">
-                                <a href="#" className="btn btn-maincolor">Get Started</a>
+                                <a href="http://localhost:3000/signup" className="btn btn-maincolor">Get Started</a>
                             </div>
                             
                         </div>
