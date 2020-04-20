@@ -39,6 +39,44 @@ body {
   box-sizing: inherit;
 } */
 
+.MainContainer {
+  background: radial-gradient(ellipse at bottom, #090a0f 0%, #222a35 100%);
+  position: "relative";
+  outline: none;
+}
+.FlexContainer {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  justify-content: right;
+  width: 100%;
+  height: 100vh;
+  flex-direction: row;
+  max-width: 1280px;
+  flex: 1 1 auto;
+  margin: 0px auto;
+  padding: 0px 1.0875rem 1.45rem;
+}
+ .TitleContainer{
+  position: absolute;
+  text-align: center;
+  color: #fff;
+  width: 45%;
+  right: 0;
+}
+.CubesContainer {
+  position: absolute;
+  top: 125px;
+}
+.Title {
+  font-size: 44px;
+  font-weight: 700;
+}
+.Subtitle{
+  font-size: 31px;
+  font-weight: 700;
+}
+
 .kITpFh {
   position: absolute;
   top: 0px;

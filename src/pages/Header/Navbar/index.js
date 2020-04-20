@@ -1,16 +1,20 @@
 import React, { useState } from "react";
-
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import { useTranslation } from "react-i18next";
+
+import WebexListLink from "../../../components/menuLink/MenuLink";
 
 import logo from "../../../img/logo.png";
 import auth from "../../../redux/auth";
 
-import { connect } from "react-redux";
-import CircularProgress from "@material-ui/core/CircularProgress";
+const NavBar = ({ currentUser, onChangeLaguage, langsWhitelist }) => {
+  const { t } = useTranslation(["navbar"]);
 
-import WebexListLink from "../../../components/menuLink/MenuLink";
-
-const NavBar = ({ currentUser }) => {
+  function handleChangeLanguage(language) {
+    onChangeLaguage(language);
+  }
   const showLoadingOrUserName = ({
     user: { name = "", last_name = "" },
     authenticated,
@@ -22,13 +26,17 @@ const NavBar = ({ currentUser }) => {
   const updateToggle = () => toggle && setToggle(false);
   const mobileActiveClass = toggle ? "mobile-active" : "";
 
-  const GuestNavigation =()=>  (
+  const GuestNavigation = () => (
       <>
-        <WebexListLink exact={true} handleClick={updateToggle} />
+        <WebexListLink
+          name={t("nav.home")}
+          exact={true}
+          handleClick={updateToggle}
+        />
 
         <WebexListLink
           to={"/#aboutUs"}
-          name={"Մեր Մասին"}
+          name={t("nav.about_us")}
           handleClick={updateToggle}
           smooth
           hash="true"
@@ -42,7 +50,7 @@ const NavBar = ({ currentUser }) => {
 
         <WebexListLink
           to={"/#coursesSection"}
-          name={"Կուրսեր"}
+          name={t("nav.courses")}
           handleClick={updateToggle}
           smooth
           hash="true"
@@ -50,7 +58,7 @@ const NavBar = ({ currentUser }) => {
 
         <WebexListLink
           to={"/#pricesSection"}
-          name={"Գներ"}
+          name={t("nav.prices")}
           smooth
           handleClick={updateToggle}
           hash="true"
@@ -60,35 +68,35 @@ const NavBar = ({ currentUser }) => {
           child={<i className="fs-16 fa fa-user"></i>}
           className="sign-btn-form"
           to="/signup"
-          name="Գրանցվել"
+          name={t("nav.sign_up")}
           handleClick={updateToggle}
         />
         <WebexListLink
           child={<i className="fw-900 s-16 fa fa-sign-in"></i>}
           className="login-btn-form"
           to="/signin"
-          name="Մուտք"
+          name={t("nav.sign_in")}
           handleClick={updateToggle}
         />
       </>
     ),
-    AuthenticatedNavigation =()=> (
+    AuthenticatedNavigation = () => (
       <>
         <WebexListLink
           to={"/payment"}
-          name={"Գներ"}
+          name={t("nav.prices")}
           handleClick={updateToggle}
         />
 
         <WebexListLink
           to={"/news"}
-          name={"Նորություններ"}
+          name={t("nav.news")}
           handleClick={updateToggle}
         />
 
         <WebexListLink
           to={"/courses"}
-          name={"Կուրսեր"}
+          name={t("nav.courses")}
           handleClick={updateToggle}
         />
 
@@ -101,7 +109,7 @@ const NavBar = ({ currentUser }) => {
         />
 
         <WebexListLink
-          name={"Log Out"}
+          name={t("nav.log_out")}
           child={<i className="fs-16 fa fa-sign-out"></i>}
           handleClick={() => {
             auth.logOut();
@@ -109,6 +117,14 @@ const NavBar = ({ currentUser }) => {
         />
       </>
     );
+
+  // make new component LangBar
+  const renderLanguageBar = (langsWhitelist) =>
+    langsWhitelist.map((lang, index) => (
+      <button key={index} onClick={() => handleChangeLanguage(lang)}>
+        {t(`langs.${lang}`)}
+      </button>
+    ));
 
   return (
     <header
@@ -131,6 +147,9 @@ const NavBar = ({ currentUser }) => {
                   {auth.isAuthenticated()
                     ? AuthenticatedNavigation()
                     : GuestNavigation()}
+                  <li className="language-bar">
+                    {renderLanguageBar(langsWhitelist)}
+                  </li>
                 </ul>
               </nav>
             </div>

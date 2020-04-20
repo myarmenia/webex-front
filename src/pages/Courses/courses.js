@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withTranslation, Trans } from "react-i18next";
 
+import { Headline } from "./HeadLine/HeadLine";
 import CourseFlip from "../../components/courseFlip/CourseFlip";
-
 import TabButton from "../../components/tabButton/TabButton";
 
 import {
   packagesSelector,
   coursesOfPackage,
-  tabPackageIdSelector
+  tabPackageIdSelector,
 } from "../../redux/selectors/coursesData";
 
 import { getFullPackages } from "../../redux/actionCreators/coursesData";
@@ -20,17 +21,17 @@ class Courses extends Component {
     this.props.fetchFullPackages();
   }
 
-  handleTabButton = e => {
+  handleTabButton = (e) => {
     e.preventDefault();
     const id = e.target.getAttribute("data-filter");
 
     this.props.SetTabPackageId(id);
   };
 
-  renderCourseFlip = course => <CourseFlip course={course} key={course.id} />;
+  renderCourseFlip = (course) => <CourseFlip course={course} key={course.id} />;
 
   render() {
-    const { coursesOfPackage, packages } = this.props;
+    const { coursesOfPackage, packages, t } = this.props;
 
     const tabPackages = packages.map(({ id, name }) => (
       <TabButton
@@ -42,7 +43,7 @@ class Courses extends Component {
       />
     ));
 
-    const courses = coursesOfPackage.map(course =>
+    const courses = coursesOfPackage.map((course) =>
       this.renderCourseFlip(course)
     );
 
@@ -54,14 +55,15 @@ class Courses extends Component {
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <h3 className="text-center">Վեբ ծրագրավորման դասընթացներ</h3>
-              <h6 className="special-heading fw-300 text-center mb-3">
-                <p>Մանրամասն ծանոթացեք վեբ ուսուցման ծրագրին</p>
-                <p>
-                  Այստեղ ներկայացված են մեր վեբ ծրագրավորման վիդեոդասերը, որոնք
-                  դիտելով դուք կծանոթանաք մեր դասավանդման մեթոդիկային։
-                </p>
-              </h6>
+              <Headline
+                mainTitle={t("courses.main_title")}
+                shortText={
+                  <Trans i18nKey={"courses.short_text"}>
+                    {t("courses.short_text")}
+                  </Trans>
+                }
+                h6_classes="text-center mb-3"
+              />
               <div className="row justify-content-center">
                 <div className="col-md-10 col-xl-7">
                   <div className="filters course-filters text-lg-right">
@@ -80,15 +82,17 @@ class Courses extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   packages: packagesSelector(state),
   coursesOfPackage: coursesOfPackage(state),
-  tabPackageId: tabPackageIdSelector(state)
+  tabPackageId: tabPackageIdSelector(state),
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   fetchFullPackages: () => dispatch(getFullPackages()),
-  SetTabPackageId: id => dispatch(SetTabPackageId(id))
+  SetTabPackageId: (id) => dispatch(SetTabPackageId(id)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Courses);
+export default withTranslation(["main"])(
+  connect(mapStateToProps, mapDispatchToProps)(Courses)
+);

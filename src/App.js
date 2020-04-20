@@ -1,4 +1,7 @@
 import React, { useEffect } from "react";
+import { Switch, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 import "./styles/bootstrap.min.css";
 import "./styles/animations.css";
@@ -10,7 +13,6 @@ import Main from "./pages/Main";
 import Footer from "./pages/Footer";
 import CopyRight from "./pages/CopyRight";
 
-import { Switch, Route } from "react-router-dom";
 import SignIn from "./pages/Header/SignIn";
 import SignUp from "./pages/Header/SignUp";
 import AboutUs from "./pages/AboutUs";
@@ -21,18 +23,25 @@ import Payment from "./pages/Payment";
 import News from "./pages/News";
 
 import CoursesFilter from "./pages/Courses/courses";
-
-import { connect } from "react-redux";
-
-import { getUserData } from "./redux/actionCreators/signin";
-
 import { ProtectedRoute, GuestRoute } from "./pages/ProtectedRoute";
 
+import { getUserData } from "./redux/actionCreators/signin";
 import auth from "./redux/auth/";
 
 function App({ getUserData }) {
+  const { t, i18n } = useTranslation(["translation"]);
+  const {
+    options: { whitelist = [] },
+  } = i18n;
+  const langsWhitelist = whitelist.slice(0, -1);
+
+  const onChangeLaguage = (lang) => {
+    console.log(lang);
+    localStorage.setItem("language", lang);
+    i18n.changeLanguage(lang);
+  };
   const NoMatchPage = () => {
-    return <h3 className="text-center">404 - Not found</h3>;
+    return <h3 className="text-center">404 - {t("translation:not_found")}</h3>;
   };
 
   useEffect(() => {
@@ -43,7 +52,11 @@ function App({ getUserData }) {
 
   return (
     <div className="App">
-      <Navbar />
+      <h1>{t("translation:welcome")}</h1>
+      <Navbar
+        onChangeLaguage={onChangeLaguage}
+        langsWhitelist={langsWhitelist}
+      />
       <Route
         render={({ location }) => (
           <Switch location={location}>
