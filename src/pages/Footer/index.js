@@ -1,9 +1,11 @@
 import React from 'react';
 import logo from '../../img/logo.png';
 import Field from './textfield';
+import {useTranslation} from 'react-i18next';
 import './form.css'
 
 const Footer=()=>{
+	const {t} = useTranslation(['footer']);
 	
 return(
 <footer className="page_footer ds s-pt-75 s-pb-45 c-gutter-40">
@@ -15,15 +17,14 @@ return(
 									<img src={logo} alt="" />
 								</a>
 								<p >
-								Start learning programming with us and feel the individual and professional approach of our mentors. Also we developed a pattern of online courses where you can choose either packages or the unique lessons you want to study. By completing our stationary course, the best students will have the opportunity to work with our professional team or will be guided by partner companies to start a career.
-
+									{t('slogan')}
 								</p>
 							</div>
 							
 						</div>
 						<div className="col-12 col-md-6 col-lg-3 animate animated fadeInUp" data-animation="fadeInUp">
 							<div className="widget widget_tag_cloud">
-								<h3 className="widget-title">Tag</h3>
+<h3 className="widget-title">{t('tags')}</h3>
 								<div className="tagcloud">
 									<a href="#" className="tag-cloud-link">
 										HTML/HTML5
@@ -90,12 +91,12 @@ return(
 						</div>
 						<div className="col-12 col-md-6 col-lg-3 animate animated fadeInUp" data-animation="fadeInUp">
 							<div className="widget widget_icons_list">
-								<h3>Contacts</h3>
+<h3>{t('contacts')}</h3>
 								<div className="media side-icon-box">
 									<div className="icon-styled fs-14">
 										<i className="icon-m-marker-alt"></i>
 									</div>
-									<p className="media-body">Str. Sarmen 1, ave. M. Mashtots, Yerevan, Armenia</p>
+<p className="media-body">{t('address')}</p>
 								</div>
 								<div className="media side-icon-box">
 									<div className="icon-styled fs-14">
@@ -163,7 +164,7 @@ return(
 						</div>
 						<div className="col-12 col-md-6 col-lg-3 animate animated fadeInUp" data-animation="fadeInUp">
 						<div className="widget widget_contact_form">
-								<h3 className="widget-title" id="footer_h3">Drop a line</h3>
+<h3 className="widget-title" id="footer_h3">{t('drop_a_line')}</h3>
 								<Field />
 							</div>
 						</div>

@@ -1,0 +1,17 @@
+{
+  "langs": {
+    "hy": "hy",
+    "en": "en",
+    "ru": "ru"
+  },
+  "nav": {
+    "home": "Home",
+    "about_us": "About us",
+    "courses": "Courses",
+    "prices": "Prices",
+    "sign_up": "SignUp",
+    "sign_in": "SignIn",
+    "news": "News",
+    "log_out": "LogOut"
+  }
+}

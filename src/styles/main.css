@@ -3274,6 +3274,9 @@ a.pswp__share--download:hover {
 }
 
 /* Countdown */
+.counup-color {
+	color: #eee !important;
+}
 #comingsoon-countdown {
 	text-align: center;
 }
@@ -9710,6 +9713,9 @@ span.muted-bg {
 }
 
 /*bottom margins*/
+.mb-0 {
+	margin-bottom: 0px;
+}
 .mb-10 {
 	margin-bottom: 10px;
 }
@@ -9739,6 +9745,9 @@ span.muted-bg {
 }
 
 /*top right bottom left margins*/
+.m-0 {
+	margin: 0px !important;
+}
 .m-10 {
 	margin: 10px;
 }
@@ -9854,7 +9863,7 @@ span.muted-bg {
 }
 
 .pt-30 {
-	padding-top: 30px;
+	padding-top: 30px !important;
 }
 
 .pt-40 {
@@ -9891,7 +9900,7 @@ span.muted-bg {
 }
 
 .pb-50 {
-	padding-bottom: 50px;
+	padding-bottom: 50px !important;
 }
 
 .pb-60 {
@@ -17410,6 +17419,21 @@ img.absolute_image {
 .course-title {
 	line-height: 30px;
 	margin-bottom: 22px;
+}
+
+.advantage-item i{
+font-size: 50px;
+}
+.advantage-item h6 {
+	display: block;
+}
+.advantage-item h6 + p {
+	text-align: left;
+}
+.advantages-headline h6 {
+	margin-top: 20px;
+	color: #6c757d;
+	text-align: center;
 }
 
 .category-section .icon-box {

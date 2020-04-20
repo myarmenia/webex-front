@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 // https://konpa.github.io/devicon/
 // https://simpleicons.org/
@@ -7,7 +8,8 @@ import React from "react";
 import SvgIcon from "../../components/svgIcon/SvgIcon";
 
 const PricingCard = ({ pack }) => {
-  const { id, name, currency, pricePerMonth, courses, buttonText } = pack;
+  const { t } = useTranslation(["main"]);
+  const { id, name, currency, pricePerMonth, courses } = pack;
   const featuredClass = id === 2 ? "ds" : "";
 
   return (
@@ -50,7 +52,9 @@ const PricingCard = ({ pack }) => {
               : ""}
           </ul>
           <div className="plan-button text-center">
-            <span className="btn btn-maincolor">{buttonText}</span>
+            <span className="btn btn-maincolor">
+              {t(`translation:buttons.get_started_now`)}
+            </span>
           </div>
         </div>
       </div>

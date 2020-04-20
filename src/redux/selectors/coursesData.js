@@ -45,7 +45,6 @@ export const packagesWithTheirCourses = createSelector(
       pc[i] = pack;
       const month = pack.month || pack.mounth; // task - fix mounth, it must to be "month"
       pc[i]["pricePerMonth"] = pack.price / month;
-      pc[i]["buttonText"] = "Get Started Now";
       pc[i]["currency"] = "AMD";
       pc[i]["courses"] =
         courses.filter(({ id }) => course_ids.includes(id)) || [];
