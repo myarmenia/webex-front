@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
+import { useTranslation } from "react-i18next";
 
 function SectionTwo(props) {
-
+    const { t } = useTranslation(["forms"]);
     const [onlineState, setOnlineState] = useState(false);
     const [ofline, setOflineState] = useState(false);
 
@@ -39,10 +40,10 @@ function SectionTwo(props) {
         <div className="row justify-content-center">
 
             <div className="form-title">
-                <h2>Hello {props.title.name}</h2>
+                <h2>{t('signup.hello')} {props.title.name}</h2>
             </div>
 
-            Dear student, choose the type of learning:
+            {t('signup.choose_type_of_learning')}
 
             <div style={{ margin: "0 auto" }} className="mt-5">
 
@@ -54,7 +55,7 @@ function SectionTwo(props) {
                         'aria-label': 'secondary checkbox',
                     }}
                 />
-                <label className="form-check-label agree" htmlFor="agree">Online</label>
+                <label className="form-check-label agree" htmlFor="agree">{t('signup.online')}</label>
 
                 <Checkbox
                     checked={ofline}
@@ -64,7 +65,7 @@ function SectionTwo(props) {
                         'aria-label': 'secondary checkbox',
                     }}
                 />
-                <label className="form-check-label" htmlFor="updates">Stationary</label>
+                <label className="form-check-label" htmlFor="updates">{t('signup.stationary')}</label>
 
                 <div className="mt-5">
                     <Button

@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { useTranslation } from "react-i18next";
 
 import { connect } from "react-redux";
 
@@ -22,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SignInForm = (props) => {
+  const { t } = useTranslation(["forms"]);
   const classes = useStyles();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -51,24 +53,22 @@ const SignInForm = (props) => {
         <div className="modal-content">
           <div className="modal-header">
             <h6 className="modal-title" id="formlogin">
-              Sign In
+              {t("signin.title")}
             </h6>
             <Link to="/signup" className="btn btn-maincolor btn-sign">
-              Sign Up
+              {t("signup.title")}
             </Link>
           </div>
           <div className="modal-body">
             <div className="form-title">
-              <h2>Sign In {props.currentUser.error}</h2>
-              <p>
-                Log in to save your progress and obtain a certificate in
-                Alison’s free Diploma in Web
-              </p>
+              <h2>{t("signin.title")}</h2>
+              <p>{t("signin.description")}</p>
+              <span className="text-danger">{props.currentUser.error}</span>
             </div>
             <form className={classes.container} noValidate onSubmit={getData}>
               <TextField
                 id="outlined-email-input"
-                label="Email"
+                label={t("labels.email")}
                 className={classes.textField}
                 type="email"
                 name="email"
@@ -81,7 +81,7 @@ const SignInForm = (props) => {
 
               <TextField
                 id="outlined-password-input"
-                label="Password"
+                label={t("labels.password")}
                 className={classes.textField}
                 type="password"
                 name="password"
@@ -115,7 +115,7 @@ const SignInForm = (props) => {
                   id="remember"
                 />
                 <label className="form-check-label" htmlFor="remember">
-                  Keep me logged in
+                  {t("signin.keep_logged")}
                 </label>
               </div>
               {props.currentUser.loading && <CircularProgress />}
@@ -127,14 +127,14 @@ const SignInForm = (props) => {
                 className="btn btn-maincolor log-btn"
                 style={{ margin: "0 auto" }}
               >
-                Sign in
+                {t("signin.title")}
               </Button>
             </form>
             <div className="modal-footer">
-              Dont have an Tutor account?
-              <button type="button" className="btn-sign">
-                Sign Up
-              </button>
+              {t("signin.dont_have_an_account")}
+              <Link to="/signup" className="btn-sign px-10 fw-600">
+                <u>{t("signup.title")}</u>
+              </Link>
             </div>
           </div>
         </div>

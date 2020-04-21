@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import SectionOne from "./SectionOne";
 import SectionTwo from "./SectionTwo";
 import ThidStep from "./SectionThree";
@@ -7,24 +8,24 @@ import SectionFour from "./SectionFour";
 import SingleCourse from "./singleCourse";
 
 function SignUp() {
+  const { t } = useTranslation(["forms"]);
   const [next, setNext] = useState("one");
 
   const [finalState, setFinalState] = useState({});
 
-
   const getFinalState = () => {
-    return finalState
-  }
-
-  const nextFunc = e => {
-    setNext(e);
-  };
-  const prevFunc = e => {
-    setNext(e);
+    return finalState;
   };
 
-  const set = e => {
-    setFinalState(old => {
+  const nextFunc = (e) => {
+    setNext(e);
+  };
+  const prevFunc = (e) => {
+    setNext(e);
+  };
+
+  const set = (e) => {
+    setFinalState((old) => {
       return { ...old, ...e };
     });
   };
@@ -87,10 +88,10 @@ function SignUp() {
         <div className="modal-content">
           <div className="modal-header">
             <Link to="/signin" className="btn btn-maincolor btn-login">
-              Sign In
+              {t("signin.title")}
             </Link>
             <h6 className="modal-title" id="formsign">
-              Sign Up
+              {t("signup.title")}
             </h6>
           </div>
 
@@ -98,10 +99,10 @@ function SignUp() {
             {p1}
 
             <div className="modal-footer">
-              Already have an Alison account?
-              <button type="button" className="btn-login">
-                <a href="/signin">Log In</a>
-              </button>
+              {t("signup.have_an_account")}
+              <Link to="/signin" className="btn-sign px-10 fw-600">
+                <u>{t("signin.title")}</u>
+              </Link>
             </div>
           </div>
         </div>
