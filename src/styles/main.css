@@ -12109,7 +12109,9 @@ a[class*="fa-"].fa-facebook-square:hover {
 
 a.color-icon.fa-facebook,
 a[class*="fa-"].fa-facebook:hover,
-a.facebook:hover {
+a.facebook:hover,
+a.linkedin,
+a.instagram {
 	color: #3b5998;
 }
 
