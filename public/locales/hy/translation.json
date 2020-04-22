@@ -1,9 +1,11 @@
 {
   "welcome": "Բարև ռեակտ",
   "not_found": "Էջը չի գտնվել",
-  "buttons":{
-    "get_started":"Սկսել",
-    "get_started_now":"Սկսել Հիմա",
-    "send_message":"Ուղարկել"
-  }  
+  "buttons": {
+    "get_started": "Սկսել",
+    "get_started_now": "Սկսել Հիմա",
+    "send_message": "Ուղարկել",
+    "prev":"նախորդ",
+    "next":"հաջորդ"
+  }
 }

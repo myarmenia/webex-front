@@ -1,0 +1,43 @@
+{
+  "labels": {
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone number",
+    "message": "Message text",
+    "password": "Password",
+    "last_name":"Last Name"
+  },
+  "placeholders": {
+    "enter_phone_number":"Enter phone number"
+  },
+  "messages": {
+    "fill_all": "Please fill in all fields",
+    "email_is_invalid": "Email is Invalid",
+    "at_least_3_char": "Please enter at least 3 characters",
+    "at_least_10_char": "Please enter at least 10 characters",
+    "request_has_been_sent": "Thank you! Your request has been sent successfully.",
+    "at_least_2_char": "Please enter at least 2 characters",
+    "at_least_8_char": "Please enter at least 8 characters",
+    "enter_valid_phone":"Please enter valid phone number",
+    "is_required":"This feild is required",
+    "email_is_taken":"This email is taken"
+  },
+  "signin": {
+    "title": "Sign In",
+    "description": "Log in to save your progress and obtain a certificate from Webex.am",
+    "keep_logged": "Keep me logged in",
+    "dont_have_an_account": "Don't have a Webex account?"
+  },
+  "signup": {
+    "title": "Sign Up",
+    "have_an_account":"Already have a Webex account?",
+    "hello":"Hello",
+    "choose_type_of_learning":"Please, choose the type of learning:",
+    "online": "Online",
+    "stationary":"Stationary",
+    "dear_student":"Dear student",
+    "complate_by_click_on":"Complete your registration by clicking on the 'Sign Up' button.",
+    "success_stationary":"Congratulations! You’ve passed the registration for stationary education in Webex.am. For account verification please check your email from webex.am and folow the link.",
+    "error_stationary":"Something went wrong. Your registration was failed. Please, try again or contact to administrator"
+  }
+}

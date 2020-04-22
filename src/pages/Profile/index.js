@@ -1,9 +1,16 @@
 import React from "react";
 
 import { connect } from "react-redux";
+import UserProfile from './Pages/UserProfile';
+import './UserProfile.css';
 
 const Profile = ({ currentUser }) => {
-  return <h1>Hello, {currentUser.user.name}</h1>;
+  return (
+    <>
+    <p className="text-center">Hello, {currentUser.user.name}</p>
+    <UserProfile />
+    </>
+  ) ;
 };
 
 const mapStateToProps = (state) => ({

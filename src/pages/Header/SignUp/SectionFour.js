@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
+import { useTranslation } from "react-i18next";
 
 import { API_SIGNUP_URL } from "../../../redux/config";
 
@@ -7,13 +8,16 @@ import { API_SIGNUP_URL } from "../../../redux/config";
 // in Webex. For account verification please follow the link.
 
 // this messages will be with their translations
-const successMessage = `Congratulations! You’ve passed the registration for stationary education
-in Webex. For account verification please check your email from webex and folow the link.`;
+// const successMessage = `Congratulations! You’ve passed the registration for stationary education
+// in Webex. For account verification please check your email from webex and folow the link.`;
 
-const errorMessage = `Something went wrong. Your regitration was failed. 
-Please, try again or contact to administrator`;
+// const errorMessage = `Something went wrong. Your regitration was failed. 
+// Please, try again or contact to administrator`;
 
 function SectionFour(props) {
+  const { t } = useTranslation(["forms"]);
+  const successMessage = t('signup.success_stationary');
+  const errorMessage = t('signup.error_stationary');
   const [respStatus, setRespStatus] = useState("");
 
   const applyResult = (res) => {
@@ -44,12 +48,12 @@ function SectionFour(props) {
   return (
     <div className="mt-3">
       <div className="form-title">
-        <h2>Dear student</h2>
+  <h2>{t('signup.dear_student')}</h2>
       </div>
 
       <img src={require(`../../../img/smiling.png`)} />
       <p className="mt-2">
-        Complete your registration by clicking on "Registration" button.
+      {t('signup.complate_by_click_on')}        
       </p>
 
       {respStatus && (
@@ -72,7 +76,7 @@ function SectionFour(props) {
         id="buttonColor"
         onClick={prepareRequest}
       >
-        Registration
+        {t('signup.title')}
       </Button>
     </div>
   );
