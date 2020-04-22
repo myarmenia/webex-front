@@ -23,7 +23,7 @@ export const API_FULL_PACKAGES_URL = API_URL + "/fullPackages";
 export const API_LESSONS_URL = API_URL + "/courses_with_lessons";
 
 const axiosInstance = axios.create({
-  baseURL: API_URL
+  baseURL: API_URL,
 });
 
 const isHandlerEnabled = (config = {}) => {
@@ -32,7 +32,7 @@ const isHandlerEnabled = (config = {}) => {
     : true;
 };
 
-const requestHandler = request => {
+const requestHandler = (request) => {
   if (isHandlerEnabled(request)) {
     if (
       auth.isAuthenticated() &&
@@ -42,6 +42,9 @@ const requestHandler = request => {
       request.headers["Authorization"] = `Bearer ${auth.getToken()}`;
     }
   }
+
+  request.headers["Accept-Language"] = localStorage.getItem("language") || "hy";
+
   return request;
 };
 
@@ -49,12 +52,12 @@ delete axios.defaults.headers.post["Content-Type"];
 delete axios.defaults.headers.put["Content-Type"];
 delete axios.defaults.headers.patch["Content-Type"];
 
-axios.interceptors.request.use(request => requestHandler(request));
+axios.interceptors.request.use((request) => requestHandler(request));
 
 const createAxiosResponseInterceptor = () => {
   const interceptor = axios.interceptors.response.use(
-    response => response,
-    error => {
+    (response) => response,
+    (error) => {
       // Reject promise if not 401 error
       if (error.response.status !== 401) {
         return Promise.reject(error);
@@ -70,15 +73,15 @@ const createAxiosResponseInterceptor = () => {
       return axios({
         url: API_REFRESH_URL,
         method: "POST",
-        withCredentials: true
+        withCredentials: true,
       })
-        .then(response => {
+        .then((response) => {
           auth.setToken(response.data.access_token);
           error.response.config.headers["Authorization"] =
             "Bearer " + response.data.access_token;
           return axios(error.response.config);
         })
-        .catch(error => {
+        .catch((error) => {
           auth.removeToken();
           return Promise.reject(error);
         })

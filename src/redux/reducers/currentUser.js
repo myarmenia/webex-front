@@ -10,6 +10,7 @@ const initialState = {
   loading: false,
   error: "",
   user: {},
+  activations: [],
 };
 
 export default function currentUser(state = initialState, action) {
