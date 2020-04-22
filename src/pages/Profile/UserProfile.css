@@ -1,0 +1,209 @@
+.fontFamilyPoppins{
+  font-family: Poppins,Helvetica,sans-serif !important;
+}
+.colorProfilePage{
+  color: #48465b;
+  transition: .1s;
+}
+a.colorProfilePage:hover{
+  color: blue;
+}
+
+.colorProfilePage2{
+  background-color: #1976d214 !important;
+}
+
+.ButtonProfilePage{
+  justify-Content: flex-start !important;
+  text-transform: capitalize !important;
+  margin: 2.6px auto !important;
+  padding: .7rem 1.05rem .7rem .6rem !important;
+}
+
+.greenButton{
+  padding: 6px 16px !important;
+  background-color: #0abb87 !important;
+  color: white !important;
+}
+
+.greenButton:hover{
+  background-color: #08976d !important;
+}
+
+.headerSmall{
+  font-weight: 300;
+  padding-left: .5rem;
+  font-size: 1rem;
+  color: #74788d;
+}
+
+.tarorinakGuyn{
+  color: #646c9a;
+}
+
+.tarorinakGuyn2{
+  color: #0000008a !important;
+}
+
+/*Percentage - %*/
+.width-100Percentage{
+  width: 100% !important;
+}
+
+.width-90vw{
+  width: 90vw;
+}
+
+.h-20vh{
+  height: 20vh
+}
+
+.ml-10px{
+  margin-left: 10px !important;
+}
+
+.ml-10px{
+  margin-left: 10px !important;
+}
+
+.mr-10px{
+  margin-right: 10px !important;
+}
+
+.ml-12px{
+  margin-left: 12px !important;
+}
+
+.ml-20px{
+  margin-left: 20px !important;
+}
+
+.mt-20px{
+  margin-top: 20px !important;
+}
+
+.mb-20px{
+  margin-bottom: 10px !important;
+}
+
+.pheight-6px{
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+}
+
+.pwidth-16px{
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+.pb-5px{
+  padding-bottom: 5px;
+}
+
+.pt-10px{
+  padding-top: 10px;
+}
+
+.pb-10px{
+  padding-bottom: 10px;
+}
+
+.pl-20px{
+  padding-left: 20px;
+}
+
+.pt-20px{
+  padding-top: 20px;
+}
+
+.pb-20px{
+  padding-bottom: 20px;
+}
+
+.pb-30px{
+  padding-bottom: 30px;
+}
+
+.pt-38px{
+  padding-top: 38px;
+}
+
+.pl-10vw{
+  padding-left: 10vw;
+}
+
+.floatRight{
+  float: right;
+}
+
+.textAlignRight{
+  text-align: right;
+}
+
+#underline{
+  line-height: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: #595d6e;
+}
+
+.textParagraph{
+  line-height: 1;
+  margin-top: 0;
+  color: #74788d;
+  font-weight: 500;
+}
+
+.textStrong{
+  line-height: 1;
+  margin-top: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #595d6e;
+};
+
+.textProgressBar{
+  line-height: 0;
+  margin: 0;
+  display: inline-block;
+  font-weight: 600;
+  color: #595d6e;
+}
+
+.textProgressBar{
+  line-height: 0;
+  margin: 0;
+  display: inline-block;
+  font-weight: 600;
+  color: #595d6e;
+}
+
+.progressBar{
+  display: inline-block;
+  height: 10px !important;
+  margin-right: 10px;
+  border-radius: 20px;
+  width: 68%;
+}
+
+.border-1px{
+  border: 1px solid #e6e6e6 !important;
+}
+
+.inlineBlock{
+  display: inline-block;
+}
+
+.fontSize{
+  font-size: 2.4rem;
+}
+
+.alert{
+  color: #fd397a;
+  background: rgba(253,57,122,.1);
+  border-color: transparent;
+  padding: 13px 20px;
+  margin: 20px 0 20px 0;
+  border-radius: 5px;
+  display: flex;
+}

@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function SectionOne(props) {
-  const { t } = useTranslation(["forms"]);
+  const { t } = useTranslation(["forms", "translation"]);
   const classes = useStyles();
 
   const [name, setName] = useState(props.obj.name);
@@ -293,7 +293,7 @@ function SectionOne(props) {
           id="buttonColor"
           onClick={sendRequest}
         >
-          Next
+          {t("translation:buttons.next")}
         </Button>
       </div>
     </>

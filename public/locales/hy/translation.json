@@ -4,6 +4,8 @@
   "buttons": {
     "get_started": "Սկսել",
     "get_started_now": "Սկսել Հիմա",
-    "send_message": "Ուղարկել"
+    "send_message": "Ուղարկել",
+    "prev":"նախորդ",
+    "next":"հաջորդ"
   }
 }

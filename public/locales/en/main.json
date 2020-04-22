@@ -4,55 +4,55 @@
     "sub_title":"Online & Stationary Courses"
   },
   "about":{
-    "pre_title":"Օնլայն և ստացիոնար դասընթացներ",
+    "pre_title":"Onlyne And Stationary Courses",
     "title": "About us",
-    "text":"Webex Technologies ընկերությունը սկսել է իր գործունեություն 2007թ․-ին: Ժամանակի ընթացքում մեք մշակել են վեբ դասավանդման/web development training/ յուրահատուկ մեթոդիկա, որի շնորհիվ մեր ուսանողները ձեռք են բերել վեբ ծրագրավորման հիմնավոր գիտելիքներ: Մենք ներկայացնում ենք դասավանդման երեք փուլ՝ Full Stack, Front end, Back end: Նախքան փուլերից մեկը ընտրելը մենք զրուցում ենք մեզ դմող ուսանողների հետ, իմանլով նրանց նպատակը վեբ ծրագրավորման մասնագիտացման մեջ՝ խորհուրդ ենք տալիս, նախընտրելի ծրագրավորման դասընթացների մասնագիտական փուլը։ Webex Technologies ընկերությունը առաջարկում է մեր ուսանողներին ընտրելու դասավանդման օնլայն կամ ստացիոնար դասընթացներից մեկը։",
-    "type_online":"Օնլայն դասընթաց",
-    "type_stationary":"Ստացիոնար դասընթաց",
-    "descr_online": "Օնլայն դասընթացի առավելությունն այն է, որ դուք գտնվերով աշխարհի ցանկավցած երկրում կարող եք սովորել վեբ ծրագրավորում։",
-    "descr_stationary":"Ստացիոնար դասընթացի առավելությունն այն է, որ դուք սովորում եք անհատական, ծրագրավորողի անմիջական հսկողությամբ։",
+    "text":"The company Webex Technologies started its activity in 2007. Over time, we developed a special methodology for web development training, thanks to which our students acquired deep knowledge of web programming.We present three stages of teaching: Full Stack, Front end, Back end. Before choosing one of the stages, we talk to the students who are interested in us, knowing their purpose in the specialization of web programming, we recommend the professional stage of the preferred programming courses. Webex Technologies offers the students to choose online or stationary courses.",
+    "type_online":"Online course",
+    "type_stationary":"Stationary course",
+    "descr_online": "The advantage of an online course is that you can learn web programming in any country in the world.",
+    "descr_stationary":"The advantage of a stationary course is that you learn individually, under the direct supervision of a programmer.",
     "main_goal":{
-      "title":"Մեր դասավանդման նպատակն է սերտել ուժեղ մասնագետներ",
-      "text":"Այդ նպատակով ուսանողներին տրվում է պրակտիկ ծրագրավորման գիտելիքներ՝ անհատական մոտեցումով, 15 տարվա փորձ ունեցող վեբ ծրագրավորողների կողմից, որոնք համբերատար կերպով կբացատրեն ծրագրավորման բոլոր նրբությունները և ձեզ կապացուցեն, որ ծրագրավորման մեջ ոչ մի դժվար բան չկա: Մենք փորձում ենք մեր դասերը մատչելի դարձնել բոլորի համար, ուստի ստեղծել ենք առցանց ծրագրավորում սովորելու հնարավորություն: Այսպիսով, ուսանողներին հնարավորություն է ընձեռվում սովորելու ցանկացած վայրում և ցանկացած ժամի ամենաբարդ ծրագրավորման ալգորիթմները: Դասընթացի ավարտին ուսանողները կստանան սերտիֆիկատ, որը հավաստում է, որ ուսանողը հանդիսանում է որակավորված վեբ ծրագրավորող: Այս տեսահոլովակում ներկայացված են մեր ուսանողների մեկնաբանությունները Webex Technologies ընկեերության դասընթացների մասին։"
+      "title":"The purpose of our teaching is to train strong specialists",
+      "text":"To this end, students are given practical programming knowledge, individually, by web developers with 15 years of experience who will patiently explain all the nuances of programming and prove to you that there is nothing difficult in programming. We try to make our lessons accessible to everyone, so we have created an opportunity to learn online programming. This gives students the opportunity to learn the most complex programming algorithms anywhere and anytime. At the end of the course, students will receive a certificate verifying that the student is a qualified web developer. In this video are presented our student's comments about the courses of WebEx Technologies."
     }
   },
   "advantages": {
-    "main_title":"Մեր առավելությունները",
-    "short_text":"Webex Technologies-ի դասընթացները ունեն մի շարք առավելություններ, որոնք դարձնում են դասերը մաքսիմալ էֆեկտիվ և հասանելի ուսանողներին։",
+    "main_title":"Our Advantages",
+    "short_text":"Webex Technologies courses have a number of advantages that make the lessons more effective and accessible to students.",
     "0": {
-      "title": "Պրոֆեսիոնալ դասավանդում",
+      "title": "Professional teaching",
       "icon": "book",
-      "text": "Մեզ մոտ դասերը ընթանում են մշակված ծրագրով և մշտապես թարմացվում են` ներառելով իրենց մեջ նորամուծությունները և նոր լուծումները։ Դասընթացը անց ենք կացնում վիդեոդասերի միջոցով` ցուցաբերելով անհատական մոտեցում։"
+      "text": "Our lessons are conducted according to the developed program and are constantly updated, including innovations and new solutions. We conduct the course through video lessons, showing an individual approach."
     },
     "1": {
-      "title": "Բարձրակարգ մասնագետներ",
+      "title": "High quality specialists",
       "icon": "users",
-      "text": "Մեր մասնագետները մինչև 15 տարվա փորձ ունեն և գործող վեբ ծրագրավորողոներ են։ Նրանք համբերատար կբացատրեն ծրագրավորման նրբությունները և կապացուցեն Ձեզ, որ ծրագրավորման մեջ ոչ մի դժվար բան չկա։"
+      "text": "Our specialists have up to 15 years of experience and they are web developers. They will patiently explain the nuances of programming and prove to you that there is nothing difficult in programming."
     },
     "2": {
-      "title": "Անհատական մոտեցում",
+      "title": "Individual approach",
       "icon": "laptop",
-      "text": "Մեր առավելությունը նրանում է, որ ուսանողին ցուցաբերում ենք  անհատական մոտեցում։Հաշվի առնելով ուսանողի կարողությունները, մշակում ենք դասավանդման անհատական ծրագիր՝ ուսուցումն ավելի մատչելի դարձնելու համար։"
+      "text": "Our advantage is that we provide an individual approach to the student. Taking into account the student's abilities, we develop an individualized curriculum to make teaching more accessible."
     },
     "3": {
-      "title": "Վիդեոդասեր",
+      "title": "Video lessons",
       "icon": "microphone",
-      "text": "Մենք փորձում ենք մեր դասերը մատչելի դարձնել բոլորի համար՝ ուստի ստեղծել ենք առցանց ծրագրավորում սովորելու հնարավորություն: Այսպիսով՝ ուսանողներին հնարավորություն է ընձեռվում սովորելու ցանկացած վայրում և ցանկացած ժամի։"
+      "text": "We try to make our lessons accessible to everyone, so we have created an opportunity to learn online programming. In this way, students have the opportunity to study anywhere, anytime."
     },
     "4": {
-      "title": "Սերտիֆիկատ",
+      "title": "Certificate",
       "icon": "certificate",
-      "text": "Դասերի վերջում տրվում է սերտիֆիկատ, որը հավաստում է, որ Դուք որակավորված մասնագետ եք՝ սակայն պետք է հիշել, որ ինֆորմացիոն տեխնոլոգիաների ոլորտում կարևորը գիտելիքն է։"
+      "text": "At the end of the courses, a certificate is issued verifying that you are a qualified professional, but it should be remembered that knowledge is important in the field of information technology."
     },
     "5":{
-      "title":"Աշխատանքի տեղավորում",
+      "title":"Job placement",
       "icon":"thumbs-up",
-      "text":"Webex-ը օժանդակում է ուսանողներին տեղավորվել աշխատանքի՝ մեզ մոտ կամ գործընկեր կազմակերպություններում։ Ամեն դեպքում՝ ամեն ինչ կախված է ձեզանից, քանի որ աշխատանքի ընդունվելուց առաջ ուսանողները պետք է անցնեն հարցազրույց։"
+      "text":"Webex supports students to find employment in our company or in partner organizations. In each case, it all depends on you, as the students must be interviewed before being hired" 
     }
   },
   "courses":{
-    "title":"Վեբ ծրագրավորման դասընթացներ",
-    "sub_title":"<p>Մանրամասն ծանոթացեք վեբ ուսուցման ծրագրին</p><p>Այստեղ ներկայացված են մեր վեբ ծրագրավորման վիդեոդասերը, որոնք դիտելով դուք կծանոթանաք մեր դասավանդման մեթոդիկային։</p>",
+    "main_title":"Web programming courses",
+    "short_text":"<p>Learn more about the web learning program</p><p>Here are our web programming video lessons, after watching which you will learn about our teaching methodology.</p>",
     "flipcard":{
       "lessons":"Lessons",
       "minutes":"minutes"
@@ -65,8 +65,8 @@
     "prog_langs":"PROG․ LANGUAGES"
   },
   "pricing":{
-    "pre_title":"Հզորացրեք ինքներդ ձեզ",
-    "main_title":"Ընտրել Փաթեթը",
-    "short_text":"Ընտրելով այս կամ այն փաթեթը, ձեզ հասանելի կդառնան փաթեթում ամփոփված բոլոր դասերը։"
+    "pre_title":"Power up yourself",
+    "main_title":"Select Package",
+    "short_text":"By selecting this or that package, all the lessons summarized in the package will be available to you."
   }
 }

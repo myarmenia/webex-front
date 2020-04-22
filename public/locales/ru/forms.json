@@ -30,7 +30,7 @@
   },
   "signup": {
     "title": "Регистрация",
-    "have_an_account":"Уже есть аккаунт на Webex?",
+    "have_an_account":"Уже имеете аккаунт на Webex?",
     "hello":"Здравствуйте",
     "choose_type_of_learning":"Пожалуйста, выберите тип обучения:",
     "online": "Онйайн",

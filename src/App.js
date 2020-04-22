@@ -52,7 +52,7 @@ function App({ getUserData }) {
 
   return (
     <div className="App">
-      <h1>{t("translation:welcome")}</h1>
+      {/* <h1>{t("translation:welcome")}</h1> */}
       <Navbar
         onChangeLaguage={onChangeLaguage}
         langsWhitelist={langsWhitelist}

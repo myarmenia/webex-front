@@ -51,10 +51,10 @@ const PricingCard = ({ pack }) => {
                 })
               : ""}
           </ul>
-          <div className="plan-button text-center">
-            <span className="btn btn-maincolor">
-              {t(`translation:buttons.get_started_now`)}
-            </span>
+          <div className="plan-button text-center">            
+            <a href="/signin" className="btn btn-maincolor mt-4">
+              {t("translation:buttons.get_started_now")}
+            </a>
           </div>
         </div>
       </div>
