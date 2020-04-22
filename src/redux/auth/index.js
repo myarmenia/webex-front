@@ -12,10 +12,10 @@ class Auth {
   signIn(credentials, resolve, reject) {
     axios
       .post(API_SIGNIN_URL, credentials, {
-        withCredentials: true
+        withCredentials: true,
       })
-      .then(response => resolve(response))
-      .catch(error => reject(error));
+      .then((response) => resolve(response))
+      .catch((error) => reject(error));
   }
 
   signUp() {}
@@ -45,12 +45,12 @@ class Auth {
           {},
           {
             headers: new Headers({
-              "Content-Type": "application/json"
-            })
+              "Content-Type": "application/json",
+            }),
           }
         )
-        .then(response => resolve(response))
-        .catch(error => reject(error));
+        .then((response) => resolve(response))
+        .catch((error) => reject(error));
     } else {
       reject({ error: "No token was found" });
     }

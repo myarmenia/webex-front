@@ -23,22 +23,27 @@ import Payment from "./pages/Payment";
 import News from "./pages/News";
 
 import CoursesFilter from "./pages/Courses/courses";
-import { ProtectedRoute, GuestRoute } from "./pages/ProtectedRoute";
+import {
+  ProtectedRoute,
+  AuthenticatedRoute,
+  GuestRoute,
+} from "./pages/ProtectedRoute";
 
 import { getUserData } from "./redux/actionCreators/signin";
 import auth from "./redux/auth/";
 
 function App({ getUserData }) {
   const { t, i18n } = useTranslation(["translation"]);
+
   const {
     options: { whitelist = [] },
   } = i18n;
   const langsWhitelist = whitelist.slice(0, -1);
 
   const onChangeLaguage = (lang) => {
-    console.log(lang);
     localStorage.setItem("language", lang);
     i18n.changeLanguage(lang);
+    window.location.reload();
   };
   const NoMatchPage = () => {
     return <h3 className="text-center">404 - {t("translation:not_found")}</h3>;
@@ -52,7 +57,6 @@ function App({ getUserData }) {
 
   return (
     <div className="App">
-      {/* <h1>{t("translation:welcome")}</h1> */}
       <Navbar
         onChangeLaguage={onChangeLaguage}
         langsWhitelist={langsWhitelist}
@@ -66,7 +70,7 @@ function App({ getUserData }) {
             <Route path="/aboutus" component={AboutUs} />
             <Route path="/news" component={News} />
             <ProtectedRoute path="/courses/:courseId?" component={Courses} />
-            <ProtectedRoute path="/profile" component={Profile} />
+            <AuthenticatedRoute path="/profile" component={Profile} />
             <GuestRoute path="/demo/:courseId" component={Demo} />
             <GuestRoute path="/demo/" component={CoursesFilter} />
             <Route path="/payment" component={Payment} />
