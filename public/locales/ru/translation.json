@@ -4,6 +4,8 @@
   "buttons": {
     "get_started": "Начать",
     "get_started_now": "Начать сейчас",
-    "send_message": "Отправить сообщение"
+    "send_message": "Отправить сообщение",
+    "prev":"пред",
+    "next":"след"
   }
 }

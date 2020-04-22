@@ -4,6 +4,8 @@
   "buttons": {
     "get_started": "Get Started",
     "get_started_now": "Get Starged Now",
-    "send_message": "Send Message"
+    "send_message": "Send Message",
+    "prev":"prev",
+    "next":"next"
   }
 }
