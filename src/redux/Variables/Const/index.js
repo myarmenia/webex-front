@@ -11,9 +11,9 @@ export const CONST_USER_DATA = {
   contactLinkedin: 'linkedin',
   contactGithub: 'github',
   userLocation: "Location",
-  payMoney: 'Վճարված Գումարը',
-  theDayOfPayment: 'Վճարված գումարի օրը',
-  classAttendance: 'Դասերի հաճախում',
+  payMoney: 'Վճարման կարգավիճակ', // Վճարված Գումարը
+  theDayOfPayment: 'Վճարման ամսաթիվ', // Վճարված գումարի օրը
+  classAttendance: 'Ուսուցման ժամանակացույց', // Դասերի հաճախում
   byMonth: 'ըստ ամիսների',
   byDays: 'ըստ օրերի',
   buttonSwitch: [ 'User Profile', 'Personal Information', 'Change Password', '4', '5', '6'],
