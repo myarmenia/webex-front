@@ -207,3 +207,14 @@ a.colorProfilePage:hover{
   border-radius: 5px;
   display: flex;
 }
+
+.training-schedule {
+  margin-bottom: 15px !important;
+    background-color: aliceblue;
+    padding: 8px 4px;
+}
+
+.MuiButton-root:hover{
+  color: #646c9a;
+  transition:all 100ms ease-in;
+}

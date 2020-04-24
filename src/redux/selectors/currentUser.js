@@ -1,6 +1,6 @@
 import { createSelector } from "reselect";
 
-const activationsSelector = (state) => state.currentUser.activations;
+export const activationsSelector = (state) => state.currentUser.activations;
 
 export const currentActivationSelector = createSelector(
   activationsSelector,
@@ -13,4 +13,9 @@ export const currentActivationSelector = createSelector(
 
     return currentActivation;
   }
+);
+
+export const lastActivationSelector = createSelector(
+  activationsSelector,
+  (activations) => [...activations].reverse()[0]
 );
