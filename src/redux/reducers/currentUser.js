@@ -21,6 +21,7 @@ const initialState = {
   error: "",
   user: {},
   activations: [],
+  activations_loaded: false,
 };
 
 export default function currentUser(state = initialState, action) {
@@ -35,6 +36,7 @@ export default function currentUser(state = initialState, action) {
         loading: false,
         user: action.payload.user,
         activations: action.payload.activations,
+        activations_loaded: true,
       };
 
     case SIGNIN_SUCCESS:
