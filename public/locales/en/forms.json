@@ -5,10 +5,12 @@
     "phone": "Phone number",
     "message": "Message text",
     "password": "Password",
-    "last_name":"Last Name"
+    "last_name": "Last Name",
+    "new_pass": "New password",
+    "repeat_pass": "Repeat password"
   },
   "placeholders": {
-    "enter_phone_number":"Enter phone number"
+    "enter_phone_number": "Enter phone number"
   },
   "messages": {
     "fill_all": "Please fill in all fields",
@@ -18,9 +20,12 @@
     "request_has_been_sent": "Thank you! Your request has been sent successfully.",
     "at_least_2_char": "Please enter at least 2 characters",
     "at_least_8_char": "Please enter at least 8 characters",
-    "enter_valid_phone":"Please enter valid phone number",
-    "is_required":"This feild is required",
-    "email_is_taken":"This email is taken"
+    "enter_valid_phone": "Please enter valid phone number",
+    "is_required": "This feild is required",
+    "email_is_taken": "This email is taken",
+    "enter_current_password": "Please, enter your current password",
+    "curr_and_new_are_same": "Your current password and new are the same",
+    "passwords_not_same": "Your new and repeated passwords are not the same"
   },
   "signin": {
     "title": "Sign In",
@@ -30,14 +35,23 @@
   },
   "signup": {
     "title": "Sign Up",
-    "have_an_account":"Already have a Webex account?",
-    "hello":"Hello",
-    "choose_type_of_learning":"Please, choose the type of learning:",
+    "have_an_account": "Already have a Webex account?",
+    "hello": "Hello",
+    "choose_type_of_learning": "Please, choose the type of learning:",
     "online": "Online",
-    "stationary":"Stationary",
-    "dear_student":"Dear student",
-    "complate_by_click_on":"Complete your registration by clicking on the 'Sign Up' button.",
-    "success_stationary":"Congratulations! You’ve passed the registration for stationary education in Webex.am. For account verification please check your email from webex.am and folow the link.",
-    "error_stationary":"Something went wrong. Your registration was failed. Please, try again or contact to administrator"
+    "stationary": "Stationary",
+    "dear_student": "Dear student",
+    "complate_by_click_on": "Complete your registration by clicking on the 'Sign Up' button.",
+    "success_stationary": "Congratulations! You’ve passed the registration for stationary education in Webex.am. For account verification please check your email from webex.am and folow the link.",
+    "error_stationary": "Something went wrong. Your registration was failed. Please, try again or contact to administrator"
+  },
+  "update": {
+    "title": "Update personal information",
+    "submit": "Confirm",
+    "success": "Your data was successfully updated!",
+    "error": "Something went wrong, Please try again or cantact to admin!",
+    "password": {
+      "title": "Change password"
+    }
   }
 }
