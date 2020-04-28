@@ -7,7 +7,7 @@ export const API_VIDEO_URL = "http://webex.am/";
 export const API_URL =
   process.env.REACT_APP_ENV === "dev"
     ? "http://127.0.0.1:8000/api"
-    : "http://web.webex.am/api";
+    : "https://p.webex.am/api";
 
 export const API_SIGNIN_URL = API_URL + "/signin";
 

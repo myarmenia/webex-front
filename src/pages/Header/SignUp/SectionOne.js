@@ -111,7 +111,7 @@ function SectionOne(props) {
 
   const emailFetch = () => {
     if (new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email)) {
-      fetch("http://web.webex.am/api/checkemail", {
+      fetch("https://web.webex.am/api/checkemail", {
         method: "post",
         headers: {
           Accept: "application/json, text/plain, */*",
