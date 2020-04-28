@@ -8885,7 +8885,8 @@ body.boxed {
 	background-color: #eeb269;
 }
 
-.cs.cs-danger {
+.cs.cs-danger,
+.cs.cs-error {
 	background-color: #dc5753;
 }
 

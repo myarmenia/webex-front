@@ -12,6 +12,12 @@ export const API_SIGNUP_URL = API_URL + "/signup";
 
 export const API_SIGNOUT_URL = API_URL + "/signout";
 
+export const API_UPDATE_USER_URL = API_URL + "/update";
+
+export const API_CHECK_PASS_URL = API_URL + "/checkpassword";
+
+export const API_CHANGE_PASS_URL = API_URL + "/changepassword";
+
 export const API_USERDATA_URL = API_URL + "/userdata";
 
 export const API_REFRESH_URL = API_URL + "/signin/refresh";
