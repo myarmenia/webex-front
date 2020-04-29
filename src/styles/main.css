@@ -322,6 +322,15 @@ input[type="submit"]:active {
 	top: 1px !important;
 }
 
+.link-about {
+		color: #768292;
+    /* text-decoration: none; */
+    /* transition: all 0.2s ease-in-out 0s; */
+    font-size: 16px;
+    font-family: cursive;
+    font-weight: 600;
+}
+
 hr {
 	border-color: #d8efdb;
 	margin-bottom: 30px;
