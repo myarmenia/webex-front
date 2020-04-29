@@ -11,6 +11,8 @@ export const API_URL =
 
 export const API_SIGNIN_URL = API_URL + "/signin";
 
+export const API_CHECK_MAIL_URL =  API_URL + "/checkemail";
+
 export const API_SIGNUP_URL = API_URL + "/signup";
 
 export const API_SIGNOUT_URL = API_URL + "/signout";
