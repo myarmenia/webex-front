@@ -68,8 +68,8 @@ function Section1({ t }) {
                 </div>
               </div>
 
-              <div class="row justify-content-center">
-                <div class="col-10 col-lg-8">
+              <div className="row justify-content-center">
+                <div className="col-10 col-lg-8">
                   <div className="item-content">
                     <div className="d-none d-lg-block divider-35"></div>
                     <p className="color-dark fw-500 text-justify">

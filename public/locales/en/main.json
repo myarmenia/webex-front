@@ -87,6 +87,11 @@
       "minutes": "minutes"
     }
   },
+  "lastnews":{
+    "main_title":"Latest News",
+    "short_text":"Follow our news, where you will find the latest innovations and interesting news",
+    "author":"Author"
+  },
   "countup": {
     "title": "Our modern and professional approach has already attracted many customers",
     "vid_lessons": "VIDEOS",
