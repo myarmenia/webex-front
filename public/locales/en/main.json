@@ -19,18 +19,19 @@
       "title": "A little from our educational methodology",
       "procedures": {
         "title": "Procedure",
-        "0": "First, an interview is conducted, as a result of which we find out the initial knowledge of the student. Based on the results of this interview, it is decided whether he has to start from the beginning or from the middle of the curriculum.",
-        "1": "Classes are held on an individual basis, it means that we are training with each student individually in the classroom or online. There can be up to 10 students (it’s also possible only you may be in the classroom or online if the teacher-programmer decides that there is a need to explain to you certain topics in detail).",
-        "2": "A video lesson is given to each student, after which the teacher answers your questions, and if there are no questions, we pass to the task, which is given during the lesson, if necessary.",
-        "3": "At the end of the lesson, a homework is given on this topic. In the next lesson, the task is checked by the teacher, if there are failed parts, it is discussed by the teacher.",
+        "0": "First, an interview is conducted, as a result of which we find out the initial knowledge of the <strong>student</strong>. Based on the results of this interview, it is decided whether he has to start from the beginning or from the middle of the curriculum.",
+        "1": "Classes are held on an <strong>individual</strong> basis, it means that we are training with each student individually in the classroom or online. There can be up to 10 students (it’s also possible only you may be in the classroom or online if the <strong>teacher-programmer</strong> decides that there is a need to explain to you certain topics in detail).",
+        "2": "A <strong>video lesson</strong> is given to each student, after which the teacher answers your questions, and if there are no questions, we pass to the task, which is given during the lesson, if necessary.",
+        "3": "At the end of the lesson, a <strong>homework</strong> is given on this topic. In the next lesson, the task is checked by the teacher, if there are failed parts, it is discussed by the teacher.",
         "4": "If the student has difficulties while performing the task, the teacher will never move forward ․ This topic is explained again and the student gets a new task. This method prolongs the number of student classes, but we get a guaranteed quality, and those who graduate from us at the end becоme stable specialists.",
-        "5": "At the end of the courses, the student receives a certificate that he/she is a qualified specialist.",
-        "6": "After completing the courses, we also guarantee that specialist to our partner organizations or we offer to the bests of them  internship in our company and also offer a job with us if they manifest themselves well."
+        "5": "At the end of the courses, the student receives a <strong>certificate</strong> that he/she is a qualified specialist.",
+        "6": "After completing the courses, we also guarantee that specialist to our partner organizations or we offer to the bests of them  <strong>internship</strong> in our company and also offer a <strong>job</strong> with us if they manifest themselves well."
       },
       "faq": {
         "title": "Frequently Asked Questions",
         "q_0": "The duration of the courses",
-        "a_0": "The duration of the courses directly depends on the student's ability to perceive quickly. The sooner the student understands the topics, the sooner the courses will end, because we do not move forward until we understand that the student has finally understood the topic. It should be noted, however, that the main course (HTML5, CSS3, Flex, Grids, BootStrap, JavaScript, jQuery, PHP, AJAX, MySQL) has so far lasted at least 7 months and at most 15 months.",
+        "a_00": "The duration of the courses directly depends on the student's ability to perceive quickly. The sooner the student understands the topics, the sooner the courses will end, because we do not move forward until we understand that the student has finally understood the topic. It should be noted, however, that the main course ( ",
+        "a_01": ") has so far lasted at least 7 months and at most 15 months.",
         "q_1": "How much does the course cost?",
         "a_1": "The cost of an individual training course both online and stationary is 50,000 AMD. We do not provide group training at WebEx, as its efficiency is incomparably small. The lessons last 1.5 hours, three times a week. The price includes 12 lessons per month.",
         "q_2": "What time can you participate in the lesson?",
@@ -87,10 +88,10 @@
       "minutes": "minutes"
     }
   },
-  "lastnews":{
-    "main_title":"Latest News",
-    "short_text":"Follow our news, where you will find the latest innovations and interesting news",
-    "author":"Author"
+  "lastnews": {
+    "main_title": "Latest News",
+    "short_text": "Follow our news, where you will find the latest innovations and interesting news",
+    "author": "Author"
   },
   "countup": {
     "title": "Our modern and professional approach has already attracted many customers",

@@ -6,9 +6,12 @@ import Initials from "./Initials";
 import TagsList from "./TagsList";
 import ContactsList from "./ContactsList";
 import ContactForm from "./ContactForm";
+import { useSelector } from "react-redux";
 
 const Footer = () => {
   const { t } = useTranslation(["footer"]);
+  const authenticated = useSelector((state) => state.currentUser.authenticated);
+  const courses = useSelector((state) => state.coursesData.courses);
 
   return (
     <footer className="page_footer ds s-pt-75 s-pb-45 c-gutter-40">
@@ -20,7 +23,13 @@ const Footer = () => {
           />
 
           <OneForthHoc
-            widgetComponent={<TagsList tags={t("tags")} />}
+            widgetComponent={
+              <TagsList
+                tags={t("tags")}
+                authenticated={authenticated}
+                courses={courses}
+              />
+            }
             widgetClassName="widget_tag_cloud"
           />
 
