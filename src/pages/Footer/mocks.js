@@ -1,152 +1,152 @@
 export const tags = [
   {
+    id: 1,
     name: "HTML/HTML5",
-    link: "#",
   },
   {
+    id: 2,
     name: "CSS3",
-    link: "#",
   },
   {
+    id: 3,
     name: "Boostrap",
-    link: "#",
   },
   {
+    id: 4,
     name: "JavaScript",
-    link: "#",
   },
   {
+    id: 6,
     name: "jQuery",
-    link: "#",
   },
   {
+    id: 9,
     name: "ReactJS",
-    link: "#",
   },
   {
+    id: 10,
     name: "Redux",
-    link: "#",
   },
   {
+    id: 7,
     name: "PHP7",
-    link: "#",
   },
   {
+    id: 13,
     name: "Laravel",
-    link: "#",
   },
   {
+    id: 8,
     name: "MySQL",
-    link: "#",
   },
   {
+    id: 17,
     name: "OOP",
-    link: "#",
   },
   {
+    id: 9,
     name: "GitHub",
-    link: "#",
   },
   {
+    id: 5,
     name: "ECMAScript",
-    link: "#",
   },
   {
+    id: 14,
     name: "NodeJS",
-    link: "#",
   },
   {
+    id: 16,
     name: ".htaccess",
-    link: "#",
   },
+  // {
+  // id: 55,
+  //   name: "AngularJS",
+  // },
   {
-    name: "AngularJS",
-    link: "#",
-  },
-  {
+    id: 11,
     name: "Server",
-    link: "#",
   },
+  // {
+  //   id:44,
+  //   name: "WordPress",
+  // },
   {
-    name: "WordPress",
-    link: "#",
-  },
-  {
+    id: 2,
     name: "CSS",
-    link: "#",
   },
   {
+    id: 3,
     name: "Boostrap 4",
-    link: "#",
   },
 ];
 
 export const contacts = [
   {
-    iconTitle:"address",
-    iconClassName:"icon-m-marker-alt",
+    iconTitle: "address",
+    iconClassName: "icon-m-marker-alt",
     name: "address",
     link: null,
-    linkClassName:"",
+    linkClassName: "",
   },
   {
-    iconTitle:"phone number",
-    iconClassName:"icon-m-phone-alt",
+    iconTitle: "phone number",
+    iconClassName: "icon-m-phone-alt",
     name: "Tel.: +374 96 10 10 17",
     link: "tel:+37496101017",
-    linkClassName:"",
+    linkClassName: "",
   },
   {
-    iconTitle:"phone number",
-    iconClassName:"icon-m-phone-alt",
+    iconTitle: "phone number",
+    iconClassName: "icon-m-phone-alt",
     name: "Tel.: +374 96 40 00 73",
     link: "tel:+37496400073",
-    linkClassName:"",
+    linkClassName: "",
   },
   {
-    iconTitle:"envelope",
-    iconClassName:"fa fa-envelope",
+    iconTitle: "envelope",
+    iconClassName: "fa fa-envelope",
     name: "info@webex.am",
     link: "mailto:info@webex.am",
-    linkClassName:"",
+    linkClassName: "",
   },
 
   {
-    iconTitle:"whatsapp",
-    iconClassName:"fa fa-whatsapp fs-20",
+    iconTitle: "whatsapp",
+    iconClassName: "fa fa-whatsapp fs-20",
     name: "Whatsapp",
     link: "whatsapp://send?phone=+37496400073",
-    linkClassName:"",
+    linkClassName: "",
   },
   {
-    iconTitle:"viber",
-    iconClassName:"fa fa-viber fs-20",
+    iconTitle: "viber",
+    iconClassName: "fa fa-viber fs-20",
     name: "Viber",
     link: "viber://add?number=37496400073",
-    linkClassName:"",
+    linkClassName: "",
   },
 
   {
-    iconTitle:"facebook",
-    iconClassName:"fa fa-facebook fs-20",
+    iconTitle: "facebook",
+    iconClassName: "fa fa-facebook fs-20",
     name: "Facebook",
     link: "https://www.facebook.com/webexarmenia/?fref=ts",
-    linkClassName:"facebook",
+    linkClassName: "facebook",
   },
 
   {
-    iconTitle:"linkedin",
-    iconClassName:"fa fa-linkedin fs-20",
+    iconTitle: "linkedin",
+    iconClassName: "fa fa-linkedin fs-20",
     name: "LinkedIn",
     link: "https://www.facebook.com/webexarmenia/?fref=ts",
-    linkClassName:"linkedin",
+    linkClassName: "linkedin",
   },
 
   {
-    iconTitle:"instagram",
-    iconClassName:"fa fa-instagram fs-20",
+    iconTitle: "instagram",
+    iconClassName: "fa fa-instagram fs-20",
     name: "Instagram",
     link: "https://www.facebook.com/webexarmenia/?fref=ts",
-    linkClassName:"instagram",
+    linkClassName: "instagram",
   },
 ];

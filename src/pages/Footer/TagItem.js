@@ -1,10 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const TagItem = ({ name, link }) => {
+const TagItem = ({ name, tagLink }) => {
+
   return (
-    <a href={link} className="tag-cloud-link">
+    <Link className="tag-cloud-link" to={tagLink}>
       {name}
-    </a>
+    </Link>
   );
 };
 
