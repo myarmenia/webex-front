@@ -87,28 +87,28 @@ export const contacts = [
     iconClassName: "icon-m-marker-alt",
     name: "address",
     link: null,
-    linkClassName: "",
+    linkClassName: "medialink",
   },
   {
     iconTitle: "phone number",
     iconClassName: "icon-m-phone-alt",
     name: "Tel.: +374 96 10 10 17",
     link: "tel:+37496101017",
-    linkClassName: "",
+    linkClassName: "medialink",
   },
   {
     iconTitle: "phone number",
     iconClassName: "icon-m-phone-alt",
     name: "Tel.: +374 96 40 00 73",
     link: "tel:+37496400073",
-    linkClassName: "",
+    linkClassName: "medialink",
   },
   {
     iconTitle: "envelope",
     iconClassName: "fa fa-envelope",
     name: "info@webex.am",
     link: "mailto:info@webex.am",
-    linkClassName: "",
+    linkClassName: "medialink",
   },
 
   {
@@ -116,14 +116,14 @@ export const contacts = [
     iconClassName: "fa fa-whatsapp fs-20",
     name: "Whatsapp",
     link: "whatsapp://send?phone=+37496400073",
-    linkClassName: "",
+    linkClassName: "medialink",
   },
   {
     iconTitle: "viber",
-    iconClassName: "fa fa-viber fs-20",
+    iconClassName: "custom-viber fs-20",
     name: "Viber",
     link: "viber://add?number=37496400073",
-    linkClassName: "",
+    linkClassName: "medialink",
   },
 
   {
@@ -131,7 +131,7 @@ export const contacts = [
     iconClassName: "fa fa-facebook fs-20",
     name: "Facebook",
     link: "https://www.facebook.com/webexarmenia/?fref=ts",
-    linkClassName: "facebook",
+    linkClassName: "medialink",
   },
 
   {
@@ -139,14 +139,15 @@ export const contacts = [
     iconClassName: "fa fa-linkedin fs-20",
     name: "LinkedIn",
     link: "https://www.facebook.com/webexarmenia/?fref=ts",
-    linkClassName: "linkedin",
+    linkClassName: "medialink",
   },
 
   {
     iconTitle: "instagram",
     iconClassName: "fa fa-instagram fs-20",
+    // iconClassName: "fa fa-youtube-play fs-20",
     name: "Instagram",
     link: "https://www.facebook.com/webexarmenia/?fref=ts",
-    linkClassName: "instagram",
+    linkClassName: "medialink",
   },
 ];

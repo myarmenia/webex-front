@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SignInForm = (props) => {
+  const {
+    currentUser: { error = "" },
+  } = props;
   const { t } = useTranslation(["forms"]);
   const classes = useStyles();
   const [email, setEmail] = useState("");
@@ -63,7 +66,11 @@ const SignInForm = (props) => {
             <div className="form-title">
               <h2>{t("signin.title")}</h2>
               <p>{t("signin.description")}</p>
-              <span className="text-danger">{props.currentUser.error}</span>
+              {error && (
+                <span className="text-danger msg-17rem">
+                  {t(`signin.${error}`)}
+                </span>
+              )}
             </div>
             <form className={classes.container} noValidate onSubmit={getData}>
               <TextField

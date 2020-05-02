@@ -31,7 +31,8 @@
     "title": "Մուտք",
     "description": "Մուտք գործեք ՝ ձեր առաջադիմությունը պահպանելու և Webex.am-ի կողմից վկայագիր ստանալու համար",
     "keep_logged": "Մնալ Համակարգում",
-    "dont_have_an_account": "Webex-ում դեռ հաշիվ չունե՞ք:"
+    "dont_have_an_account": "Webex-ում դեռ հաշիվ չունե՞ք:",
+    "Request failed with status code 401":"Ձեր մուտքագրած գաղտնաբառը կամ էլ․ փոստը վավեր չէն"
   },
   "signup": {
     "title": "Գրանցվել",

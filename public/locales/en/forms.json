@@ -31,7 +31,8 @@
     "title": "Sign In",
     "description": "Log in to save your progress and obtain a certificate from Webex.am",
     "keep_logged": "Keep me logged in",
-    "dont_have_an_account": "Don't have a Webex account?"
+    "dont_have_an_account": "Don't have a Webex account?",
+    "Request failed with status code 401":"The password or email you entered is not valid"
   },
   "signup": {
     "title": "Sign Up",
