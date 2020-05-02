@@ -111,7 +111,11 @@ const ContactForm = ({ formTitle }) => {
           ? t("messages.request_has_been_sent")
           : er,
     });
+
+    console.log('error', error)
+    console.log('values', values)
   }
+
   return (
     <>
       <h3 className="widget-title" id="footer_h3">

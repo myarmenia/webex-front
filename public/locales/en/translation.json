@@ -5,7 +5,8 @@
     "get_started": "Get Started",
     "get_started_now": "Get Starged Now",
     "send_message": "Send Message",
-    "prev":"prev",
-    "next":"next"
+    "prev": "prev",
+    "next": "next",
+    "take_the_test": "Take the test"
   }
 }
