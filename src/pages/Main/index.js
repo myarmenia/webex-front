@@ -9,6 +9,7 @@ import Advantages from "../Courses/Advantages";
 import Registration from "../Registration";
 import LastNews from "../News/lastNews/LastNews";
 
+
 const Home = (props) => {
   return (
     <main>
