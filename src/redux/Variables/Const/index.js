@@ -17,12 +17,12 @@ export const CONST_USER_DATA = {
   byMonth: "ըստ ամիսների",
   byDays: "ըստ օրերի",
   buttonSwitch: [
-    "User Profile",
+    "Financial data",
     "Personal Information",
     "Change Password",
-    "4",
-    "5",
-    "6",
+    // "4",
+    // "5",
+    // "6",
   ],
   headingSmallText: [
     "",

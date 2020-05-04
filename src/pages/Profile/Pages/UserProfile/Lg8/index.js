@@ -1,6 +1,7 @@
 import React from "react";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
@@ -15,12 +16,13 @@ import TabPanel4 from "./TabPanel4/";
 import TabPanel5 from "./TabPanel5/";
 import TabPanel6 from "./TabPanel6/";
 
-import { CONST_USER_DATA } from "../../../../../redux/Variables/Const";
+import { buttonSwitch } from "../../../../../redux/reducers/switchingTabPanels";
 
 function UserProfileLg8() {
+  const { t } = useTranslation(["profile"]);
   const value = useSelector((state) => state.switchingTabPanels);
-  const headingText = CONST_USER_DATA.buttonSwitch;
-  const headingSmallText = CONST_USER_DATA.headingSmallText;
+
+  const tabTransKeyword = buttonSwitch[value];
 
   const content = [
     () => <TabPanel1 />,
@@ -39,9 +41,11 @@ function UserProfileLg8() {
             <ListItem>
               <Grid container>
                 <Grid className="ml-12px" item lg={10}>
-                  <strong>{headingText[value]}</strong>
+                  <strong className="fs-20">
+                    {t(`tabPanels.${tabTransKeyword}.title`)}
+                  </strong>
                   <small className="headerSmall">
-                    {headingSmallText[value]}
+                    {t(`tabPanels.${tabTransKeyword}.sub_title`)}
                   </small>
                 </Grid>
               </Grid>

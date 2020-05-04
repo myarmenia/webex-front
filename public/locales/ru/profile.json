@@ -1,0 +1,26 @@
+{
+  "tabPanels": {
+    "financial_data": {
+      "title": "Финансовые данные",
+      "sub_title": "Статус платежей и график обучения",
+      "payment_status":"Статус платежа",
+      "is_paid": "оплачено",
+      "is_not_paid": "не оплачено",
+      "payment_date":"Дата оплаты",
+      "class_attendance":"Расписание обучения",
+      "by_months":"по месяцам",
+      "month":"месяц",
+      "by_days":"по дням",
+      "lesson":"урок"
+
+    },
+    "personal_information": {
+      "title": "Личные данные",
+      "sub_title": "В этом разделе вы можете просмотреть и обновить свои данные"
+    },
+    "change_password": {
+      "title": "Изменить пароль",
+      "sub_title": "Желательно менять раз в месяц"
+    }
+  }
+}

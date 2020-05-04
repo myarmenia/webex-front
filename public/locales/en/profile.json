@@ -1,0 +1,26 @@
+{
+  "tabPanels": {
+    "financial_data": {
+      "title": "Financial data",
+      "sub_title": "Payment status and training schedule",
+      "payment_status":"Payment status",
+      "is_paid": "is paid",
+      "is_not_paid": "not paid",
+      "payment_date":"Payment date",
+      "class_attendance":"Training schedule",
+      "by_months":"by months",
+      "month":"month",
+      "by_days":"by days",
+      "lesson":"lesson"
+
+    },
+    "personal_information": {
+      "title": "Personal information",
+      "sub_title": "In this section you can see and update your data"
+    },
+    "change_password": {
+      "title": "Change password",
+      "sub_title": "It is desirable to change once a month"
+    }
+  }
+}

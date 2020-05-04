@@ -1,6 +1,7 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import { useSelector } from "react-redux";
+import {Link} from 'react-router-dom';
 /** name, lastName, image */
 
 function Block1({ name, lastName, online }) {
@@ -13,10 +14,9 @@ function Block1({ name, lastName, online }) {
         <img src={data.userImageSrc} alt={data.userImageAlt} />
       </Grid>
       <Grid className="pl-20px" item lg={8}>
-        <a className="colorProfilePage" href="google.com">
-          {/* <strong>{ data.userName + " " + data.userSurName }</strong> */}
-          <strong>{name + " " + lastName}</strong>
-        </a>
+        <Link className="colorProfilePage" to="/profile" >
+        <strong>{name + " " + lastName}</strong>
+        </Link>
         <Grid >
         <code >{educationType}</code>
         </Grid>
