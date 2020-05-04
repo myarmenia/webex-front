@@ -8,6 +8,7 @@ const Count = () => {
   const { t } = useTranslation(["main"]);
   const [scroll, setScroll] = useState(window.scrollY);
   const [top, setTop] = useState(0);
+
   useEffect(() => {
     detectTop();
   }, []);
@@ -27,9 +28,7 @@ const Count = () => {
         <div className="container pt-30 pb-50">
           <div className="row">
             <div className="col-lg-12">
-              <h3 className="text-center m-0 counup-color">
-                {t("countup.title")}
-              </h3>
+              <h3 className="text-center m-0">{t("countup.title")}</h3>
             </div>
           </div>
         </div>
