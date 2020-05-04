@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { withTranslation, Trans } from "react-i18next";
 
 import { Headline } from "./HeadLine/HeadLine";
-import CourseFlip from "../../components/courseFlip/CourseFlip";
+// import CourseFlip from "../../components/courseFlip/CourseFlip";
+import CourseFlip from "../../components/courseFlip/CourseFlipThird";
 import TabButton from "../../components/tabButton/TabButton";
 
 import {

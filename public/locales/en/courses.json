@@ -1,0 +1,84 @@
+{
+  "slogan": "We will prove to you that there is nothing complicated in<br/> <strong>WEB-programming</strong><br/> and programming in general.",
+  "all_videos_title": "All video lessons",
+  "test_title": "Test your knowledge",
+  "test_description": "Here you can test your knowledge through online tests.",
+  "lessons_packages": "Lesson packages",
+  "categoris": {
+    "html": {
+      "description": "Hypertext Markup Language",
+      "why": "Why we need HTML ?",
+      "full_descr": "HTML is a hypertext markup language. This language is used to create web pages. It is interpreted (processed) by the browser and displayed as a document in a form convenient for humans.<br/> Webex Technologies training courses are covering HTML."
+    },
+    "css": {
+      "description": "Cascading Style Sheets",
+      "why": "Why we need CSS ?",
+      "full_descr": "CSS is the language for describing the styling of Web pages, including colors, positioning of elements, and fonts. It allows one to adapt the presentation to different types of devices. By CSS you can create wide screen websites, mobile-optimized websites, etc.<br/> Webex Technologies training courses are covering CSS."
+    },
+    "boot": {
+      "description": "Front-end component library",
+      "why": "Why we need Bootstrap ?",
+      "full_descr": "Bootstrap is a framework to help you design websites faster and easier. It includes HTML and CSS based design templates for typography, forms, buttons, tables, navigation, modals, image carousels, etc. Big benefits of using Bootstrap are small code and ease of use.<br/> Webex Technologies training courses are covering Bootstrap."
+    },
+    "js": {
+      "description": "Dynamic programming language",
+      "why": "Why we need JavaScript ?",
+      "full_descr": "Basically JavaScript works on web users' computers — even when they are offline! JavaScript allows you to create highly responsive interfaces that improve the user experience and provide dynamic functionality, without having to wait for the server to react and show another page.<br/> Webex Technologies training courses are covering JavaScript."
+    },
+    "es6": {
+      "description": " Scripting-language specification (JS)",
+      "why": "Why we need EcmaScript ?",
+      "full_descr": "The introduction of the ES6 specification lists all new features: EcmaScript includes modules, class declarations, lexical block scoping, iterators and generators, promises for asynchronous programming, destructuring patterns, and proper tail calls. The major benefit is that all browsers are supporting it.<br> Webex Technologies training courses are covering EcmaScript."
+    },
+    "jquery": {
+      "description": "jQuery is a JavaScript library",
+      "why": "Why we need jQuery ?",
+      "full_descr": "jQuery(slogan: less code) is a fast, small, and feature-rich JavaScript library. The library makes things such as traversing and manipulating HTML documents, event handling, animation, and Ajax much easier thanks to the easy-to-use API, which works across multiple browsers.<br/>Webex Technologies training courses are covering jQuery."
+    },
+    "php": {
+      "description": "Hypertext Preprocessor",
+      "why": "Why we need PHP ?",
+      "full_descr": "PHP is a server-side scripting language. that is used to develop Static websites or Dynamic websites or Web applications. PHP stands for Hypertext Pre-processor, which earlier stood for Personal Home Pages. PHP scripts can only be interpreted on a server that has PHP engine installed.<br/>Webex Technologies training courses are covering PHP."
+    },
+    "mysql": {
+      "description": "SQL database management system",
+      "why": "Why we need MySQL ?",
+      "full_descr": "MySQL is a relational database management system (RDBMS) developed by Oracle that is based on structured query language (SQL). A database is a structured collection of data. In particular, a relational database is a digital store collecting data and organizing it according to the relational model.<br/> Webex Technologies training courses are covering MySQL."
+    },
+    "react": {
+      "description": "JS library for building UI",
+      "why": "Why we need ReactJS ?",
+      "full_descr": "React allows developers to create large web applications that can change data, without reloading the page. The main purpose of React is to be fast, scalable, and simple. Developers consider React JS as a powerful frontend library created by Facebook.<br/> Webex Technologies training courses are covering ReactJS."
+    },
+    "redux": {
+      "description": "UI state management JS library",
+      "why": "Why we need Redux ?",
+      "full_descr": "Redux makes better React Architecture.<br/> While it's possible to write all your code in a single function, it's usually better to split that logic into smaller functions that each handle a specific task, making them easier to understand.<br/> Webex Technologies training courses are covering ReactJS."
+    },
+    "server": {
+      "description": "Computer, that responding to requests via the Internet",
+      "why": "Why we need Server ?",
+      "full_descr": "You need both a domain name and web hosting to create a website. When a user tries to access your website by entering your web address (domain name) in the browser's URL bar, the domain name points them to the files stored in web hosting. Then, they can see your website online.<br/> Webex Technologies training courses are covering Server."
+    },
+    "lar": {
+      "description": "Open-source PHP web framework",
+      "why": "Why we need Laravel ?",
+      "full_descr": "Laravel is one of the most powerful framework of PHP that ensures a fast & well-organized web development process and enables the code to be reusable. It helps create faster web applications.<br/> Webex Technologies training courses are covering Laravel."
+    },
+    "node": {
+      "description": "Server-side JavaScript",
+      "why": "Why we need Node.js ?",
+      "full_descr": "We need to use Node and NPM compile them into js file so that we can deploy them in production. Node JS is for creating JavaScript web applications on the server-side. Node Package Manager is heavily dependent on Node. It provides many features like Sockets and ES6 Module Support.<br/> Webex Technologies training courses are covering Node.js."
+    },
+    "htaccess": {
+      "description": "Directory-level configuration file",
+      "why": "Why we need .htaccess ?",
+      "full_descr": "htaccess to block users from a specific IP address (blacklisting). This is useful if you have identified individual users from specific IP addresses which have caused problems. You can also do the reverse, blocking everyone except visitors from a specific IP address (whitelisting).<br/> Webex Technologies training courses are covering .htaccess"
+    },
+    "oop": {
+      "description": "Object-oriented programming",
+      "why": "Why we need OOP ?",
+      "full_descr": "OOP provides a clear modular structure for programs. It is good for defining abstract data types. Implementation details are hidden from other modules and other modules have a clearly defined interface. It is easy to maintain and modify existing code as new objects can be created with small differences to existing ones.<br/> Webex Technologies training courses are covering OOP"
+    }
+  }
+}

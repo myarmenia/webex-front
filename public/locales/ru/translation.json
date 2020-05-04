@@ -5,7 +5,8 @@
     "get_started": "Начать",
     "get_started_now": "Начать сейчас",
     "send_message": "Отправить сообщение",
-    "prev":"пред",
-    "next":"след"
+    "prev": "пред",
+    "next": "след",
+    "take_the_test": "Пройти тест"
   }
 }

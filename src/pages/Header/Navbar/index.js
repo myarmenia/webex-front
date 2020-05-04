@@ -65,6 +65,14 @@ const NavBar = ({ currentUser, onChangeLaguage, langsWhitelist }) => {
         />
 
         <WebexListLink
+          to={"/#lastNews"}
+          name={t("nav.news")}
+          smooth
+          handleClick={updateToggle}
+          hash="true"
+        />
+
+        <WebexListLink
           child={<i className="fs-16 fa fa-user"></i>}
           className="sign-btn-form"
           to="/signup"

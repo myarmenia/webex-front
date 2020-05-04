@@ -7,6 +7,8 @@ import Count from "../CountUp/";
 import Price from "../Courses/Pricing";
 import Advantages from "../Courses/Advantages";
 import Registration from "../Registration";
+import LastNews from "../News/lastNews/LastNews";
+
 
 const Home = (props) => {
   return (
@@ -17,6 +19,7 @@ const Home = (props) => {
       {/* <News /> - do not touch! Dangerous for life */}
       <CoursesFilter />
       <Count />
+      <LastNews />
       <Price />
       {/* <Price /> - do not touch! Dangerous for life */}
       {/*<Section5 />*/}

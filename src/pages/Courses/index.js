@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import {useTranslation, Trans} from "react-i18next";
 import { connect } from "react-redux";
 
 import {
@@ -23,6 +23,7 @@ const Courses = ({
   lessons,
   fetchFullPackages,
 }) => {
+  const {t} = useTranslation(['courses', 'translation']);
   const [videoData, setVideoData] = useState({
     video: "",
     duration: "",
@@ -66,13 +67,15 @@ const Courses = ({
           <aside className="col-lg-5 col-xl-4 course-widgets order-2 order-lg-1">
             <div className="bordered rounded">
               <div className="widget widget_course_tag">
-                <Options />
+                <Options
+                  slogan={<Trans i18nKey={"slogan"}>{t("slogan")}</Trans>}
+                />
               </div>
             </div>
 
             <div className="bordered rounded">
               <div className="widget widget_categories">
-                <h3 className="widget-title">Բոլոր Վիդեոդասերը</h3>
+                <h3 className="widget-title">{t("all_videos_title")}</h3>
                 <CourseSideBar
                   path_mode="courses"
                   courses={courses}
@@ -85,14 +88,14 @@ const Courses = ({
 
             <div className="bordered rounded">
               <div className="widget widget_course_type">
-                <h3 className="widget-title">Ստուգիր գիտելիքներդ</h3>
+                <h3 className="widget-title">{t("test_title")}</h3>
                 <CourseType />
               </div>
             </div>
 
             <div className="bordered rounded">
               <div className="widget widget_course_level">
-                <h3 className="widget-title">Դասերի փաթեթներ</h3>
+                <h3 className="widget-title">{t("lessons_packages")}</h3>
                 <Level />
               </div>
             </div>

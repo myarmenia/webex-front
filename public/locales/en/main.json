@@ -1,24 +1,54 @@
 {
-  "cubes":{
-    "title":"Webex <br /> Technologies",
-    "sub_title":"Online & Stationary Courses"
+  "cubes": {
+    "title": "Webex <br /> Technologies",
+    "sub_title": "Online & Stationary Courses"
   },
-  "about":{
-    "pre_title":"Onlyne And Stationary Courses",
+  "about": {
+    "pre_title": "Onlyne And Stationary Courses",
     "title": "About us",
-    "text":"The company Webex Technologies started its activity in 2007. Over time, we developed a special methodology for web development training, thanks to which our students acquired deep knowledge of web programming.We present three stages of teaching: Full Stack, Front end, Back end. Before choosing one of the stages, we talk to the students who are interested in us, knowing their purpose in the specialization of web programming, we recommend the professional stage of the preferred programming courses. Webex Technologies offers the students to choose online or stationary courses.",
-    "type_online":"Online course",
-    "type_stationary":"Stationary course",
+    "text": "The company Webex Technologies started its activity in 2007. Over time, we developed a special methodology for web development training, thanks to which our students acquired deep knowledge of web programming.We present three stages of teaching: Full Stack, Front end, Back end. Before choosing one of the stages, we talk to the students who are interested in us, knowing their purpose in the specialization of web programming, we recommend the professional stage of the preferred programming courses. Webex Technologies offers the students to choose online or stationary courses.",
+    "type_online": "Online course",
+    "type_stationary": "Stationary course",
     "descr_online": "The advantage of an online course is that you can learn web programming in any country in the world.",
-    "descr_stationary":"The advantage of a stationary course is that you learn individually, under the direct supervision of a programmer.",
-    "main_goal":{
-      "title":"The purpose of our teaching is to train strong specialists",
-      "text":"To this end, students are given practical programming knowledge, individually, by web developers with 15 years of experience who will patiently explain all the nuances of programming and prove to you that there is nothing difficult in programming. We try to make our lessons accessible to everyone, so we have created an opportunity to learn online programming. This gives students the opportunity to learn the most complex programming algorithms anywhere and anytime. At the end of the course, students will receive a certificate verifying that the student is a qualified web developer. In this video are presented our student's comments about the courses of WebEx Technologies."
+    "descr_stationary": "The advantage of a stationary course is that you learn individually, under the direct supervision of a programmer.",
+    "main_goal": {
+      "title": "The purpose of our teaching is to train strong specialists",
+      "text": "To this end, students are given practical programming knowledge, individually, by web developers with 15 years of experience who will patiently explain all the nuances of programming and prove to you that there is nothing difficult in programming. We try to make our lessons accessible to everyone, so we have created an opportunity to learn online programming. This gives students the opportunity to learn the most complex programming algorithms anywhere and anytime. At the end of the course, students will receive a certificate verifying that the student is a qualified web developer. In this video are presented our student's comments about the courses of WebEx Technologies."
+    },
+    "mothods": {
+      "title": "A little from our educational methodology",
+      "procedures": {
+        "title": "Procedure",
+        "0": "First, an interview is conducted, as a result of which we find out the initial knowledge of the <strong>student</strong>. Based on the results of this interview, it is decided whether he has to start from the beginning or from the middle of the curriculum.",
+        "1": "Classes are held on an <strong>individual</strong> basis, it means that we are training with each student individually in the classroom or online. There can be up to 10 students (it’s also possible only you may be in the classroom or online if the <strong>teacher-programmer</strong> decides that there is a need to explain to you certain topics in detail).",
+        "2": "A <strong>video lesson</strong> is given to each student, after which the teacher answers your questions, and if there are no questions, we pass to the task, which is given during the lesson, if necessary.",
+        "3": "At the end of the lesson, a <strong>homework</strong> is given on this topic. In the next lesson, the task is checked by the teacher, if there are failed parts, it is discussed by the teacher.",
+        "4": "If the student has difficulties while performing the task, the teacher will never move forward ․ This topic is explained again and the student gets a new task. This method prolongs the number of student classes, but we get a guaranteed quality, and those who graduate from us at the end becоme stable specialists.",
+        "5": "At the end of the courses, the student receives a <strong>certificate</strong> that he/she is a qualified specialist.",
+        "6": "After completing the courses, we also guarantee that specialist to our partner organizations or we offer to the bests of them  <strong>internship</strong> in our company and also offer a <strong>job</strong> with us if they manifest themselves well."
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "q_0": "The duration of the courses",
+        "a_00": "The duration of the courses directly depends on the student's ability to perceive quickly. The sooner the student understands the topics, the sooner the courses will end, because we do not move forward until we understand that the student has finally understood the topic. It should be noted, however, that the main course ( ",
+        "a_01": ") has so far lasted at least 7 months and at most 15 months.",
+        "q_1": "How much does the course cost?",
+        "a_1": "The cost of an individual training course both online and stationary is 50,000 AMD. We do not provide group training at WebEx, as its efficiency is incomparably small. The lessons last 1.5 hours, three times a week. The price includes 12 lessons per month.",
+        "q_2": "What time can you participate in the lesson?",
+        "a_2": "Since the lessons are individual, you can participate in the lessons at the time convenient for you, of course, agreeing in advance with the teacher.",
+        "q_3": "What topics are we studying?",
+        "a_3": "Note that there is no one who knows all the programming knowledge, our main role is to separate the main topics from the secondary ones."
+      },
+      "dev": {
+        "intro": "WebEx Technologies is not only a company that provides training services, but also a company that implements serious programming projects. Based on the experience of our specialists for more than 15 years, we provide only the most basic and most important knowledge, and questions that are most often asked during interviews are also taken into account:",
+        "other": "You can get acquainted with the projects of our programmers by the following link:",
+        "other_video": "https://www.youtube.com/watch?v=7vpCPrBPA6Y"
+      }
     }
   },
   "advantages": {
-    "main_title":"Our Advantages",
-    "short_text":"Webex Technologies courses have a number of advantages that make the lessons more effective and accessible to students.",
+    "main_title": "Our Advantages",
+    "short_text": "Webex Technologies courses have a number of advantages that make the lessons more effective and accessible to students.",
     "0": {
       "title": "Professional teaching",
       "icon": "book",
@@ -44,29 +74,34 @@
       "icon": "certificate",
       "text": "At the end of the courses, a certificate is issued verifying that you are a qualified professional, but it should be remembered that knowledge is important in the field of information technology."
     },
-    "5":{
-      "title":"Job placement",
-      "icon":"thumbs-up",
-      "text":"Webex supports students to find employment in our company or in partner organizations. In each case, it all depends on you, as the students must be interviewed before being hired" 
+    "5": {
+      "title": "Job placement",
+      "icon": "thumbs-up",
+      "text": "Webex supports students to find employment in our company or in partner organizations. In each case, it all depends on you, as the students must be interviewed before being hired"
     }
   },
-  "courses":{
-    "main_title":"Web programming courses",
-    "short_text":"<p>Learn more about the web learning program</p><p>Here are our web programming video lessons, after watching which you will learn about our teaching methodology.</p>",
-    "flipcard":{
-      "lessons":"Lessons",
-      "minutes":"minutes"
+  "courses": {
+    "main_title": "Web programming courses",
+    "short_text": "<p>Learn more about the web learning program</p><p>Here are our web programming video lessons, after watching which you will learn about our teaching methodology.</p>",
+    "flipcard": {
+      "lessons": "Lessons",
+      "minutes": "minutes"
     }
   },
-  "countup":{
-    "title":"Our modern and professional approach has already attracted many customers",
-    "vid_lessons":"VIDEOS",
-    "students":"STUDENTS",
-    "prog_langs":"PROG․ LANGUAGES"
+  "lastnews": {
+    "main_title": "Latest News",
+    "short_text": "Follow our news, where you will find the latest innovations and interesting news",
+    "author": "Author"
   },
-  "pricing":{
-    "pre_title":"Power up yourself",
-    "main_title":"Select Package",
-    "short_text":"By selecting this or that package, all the lessons summarized in the package will be available to you."
+  "countup": {
+    "title": "Our modern and professional approach has already attracted many customers",
+    "vid_lessons": "VIDEOS",
+    "students": "STUDENTS",
+    "prog_langs": "PROG․ LANGUAGES"
+  },
+  "pricing": {
+    "pre_title": "Power up yourself",
+    "main_title": "Select Package",
+    "short_text": "By selecting this or that package, all the lessons summarized in the package will be available to you."
   }
 }

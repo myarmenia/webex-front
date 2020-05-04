@@ -9,6 +9,8 @@ import "react-phone-number-input/style.css";
 import { isValidPhoneNumber } from "react-phone-number-input";
 import { useTranslation } from "react-i18next";
 
+import { API_CHECK_MAIL_URL } from "../../../redux/config";
+
 const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
@@ -111,7 +113,7 @@ function SectionOne(props) {
 
   const emailFetch = () => {
     if (new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email)) {
-      fetch("https://web.webex.am/api/checkemail", {
+      fetch(API_CHECK_MAIL_URL, {
         method: "post",
         headers: {
           Accept: "application/json, text/plain, */*",
