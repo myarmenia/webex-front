@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import Chart from "./Chart/";
+// import Chart from "./Chart/";
 import Information from "./Information/";
 
 import {
@@ -32,7 +32,7 @@ function TabPanel1({ activations, lastActivation = defaultActivation }) {
           }
         )}
       />
-      <Chart />
+      {/* <Chart /> */}
     </>
   );
 }
