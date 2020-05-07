@@ -21,6 +21,8 @@ import Profile from "./pages/Profile";
 import Demo from "./pages/Demo";
 import Payment from "./pages/Payment";
 import News from "./pages/News";
+import SinglePost from "./pages/News/singlePost";
+import NoMatchPage from "./pages/noMatchPage";
 
 import CoursesFilter from "./pages/Courses/courses";
 import {
@@ -45,9 +47,6 @@ function App({ getUserData }) {
     i18n.changeLanguage(lang);
     window.location.reload();
   };
-  const NoMatchPage = () => {
-    return <h3 className="text-center">404 - {t("translation:not_found")}</h3>;
-  };
 
   useEffect(() => {
     if (auth.isAuthenticated()) {
@@ -68,13 +67,19 @@ function App({ getUserData }) {
             <GuestRoute path="/signup" component={SignUp} />
             <GuestRoute path="/signin" component={SignIn} />
             <Route path="/aboutus" component={AboutUs} />
+            <Route path="/news/:slug" component={SinglePost} />
             <Route path="/news" component={News} />
+
             <ProtectedRoute path="/courses/:courseId?" component={Courses} />
             <AuthenticatedRoute path="/profile" component={Profile} />
             <GuestRoute path="/demo/:courseId" component={Demo} />
             <GuestRoute path="/demo/" component={CoursesFilter} />
             <Route path="/payment" component={Payment} />
-            <Route component={NoMatchPage} />
+            <Route
+              render={() => (
+                <NoMatchPage notFound={t("translation:not_found")} />
+              )}
+            />
           </Switch>
         )}
       />

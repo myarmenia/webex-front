@@ -18,6 +18,7 @@ import Video from "../Courses/Main/video";
 import Homeworks from "../Courses/Main/homeworks";
 
 const Demo = ({ currentCourse = {}, courses, lessons, fetchFullPackages }) => {
+  window.scrollTo(0, 0);
   const { t } = useTranslation(["courses", "translation"]);
 
   const [videoData, setVideoData] = useState({
@@ -28,8 +29,7 @@ const Demo = ({ currentCourse = {}, courses, lessons, fetchFullPackages }) => {
   }); // HTML first video link
 
   useEffect(() => {
-    fetchFullPackages();
-    window.scrollTo(0, 0);
+    fetchFullPackages();    
   }, [fetchFullPackages]);
 
   useEffect(() => {

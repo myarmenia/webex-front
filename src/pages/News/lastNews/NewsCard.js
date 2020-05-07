@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NewsCard = ({
   image,
@@ -14,22 +15,20 @@ const NewsCard = ({
   return (
     <div className="col-lg-4" data-animation="fadeInUp">
       <div className="card text-center text-md-left vertical-item">
-        <a href={`/news/${slug}`}>
+        <Link to={`/news/${slug}`}>
           <img className="card-img-top" src={image} alt="Card image cap" />
-        </a>
+        </Link>
         <div className="card-body">
           <div className="item-content">
             <header className="entry-header">
               <h4 className="entry-title">
-                <a href={`/news/${slug}`} rel="bookmark">
-                  {title}
-                </a>
+                <Link to={`/news/${slug}`}>{title}</Link>
               </h4>
               <span className="author vcard fs-18">
                 <span>{author}: </span>
-                <a className="url fn n" href={`/news/${slug}`}>
+                <Link to={`/news/${slug}`} className="url fn n">
                   {authorName}
-                </a>
+                </Link>
               </span>
               <div className="entry-meta">
                 <span className="byline">

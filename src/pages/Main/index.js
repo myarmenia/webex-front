@@ -5,26 +5,18 @@ import Cubes from "../Header/Cubes";
 import About from "../AboutUs/";
 import Count from "../CountUp/";
 import Price from "../Courses/Pricing";
-import Advantages from "../Courses/Advantages";
-import Registration from "../Registration";
-import LastNews from "../News/lastNews/LastNews";
+import LastNews from "../News/lastNews";
 
-
-const Home = (props) => {
+const Home = () => {
   return (
     <main>
-      <Cubes />
-
+      {/* <Cubes /> */}
       <About />
-      {/* <News /> - do not touch! Dangerous for life */}
       <CoursesFilter />
       <Count />
       <LastNews />
       <Price />
-      {/* <Price /> - do not touch! Dangerous for life */}
-      {/*<Section5 />*/}
       <Contact />
-      {/*<Registration />*/}
     </main>
   );
 };
