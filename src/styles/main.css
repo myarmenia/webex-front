@@ -657,6 +657,10 @@ textarea.form-control {
 }
 
 /* select styling */
+.react-phone-number-input__icon {
+	height: auto !important;
+	border: none !important;
+}
 select[multiple] {
 	height: auto;
 }
