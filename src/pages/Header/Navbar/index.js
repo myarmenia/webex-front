@@ -85,11 +85,11 @@ const NavBar = ({ currentUser, onChangeLaguage, langsWhitelist, location }) => {
     ),
     AuthenticatedNavigation = () => (
       <>
-        <WebexListLink
+        {/* <WebexListLink
           to={"/payment"}
           name={t("nav.prices")}
           handleClick={updateToggle}
-        />
+        /> */}
 
         <WebexListLink
           to={"/news"}
