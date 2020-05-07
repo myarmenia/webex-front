@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { useTranslation } from "react-i18next";
 
@@ -9,12 +9,13 @@ import WebexListLink from "../../../components/menuLink/MenuLink";
 import logo from "../../../img/logo.png";
 import auth from "../../../redux/auth";
 
-const NavBar = ({ currentUser, onChangeLaguage, langsWhitelist }) => {
+const NavBar = ({ currentUser, onChangeLaguage, langsWhitelist, location }) => {
   const { t } = useTranslation(["navbar"]);
 
   function handleChangeLanguage(language) {
     onChangeLaguage(language);
   }
+
   const showLoadingOrUserName = ({
     user: { name = "", last_name = "" },
     authenticated,
@@ -42,11 +43,13 @@ const NavBar = ({ currentUser, onChangeLaguage, langsWhitelist }) => {
           hash="true"
         />
 
-        {/* <WebexListLink
-          to={"/news"}
-          name={"Նորություններ"}
+        <WebexListLink
+          to={location.pathname === "/" ? "/#lastNews" : "/news"}
+          name={t("nav.news")}
+          smooth
           handleClick={updateToggle}
-        /> */}
+          hash={location.pathname === "/"}
+        />
 
         <WebexListLink
           to={"/#coursesSection"}
@@ -59,14 +62,6 @@ const NavBar = ({ currentUser, onChangeLaguage, langsWhitelist }) => {
         <WebexListLink
           to={"/#pricesSection"}
           name={t("nav.prices")}
-          smooth
-          handleClick={updateToggle}
-          hash="true"
-        />
-
-        <WebexListLink
-          to={"/#lastNews"}
-          name={t("nav.news")}
           smooth
           handleClick={updateToggle}
           hash="true"
@@ -178,4 +173,4 @@ const mapStateToProps = (state) => ({
   currentUser: state.currentUser,
 });
 
-export default connect(mapStateToProps)(NavBar);
+export default connect(mapStateToProps)(withRouter(NavBar));
