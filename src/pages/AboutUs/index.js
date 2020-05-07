@@ -11,7 +11,7 @@ function AboutUs() {
     <div id="aboutUs">
       <Section1 t={t} />
       <Section2 t={t} />
-      <Section4 t={t} />
+      {/* <Section4 t={t} /> */}
       <Advantages t={t} />
     </div>
   );
