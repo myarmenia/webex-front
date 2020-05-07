@@ -32,7 +32,9 @@
     "description": "Войдите, чтобы сохранить ваши успехи и получить сертификат от Webex.am",
     "keep_logged": "Оставаться в системе",
     "dont_have_an_account": "У вас нет аккаунта на Webex?",
-    "Request failed with status code 401":"Введенный вами пароль или адрес электронной почты недействительны"
+    "Request failed with status code 401": "Введенный вами пароль или адрес электронной почты недействительны",
+    "Cannot read property 'status' of undefined": "Сервер временно недоступен.",
+    "Request failed with status code 422": "Пожалуйста, заполните поля входа."
   },
   "signup": {
     "title": "Регистрация",
