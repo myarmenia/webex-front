@@ -10,7 +10,7 @@ import LastNews from "../News/lastNews";
 const Home = () => {
   return (
     <main>
-      {/* <Cubes /> */}
+      <Cubes />
       <About />
       <CoursesFilter />
       <Count />

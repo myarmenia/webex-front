@@ -128,7 +128,7 @@ const NavBar = ({ currentUser, onChangeLaguage, langsWhitelist, location }) => {
         {t(`langs.${lang}`)}
       </button>
     ));
-
+  //col-xl-2 col-lg-4 col-md-5 col-11
   return (
     <header
       className={`
@@ -138,12 +138,12 @@ const NavBar = ({ currentUser, onChangeLaguage, langsWhitelist, location }) => {
     >
       <div className="container">
         <div className="row align-items-center">
-          <div className="col-xl-2 col-lg-4 col-md-5 col-11">
+          <div className="col-xl-1">
             <Link to="/" className="logo">
               <img src={logo} alt="Webex" />
             </Link>
           </div>
-          <div className="col-xl-10 ">
+          <div className="col-xl-11 ">
             <div className="nav-wrap pull-right">
               <nav className="top-nav">
                 <ul className="nav sf-menu">

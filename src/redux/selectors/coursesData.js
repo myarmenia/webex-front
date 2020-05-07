@@ -1,18 +1,20 @@
 import { createSelector } from "reselect";
 
-export const packagesSelector = state => state.coursesData.packages;
-export const tabPackageIdSelector = state => state.coursesData.tabPackageId;
+export const packagesSelector = (state) => state.coursesData.packages;
+export const tabPackageIdSelector = (state) => state.coursesData.tabPackageId;
 // export const demoCourseIdSelector = state => state.coursesData.demoCourseId;
-export const coursesSelector = state => state.coursesData.courses;
-export const lessonsSelector = state => state.coursesData.lessons;
+export const coursesSelector = (state) => state.coursesData.courses;
+export const lessonsSelector = (state) => state.coursesData.lessons;
 
-export const courseById = courseId => {
-  return createSelector(coursesSelector, courses => {
-    return courses.find(course => course.id === parseInt(courseId));
+export const courseById = (courseId) => {
+  return createSelector(coursesSelector, (courses) => {
+    return (
+      courses.find((course) => course.id === parseInt(courseId)) || courses[0]
+    );
   });
 };
 
-export const lessonsByCourseId = courseId => {
+export const lessonsByCourseId = (courseId) => {
   return createSelector(
     lessonsSelector,
     courseById(courseId),
@@ -27,8 +29,8 @@ export const coursesOfPackage = createSelector(
   tabPackageIdSelector,
   coursesSelector,
   (packs, tabPackId, courses) => {
-    const { course_ids } = packs.find(p => p.id === parseInt(tabPackId)) || {
-      course_ids: []
+    const { course_ids } = packs.find((p) => p.id === parseInt(tabPackId)) || {
+      course_ids: [],
     };
     const ownCourses = courses.filter(({ id }) => course_ids.includes(id));
 
