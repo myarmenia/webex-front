@@ -48,7 +48,7 @@ const NavBar = ({ currentUser, onChangeLaguage, langsWhitelist, location }) => {
           name={t("nav.news")}
           smooth
           handleClick={updateToggle}
-          hash={location.pathname === "/"}
+          hash={(location.pathname === "/").toString()}
         />
 
         <WebexListLink
