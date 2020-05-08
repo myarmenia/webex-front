@@ -10,7 +10,7 @@ import { Route, Redirect as RouterRedirect } from "react-router-dom";
 import { getUserData } from "../../redux/actionCreators/signin";
 import { Loader } from "../../components/Loader";
 
-const Redirect = ({ pathname = "signin", location }) => (
+const Redirect = ({ pathname = "/signin", location }) => (
   <RouterRedirect
     to={{
       pathname,

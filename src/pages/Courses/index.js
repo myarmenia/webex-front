@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {useTranslation, Trans} from "react-i18next";
+import { useTranslation, Trans } from "react-i18next";
 import { connect } from "react-redux";
 
 import {
@@ -23,7 +23,7 @@ const Courses = ({
   lessons,
   fetchFullPackages,
 }) => {
-  const {t} = useTranslation(['courses', 'translation']);
+  const { t } = useTranslation(["courses", "translation"]);
   const [videoData, setVideoData] = useState({
     video: "",
     duration: "",
@@ -124,7 +124,7 @@ const mapStateToProps = (
   state,
   {
     match: {
-      params: { courseId = 1 },
+      params: { courseId },
     },
   }
 ) => ({
