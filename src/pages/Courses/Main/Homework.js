@@ -1,15 +1,14 @@
 import React from "react";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 import HintMessages from "./HintMessages";
 
-function Homeworks({
+const Homeworks = ({
   homeworks: hm = [],
   isDemo = false,
   isClosed = false,
   openHomeWorkVideo,
-}) {
-  
-  const {t} = useTranslation(["courses", "forms"]);
+}) => {
+  const { t } = useTranslation(["courses", "forms"]);
 
   const handleOpenHomeworkVideo = (e, item) => {
     e.preventDefault();
@@ -62,7 +61,7 @@ function Homeworks({
       {hm.length > 0 && (
         <div className="widget widget_course_level">
           <div className="container">
-            <h5 className="mb-20">{t('homeworks.video_tasks')}</h5>
+            <h5 className="mb-20">{t("homeworks.video_tasks")}</h5>
             <ul className="lh-30 mx-40">{hmRendering(hm)}</ul>
             <HintMessages isDemo={isDemo} isClosed={isClosed} />
           </div>
@@ -70,6 +69,6 @@ function Homeworks({
       )}
     </>
   );
-}
+};
 
 export default Homeworks;

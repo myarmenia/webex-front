@@ -15,7 +15,7 @@ import Options from "./Options";
 import CourseType from "./CourseType";
 import Level from "./Level";
 import Video from "./Main/video";
-import Homeworks from "./Main/Homeworks";
+import Homeworks from "./Main/Homework";
 
 const Courses = ({
   currentCourse = {},
