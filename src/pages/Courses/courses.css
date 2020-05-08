@@ -78,6 +78,15 @@ button.home-work > .homework-icon {
 .closed .homework-icon {
     color: #dedede;
 }
+span.home-work {
+    cursor: pointer;
+    margin: 5px -3px;
+}
+span.home-work:hover {
+    transition: all 0.2;
+    color: #26716e;    
+}
+
 a.home-work:before{
     content:none!important;
 }

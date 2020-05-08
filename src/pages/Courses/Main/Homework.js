@@ -26,14 +26,14 @@ const Homeworks = ({
     </button>
   );
   const courseItemContext = (item) => (
-    <a
+    <span
       className="home-work"
       href="#"
       onClick={(e) => handleOpenHomeworkVideo(e, item)}
     >
       <i className="fa fa-play homework-icon" aria-hidden="true" />
       <span>{item.title}</span>
-    </a>
+    </span>
   );
   const demoItemContext = (item) => (
     <>
