@@ -1,4 +1,6 @@
 import React from "react";
+import {useTranslation} from "react-i18next";
+import HintMessages from "./HintMessages";
 
 function Homeworks({
   homeworks: hm = [],
@@ -6,6 +8,34 @@ function Homeworks({
   isClosed = false,
   openHomeWorkVideo,
 }) {
+  
+  const {t} = useTranslation(["courses", "forms"]);
+
+  const handleOpenHomeworkVideo = (e, item) => {
+    e.preventDefault();
+    return openHomeWorkVideo(item);
+  };
+
+  const courseLessonContext = (item) => (
+    <button
+      className="home-work"
+      href="#"
+      onClick={(e) => handleOpenHomeworkVideo(e, item)}
+    >
+      <i className="fa fa-backward homework-icon"></i>
+      <span>{item.title}</span>
+    </button>
+  );
+  const courseItemContext = (item) => (
+    <a
+      className="home-work"
+      href="#"
+      onClick={(e) => handleOpenHomeworkVideo(e, item)}
+    >
+      <i className="fa fa-play homework-icon" aria-hidden="true" />
+      <span>{item.title}</span>
+    </a>
+  );
   const demoItemContext = (item) => (
     <>
       <span className="sub-lessons closed">
@@ -15,50 +45,12 @@ function Homeworks({
     </>
   );
 
-  const pleaseSignIn = (
-    <div className="mx-20">
-      Տվյալ բաժինը հասանելի է միայն գրանցված օգտատերերին։
-      <a className="please-sign-in" href="/signup">
-        Գրանցվել
-      </a>
-    </div>
-  );
-
-  const askToOpen = (
-    <div className="mx-20">
-      Այս դասի առաջադրանքները դեռ փակ են ձեզ համար։
-      <br />
-      Մանրամասների համար կարող եք դիմել ադմինիստրատորին։
-    </div>
-  );
-
-  const hintMessages = (isDemo, isClosed) => {
-    if (isDemo) {
-      return pleaseSignIn;
-    } else if (isClosed) {
-      return askToOpen;
-    }
-    return null;
-  };
-
-  const courseItemContext = (item) => (
-    <a
-      className="home-work"
-      href="#"
-      onClick={(e) => {
-        e.preventDefault();
-        openHomeWorkVideo(item);
-      }}
-    >
-      <i className="fa fa-play homework-icon" aria-hidden="true" />
-      <span>{item.title}</span>
-    </a>
-  );
-
   const hmRendering = (hm) =>
     hm.map((item, index) =>
       isDemo || isClosed ? (
         <li key={index}>{demoItemContext(item)}</li>
+      ) : index === 0 ? (
+        <li key={index}>{courseLessonContext(item)}</li>
       ) : (
         <li key={index}>{courseItemContext(item)}</li>
       )
@@ -70,9 +62,9 @@ function Homeworks({
       {hm.length > 0 && (
         <div className="widget widget_course_level">
           <div className="container">
-            <h5 className="mb-20">Վիդեո Առաջադրանքներ</h5>
+            <h5 className="mb-20">{t('homeworks.video_tasks')}</h5>
             <ul className="lh-30 mx-40">{hmRendering(hm)}</ul>
-            {hintMessages(isDemo, isClosed)}
+            <HintMessages isDemo={isDemo} isClosed={isClosed} />
           </div>
         </div>
       )}

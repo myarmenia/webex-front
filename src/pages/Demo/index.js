@@ -15,7 +15,7 @@ import Options from "../Courses/Options";
 import CourseType from "../Courses/CourseType";
 import Level from "../Courses/Level";
 import Video from "../Courses/Main/video";
-import Homeworks from "../Courses/Main/homeworks";
+import Homeworks from "../Courses/Main/Homeworks";
 
 const Demo = ({ currentCourse = {}, courses, lessons, fetchFullPackages }) => {
   window.scrollTo(0, 0);

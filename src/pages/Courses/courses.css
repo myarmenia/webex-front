@@ -70,6 +70,10 @@ color: #009688
     font-size: 20px;
     color: #009688;
     margin: 0 12px;
+    vertical-align: middle;
+}
+button.home-work > .homework-icon {
+    margin: 0 12px 0 0;
 }
 .closed .homework-icon {
     color: #dedede;
