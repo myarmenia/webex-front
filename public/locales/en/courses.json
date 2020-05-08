@@ -80,5 +80,10 @@
       "why": "Why we need OOP ?",
       "full_descr": "OOP provides a clear modular structure for programs. It is good for defining abstract data types. Implementation details are hidden from other modules and other modules have a clearly defined interface. It is easy to maintain and modify existing code as new objects can be created with small differences to existing ones.<br/> Webex Technologies training courses are covering OOP"
     }
+  },
+  "homeworks": {
+    "video_tasks": "Video Tasks",
+    "available_to_registered_users": "This section is only available to registered users.",
+    "hworks_are_closed_to_you": "The tasks in this lesson are still closed for you. <br/> You can contact the administrator for details."
   }
 }

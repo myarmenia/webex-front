@@ -15,7 +15,7 @@ import Options from "./Options";
 import CourseType from "./CourseType";
 import Level from "./Level";
 import Video from "./Main/video";
-import Homeworks from "./Main/homeworks";
+import Homeworks from "./Main/Homeworks";
 
 const Courses = ({
   currentCourse = {},
@@ -24,12 +24,19 @@ const Courses = ({
   fetchFullPackages,
 }) => {
   const { t } = useTranslation(["courses", "translation"]);
-  const [videoData, setVideoData] = useState({
-    video: "",
-    duration: "",
-    title: "",
-    description: "",
-  }); // HTML first video link
+  const pickVideoParams = ({
+    video = "",
+    duration = "",
+    title = "",
+    description = "",
+  }) => ({
+    video,
+    duration,
+    title,
+    description,
+  });
+  const [currentLesson, setCurrentLesson] = useState(pickVideoParams({}));
+  const [videoData, setVideoData] = useState(pickVideoParams({})); // HTML first video link
 
   useEffect(() => {
     fetchFullPackages();
@@ -37,28 +44,25 @@ const Courses = ({
 
   useEffect(() => {
     if (lessons.length) {
-      setVideoData({
-        video: lessons[0].video,
-        duration: lessons[0].duration,
-        title: lessons[0].title,
-        description: lessons[0].description,
-      });
+      setVideoData(pickVideoParams(lessons[0]));
+      setCurrentLesson(lessons[0]);
     }
   }, [currentCourse, lessons]);
 
   const openVideo = (e) => {
-    setVideoData(e);
+    setVideoData(pickVideoParams(e));
+    setCurrentLesson(e);
   };
 
   const openHomeWorkVideo = (e) => {
-    setVideoData({
-      ...videoData,
-      video: e.video,
-      title: e.title,
-      description: e.description,
-      duration: e.duration,
-    });
+    setVideoData(pickVideoParams(e));
   };
+
+  const { homeworks = [] } = currentLesson;
+  const hasHomeworks = Array.isArray(homeworks) && homeworks.length;
+  const lessonHomeworks = hasHomeworks
+    ? [...[currentLesson], ...homeworks]
+    : homeworks;
 
   return (
     <section className="ls s-py-60 s-pt-lg-100 s-pb-lg-70">
@@ -104,7 +108,8 @@ const Courses = ({
           <main className="col-lg-7 col-xl-8 order-1 order-lg-2">
             <Video data={videoData} HomeWorkVideo />
             <Homeworks
-              homeworks={videoData.homeworks}
+              currentLesson={currentLesson}
+              homeworks={lessonHomeworks}
               openHomeWorkVideo={openHomeWorkVideo}
               isClosed={videoData.video ? false : true}
             />
