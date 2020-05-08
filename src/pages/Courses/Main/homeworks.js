@@ -42,7 +42,14 @@ function Homeworks({
   };
 
   const courseItemContext = (item) => (
-    <a className="home-work" href="#" onClick={(e) => openHomeWorkVideo(item)}>
+    <a
+      className="home-work"
+      href="#"
+      onClick={(e) => {
+        e.preventDefault();
+        openHomeWorkVideo(item);
+      }}
+    >
       <i className="fa fa-play homework-icon" aria-hidden="true" />
       <span>{item.title}</span>
     </a>
@@ -57,7 +64,7 @@ function Homeworks({
       )
     );
 
-//   console.log(hm, "hmw");
+  //   console.log(hm, "hmw");
   return (
     <>
       {hm.length > 0 && (
