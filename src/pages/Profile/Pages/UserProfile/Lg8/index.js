@@ -35,7 +35,7 @@ function UserProfileLg8() {
 
   return (
     <BrowserRouter>
-      <Grid item lg={8} md={8} sm={6} xl={6} xs={6}>
+      <Grid item lg={8} md={8} sm={12} xl={6} xs={12}>
         <Paper className="tarorinakGuyn2">
           <List>
             <ListItem>
