@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import newsImg from "../../img/news/newMain.jpg";
 
 const articleClassName = `text-center text-md-left vertical-item post type-post status-publish format-standard has-post-thumbnail`;
 

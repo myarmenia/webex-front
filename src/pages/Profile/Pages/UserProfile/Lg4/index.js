@@ -31,7 +31,7 @@ function UserProfileLg4() {
   } = useSelector((state) => state.currentUser.user);
 
   return (
-    <Grid item lg={4} md={4} sm={6} xl={6} xs={6}>
+    <Grid item lg={4} md={4} sm={12} xl={6} xs={12}>
       <Paper className={classes.paper}>
         <Block1 {...({}, { name, lastName: last_name, online })} />
         <Block2 {...({}, { email, phone, country })} />

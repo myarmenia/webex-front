@@ -29,6 +29,7 @@ function TabPanel1({ activations, lastActivation = defaultActivation }) {
             monthNumber,
             dayNumber: attendances_count,
             isPaid: is_paid,
+            activations,
           }
         )}
       />
