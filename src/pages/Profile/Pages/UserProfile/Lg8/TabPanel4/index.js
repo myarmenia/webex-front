@@ -48,6 +48,7 @@ const TabPanel4 = () => {
         <h6 className={title}>{t("tabPanels.make_payment.discount_system")}</h6>
       </div>
       <Discounts />
+      <hr/>
       <div className={`${container} my-30`}>
         <div className="col-md-6 col-lg-4">
           <TextField
@@ -71,7 +72,7 @@ const TabPanel4 = () => {
         </div>
         <div className="col-md-6 col-lg-4 text-center">
           <div className="selected-month-price">
-            <span className="px-2">{price.value}</span>
+            <span className="px-2 fw-600">{price.value}</span>
             <span>{t("tabPanels.make_payment.dram")}</span>
           </div>
         </div>

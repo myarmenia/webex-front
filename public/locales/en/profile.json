@@ -23,7 +23,14 @@
     },
     "make_payment": {
       "title": "Make payment",
-      "sub_title": "In this section you can make all your payments"
+      "sub_title": "In this section you can make all your payments",
+      "discount_system":"According to the current system of discounts:",
+      "4_month_discount":"Paying for four months, you save 25 000 drams.",
+      "5_month_discount":"Paying for five months, you save 30 000 drams.",
+      "6_month_discount":"Paying for six months, you save 50 000 drams.",
+      "submit":"Go to payment",
+      "label":"Months",
+      "dram":"drams"
     }
   }
 }
