@@ -3,7 +3,7 @@ export const buttonSwitch = [
   "financial_data",
   "personal_information",
   "change_password",
-  // "4",
+  "make_payment",
   // "5",
   // "6",
 ];

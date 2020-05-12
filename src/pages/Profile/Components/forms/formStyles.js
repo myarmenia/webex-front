@@ -2,6 +2,8 @@ export default {
   container: {
     display: "flex",
     flexWrap: "wrap",
+    justifyContent: "center",
+    alignItems: "baseline",
   },
   inputField: {
     display: "flex",
@@ -10,7 +12,7 @@ export default {
     margin: "10px auto",
   },
   helper: {
-    color: "red", 
+    color: "red",
     fontSize: "16px",
   },
   title: {
@@ -25,6 +27,6 @@ export default {
     border: "1px solid #cdcdcd",
     padding: "18px 0 18px 26px",
     borderRadius: "5px",
-    minHeight: '61px',
+    minHeight: "61px",
   },
-}
+};
