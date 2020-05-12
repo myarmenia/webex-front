@@ -1,5 +1,7 @@
 import { createSelector } from "reselect";
 
+export const notificationsSelector = (state) => state.currentUser.notifications;
+
 export const activationsSelector = (state) => state.currentUser.activations;
 export const activationsLoadedSelector = (state) =>
   state.currentUser.activations_loaded;
