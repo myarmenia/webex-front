@@ -8,6 +8,7 @@ import WebexListLink from "../../../components/menuLink/MenuLink";
 
 import logo from "../../../img/logo.png";
 import auth from "../../../redux/auth";
+import { Notifications } from "../../../components/Notifications";
 
 const NavBar = ({ currentUser, onChangeLaguage, langsWhitelist, location }) => {
   const { t } = useTranslation(["navbar"]);
@@ -24,8 +25,12 @@ const NavBar = ({ currentUser, onChangeLaguage, langsWhitelist, location }) => {
   };
 
   const [toggle, setToggle] = useState(false);
+  const [notificationsToggle, setNotificationsToggle] = useState(null);
   const updateToggle = () => toggle && setToggle(false);
   const mobileActiveClass = toggle ? "mobile-active" : "";
+
+  const handleClose = () => setNotificationsToggle(null);
+  const handleClick = (e) => setNotificationsToggle(e.target);
 
   const GuestNavigation = () => (
       <>
@@ -110,6 +115,8 @@ const NavBar = ({ currentUser, onChangeLaguage, langsWhitelist, location }) => {
           activeClassName="active"
           handleClick={updateToggle}
         />
+
+        <Notifications notifications={currentUser.unread_notifications} />
 
         <WebexListLink
           name={t("nav.log_out")}

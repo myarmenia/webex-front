@@ -22,6 +22,7 @@ const initialState = {
   user: {},
   activations: [],
   activations_loaded: false,
+  unread_notifications: [],
 };
 
 export default function currentUser(state = initialState, action) {
@@ -30,12 +31,19 @@ export default function currentUser(state = initialState, action) {
       return { ...state, loading: true };
 
     case USERDATA_SUCCESS:
+      const {
+        activations,
+        unread_notifications,
+        ...user
+      } = action.payload.user;
+
       return {
         ...state,
         authenticated: true,
         loading: false,
-        user: action.payload.user,
-        activations: action.payload.activations,
+        user,
+        activations,
+        unread_notifications,
         activations_loaded: true,
       };
 

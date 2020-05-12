@@ -2,7 +2,7 @@ import React from "react";
 
 import { connect } from "react-redux";
 import UserProfile from "./Pages/UserProfile";
-import {lastActivationSelector} from "../../redux/selectors/currentUser";
+import { lastActivationSelector } from "../../redux/selectors/currentUser";
 
 import "./UserProfile.css";
 
