@@ -1,10 +1,12 @@
 import auth from "../auth";
+import api from "../api";
 
 import {
   UserDataSuccess,
   SignInSuccess,
   SignInRequest,
   SignInError,
+  NotificationDeleteSuccess,
 } from "../actions/signin";
 
 export const SignIn = (credentials, redirect) => {
@@ -35,5 +37,21 @@ export const getUserData = () => {
         dispatch(SignInError(error.message));
       }
     );
+  };
+};
+
+export const deleteNotification = (id) => {
+  return (dispatch) => {
+    dispatch(SignInRequest());
+    api
+      .deleteNotification(id)
+      .then((response) => dispatch(NotificationDeleteSuccess(id)))
+      .catch((error) => dispatch(SignInError(error.message)));
+  };
+};
+
+export const markNotifications = (notification_ids) => {
+  return dispatch => { 
+    api.markNotifications(notification_ids)
   };
 };

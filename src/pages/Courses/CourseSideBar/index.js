@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import { Link } from "react-router-dom";
 
@@ -6,7 +6,7 @@ import "../courses.css";
 
 const DropDownLessons = ({ lessons, openVideo }) => (
   <div>
-    {lessons.map(lesson => (
+    {lessons.map((lesson) => (
       <p
         key={lesson.id}
         onClick={() => openVideo(lesson)}
@@ -24,12 +24,12 @@ const Course = ({
   lessons,
   courses,
   openVideo,
-  path_mode = "demo"
+  path_mode = "demo",
 }) => {
   return (
     <ul>
       {courses ? (
-        courses.map(course => {
+        courses.map((course) => {
           return (
             <div key={course.id}>
               <li

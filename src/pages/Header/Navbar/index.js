@@ -8,7 +8,7 @@ import WebexListLink from "../../../components/menuLink/MenuLink";
 
 import logo from "../../../img/logo.png";
 import auth from "../../../redux/auth";
-import { Notifications } from "../../../components/Notifications";
+import Notifications from "../../../components/Notifications";
 
 const NavBar = ({ currentUser, onChangeLaguage, langsWhitelist, location }) => {
   const { t } = useTranslation(["navbar"]);
@@ -116,7 +116,7 @@ const NavBar = ({ currentUser, onChangeLaguage, langsWhitelist, location }) => {
           handleClick={updateToggle}
         />
 
-        <Notifications notifications={currentUser.unread_notifications} />
+        <Notifications />
 
         <WebexListLink
           name={t("nav.log_out")}
