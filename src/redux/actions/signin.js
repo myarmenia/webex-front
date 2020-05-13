@@ -3,6 +3,7 @@ import {
   SIGNIN_SUCCESS,
   SIGNIN_REQUEST,
   SIGNIN_ERROR,
+  NOTIFICATION_DELETE_SUCCESS,
 } from "../types/currentUser";
 
 export const UserDataSuccess = (data) => {
@@ -19,4 +20,8 @@ export const SignInError = (errorMessage) => {
 
 export const SignInRequest = () => {
   return { type: SIGNIN_REQUEST };
+};
+
+export const NotificationDeleteSuccess = (id) => {
+  return { type: NOTIFICATION_DELETE_SUCCESS, payload: id };
 };

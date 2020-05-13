@@ -3,6 +3,7 @@ import {
   SIGNIN_SUCCESS,
   SIGNIN_REQUEST,
   SIGNIN_ERROR,
+  NOTIFICATION_DELETE_SUCCESS,
 } from "../types/currentUser";
 
 export const defaultActivation = {
@@ -45,6 +46,14 @@ export default function currentUser(state = initialState, action) {
         activations,
         unread_notifications,
         activations_loaded: true,
+      };
+
+    case NOTIFICATION_DELETE_SUCCESS:
+      const { unread_notifications: ns } = state;
+
+      return {
+        ...state,
+        unread_notifications: ns.filter((n) => n.id !== action.payload),
       };
 
     case SIGNIN_SUCCESS:

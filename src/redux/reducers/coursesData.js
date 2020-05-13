@@ -2,8 +2,7 @@ import {
   COURSES_REQUEST,
   COURSES_ERROR,
   COURSES_SUCCESS,
-  LESSONS_SUCCESS,
-  TAB_PACKAGE_ID
+  TAB_PACKAGE_ID,
 } from "../types/coursesData";
 
 const initialState = {
@@ -12,7 +11,7 @@ const initialState = {
   tabPackageId: 1,
   courses: [],
   lessons: [],
-  packages: []
+  packages: [],
 };
 
 export default function coursesData(state = initialState, action) {
@@ -25,7 +24,7 @@ export default function coursesData(state = initialState, action) {
 
     case COURSES_SUCCESS:
       const {
-        payload: { packages, courses, lessons }
+        payload: { packages, courses, lessons },
       } = action;
 
       return {
@@ -34,15 +33,7 @@ export default function coursesData(state = initialState, action) {
         packages,
         courses,
         lessons,
-        tabPackageId: packages[0].id
-      };
-
-    case LESSONS_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        courses: action.payload.courses,
-        lessons: action.payload.lessons
+        tabPackageId: packages[0].id,
       };
 
     case COURSES_ERROR:

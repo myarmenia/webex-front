@@ -11,7 +11,7 @@ export const API_URL =
 
 export const API_SIGNIN_URL = API_URL + "/signin";
 
-export const API_CHECK_MAIL_URL =  API_URL + "/checkemail";
+export const API_CHECK_MAIL_URL = API_URL + "/checkemail";
 
 export const API_SIGNUP_URL = API_URL + "/signup";
 
@@ -27,11 +27,12 @@ export const API_USERDATA_URL = API_URL + "/userdata";
 
 export const API_REFRESH_URL = API_URL + "/signin/refresh";
 
-export const API_COURSES_URL = API_URL + "/courses";
-
 export const API_FULL_PACKAGES_URL = API_URL + "/fullPackages";
 
-export const API_LESSONS_URL = API_URL + "/courses_with_lessons";
+export const API_DELETE_NOTIFICATION_URL = API_URL + "/notifications/";
+
+export const API_MARK_NOTIFICATIONS_URL =
+  API_URL + "/notifications/mark_as_read";
 
 const axiosInstance = axios.create({
   baseURL: API_URL,
