@@ -1,6 +1,6 @@
 export default [
   {
-    value: "50000",
+    value: "50",
     label: "1",
   },
   {
@@ -24,11 +24,4 @@ export default [
     label: "6",
   },
 ];
-
-const response = {
-  errorCode: "0",
-  orderId: "e7fb3b79-5e6c-4c04-b3d1-7495ca9250f9",
-  formUrl:
-    "https://ipay.arca.am/payment/merchants/34537544/payment_en.html?mdOrder=e7fb3b79-5e6c-4c04-b3d1-7495ca9250f9",
-};
 
