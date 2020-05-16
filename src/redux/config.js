@@ -25,6 +25,8 @@ export const API_CHANGE_PASS_URL = API_URL + "/changepassword";
 
 export const API_USERDATA_URL = API_URL + "/userdata";
 
+export const API_SET_LANGUAGE_URL = API_URL + "/user/setLanguage/";
+
 export const API_REFRESH_URL = API_URL + "/signin/refresh";
 
 export const API_FULL_PACKAGES_URL = API_URL + "/fullPackages";
