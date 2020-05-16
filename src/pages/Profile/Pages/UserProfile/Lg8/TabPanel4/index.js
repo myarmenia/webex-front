@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import {useSelector} from "react-redux";
 
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
@@ -9,6 +10,7 @@ import formStyles from "../../../../Components/forms/formStyles";
 import Discounts from "./Discounts";
 
 import pricesForMonths from "./pricesForMonths";
+import { API_ACBA_MAKE_ORDER } from "../../../../../../redux/config.js"; 
 
 const useStyles = makeStyles(formStyles);
 
@@ -20,6 +22,7 @@ const TabPanel4 = () => {
     title = {},
   } = useStyles();
   const [price, setPrice] = React.useState(pricesForMonths[0]);
+  const [respError, setRespError ] = React.useState(false);
 
   const handleChange = (event) => {
     const price = pricesForMonths.filter(
@@ -28,17 +31,40 @@ const TabPanel4 = () => {
     setPrice(price);
   };
 
+  const { id = 0, email = "", online=false } = useSelector((state) => state.currentUser.user);
   const goToACBA = () => {
-    console.log("goToACBA");
-    console.log("price", price);
-    const on = "generate_string";
-    const ci = "user_id";
-    const postFields = `userName=34537544_api&password=Ah0545139&amount=${price.value}&currency=051&orderNumber=${on}&returnUrl=http://webex.am/simple4.php&language=en&clientID=${ci}&months=${price.label}`;
+    const {value: base_cost} = pricesForMonths[0];
+    const {value, label } = price;
+    const language = localStorage.getItem('language');
 
-    const url = "https://ipay.arca.am/payment/rest/register.do";
-    console.log('postFields', postFields)
-    const request = `${url}?${postFields}`;
-    console.log(request)
+    let apiMakeOrder = `${API_ACBA_MAKE_ORDER}?user_id=${id}`;
+    apiMakeOrder += `&amount=${value}&months=${label}&base_cost=${base_cost}`;
+    apiMakeOrder += `&currency=051&language=${language}`;
+
+    fetch(apiMakeOrder, {
+      method: "get",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((resp) => resp.json())
+      .then((resp) => {
+        console.log(resp)
+        if(resp.curl_error || resp.errorMessage) {
+          console.log('you have error on your payment')
+          setRespError(true);
+          setTimeout(()=>{
+            setRespError(false);
+          }, 5000)
+        }
+        if(resp.formUrl) {
+          window.location.assign(resp.formUrl)
+        }
+      })
+      .catch(function (error) {
+        console.error(error);
+      });  
   };
   
 
@@ -49,7 +75,10 @@ const TabPanel4 = () => {
       </div>
       <Discounts />
       <hr/>
-      <div className={`${container} my-30`}>
+      <div className="text-center text-danger mb-2 fs-18 px-3">
+      {respError ? t("tabPanels.make_payment.payment_errors") : ""}
+      </div>
+      <div className={`${container} mb-30`}>
         <div className="col-md-6 col-lg-4">
           <TextField
             id="select-months"

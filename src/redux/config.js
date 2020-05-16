@@ -34,6 +34,8 @@ export const API_DELETE_NOTIFICATION_URL = API_URL + "/notifications/";
 export const API_MARK_NOTIFICATIONS_URL =
   API_URL + "/notifications/mark_as_read";
 
+export const API_ACBA_MAKE_ORDER = API_URL + "/makeOrder";
+
 const axiosInstance = axios.create({
   baseURL: API_URL,
 });

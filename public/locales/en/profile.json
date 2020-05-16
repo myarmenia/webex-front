@@ -30,7 +30,8 @@
       "6_month_discount":"Paying for six months, you save 50 000 drams.",
       "submit":"Go to payment",
       "label":"Months",
-      "dram":"drams"
+      "dram":"drams",
+      "payment_errors":"Request for registering a new payment order rejected"
     }
   }
 }
