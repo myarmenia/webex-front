@@ -25,12 +25,8 @@ const NavBar = ({ currentUser, onChangeLaguage, langsWhitelist, location }) => {
   };
 
   const [toggle, setToggle] = useState(false);
-  const [notificationsToggle, setNotificationsToggle] = useState(null);
   const updateToggle = () => toggle && setToggle(false);
   const mobileActiveClass = toggle ? "mobile-active" : "";
-
-  const handleClose = () => setNotificationsToggle(null);
-  const handleClick = (e) => setNotificationsToggle(e.target);
 
   const GuestNavigation = () => (
       <>

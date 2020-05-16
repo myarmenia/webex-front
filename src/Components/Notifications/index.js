@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import CloseIcon from "@material-ui/icons/Close";
 import {
+  Button,
   Popover,
   List,
   ListItem,
@@ -16,6 +17,65 @@ import {
   deleteNotification,
   markNotifications,
 } from "../../redux/actionCreators/signin";
+
+const Notification = ({ notification, handleDelete }) => (
+  <ListItem divider>
+    <ListItemText
+      primary={
+        <>
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <Box>{notification.data.title}</Box>
+            <Box>
+              <IconButton
+                color="inherit"
+                size="small"
+                onClick={() => handleDelete(notification.id)}
+              >
+                <CloseIcon />
+              </IconButton>
+            </Box>
+          </Box>
+        </>
+      }
+      secondary={
+        <>
+          <span className="d-block mb-2">
+            {notification.data.message || ""}
+          </span>
+          {/* {notification.data.action && (
+            <a
+              className="d-block"
+              href={notification.data.action.url}
+              rel="noreferrer noopener"
+            >
+              {notification.data.action.key}
+            </a>
+          )} */}
+          {notification.data.action && (
+            <Button
+              size="small"
+              color="primary"
+              href={notification.data.action.url}
+              rel="noreferrer noopener"
+            >
+              {notification.data.action.key}
+            </Button>
+          )}
+          <span className="d-block mt-2">
+            {new Date(notification.created_at).toLocaleString(
+              "en",
+              "h:s dd/mm/Y"
+            )}
+          </span>
+        </>
+      }
+    />
+  </ListItem>
+);
 
 const Notifications = ({
   notifications,
@@ -41,36 +101,11 @@ const Notifications = ({
 
   const renderNotifications = () =>
     notifications.map((notification, index) => (
-      <ListItem divider key={index}>
-        <ListItemText
-          primary={
-            <>
-              <Box
-                display="flex"
-                alignItems="center"
-                justifyContent="space-between"
-              >
-                <Box>{notification.data.message}</Box>
-                <Box>
-                  <IconButton
-                    color="inherit"
-                    size="small"
-                    onClick={() => handleDelete(notification.id)}
-                  >
-                    <CloseIcon />
-                  </IconButton>
-                </Box>
-              </Box>
-            </>
-          }
-          secondary={
-            <>
-              Please follow instruction for payment in profile…
-              <span className="d-block mt-2">{notification.created_at}</span>
-            </>
-          }
-        />
-      </ListItem>
+      <Notification
+        key={index}
+        notification={notification}
+        handleDelete={handleDelete}
+      />
     ));
 
   return (

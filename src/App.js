@@ -33,6 +33,7 @@ import {
 
 import { getUserData } from "./redux/actionCreators/signin";
 import auth from "./redux/auth/";
+import api from "./redux/api";
 
 function App({ getUserData }) {
   const { t, i18n } = useTranslation(["translation"]);
@@ -44,8 +45,14 @@ function App({ getUserData }) {
 
   const onChangeLaguage = (lang) => {
     localStorage.setItem("language", lang);
-    i18n.changeLanguage(lang);
-    window.location.reload();
+    // i18n.changeLanguage(lang); //I18n changes faster
+    api
+      .setPreferredLanguage(lang)
+      .then((r) => window.location.reload())
+      .catch((e) => {
+        console.log(e);
+        window.location.reload();
+      });
   };
 
   useEffect(() => {
