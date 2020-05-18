@@ -29,7 +29,7 @@ const Demo = ({ currentCourse = {}, courses, lessons, fetchFullPackages }) => {
   }); // HTML first video link
 
   useEffect(() => {
-    fetchFullPackages();    
+    fetchFullPackages();
   }, [fetchFullPackages]);
 
   useEffect(() => {
@@ -107,7 +107,6 @@ const Demo = ({ currentCourse = {}, courses, lessons, fetchFullPackages }) => {
               openHomeWorkVideo={openHomeWorkVideo}
               isDemo={true}
             />
-
             <div style={{ display: videoData.code ? "block" : "none" }}>
               <pre> {videoData.code} </pre>
               <hr />

@@ -15,6 +15,12 @@ export const API_CHECK_MAIL_URL = API_URL + "/checkemail";
 
 export const API_SIGNUP_URL = API_URL + "/signup";
 
+export const API_RESET_PASSWORD_REQUEST_URL = API_URL + "/reset-password";
+
+export const API_RESET_PASSWORD_URL = API_URL + "/reset/password";
+
+export const API_CHECK_RESET_TOKEN_URL = API_URL + "/reset/check-token";
+
 export const API_SIGNOUT_URL = API_URL + "/signout";
 
 export const API_UPDATE_USER_URL = API_URL + "/update";

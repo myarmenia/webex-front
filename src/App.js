@@ -15,6 +15,8 @@ import CopyRight from "./pages/CopyRight";
 
 import SignIn from "./pages/Header/SignIn";
 import SignUp from "./pages/Header/SignUp";
+import ForgotPassword from "./pages/Header/ForgotPassword";
+import ResetPassword from "./pages/Header/ResetPassword";
 import AboutUs from "./pages/AboutUs";
 import Courses from "./pages/Courses";
 import Profile from "./pages/Profile";
@@ -73,6 +75,11 @@ function App({ getUserData }) {
             <Route path="/" exact component={Main} />
             <GuestRoute path="/signup" component={SignUp} />
             <GuestRoute path="/signin" component={SignIn} />
+            <GuestRoute path="/forgot-password" component={ForgotPassword} />
+            <GuestRoute
+              path="/password/reset/:token"
+              component={ResetPassword}
+            />
             <Route path="/aboutus" component={AboutUs} />
             <Route path="/news/:slug" component={SinglePost} />
             <Route path="/news" component={News} />
