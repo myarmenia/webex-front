@@ -30,7 +30,7 @@
   "signin": {
     "title": "Sign In",
     "description": "Log in to save your progress and obtain a certificate from Webex.am",
-    "keep_logged": "Keep me logged in",
+    "forgot_password": "Forgot password?",
     "dont_have_an_account": "Don't have a Webex account?",
     "Request failed with status code 401": "The password or email you entered is not valid",
     "Cannot read property 'status' of undefined": "The server is temporarily unavailable.",
@@ -47,6 +47,9 @@
     "complate_by_click_on": "Complete your registration by clicking on the 'Sign Up' button.",
     "success_stationary": "Congratulations! You’ve passed the registration for stationary education in Webex.am. For account verification please check your email from webex.am and folow the link.",
     "error_stationary": "Something went wrong. Your registration was failed. Please, try again or contact to administrator"
+  },
+  "forgot_password": {
+    "title": "Password recovery"
   },
   "update": {
     "title": "Update personal information",

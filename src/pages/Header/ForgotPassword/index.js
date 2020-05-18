@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 
 import { connect } from "react-redux";
 
-import { SignIn } from "../../../redux/actionCreators/signin";
+import api from "../../../redux/api";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -22,59 +22,68 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignInForm = (props) => {
-  const {
-    currentUser: { error = "" },
-  } = props;
+const ForgotPasswordForm = (props) => {
   const { t } = useTranslation(["forms"]);
   const classes = useStyles();
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  const writeEmail = (e) => {
+  const [status, setStatus] = useState({ success: false, message: "" });
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
     setEmail(e.target.value);
   };
 
-  const writePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const getData = (event) => {
-    event.preventDefault();
-    let data = { email, password };
-    props.SignIn(data, () => window.location.assign("/profile"));
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      const response = await api.passwordResetRequest(email);
+      const { message, success } = response.data;
+      success && setEmail("");
+      setStatus({
+        message,
+        status,
+      });
+      setLoading(false);
+    } catch (e) {
+      setError(e.message);
+      setLoading(false);
+    }
   };
   return (
     <div
       className="sigin-form text-center show"
       tabIndex="-1"
-      role="dialog"
-      aria-labelledby="formsign"
       style={{ paddingRight: "15px", display: "block" }}
     >
       <div className="modal-dialog ls">
         <div className="modal-content">
           <div className="modal-header">
-            <h6 className="modal-title" id="formlogin">
-              {t("signin.title")}
-            </h6>
+            <h6 className="modal-title">{t("forgot_password.title")}</h6>
             <Link to="/signup" className="btn btn-maincolor btn-sign">
               {t("signup.title")}
             </Link>
           </div>
           <div className="modal-body">
             <div className="form-title">
-              <h2>{t("signin.title")}</h2>
-              <p>{t("signin.description")}</p>
-              {error && (
-                <span className="text-danger msg-17rem">
-                  {t(`signin.${error}`)}
-                </span>
-              )}
+              <h3>{t("forgot_password.title")}</h3>
+              {error && <span className="text-danger msg-17rem">{error}</span>}
+              <span
+                className={`text-${
+                  status.success ? "success" : "danger"
+                } msg-17rem`}
+              >
+                {status.message}
+              </span>
             </div>
-            <form className={classes.container} noValidate onSubmit={getData}>
+            <form
+              className={classes.container}
+              noValidate
+              onSubmit={handleSubmit}
+            >
               <TextField
-                id="outlined-email-input"
                 label={t("labels.email")}
                 className={classes.textField}
                 type="email"
@@ -83,37 +92,24 @@ const SignInForm = (props) => {
                 autoComplete="email"
                 margin="normal"
                 variant="outlined"
-                onChange={writeEmail}
+                onChange={handleChange}
               />
-
-              <TextField
-                id="outlined-password-input"
-                label={t("labels.password")}
-                className={classes.textField}
-                type="password"
-                name="password"
-                value={password}
-                autoComplete="password"
-                margin="normal"
-                variant="outlined"
-                onChange={writePassword}
-              />
-              {props.currentUser.loading && <CircularProgress />}
               <Button
                 type="submit"
                 variant="contained"
                 size="large"
-                id="buttonColor"
-                className="btn btn-maincolor log-btn"
+                disabled={loading}
+                className="btn btn-maincolor"
                 style={{ margin: "0 auto" }}
               >
-                {t("signin.title")}
+                {loading && <CircularProgress size={20} />}
+                {t("forgot_password.title")}
               </Button>
             </form>
             <div className="modal-footer">
               <p>
-                <Link to="/forgot-password" className="btn-sign px-10 fw-600">
-                  <u>{t("signin.forgot_password")}</u>
+                <Link to="/signin" className="btn-sign px-10 fw-600">
+                  <u>{t("signin.title")}</u>
                 </Link>
               </p>
               {t("signin.dont_have_an_account")}
@@ -128,12 +124,4 @@ const SignInForm = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  currentUser: state.currentUser,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  SignIn: (credentials, redirect) => dispatch(SignIn(credentials, redirect)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(SignInForm);
+export default ForgotPasswordForm;
