@@ -8,6 +8,7 @@ import {
   API_RESET_PASSWORD_REQUEST_URL,
   API_RESET_PASSWORD_URL,
   API_CHECK_RESET_TOKEN_URL,
+  API_SEND_CONTACT_MAIL_URL
 } from "./config";
 
 const api = {
@@ -36,6 +37,10 @@ const api = {
     return await axios.post(API_RESET_PASSWORD_URL, { ...data });
   },
 
+  contactMail: (cantact) => {
+    return axios.post(API_SEND_CONTACT_MAIL_URL, {...cantact});
+  },
+  
   checkResetToken: async (token) => {
     return await axios.post(API_CHECK_RESET_TOKEN_URL, { token });
   },

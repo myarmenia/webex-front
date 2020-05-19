@@ -25,7 +25,9 @@
     "email_is_taken": "This email is taken",
     "enter_current_password": "Please, enter your current password",
     "curr_and_new_are_same": "Your current password and new are the same",
-    "passwords_not_same": "Your new and repeated passwords are not the same"
+    "passwords_not_same": "Your new and repeated passwords are not the same",
+    "mail_sent_success": "Thank you, your letter has been successfully sent.",
+    "mail_sent_error": "It is not possible to send a letter at this time."
   },
   "signin": {
     "title": "Sign In",
