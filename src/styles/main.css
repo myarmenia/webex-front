@@ -12797,7 +12797,8 @@ a img.aligncenter {
 	}
 }
 
-.mobile-active .language-bar button {
+.mobile-active .language-bar button,
+.mobile-active .notifications button {
 	color: #2a323c;
 	border: 2px solid #2a323c;
 	margin: 0 6px;
@@ -12805,6 +12806,9 @@ a img.aligncenter {
 
 .mobile-active .language-bar button:hover {
 	color: #f5f5f5;
+}
+.mobile-active .notifications button:hover {
+	color: #8c8c8c
 }
 
 /* Mega Menu */

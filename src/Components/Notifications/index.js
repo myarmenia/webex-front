@@ -110,7 +110,7 @@ const Notifications = ({
 
   return (
     <>
-      <li>
+      <li className="notifications">
         <IconButton color="inherit" onClick={handleClick}>
           <Badge badgeContent={notifications.length} max={5} color="error">
             <NotificationsIcon />
