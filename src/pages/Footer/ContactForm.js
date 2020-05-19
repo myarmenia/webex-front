@@ -4,11 +4,19 @@ import TextField from "@material-ui/core/TextField";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
+import api from "../../redux/api";
+
 import "./form.css";
 // const styled = styled.default;
 const MessageDivs = styled.div`
   font-size: 14px;
   padding-left: 8px;
+  color: #f96c6c;
+`;
+const MessageSuccess = styled.div`
+  font-size: 14px;
+  padding-left: 8px;
+  color: #55e67b;
 `;
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -48,22 +56,25 @@ const useStyles = makeStyles((theme) => ({
   cssFocused: {},
 }));
 
+const defaultErrors = {
+  messagename: "",
+  messageemail: "",
+  messagetel: "",
+  messagetext: "",
+  messageall: "",
+};
+
 const ContactForm = ({ formTitle }) => {
   const { t } = useTranslation(["forms", "translation"]);
   const classes = useStyles();
-  const [error, setError] = React.useState({
-    messagename: "",
-    messageemail: "",
-    messagetel: "",
-    messagetext: "",
-    messageall: "",
-  });
+  const [error, setError] = React.useState(defaultErrors);
   const [values, setValues] = React.useState({
     name: "",
     email: "",
     tel: "",
     message: "",
   });
+  const [responseSuccess, setResponseSuccess] = React.useState("");
   const onChange = (type, value) => {
     setValues({
       ...values,
@@ -76,7 +87,9 @@ const ContactForm = ({ formTitle }) => {
     ertel = "",
     ert = "";
 
-  function send() {
+  const send = () => {
+    setError(defaultErrors);
+    setResponseSuccess("");
     if (
       !values.name.length ||
       !values.tel.length ||
@@ -106,15 +119,32 @@ const ContactForm = ({ formTitle }) => {
       messageemail: erm,
       messagetel: ertel,
       messagetext: ert,
-      messageall:
-        !erm && !ern && !ertel && !ert
-          ? t("messages.request_has_been_sent")
-          : er,
+      messageall: er,
     });
 
-    console.log('error', error)
-    console.log('values', values)
-  }
+    // console.log('error', error)
+    // console.log('values', values)
+
+    if (er === "" && ern === "" && erm === "" && ertel === "" && ert === "") {
+      sendMessage();
+    }
+  };
+
+  const sendMessage = async () => {
+    const response = await api.contactMail(values);
+    console.log(response);
+    if (response && response.status === 200 && response.data.mail_sent) {
+      setResponseSuccess(t("messages.mail_sent_success"));
+      setTimeout(() => {
+        setResponseSuccess("");
+      }, 3000);
+    } else {
+      setError({ messageall: t("messages.mail_sent_error") });
+      setTimeout(() => {
+        setError({ messageall: "" });
+      }, 3000);
+    }
+  };
 
   return (
     <>
@@ -244,6 +274,7 @@ const ContactForm = ({ formTitle }) => {
           </button>
         </div>
         <MessageDivs>{error.messageall}</MessageDivs>
+        <MessageSuccess>{responseSuccess}</MessageSuccess>
       </div>
     </>
   );
