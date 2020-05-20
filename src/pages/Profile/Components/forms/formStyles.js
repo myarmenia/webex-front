@@ -22,11 +22,14 @@ export default {
   readField: {
     width: "60%",
     margin: "10px auto",
-    display: "flex",
-    justifyContent: "left",
+    // display: "flex",
+    // justifyContent: "left",
     border: "1px solid #cdcdcd",
     padding: "18px 0 18px 26px",
     borderRadius: "5px",
     minHeight: "61px",
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
   },
 };

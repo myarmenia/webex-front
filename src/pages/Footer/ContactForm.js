@@ -148,10 +148,10 @@ const ContactForm = ({ formTitle }) => {
 
   return (
     <>
-      <h3 className="widget-title" id="footer_h3">
+      <h3 className="widget-title pl-3" id="footer_h3">
         {formTitle}
       </h3>
-      <div className="form" id="form">
+      <div className="form text-center" id="form">
         <TextField
           id="outlined-name"
           label={t("labels.name")}
