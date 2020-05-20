@@ -19,7 +19,7 @@ import {
 } from "../../redux/actionCreators/signin";
 
 const Notification = ({ notification, handleDelete }) => (
-  <ListItem divider>
+  <ListItem divider>  
     <ListItemText
       primary={
         <>
@@ -61,6 +61,7 @@ const Notification = ({ notification, handleDelete }) => (
               color="primary"
               href={notification.data.action.url}
               rel="noreferrer noopener"
+              target="blank"
             >
               {notification.data.action.key}
             </Button>
