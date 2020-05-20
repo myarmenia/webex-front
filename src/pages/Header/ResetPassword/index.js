@@ -166,7 +166,9 @@ const ResetPassword = ({ match }) => {
             <div className="form-title">
               <h3>{t("forgot_password.title")}</h3>
               {state.error && (
-                <span className="text-danger msg-17rem">{state.error}</span>
+                <span className="text-danger msg-17rem">
+                  {t("forgot_password." + state.error)}
+                </span>
               )}
               <span
                 className={`text-${

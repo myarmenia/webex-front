@@ -51,7 +51,8 @@
     "error_stationary": "Something went wrong. Your registration was failed. Please, try again or contact to administrator"
   },
   "forgot_password": {
-    "title": "Password recovery"
+    "title": "Password recovery",
+    "Request failed with status code 422": "Please fill in all the input fields."
   },
   "update": {
     "title": "Update personal information",
