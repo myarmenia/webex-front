@@ -68,8 +68,12 @@ const ForgotPasswordForm = (props) => {
           </div>
           <div className="modal-body">
             <div className="form-title">
-              <h3>{t("forgot_password.title")}</h3>
-              {error && <span className="text-danger msg-17rem">{error}</span>}
+              <h4>{t("forgot_password.title")}</h4>
+              {error && (
+                <span className="text-danger msg-17rem">
+                  {t("forgot_password." + error)}
+                </span>
+              )}
               <span
                 className={`text-${
                   status.success ? "success" : "danger"
