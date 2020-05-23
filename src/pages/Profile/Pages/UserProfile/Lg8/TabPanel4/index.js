@@ -58,10 +58,7 @@ const TabPanel4 = () => {
 
   return (
     <>
-      <div className="form-title mt-30">
-        <h6 className={title}>{t("tabPanels.make_payment.discount_system")}</h6>
-      </div>
-      <Discounts />
+      <Discounts titleClassName={title} />
       <hr />
       <div className="text-center text-danger mb-2 fs-18 px-3">
         {respError ? t("tabPanels.make_payment.payment_errors") : ""}

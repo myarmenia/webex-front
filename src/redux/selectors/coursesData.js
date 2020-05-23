@@ -51,6 +51,6 @@ export const packagesWithTheirCourses = createSelector(
       pc[i]["courses"] =
         courses.filter(({ id }) => course_ids.includes(id)) || [];
       return pc;
-    }, []);
+    }, [{courses:[]}, {courses:[]}, {courses:[]}]);
   }
 );

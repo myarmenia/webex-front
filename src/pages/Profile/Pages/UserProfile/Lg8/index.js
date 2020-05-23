@@ -1,9 +1,12 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { connect, useSelector } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+
+import { getFullPackages } from "../../../../../redux/actionCreators/coursesData";
 
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -16,11 +19,19 @@ import TabPanel4 from "./TabPanel4/";
 import TabPanel5 from "./TabPanel5/";
 import TabPanel6 from "./TabPanel6/";
 
+import TabPanelPaymentOnline from "./TabPanelPaymentOnline";
+
 import { buttonSwitch } from "../../../../../redux/reducers/switchingTabPanels";
 
-function UserProfileLg8() {
+function UserProfileLg8({ fetchFullPackages }) {
+  useEffect(() => {
+    fetchFullPackages();
+  }, []);
+
   const { t } = useTranslation(["profile"]);
   const value = useSelector((state) => state.switchingTabPanels);
+  const { online = false } = useSelector((state) => state.currentUser.user);
+  console.log("online", online);
 
   const tabTransKeyword = buttonSwitch[value];
 
@@ -28,7 +39,7 @@ function UserProfileLg8() {
     () => <TabPanel1 />,
     () => <TabPanel2 />,
     () => <TabPanel3 />,
-    () => <TabPanel4 />,
+    () => online ? <TabPanelPaymentOnline /> : <TabPanel4 />,
     () => <TabPanel5 />,
     () => <TabPanel6 />,
   ];
@@ -59,4 +70,8 @@ function UserProfileLg8() {
   );
 }
 
-export default UserProfileLg8;
+const mapDispatchToProps = (dispatch) => ({
+  fetchFullPackages: () => dispatch(getFullPackages()),
+});
+
+export default connect(null, mapDispatchToProps)(UserProfileLg8);

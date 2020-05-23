@@ -1,0 +1,17 @@
+export default [
+  { id: 1, name: "HTML / HTML5", price: 5000 },
+  { id: 2, name: "CSS / CSS3", price: 15000 },
+  { id: 3, name: "BOOTSTRAP", price: 10000 },
+  { id: 4, name: "JavaScript", price: 20000 },
+  { id: 5, name: "EcmaScript (ES6)", price: 5000 },
+  { id: 6, name: "jQuery", price: 15000 },
+  { id: 9, name: "React js", price: 15000 },
+  { id: 10, name: "Redux", price: 10000 },
+  { id: 7, name: "PHP / PHP 7", price: 10000 },
+  { id: 8, name: "MySQL", price: 20000 },
+  { id: 17, name: "OOP / MVC", price: 10000 },
+  { id: 13, name: "Laravel", price: 10000 },
+  { id: 11, name: "Server", price: 3000 },
+  { id: 16, name: ".htaccess", price: 5000 },
+  { id: 14, name: "Node.js", price: 5000 },
+];
