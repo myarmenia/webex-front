@@ -1,73 +1,155 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Typography from "@material-ui/core/Typography";
+import Toolbar from "@material-ui/core/Toolbar";
+
 import Button from "@material-ui/core/es/Button/Button";
+import { useTranslation } from "react-i18next";
+
+import { packagesWithTheirCourses } from "../../../redux/selectors/coursesData";
+
+import { getFullPackages } from "../../../redux/actionCreators/coursesData";
+import { connect } from "react-redux";
+import {
+  List,
+  ListItem,
+  ListItemText,
+  CircularProgress,
+  ListItemIcon,
+  Checkbox,
+} from "@material-ui/core";
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+  return (
+    <Typography
+      component="div"
+      role="tabpanel"
+      hidden={value !== index}
+      id={`full-width-tabpanel-${index}`}
+      aria-labelledby={`full-width-tab-${index}`}
+      {...other}
+    >
+      {children}
+    </Typography>
+  );
+}
 
 function ThirdStep(props) {
+  const { t } = useTranslation(["forms", "translation"]);
 
-    const frontFunc = (e) => {
-        e.preventDefault();
-        props.nextProps(e.target.textContent);
-    }
+  const prevStep = () => {
+    props.prevProps("two");
+  };
 
-    const fullFunc = (e) => {
-        e.preventDefault();
-        props.nextProps(e.target.textContent);
-    }
+  const nextStep = () => {
+    if (!selectedCourses.length) return false;
 
-    const backFunc = (e) => {
-        e.preventDefault();
-        props.nextProps(e.target.textContent);
-    }
-    const goBack = () => {
-        props.prevProps('two')
-    }
+    props.set({ preferred_courses: selectedCourses });
+    props.nextProps("four");
+  };
 
+  const [value, setValue] = useState(0);
+  const [selectedCourses, setSelectedCourses] = useState([]);
 
-    return (
-        <div className="row justify-content-center">
+  const handleClick = (id) =>
+    setSelectedCourses((prevCourses) => [...prevCourses, id]);
 
-            <div className="form-title">
-                <h2>Sign up</h2>
-            </div>
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
-            <div className="col-md-10">
-                <div className="filters course-filters text-lg-right">
+  useEffect(() => {
+    props.fetchFullPackages();
+  }, [props]);
 
-                    <a href="#" style={{ color: "#222a35", cursor: "pointer", fontSize: "20px" }}
-                        onClick={frontFunc}>
-                        Front End
-                    </a>
+  const tabContent = (courses) => (
+    <List>
+      {courses.map(({ id, name }) => (
+        <ListItem key={id}>
+          <ListItemIcon>
+            <Checkbox
+              color="primary"
+              edge="start"
+              checked={selectedCourses.includes(id)}
+              onChange={() => handleClick(id)}
+              tabIndex={-1}
+            />
+          </ListItemIcon>
+          <ListItemText primary={name} />
+        </ListItem>
+      ))}
+    </List>
+  );
 
-                    <a href="#" style={{ color: "#222a35", cursor: "pointer", fontSize: "20px" }}
-                        onClick={fullFunc}>
-                        Full Stack
-                    </a>
+  const tabs = (packages) => (
+    <>
+      <Toolbar
+        style={{ width: "100%", display: "flex", justifyContent: "center" }}
+        position="static"
+        color="default"
+      >
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          // variant="fullWidth"
+        >
+          (
+          {packages.map(({ name }, index) => (
+            <Tab key={index} label={name} />
+          ))}
+          )
+        </Tabs>
+      </Toolbar>
+      {packages.map(({ courses }, index) => (
+        <TabPanel key={index} value={value} index={index}>
+          {tabContent(courses)}
+        </TabPanel>
+      ))}
+    </>
+  );
 
-                    <a href="#" style={{ color: "#222a35", cursor: "pointer", fontSize: "20px" }}
-                        onClick={backFunc}>
-                        Back End
-                    </a>
+  return (
+    <div>
+      <div className="form-title mb-20">
+        <h4>{t("signup.title")}</h4>
+      </div>
+      {props.packagesWithCourses.length ? (
+        tabs(props.packagesWithCourses.slice(0, 2))
+      ) : (
+        <CircularProgress size={25} />
+      )}
+      <div className="mt-5">
+        <Button
+          variant="contained"
+          size="large"
+          onClick={prevStep}
+          id="buttonColor"
+          className="mr-4"
+        >
+          {t("translation:buttons.prev")}
+        </Button>
+        <Button
+          variant="contained"
+          size="large"
+          onClick={nextStep}
+          id="buttonColor"
+        >
+          {t("translation:buttons.next")}
+        </Button>
+      </div>
+    </div>
+  );
+}
 
-                </div>
+const mapStateToProps = (state) => ({
+  packagesWithCourses: packagesWithTheirCourses(state),
+});
 
-                <p>
-                    Webex Technologies provides 2 ways of online education.
-                    You can choose packages that we’ve made or choose your own courses.
-                    Choose the package or courses
-                </p>
-                <div className="mt-5">
-                    <Button
-                        variant="contained"
-                        size="large"
-                        id="buttonColor"
-                        onClick={goBack}
+const mapDispatchToProps = (dispatch) => ({
+  fetchFullPackages: () => dispatch(getFullPackages()),
+});
 
-                    >
-                        Prev
-                    </Button>
-                </div>
-            </div>
-        </div>
-    )
-};
-
-export default ThirdStep;
+export default connect(mapStateToProps, mapDispatchToProps)(ThirdStep);

@@ -48,6 +48,8 @@ function App({ getUserData }) {
   const onChangeLaguage = (lang) => {
     localStorage.setItem("language", lang);
     // i18n.changeLanguage(lang); //I18n changes faster
+    if (!auth.isAuthenticated()) return void window.location.reload();
+
     api
       .setPreferredLanguage(lang)
       .then((r) => window.location.reload())

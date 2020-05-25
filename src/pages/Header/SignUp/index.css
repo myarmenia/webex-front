@@ -1,0 +1,12 @@
+.react-time-picker__inputGroup__input {
+  height: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  width: auto;
+}
+
+.DayPickerInput>input {
+  padding: 1rem;
+}

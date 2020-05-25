@@ -10,6 +10,7 @@ import {
   API_CHECK_RESET_TOKEN_URL,
   API_SEND_CONTACT_MAIL_URL,
   API_ACBA_MAKE_ORDER,
+  API_CHECK_MAIL_URL,
 } from "./config";
 
 const api = {
@@ -49,6 +50,10 @@ const api = {
 
   checkResetToken: async (token) => {
     return await axios.post(API_CHECK_RESET_TOKEN_URL, { token });
+  },
+
+  checkEmail: async (email) => {
+    return await axios.post(API_CHECK_MAIL_URL, { email });
   },
 };
 

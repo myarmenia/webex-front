@@ -9,7 +9,7 @@ import "react-phone-number-input/style.css";
 import { isValidPhoneNumber } from "react-phone-number-input";
 import { useTranslation } from "react-i18next";
 
-import { API_CHECK_MAIL_URL } from "../../../redux/config";
+import api from "../../../redux/api";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -27,9 +27,9 @@ function SectionOne(props) {
   const { t } = useTranslation(["forms", "translation"]);
   const classes = useStyles();
 
-  const [name, setName] = useState(props.obj.name);
-  const [lastName, setLastName] = useState(props.obj.last_name);
-  const [email, setEmail] = useState(props.obj.email);
+  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const [nameValidation, setNameValidation] = useState("");
@@ -40,7 +40,7 @@ function SectionOne(props) {
   const [checkPasswordColorState, setCheckPasswordColorState] = useState("red");
   const [phone, setPhone] = useState(props.obj.phone);
   const [phoneValidation, setPhoneValidation] = useState("");
-  const [successStatus, setSuccessStatus] = useState("");
+  const [successStatus, setSuccessStatus] = useState(false);
 
   const changeName = (e) => {
     setNameValidation("");
@@ -108,21 +108,21 @@ function SectionOne(props) {
         setCheckPasswordState(95);
         setCheckPasswordColorState("green");
         break;
+      default:
+        setCheckPasswordState(0);
+        setCheckPasswordColorState("red");
+        break;
     }
   };
 
-  const emailFetch = () => {
-    if (new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email)) {
-      fetch(API_CHECK_MAIL_URL, {
-        method: "post",
-        headers: {
-          Accept: "application/json, text/plain, */*",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      })
-        .then((res) => res.json())
-        .then((res) => setSuccessStatus(res.success));
+  const emailFetch = async () => {
+    try {
+      if (new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email)) {
+        const response = await api.checkEmail(email);
+        setSuccessStatus(response.data.success);
+      }
+    } catch (e) {
+      setSuccessStatus(false);
     }
   };
 
@@ -165,7 +165,6 @@ function SectionOne(props) {
       </div>
       <div className={classes.container}>
         <TextField
-          id="outlined-name-input"
           label={t("labels.name") + "*"}
           className={classes.textField}
           type="text"
@@ -189,7 +188,6 @@ function SectionOne(props) {
         )}
 
         <TextField
-          id="outlined-name-input"
           label={t("labels.last_name") + "*"}
           className={classes.textField}
           type="text"
