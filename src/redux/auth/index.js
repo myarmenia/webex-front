@@ -1,6 +1,11 @@
 import axios from "axios";
 
-import { API_SIGNIN_URL, API_SIGNOUT_URL, API_USERDATA_URL } from "../config";
+import {
+  API_SIGNIN_URL,
+  API_SIGNOUT_URL,
+  API_SIGNUP_URL,
+  API_USERDATA_URL,
+} from "../config";
 
 class Auth {
   tokenKey = "token";
@@ -18,7 +23,9 @@ class Auth {
       .catch((error) => reject(error));
   }
 
-  signUp() {}
+  async signUp(data) {
+    return await axios.post(API_SIGNUP_URL, { ...data });
+  }
 
   logOut() {
     this.removeToken();

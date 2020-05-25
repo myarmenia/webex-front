@@ -46,9 +46,10 @@
     "online": "Online",
     "stationary": "Stationary",
     "dear_student": "Dear student",
+    "first_webinar_date": "Please select a date for Your first webinar with our lecturer.",
     "complate_by_click_on": "Complete your registration by clicking on the 'Sign Up' button.",
     "success_stationary": "Congratulations! You’ve passed the registration for stationary education in Webex.am. For account verification please check your email from webex.am and folow the link.",
-    "error_stationary": "Something went wrong. Your registration was failed. Please, try again or contact to administrator"
+    "error_stationary": "Something went wrong. Your registration has failed. Please, try again or contact to administrator"
   },
   "forgot_password": {
     "title": "Password recovery",

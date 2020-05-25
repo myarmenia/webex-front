@@ -6,8 +6,6 @@ import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { useTranslation } from "react-i18next";
 
-import { connect } from "react-redux";
-
 import api from "../../../redux/api";
 
 const useStyles = makeStyles((theme) => ({

@@ -5,11 +5,11 @@ import SectionOne from "./SectionOne";
 import SectionTwo from "./SectionTwo";
 import ThidStep from "./SectionThree";
 import SectionFour from "./SectionFour";
-import SingleCourse from "./singleCourse";
+import SectionFive from "./SectionFive";
 
 function SignUp() {
   const { t } = useTranslation(["forms"]);
-  const [next, setNext] = useState("one");
+  const [next, setNext] = useState("four");
 
   const [finalState, setFinalState] = useState({});
 
@@ -29,7 +29,6 @@ function SignUp() {
       return { ...old, ...e };
     });
   };
-  console.log(finalState, "finalState");
   let p1 = "";
 
   const change = () => {
@@ -42,7 +41,6 @@ function SignUp() {
           obj={finalState}
         />
       );
-      //p1 = <SingleCourse courseLang={next} />
     } else if (next === "two") {
       p1 = (
         <SectionTwo
@@ -57,19 +55,14 @@ function SignUp() {
         <ThidStep
           nextProps={nextFunc}
           prevProps={prevFunc}
+          set={set}
           finalStateThree={finalState}
         />
       );
     } else if (next === "four") {
-      p1 = <SectionFour prevProps={prevFunc} getFinalState={getFinalState} />;
-    } else if (next === "Back End") {
-      p1 = <SingleCourse courseLang={next} set={set} prevProps={prevFunc} />;
-    } else if (next === "Front End") {
-      p1 = <SingleCourse courseLang={next} set={set} prevProps={prevFunc} />;
-    } else if (next === "Full Stack") {
-      p1 = <SingleCourse courseLang={next} set={set} prevProps={prevFunc} />;
-    } else if (next === "Back End") {
-      p1 = <SingleCourse courseLang={next} set={set} prevProps={prevFunc} />;
+      p1 = <SectionFour prevProps={prevFunc} nextProps={nextFunc} set={set} />;
+    } else if (next === "five") {
+      p1 = <SectionFive prevProps={prevFunc} getFinalState={getFinalState} />;
     }
   };
 
@@ -97,7 +90,6 @@ function SignUp() {
 
           <div className="modal-body">
             {p1}
-
             <div className="modal-footer">
               {t("signup.have_an_account")}
               <Link to="/signin" className="btn-sign px-10 fw-600">
