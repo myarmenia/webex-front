@@ -75,7 +75,7 @@ const Cubes = () => {
 
           <div className="TitleContainer">
             <div className="Title">
-              <span style={{ fontSize: "73px" }}>
+              <span>
                 <Trans i18nKey="cubes.title">{t("cubes.title")}</Trans>
               </span>
             </div>
