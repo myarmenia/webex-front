@@ -74,6 +74,9 @@ body {
   font-size: 44px;
   font-weight: 700;
 }
+.Title>span{
+  font-size: 73px;
+}
 .Subtitle{
   font-size: 31px;
   font-weight: 700;
@@ -339,11 +342,17 @@ padding: 0px 1.0875rem 1.45rem;
   .TitleContainer{
     position: relative;
     padding-top: 0;
-    top: 64%;
+    top: 60%;
     text-align: center;
     width: 100%;
-    
-
-
   }
+}
+@media (max-width:425px){
+.Title>span{
+  font-size: 44px;
+}
+.CubesContainer{
+  left: -102px;
+}
+
 }
