@@ -9,7 +9,7 @@ import SectionFive from "./SectionFive";
 
 function SignUp() {
   const { t } = useTranslation(["forms"]);
-  const [next, setNext] = useState("four");
+  const [next, setNext] = useState("one");
 
   const [finalState, setFinalState] = useState({});
 
