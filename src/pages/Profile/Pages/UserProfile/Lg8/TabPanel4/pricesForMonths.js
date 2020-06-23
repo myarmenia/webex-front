@@ -16,11 +16,11 @@ export default [
     label: "4",
   },
   {
-    value: "220000",
+    value: "200000",
     label: "5",
   },
   {
-    value: "250000",
+    value: "240000",
     label: "6",
   },
 ];

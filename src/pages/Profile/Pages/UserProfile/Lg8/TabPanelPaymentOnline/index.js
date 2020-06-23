@@ -106,11 +106,12 @@ const TabPanelPaymentOnline = ({ packagesWithTheirCourses }) => {
   // console.log("webinarsSum=", webinarsSum);
 
   const { multiplier } = currency;
-  const totalSumDram = coursesSum + webinarsSum;
+  const discount = 0.6; // Հայկ, դնել ժամանակավոր
+  const totalSumDram = (coursesSum - (coursesSum * discount)) + webinarsSum;
   // console.log("totalSumDram DRAM=", totalSumDram);
   const totalSum =
     coursesSum + webinarsSum > 0
-      ? Math.ceil(totalSumDram / multiplier)
+      ? Math.floor(totalSumDram / multiplier)
       : totalSumDram;
 
   // console.log("totalSum", totalSum);
