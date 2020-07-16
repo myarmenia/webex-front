@@ -11,6 +11,8 @@ import {
   API_SEND_CONTACT_MAIL_URL,
   API_ACBA_MAKE_ORDER,
   API_CHECK_MAIL_URL,
+  API_QUIZ_URL,
+  API_CHECK_QUIZ_URL,
 } from "./config";
 
 const api = {
@@ -54,6 +56,19 @@ const api = {
 
   checkEmail: async (email) => {
     return await axios.post(API_CHECK_MAIL_URL, { email });
+  },
+
+  quiz: async (courseId) => {
+    return await axios.get(API_QUIZ_URL + courseId, {
+      handlerEnabled: true,
+    });
+  },
+
+  checkQuiz: async (quizId, answers) => {
+    return await axios.post(API_CHECK_QUIZ_URL + quizId, {
+      handlerEnabled: true,
+      answers,
+    });
   },
 };
 
