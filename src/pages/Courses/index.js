@@ -93,7 +93,11 @@ const Courses = ({
             <div className="bordered rounded">
               <div className="widget widget_course_type">
                 <h3 className="widget-title">{t("test_title")}</h3>
-                <CourseType />
+                <CourseType
+                  courses={courses}
+                  test_description={t("test_description")}
+                  test_btn_text={t("translation:buttons.take_the_test")}
+                />
               </div>
             </div>
 

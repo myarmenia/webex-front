@@ -39,6 +39,10 @@ export const API_FULL_PACKAGES_URL = API_URL + "/fullPackages";
 
 export const API_DELETE_NOTIFICATION_URL = API_URL + "/notifications/";
 
+export const API_QUIZ_URL = API_URL + "/quiz/";
+
+export const API_CHECK_QUIZ_URL = API_URL + "/quiz/check/";
+
 export const API_MARK_NOTIFICATIONS_URL =
   API_URL + "/notifications/mark_as_read";
 

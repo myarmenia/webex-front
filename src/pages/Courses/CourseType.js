@@ -1,17 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function CourseType({ test_description, test_btn_text }) {
+function CourseType({ courses, test_description, test_btn_text }) {
   return (
     <>
-      <span style={{ color: "#cecdcd", fontSize: "13px" }}>
-        #HTML, #CSS, #Boostrap, #jQuery, #JavaScript, #React js, #Redux ...
-      </span>
+      <p style={{ color: "#cecdcd", fontSize: "13px" }}>
+        {courses.map(({ id, name }) => (
+          <Link className="d-block" to={`/quiz/${id}`}>
+            #{name}
+          </Link>
+        ))}
+      </p>
       <p>{test_description}</p>
-      <div className="tagcloud">
-        <a href="blog-right.html" className="tag-cloud-link courses">
+      {/* <div className="tagcloud">
+        <a href="#!" className="tag-cloud-link courses">
           {test_btn_text}
         </a>
-      </div>
+      </div> */}
     </>
   );
 }

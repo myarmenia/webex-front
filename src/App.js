@@ -24,6 +24,7 @@ import Demo from "./pages/Demo";
 import Payment from "./pages/Payment";
 import News from "./pages/News";
 import SinglePost from "./pages/News/singlePost";
+import Quiz from "./pages/Quiz";
 import NoMatchPage from "./pages/noMatchPage";
 
 import CoursesFilter from "./pages/Courses/courses";
@@ -85,11 +86,13 @@ function App({ getUserData }) {
             <Route path="/aboutus" component={AboutUs} />
             <Route path="/news/:slug" component={SinglePost} />
             <Route path="/news" component={News} />
-
             <ProtectedRoute path="/courses/:courseId?" component={Courses} />
             <AuthenticatedRoute path="/profile" component={Profile} />
             <GuestRoute path="/demo/:courseId" component={Demo} />
             <GuestRoute path="/demo/" component={CoursesFilter} />
+
+            <AuthenticatedRoute path="/quiz/:courseId" component={Quiz} />
+
             <Route path="/payment" component={Payment} />
             <Route
               render={() => (
