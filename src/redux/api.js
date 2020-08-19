@@ -13,6 +13,7 @@ import {
   API_CHECK_MAIL_URL,
   API_QUIZ_URL,
   API_CHECK_QUIZ_URL,
+  API_RESULTS_QUIZ_URL,
 } from "./config";
 
 const api = {
@@ -68,6 +69,12 @@ const api = {
     return await axios.post(API_CHECK_QUIZ_URL + quizId, {
       handlerEnabled: true,
       answers,
+    });
+  },
+
+  getResultsForQuiz: async (quizId) => {
+    return await axios.get(API_RESULTS_QUIZ_URL + quizId, {
+      handlerEnabled: true,
     });
   },
 };

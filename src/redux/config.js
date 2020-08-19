@@ -43,6 +43,8 @@ export const API_QUIZ_URL = API_URL + "/quiz/";
 
 export const API_CHECK_QUIZ_URL = API_URL + "/quiz/check/";
 
+export const API_RESULTS_QUIZ_URL = API_URL + "/quiz/results/";
+
 export const API_MARK_NOTIFICATIONS_URL =
   API_URL + "/notifications/mark_as_read";
 

@@ -11,6 +11,8 @@ import {
   List,
   Button,
 } from "@material-ui/core";
+
+import { Link } from "react-router-dom";
 // import { connect } from "react-redux";
 
 const Card = ({ text = "" }) => (
@@ -47,7 +49,7 @@ const Quiz = ({ match: { params } }) => {
       setLoading(false);
       setError(e.message);
     }
-  }, [params]);
+  }, [params, api]);
 
   const checkQuiz = useCallback(async () => {
     try {
@@ -70,7 +72,20 @@ const Quiz = ({ match: { params } }) => {
 
   if (error) return <Card text={error} />;
 
-  if (results) return <Card text={results} />;
+  if (results)
+    return (
+      <>
+        <Card text={results} />
+        <div className="text-center">
+          <Link
+            to={`/quiz/results/${quiz.id}`}
+            className="btn btn-maincolor text-white"
+          >
+            View
+          </Link>
+        </div>
+      </>
+    );
 
   if (loading || !quiz)
     return (

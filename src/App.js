@@ -25,6 +25,7 @@ import Payment from "./pages/Payment";
 import News from "./pages/News";
 import SinglePost from "./pages/News/singlePost";
 import Quiz from "./pages/Quiz";
+import QuizResults from "./pages/QuizResults";
 import NoMatchPage from "./pages/noMatchPage";
 
 import CoursesFilter from "./pages/Courses/courses";
@@ -91,7 +92,16 @@ function App({ getUserData }) {
             <GuestRoute path="/demo/:courseId" component={Demo} />
             <GuestRoute path="/demo/" component={CoursesFilter} />
 
-            <AuthenticatedRoute path="/quiz/:courseId" component={Quiz} />
+            <AuthenticatedRoute
+              path="/quiz/:courseId"
+              component={Quiz}
+              exact={true}
+            />
+            <AuthenticatedRoute
+              path="/quiz/results/:quizId"
+              component={QuizResults}
+              exact={true}
+            />
 
             <Route path="/payment" component={Payment} />
             <Route
