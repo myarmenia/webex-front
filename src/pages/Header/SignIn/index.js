@@ -98,7 +98,6 @@ const SignInForm = (props) => {
                 variant="outlined"
                 onChange={writePassword}
               />
-              {props.currentUser.loading && <CircularProgress />}
               <Button
                 type="submit"
                 variant="contained"
@@ -107,7 +106,7 @@ const SignInForm = (props) => {
                 className="btn btn-maincolor log-btn"
                 style={{ margin: "0 auto" }}
               >
-                {t("signin.title")}
+                {props.currentUser.loading ? <CircularProgress size={25} color={"#fff"}/>:t("signin.title")}
               </Button>
             </form>
             <div className="modal-footer">

@@ -2,8 +2,6 @@ import React, { useCallback, useState, useEffect } from "react";
 
 import api from "../../redux/api";
 
-import { Loader } from "../../components/Loader";
-
 import {
   ListItem,
   ListItemText,
@@ -14,6 +12,7 @@ import {
 } from "@material-ui/core";
 
 import { Link } from "react-router-dom";
+import {Loader} from "../../Components/Loader/loader";
 
 const Card = ({ text = "" }) => (
   <div className="container">

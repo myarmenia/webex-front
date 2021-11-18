@@ -8,8 +8,7 @@ import auth from "../../redux/auth";
 
 import { Route, Redirect as RouterRedirect } from "react-router-dom";
 import { getUserData } from "../../redux/actionCreators/signin";
-import { Loader } from "../../components/Loader";
-
+import {Loader} from "../../Components/Loader/loader";
 const Redirect = ({ pathname = "/signin", location }) => (
   <RouterRedirect
     to={{

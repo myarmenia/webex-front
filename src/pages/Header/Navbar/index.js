@@ -4,12 +4,11 @@ import { Link, withRouter } from "react-router-dom";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { useTranslation } from "react-i18next";
 
-import WebexListLink from "../../../components/menuLink/MenuLink";
 
 import logo from "../../../img/logo.png";
 import auth from "../../../redux/auth";
-import Notifications from "../../../components/Notifications";
-
+import Notifications from "../../../Components/Notifications/Notifications";
+import WebexListLink from "../../../Components/menuLink/MenuLink";
 const NavBar = ({ currentUser, onChangeLaguage, langsWhitelist, location }) => {
   const { t } = useTranslation(["navbar"]);
 

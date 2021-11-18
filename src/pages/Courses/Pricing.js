@@ -2,11 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-import PricingCard from "../../components/pricingCard/PricingCard";
 import { PriceHeadline } from "./HeadLine/HeadLine";
 
 import { getFullPackages } from "../../redux/actionCreators/coursesData";
 import { packagesWithTheirCourses } from "../../redux/selectors/coursesData";
+import PricingCard from "../../Components/pricingCard/PricingCard";
 
 const Pricing = ({ packagesWithTheirCourses: packages }) => {
   const { t } = useTranslation(["main"]);

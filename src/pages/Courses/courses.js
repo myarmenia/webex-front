@@ -4,8 +4,6 @@ import { withTranslation, Trans } from "react-i18next";
 
 import { Headline } from "./HeadLine/HeadLine";
 // import CourseFlip from "../../components/courseFlip/CourseFlip";
-import CourseFlip from "../../components/courseFlip/CourseFlipThird";
-import TabButton from "../../components/tabButton/TabButton";
 
 import {
   packagesSelector,
@@ -16,6 +14,8 @@ import {
 import { getFullPackages } from "../../redux/actionCreators/coursesData";
 
 import { SetTabPackageId } from "../../redux/actions/coursesData";
+import CourseFlip from "../../Components/courseFlip/CourseFlipThird";
+import TabButton from "../../Components/tabButton/TabButton";
 
 class Courses extends Component {
   componentDidMount() {

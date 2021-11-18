@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useEffect } from "react";
 import api from "../../redux/api";
 
-import { Loader } from "../../components/Loader";
+import { Loader } from "../../Components/Loader/loader";
 
 import {
   ListItem,

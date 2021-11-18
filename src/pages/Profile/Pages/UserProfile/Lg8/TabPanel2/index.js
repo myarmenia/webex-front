@@ -7,7 +7,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import PhoneInput from "react-phone-number-input";
 import { isValidPhoneNumber } from "react-phone-number-input";
 
-import ResponseMessageWrap from "../../../../../../components/messages/ResponseMessageWrap";
 import FormTextField from "../../../../Components/forms/FormTextField";
 import FormFieldHelper from "../../../../Components/forms/FormFieldHelper";
 import UpdateButton from "../../../../Components/forms/UpdateButton";
@@ -17,6 +16,7 @@ import { getUserData } from "../../../../../../redux/actionCreators/signin";
 
 import formStyles from "../../../../Components/forms/formStyles";
 import "react-phone-number-input/style.css";
+import ResponseMessageWrap from "../../../../../../Components/messages/ResponseMessageWrap";
 
 const useStyles = makeStyles(formStyles);
 

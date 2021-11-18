@@ -1,11 +1,11 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import SvgIcon from "../svgIcon/SvgIcon";
 
 // https://konpa.github.io/devicon/
 // https://simpleicons.org/
 // https://svg2jsx.com/ svg to component
 
-import SvgIcon from "../../components/svgIcon/SvgIcon";
 
 const PricingCard = ({ pack }) => {
   const { t } = useTranslation(["main"]);
